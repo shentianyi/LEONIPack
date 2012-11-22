@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Brilliantech.ReportGenConnector" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Brilliantech.ReportGenConnector" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ArrayOfPrintTask">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PrintTask" nillable="true" type="tns:PrintTask" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPrintTask" nillable="true" type="tns:ArrayOfPrintTask" />
+  <xs:complexType name="PrintTask">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Config" nillable="true" type="tns:ReportGenConfig" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DataSet" nillable="true" type="q1:ArrayOfArrayOfKeyValueOfstringstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PrintTask" nillable="true" type="tns:PrintTask" />
+  <xs:complexType name="ReportGenConfig">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NumberOfCopies" type="xs:int" />
+      <xs:element minOccurs="0" name="Printer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Template" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReportGenConfig" nillable="true" type="tns:ReportGenConfig" />
+</xs:schema>

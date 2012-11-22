@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6e0a807a-58e2-4eea-807e-0f41f1669b00" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8732/Design_Time_Addresses/Brilliantech.PackagingWS/Service1/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="44635bba-cd82-4877-9031-b8f3a12f150e" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Brilliantech.PackagingWS/Service1/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="8acbbbe5-5745-4657-b18d-ee884568bdbd" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Brilliantech.PackagingWS/Service1/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="1986876c-bfb0-43ba-867c-acb2a03fc806" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Brilliantech.PackagingWS/Service1/mex" />
+    <MetadataFile FileName="Brilliantech.Packaging.Data.xsd" MetadataType="Schema" ID="ffb99d38-b362-46b6-9697-7459cd5523ef" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Brilliantech.PackagingWS/Service1/mex" />
+    <MetadataFile FileName="Brilliantech.Framework.WCF.Data.xsd" MetadataType="Schema" ID="e0ebadcf-1d09-4445-9820-46bc6ffe28b9" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Brilliantech.PackagingWS/Service1/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="09643a2a-d95f-4d6e-9f2f-e7cbf652892f" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Brilliantech.PackagingWS/Service1/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

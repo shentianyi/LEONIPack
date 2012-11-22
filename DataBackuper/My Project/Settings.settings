@@ -1,0 +1,76 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="sqlStSinglePackInsert" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">INSERT INTO SinglePackage_BAK
+           (packageID
+           ,capa
+           ,status
+           ,containerID
+           ,planedDate
+           ,partNr
+           ,wrkstnID)
+SELECT packageID
+      ,capa
+      ,status
+      ,containerID
+      ,planedDate
+      ,partNr
+      ,wrkstnID
+FROM SinglePackage WHERE packageID In (select distinct SinglePackage.packageId from PackageItem,SinglePackage 
+where  SinglePackage.packageId = PackageItem.packageID 
+AND PackageItem.packagingtime @dte
+AND PackageItem.packagingtime @dtl
+AND SinglePackage.status in (5,6,7,999,14,15));</Value>
+    </Setting>
+    <Setting Name="connStr" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Data Source=tianyi-v-win03\dev001;Initial Catalog=Leoni_Packaging_prod;Persist Security Info=True;User ID=sa;Password=123456@</Value>
+    </Setting>
+    <Setting Name="sqlPackItemInsert" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">INSERT INTO PackageItem_BAK
+           (itemUid
+           ,itemSeq
+           ,TNr
+           ,packagingTime
+           ,packageID)
+SELECT PackageItem.itemUid
+      ,PackageItem.itemSeq
+      ,PackageItem.TNr
+      ,PackageItem.packagingTime
+      ,PackageItem.packageID
+FROM PackageItem,singlePackage
+where (PackageItem.packageId = singlePackage.packageId 
+AND PackageItem.packagingtime @dte
+AND PackageItem.packagingtime @dtl
+AND singlePackage.status in (5,6,7,999,14,15));</Value>
+    </Setting>
+    <Setting Name="sqlPackItemDel" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">DELETE from PackageItem
+where packageId in (select distinct SinglePackage.packageId
+from PackageItem_BAK,SinglePackage
+where  SinglePackage.packageId = PackageItem_bak.packageID 
+AND PackageItem_bak.packagingtime @dte
+AND PackageItem_bak.packagingtime  @dtl
+AND SinglePackage.status in (5,6,7,999,14,15));</Value>
+    </Setting>
+    <Setting Name="sqlSinglePackageDel" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">DELETE from singlePackage
+WHERE packageId in (select distinct SinglePackage.packageId
+from PackageItem_bak,SinglePackage
+where  SinglePackage.packageId = PackageItem_bak.packageID 
+AND PackageItem_bak.packagingtime @dte
+AND PackageItem_bak.packagingtime @dtl
+AND SinglePackage.status in (5,6,7,999,14,15));</Value>
+    </Setting>
+    <Setting Name="interval" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">86400000</Value>
+    </Setting>
+    <Setting Name="autoTransfer" Type="System.String" Scope="User">
+      <Value Profile="(Default)">true</Value>
+    </Setting>
+    <Setting Name="transferDay" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">30</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="4b4d1a85-f54f-4428-bb98-960b66ffd2f1" name="tianyi@NBSTY01 2012-09-14 13:52:06" runUser="NBSTY01\tianyi" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="本地" id="f7471ad7-7223-4255-adc8-bfedd733e2e1">
+    <Description>这些设置为本地测试运行的默认测试设置。</Description>
+    <Deployment enabled="false" runDeploymentRoot="tianyi_NBSTY01 2012-09-14 13_52_06">
+      <DeploymentItem filename="D:\Code\leonipack\Package代码\Brilliantech.PackagingWS\Brilliantech.Packaging.Data\bin\Release\Brilliantech.Packaging.Data.dll" />
+      <DeploymentItem filename="D:\Code\leonipack\Package代码\Brilliantech.PackagingWS\Brilliantech.PackagingWS\bin\Release\Nini.dll" />
+      <DeploymentItem filename="D:\Code\leonipack\Package代码\Brilliantech.PackagingWS\Brilliantech.PackagingWS\bin\Release\Brilliantech.Packaging.WS.dll" />
+      <DeploymentItem filename="D:\Code\InternalFramework\Brilliantech.Framework\Brilliantech.Framework\bin\Release\Brilliantech.Framework.dll" />
+      <DeploymentItem filename="D:\Code\InternalFramework\Brilliantech.ReportGenConnector\Brilliantech.ReportGenConnector\bin\Release\Brilliantech.ReportGenConnector.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-09-14T13:52:06.5507753+08:00" queuing="2012-09-14T13:52:14.1347383+08:00" start="2012-09-14T13:52:14.1692427+08:00" finish="2012-09-14T13:52:14.5717938+08:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="GetPackageStatusTest" storage="d:\code\leonipack\package代码\brilliantech.packagingws\testproject\bin\release\testproject.dll" id="9633370c-0b24-7b05-70b4-e8fbe7533cfa">
+      <Execution id="776238db-ddc0-4f43-b36c-6ccb0b57ceac" />
+      <TestMethod codeBase="D:/Code/leonipack/Package代码/Brilliantech.PackagingWS/TestProject/bin/Release/TestProject.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject.PackProcessTest, TestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetPackageStatusTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="列表中未列出的结果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有已加载的结果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="9633370c-0b24-7b05-70b4-e8fbe7533cfa" executionId="776238db-ddc0-4f43-b36c-6ccb0b57ceac" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="776238db-ddc0-4f43-b36c-6ccb0b57ceac" testId="9633370c-0b24-7b05-70b4-e8fbe7533cfa" testName="GetPackageStatusTest" computerName="NBSTY01" duration="00:00:00.0894638" startTime="2012-09-14T13:52:14.1847447+08:00" endTime="2012-09-14T13:52:14.5517913+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="776238db-ddc0-4f43-b36c-6ccb0b57ceac">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual 失败。应为: &lt;19&gt;，实际为: &lt;18&gt;。</Message>
+          <StackTrace>   在 TestProject.PackProcessTest.GetPackageStatusTest() 位置 D:\Code\leonipack\Package代码\Brilliantech.PackagingWS\TestProject\PackProcessTest.cs:行号 92
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

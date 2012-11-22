@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="37ca79ef-fa62-42b0-b16b-2138ec2581d1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="Brilliantech.Framework" />
+      <ReferencedAssembly AssemblyName="Brilliantech.Packaging.Data" />
+      <ReferencedAssembly AssemblyName="Brilliantech.ReportGenConnector" />
+      <ReferencedAssembly AssemblyName="Microsoft.VisualBasic" />
+      <ReferencedAssembly AssemblyName="mscorlib" />
+      <ReferencedAssembly AssemblyName="PresentationCore" />
+      <ReferencedAssembly AssemblyName="PresentationFramework" />
+      <ReferencedAssembly AssemblyName="System" />
+      <ReferencedAssembly AssemblyName="System.Core" />
+      <ReferencedAssembly AssemblyName="System.Data" />
+      <ReferencedAssembly AssemblyName="System.Data.DataSetExtensions" />
+      <ReferencedAssembly AssemblyName="System.Drawing" />
+      <ReferencedAssembly AssemblyName="System.Runtime.Serialization" />
+      <ReferencedAssembly AssemblyName="System.ServiceModel" />
+      <ReferencedAssembly AssemblyName="System.Xaml" />
+      <ReferencedAssembly AssemblyName="System.Xml" />
+      <ReferencedAssembly AssemblyName="System.Xml.Linq" />
+      <ReferencedAssembly AssemblyName="WindowsBase" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8080/LabelService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="5a04c10d-7e0d-40e6-b5c7-fbe2c935aec8" SourceId="1" SourceUrl="http://localhost:8080/LabelService/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="2f990204-a124-451b-9413-29727da2858d" SourceId="1" SourceUrl="http://localhost:8080/LabelService/mex" />
+    <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="d506ecf5-8e72-4935-8bbb-d73847760560" SourceId="1" SourceUrl="http://localhost:8080/LabelService/mex" />
+    <MetadataFile FileName="Brilliantech.Packaging.WS1.xsd" MetadataType="Schema" ID="6ff253fe-4b8c-4df6-90aa-72a33ee9f85e" SourceId="1" SourceUrl="http://localhost:8080/LabelService/mex" />
+    <MetadataFile FileName="Brilliantech.Framework.WCF.Data1.xsd" MetadataType="Schema" ID="f1cbc2c3-9ac6-4146-85ab-7818b7bf3fa5" SourceId="1" SourceUrl="http://localhost:8080/LabelService/mex" />
+    <MetadataFile FileName="Arrays1.xsd" MetadataType="Schema" ID="4eb38340-32b8-455b-962c-f99ed634fcf2" SourceId="1" SourceUrl="http://localhost:8080/LabelService/mex" />
+    <MetadataFile FileName="Brilliantech.ReportGenConnector1.xsd" MetadataType="Schema" ID="324d82a1-5cb1-4a28-815e-e9e67e5733e5" SourceId="1" SourceUrl="http://localhost:8080/LabelService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,42 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="endPointConfige" Type="System.String" Scope="User">
+      <Value Profile="(Default)">BasicHttpBinding_IPackProcess</Value>
+    </Setting>
+    <Setting Name="remoteAddress" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://localhost/PackageService</Value>
+    </Setting>
+    <Setting Name="remoteAddress_Print" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://localhost/PrintService</Value>
+    </Setting>
+    <Setting Name="PrinterName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">HP LaserJet P1007AAA</Value>
+    </Setting>
+    <Setting Name="LabelFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Template</Value>
+    </Setting>
+    <Setting Name="endPointConfig_Print" Type="System.String" Scope="User">
+      <Value Profile="(Default)">BasicHttpBinding_IPrintService</Value>
+    </Setting>
+    <Setting Name="autoCloseInterval" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">5000</Value>
+    </Setting>
+    <Setting Name="autoStart" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="subscriberName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="restartInterval" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10000</Value>
+    </Setting>
+    <Setting Name="PackagingType" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="syncInterval" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">60000</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

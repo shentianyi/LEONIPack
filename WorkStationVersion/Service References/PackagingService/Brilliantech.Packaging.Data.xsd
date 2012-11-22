@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Brilliantech.Packaging.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Brilliantech.Packaging.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="SinglePackage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="packageID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="capa" type="xs:int" />
+      <xs:element minOccurs="0" name="status" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="containerID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="planedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="partNr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="wrkstnID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PackageItems" nillable="true" type="tns:ArrayOfPackageItem">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SinglePackage" nillable="true" type="tns:SinglePackage" />
+  <xs:complexType name="ArrayOfPackageItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PackageItem" nillable="true" type="tns:PackageItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPackageItem" nillable="true" type="tns:ArrayOfPackageItem" />
+  <xs:complexType name="PackageItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="itemUid" type="xs:int" />
+      <xs:element minOccurs="0" name="itemSeq" type="xs:int" />
+      <xs:element minOccurs="0" name="TNr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="packagingTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="packageID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PackageItem" nillable="true" type="tns:PackageItem" />
+</xs:schema>

@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="b5133cf1-f7b0-4776-806f-ff71f2841c6e" name="tianyi@NBSTY01 2012-09-14 13:30:41" runUser="NBSTY01\tianyi" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="本地" id="f7471ad7-7223-4255-adc8-bfedd733e2e1">
+    <Description>这些设置为本地测试运行的默认测试设置。</Description>
+    <Deployment enabled="false" runDeploymentRoot="tianyi_NBSTY01 2012-09-14 13_30_41">
+      <DeploymentItem filename="D:\Code\leonipack\Package代码\Brilliantech.PackagingWS\Brilliantech.Packaging.Data\bin\Release\Brilliantech.Packaging.Data.dll" />
+      <DeploymentItem filename="D:\Code\leonipack\Package代码\Brilliantech.PackagingWS\Brilliantech.PackagingWS\bin\Release\Nini.dll" />
+      <DeploymentItem filename="D:\Code\leonipack\Package代码\Brilliantech.PackagingWS\Brilliantech.PackagingWS\bin\Release\Brilliantech.Packaging.WS.dll" />
+      <DeploymentItem filename="D:\Code\InternalFramework\Brilliantech.Framework\Brilliantech.Framework\bin\Release\Brilliantech.Framework.dll" />
+      <DeploymentItem filename="D:\Code\InternalFramework\Brilliantech.ReportGenConnector\Brilliantech.ReportGenConnector\bin\Release\Brilliantech.ReportGenConnector.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-09-14T13:30:41.9696542+08:00" queuing="2012-09-14T13:30:41.9971577+08:00" start="2012-09-14T13:30:42.0501644+08:00" finish="2012-09-14T13:30:42.7757566+08:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="GetItemsByPackageIdTest" storage="d:\code\leonipack\package代码\brilliantech.packagingws\testproject\bin\release\testproject.dll" id="3f842464-17e9-575c-b2e7-8ffdea36ecf9">
+      <Execution id="ec60f246-94b4-4997-b1e1-359ebb8eba13" />
+      <TestMethod codeBase="D:/Code/leonipack/Package代码/Brilliantech.PackagingWS/TestProject/bin/Release/TestProject.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject.PackProcessTest, TestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetItemsByPackageIdTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="列表中未列出的结果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有已加载的结果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="3f842464-17e9-575c-b2e7-8ffdea36ecf9" executionId="ec60f246-94b4-4997-b1e1-359ebb8eba13" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="ec60f246-94b4-4997-b1e1-359ebb8eba13" testId="3f842464-17e9-575c-b2e7-8ffdea36ecf9" testName="GetItemsByPackageIdTest" computerName="NBSTY01" duration="00:00:00.3381837" startTime="2012-09-14T13:30:42.1396758+08:00" endTime="2012-09-14T13:30:42.7532537+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ec60f246-94b4-4997-b1e1-359ebb8eba13">
+      <Output>
+        <ErrorInfo>
+          <Message>测试方法 TestProject.PackProcessTest.GetItemsByPackageIdTest 引发了异常: 
+System.Data.SqlServerCe.SqlCeException: 路径无效。请检查数据库的目录。 [ Path = data\package.sdf ]</Message>
+          <StackTrace>    在 System.Data.SqlServerCe.SqlCeConnection.ProcessResults(Int32 hr)
+   在 System.Data.SqlServerCe.SqlCeConnection.Open(Boolean silent)
+   在 System.Data.SqlServerCe.SqlCeConnection.Open()
+   在 System.Data.Linq.SqlClient.SqlConnectionManager.UseConnection(IConnectionUser user)
+   在 System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   在 System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   在 System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   在 System.Data.Linq.DataQuery`1.System.Collections.Generic.IEnumerable&lt;T&gt;.GetEnumerator()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 Brilliantech.Packaging.WS.PackProcess.GetItemsByPackageId(String pId) 位置 D:\Code\leonipack\Package代码\Brilliantech.PackagingWS\Brilliantech.PackagingWS\PackProcess.vb:行号 451
+   在 TestProject.PackProcessTest.GetItemsByPackageIdTest() 位置 D:\Code\leonipack\Package代码\Brilliantech.PackagingWS\TestProject\PackProcessTest.cs:行号 78
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

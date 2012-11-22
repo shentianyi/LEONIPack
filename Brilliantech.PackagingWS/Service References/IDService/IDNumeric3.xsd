@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Brilliantech.NumericWS" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Brilliantech.NumericWS" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/IDNumeric?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Brilliantech.Framework.WCF.Data" />
+  <xs:complexType name="IDMessage">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Brilliantech.Framework.WCF.Data" base="q1:ServiceMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IDString" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IDMessage" nillable="true" type="tns:IDMessage" />
+</xs:schema>

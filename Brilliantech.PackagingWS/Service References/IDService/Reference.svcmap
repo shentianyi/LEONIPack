@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="36cd2d48-c9fa-4589-8444-396797980673" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/IDNumeric" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="IDNumeric.disco" MetadataType="Disco" ID="d027cb0a-7595-425e-8c24-054fa5daf468" SourceId="1" SourceUrl="http://localhost/IDNumeric?disco" />
+    <MetadataFile FileName="IDNumeric.xsd" MetadataType="Schema" ID="26f73ac6-7c2b-41b5-ac71-c7453fab0334" SourceId="1" SourceUrl="http://localhost/IDNumeric?xsd=xsd0" />
+    <MetadataFile FileName="NumericIDWS.wsdl" MetadataType="Wsdl" ID="98c6ee45-a2b2-40c2-b726-40018aac7dca" SourceId="1" SourceUrl="http://localhost/IDNumeric?wsdl" />
+    <MetadataFile FileName="IDNumeric1.xsd" MetadataType="Schema" ID="23cc20fc-a0ae-4384-8082-e82695f222ba" SourceId="1" SourceUrl="http://localhost/IDNumeric?xsd=xsd1" />
+    <MetadataFile FileName="IDNumeric2.xsd" MetadataType="Schema" ID="613afd97-0605-4236-83a3-c0779520b9bb" SourceId="1" SourceUrl="http://localhost/IDNumeric?xsd=xsd4" />
+    <MetadataFile FileName="IDNumeric3.xsd" MetadataType="Schema" ID="67acc2d9-d9a0-4659-a7e0-0d60031f4070" SourceId="1" SourceUrl="http://localhost/IDNumeric?xsd=xsd2" />
+    <MetadataFile FileName="IDNumeric4.xsd" MetadataType="Schema" ID="3de21cc1-30a1-449d-8024-98bc37422f21" SourceId="1" SourceUrl="http://localhost/IDNumeric?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

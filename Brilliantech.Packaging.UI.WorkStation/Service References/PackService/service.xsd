@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Brilliantech.Packaging.WS" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Brilliantech.Packaging.Data" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Brilliantech.Framework.WCF.Data" />
+  <xs:element name="FindByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Brilliantech.Packaging.WS" minOccurs="0" name="FindByIDResult" nillable="true" type="q1:PackageMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindByItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindByItemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Brilliantech.Packaging.WS" minOccurs="0" name="FindByItemResult" nillable="true" type="q2:PackageMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountItemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CountItemResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Create">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Brilliantech.Packaging.Data" minOccurs="0" name="package" nillable="true" type="q3:SinglePackage" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Brilliantech.Packaging.Data" minOccurs="0" name="mode" type="q4:PackagingType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Brilliantech.Packaging.WS" minOccurs="0" name="CreateResult" nillable="true" type="q5:PackageMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Scrap">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="packageID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ScrapResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Brilliantech.Framework.WCF.Data" minOccurs="0" name="ScrapResult" nillable="true" type="q6:ServiceMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="packageID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="barcodeStr" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddItemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Brilliantech.Framework.WCF.Data" minOccurs="0" name="AddItemResult" nillable="true" type="q7:ServiceMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Recover">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="packageID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecoverResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Brilliantech.Framework.WCF.Data" minOccurs="0" name="RecoverResult" nillable="true" type="q8:ServiceMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BeginProcess">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="packageID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="wrkStnID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Brilliantech.Packaging.Data" minOccurs="0" name="mode" type="q9:PackagingType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BeginProcessResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Brilliantech.Packaging.WS" minOccurs="0" name="BeginProcessResult" nillable="true" type="q10:PackageMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EndProcess">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="packageID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EndProcessResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Brilliantech.Framework.WCF.Data" minOccurs="0" name="EndProcessResult" nillable="true" type="q11:ServiceMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SuspendProcess">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="packageID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SuspendProcessResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Brilliantech.Framework.WCF.Data" minOccurs="0" name="SuspendProcessResult" nillable="true" type="q12:ServiceMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUnfull">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="packageId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="wrkStnId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUnfullResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUnfullResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelPackaging">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="packageId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelPackagingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Brilliantech.Framework.WCF.Data" minOccurs="0" name="CancelPackagingResult" nillable="true" type="q13:ServiceMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPackageInfos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="wrkstnr" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tnr" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="partnr" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="status" type="xs:int" />
+        <xs:element minOccurs="0" name="fromDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="toDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPackageInfosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Brilliantech.Packaging.Data" minOccurs="0" name="GetPackageInfosResult" nillable="true" type="q14:ArrayOfFullPackageInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemsByPackageId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemsByPackageIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Brilliantech.Packaging.Data" minOccurs="0" name="GetItemsByPackageIdResult" nillable="true" type="q15:ArrayOfPackageItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPackageStatus">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPackageStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Brilliantech.Packaging.WS" minOccurs="0" name="GetPackageStatusResult" nillable="true" type="q16:ArrayOfEnumObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

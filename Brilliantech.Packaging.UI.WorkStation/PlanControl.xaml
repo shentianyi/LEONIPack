@@ -1,0 +1,133 @@
+﻿<Window x:Class="PlanControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="PlanControl" Height="800" Width="1000">
+    <Grid >
+    	<Grid.RowDefinitions>
+    		<RowDefinition Height="auto">
+    		</RowDefinition>
+			<RowDefinition Height="auto">		
+			</RowDefinition>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions >
+			<ColumnDefinition Width="2*">
+				
+			</ColumnDefinition>
+			<ColumnDefinition Width="6*">
+				
+			</ColumnDefinition>
+		</Grid.ColumnDefinitions>
+       
+	   <Image Grid.Row="0" Grid.Column=" 0" Grid.ColumnSpan=" 2" Source="Images/longBanner.jpg" Stretch="Fill"/>
+	   <DockPanel Grid.Row="1" Grid.Column="0" Margin="10,10,0,10">
+	   	<StackPanel DockPanel.Dock="Top">
+	   		<Label Content="请选择项目" Margin="0,0,0,5"></Label>
+	     	<ComboBox DockPanel.Dock="Top" Name="ComboxProject" Margin="0,0,8,5" >
+	   		  	<ComboBox.ItemTemplate>
+	   		  		<DataTemplate>
+	   		  			<Border Margin="5" BorderThickness="1" BorderBrush="SteelBlue" CornerRadius="10">
+	   		  				<Grid>
+	   		  					<Grid.RowDefinitions>
+	   		  						<RowDefinition>				
+									</RowDefinition>
+									<RowDefinition>
+									</RowDefinition>					
+								</Grid.RowDefinitions>
+								<TextBlock Grid.Row="0" FontWeight="Bold"  Text="{Binding Path=projectID}">
+								
+								</TextBlock> 
+								<TextBlock Grid.Row="1" Text="{Binding Path=projectName}"></TextBlock>				
+							</Grid>  			
+						</Border>	  		
+					</DataTemplate>		  	
+				</ComboBox.ItemTemplate>
+			</ComboBox>  	
+		</StackPanel>
+
+			   	<StackPanel DockPanel.Dock="Top">
+			   		<Label Content="请选择生产线" Margin="0,5"></Label>
+	     	<ComboBox DockPanel.Dock="Top" Name="ComboxProdLine" Margin="0" >
+	   		  	
+			</ComboBox>  	
+		</StackPanel>
+		
+			   	<StackPanel DockPanel.Dock="Top">
+			   		<Label Content="请选择站位" Margin="0,5"></Label>
+	     	<ComboBox DockPanel.Dock="Top" Name="ComboxWorkStation" Margin="0,0,0,5" >
+	   		  	
+			</ComboBox>  	
+		</StackPanel>
+		
+		<StackPanel DockPanel.Dock="Top">
+			<Label Content="请选择零件" Margin="0,5"></Label>
+	     	<ComboBox DockPanel.Dock="Top" Name="ComboxPart" Margin="0,0,0,5" >
+	   		  	
+			</ComboBox>  	
+		</StackPanel>
+		
+			<Calendar DockPanel.Dock="Top" Margin="0,15,0,0" >
+			
+			
+		</Calendar>
+		
+	   </DockPanel>
+	   <Grid Grid.Row="1" Grid.Column ="1" Margin="10">
+	   		<Grid.RowDefinitions>
+	   			<RowDefinition Height=" 5*">
+	   							
+				</RowDefinition>
+				<RowDefinition Height="5*">
+					
+				</RowDefinition> 		
+			</Grid.RowDefinitions>
+			   
+	   <ListBox Grid.Row="0" HorizontalAlignment="Stretch">
+	   		
+	   </ListBox>
+	   
+	   <WrapPanel Grid.Row=" 1" HorizontalAlignment="Stretch">
+	   		<StackPanel Margin="20,0">
+	   			<Label HorizontalAlignment="Center" Content="总计划箱数">			
+				</Label>
+				<Label HorizontalAlignment="Center" Content="100">
+				</Label>
+				<ProgressBar Orientation="Vertical" MinHeight=" 100" MinWidth="60" HorizontalAlignment="Center" Value="59"></ProgressBar> 		
+			</StackPanel>
+			
+		   		<StackPanel Margin="20,0">
+	   			<Label HorizontalAlignment="Center" Content="已完成">			
+				</Label>
+				<Label HorizontalAlignment="Center" Content="100">
+				</Label>
+				<ProgressBar Orientation="Vertical" MinHeight=" 100" MinWidth="60" HorizontalAlignment="Center"></ProgressBar> 		
+			</StackPanel>
+			
+			   		<StackPanel Margin="20,0">
+	   			<Label HorizontalAlignment="Center" Content="正在进行">			
+				</Label>
+				<Label HorizontalAlignment="Center" Content="100">
+				</Label>
+				<ProgressBar Orientation="Vertical" MinHeight=" 100" MinWidth="60" HorizontalAlignment="Center"></ProgressBar> 		
+			</StackPanel>
+			
+			   		<StackPanel Margin="20,0">
+	   			<Label HorizontalAlignment="Center" Content="未满箱">			
+				</Label>
+				<Label HorizontalAlignment="Center" Content="100">
+				</Label>
+				<ProgressBar Orientation="Vertical" MinHeight=" 100" MinWidth="60" HorizontalAlignment="Center"></ProgressBar> 		
+			</StackPanel>
+			
+			<StackPanel Margin="20,0">
+	   			<Label HorizontalAlignment="Center" Content="未处理">			
+				</Label>
+				<Label HorizontalAlignment="Center" Content="100">
+				</Label>
+				<ProgressBar Orientation="Vertical" MinHeight=" 100" MinWidth="60" HorizontalAlignment="Center"></ProgressBar> 		
+			</StackPanel>
+	   </WrapPanel>
+	   </Grid>
+	
+	   
+    </Grid>
+</Window>

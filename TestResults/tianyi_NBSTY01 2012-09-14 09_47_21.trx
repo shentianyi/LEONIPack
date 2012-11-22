@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="48de2868-951a-4ba2-919c-aa1e93b52e26" name="tianyi@NBSTY01 2012-09-14 09:47:21" runUser="NBSTY01\tianyi" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="本地" id="f7471ad7-7223-4255-adc8-bfedd733e2e1">
+    <Description>这些设置为本地测试运行的默认测试设置。</Description>
+    <Deployment userDeploymentRoot="D:\Code\leonipack\Package代码\Brilliantech.PackagingWS\TestResults" useDefaultDeploymentRoot="false" enabled="false" runDeploymentRoot="tianyi_NBSTY01 2012-09-14 09_47_21">
+      <DeploymentItem filename="D:\Code\leonipack\Package代码\Brilliantech.PackagingWS\Brilliantech.Packaging.Data\bin\Release\Brilliantech.Packaging.Data.dll" />
+      <DeploymentItem filename="D:\Code\leonipack\Package代码\Brilliantech.PackagingWS\Brilliantech.PackagingWS\bin\Release\Nini.dll" />
+      <DeploymentItem filename="D:\Code\leonipack\Package代码\Brilliantech.PackagingWS\Brilliantech.PackagingWS\bin\Release\Brilliantech.Packaging.WS.dll" />
+      <DeploymentItem filename="D:\Code\InternalFramework\Brilliantech.Framework\Brilliantech.Framework\bin\Release\Brilliantech.Framework.dll" />
+      <DeploymentItem filename="D:\Code\InternalFramework\Brilliantech.ReportGenConnector\Brilliantech.ReportGenConnector\bin\Release\Brilliantech.ReportGenConnector.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-09-14T09:47:21.0192781+08:00" queuing="2012-09-14T09:47:21.0192781+08:00" start="2012-09-14T09:47:21.0192781+08:00" finish="2012-09-14T09:47:23.5100944+08:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="1" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="NBSTY01" outcome="Error" timestamp="2012-09-14T09:47:23.5095943+08:00">
+        <Text>未能对测试运行“tianyi@NBSTY01 2012-09-14 09:47:21”进行排队: 无法启动程序“c:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\QTAgent32.exe”。
+
+</Text>
+        <Exception>System.Runtime.InteropServices.COMException (0x89710016): 无法启动程序“c:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\QTAgent32.exe”。
+
+
+   在 System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   在 System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   在 Microsoft.VisualStudio.TestTools.TestCaseManagement.UIThreadInvoker.Invoke(Delegate method, Object[] args)
+   在 Microsoft.VisualStudio.TestTools.TestCaseManagement.SolutionIntegrationManager.DebugTarget(DebugInfo debugInfo, Boolean prepareEnvironment)
+   在 Microsoft.VisualStudio.TestTools.Agent.DebugProcessLauncher.Launch(String exeFileName, String args, String workingDir, IEnumerable`1 environmentVariables, EventHandler processExitedHandler, Process&amp; process)
+   在 Microsoft.VisualStudio.TestTools.Agent.OutOfProcessStrategy.LaunchProcessHelper(AgentProcessStartupInfo agentProcessStartupInfo)
+   在 Microsoft.VisualStudio.TestTools.Agent.OutOfProcessStrategy.StartAgentProcess(AgentProcessStartupInfo agentProcessStartupInfo, Boolean restarting)
+   在 Microsoft.VisualStudio.TestTools.Agent.OutOfProcessStrategy.StartAgentProcess(AgentProcessStartupInfo agentProcessStartupInfo)
+   在 Microsoft.VisualStudio.TestTools.Agent.AgentProxy.StartAgentProcess(AgentProcessStartupInfo agentProcessStartupInfo)
+   在 Microsoft.VisualStudio.TestTools.Agent.AgentProcessProxyManager.StartTestAgentProcesses(AgentProcessStartupInfo agentProcessStartupInfo)
+   在 Microsoft.VisualStudio.TestTools.Agent.AgentProcessManager.StartAgentProcess(AgentProcessStartupInfo agentProcessStartupInfo, Boolean startDataCollectionAgent)
+   在 Microsoft.VisualStudio.TestTools.Agent.AgentProcessManager.StartAgentProcess(AgentProcessStartupInfo agentProcessStartupInfo, TestRunConfiguration testRunConfiguration)
+   在 Microsoft.VisualStudio.TestTools.TestManagement.LocalControllerProxy.StartProcess(TestRun run)
+   在 Microsoft.VisualStudio.TestTools.TestManagement.LocalControllerProxy.PrepareProcess(TestRun run)
+   在 Microsoft.VisualStudio.TestTools.TestManagement.LocalControllerProxy.InitializeController(TestRun run)
+   在 Microsoft.VisualStudio.TestTools.TestManagement.ControllerProxy.QueueTestRunWorker(Object state)</Exception>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="FindSinglePackageTest" storage="d:\code\leonipack\package代码\brilliantech.packagingws\testproject\bin\release\testproject.dll" id="627a1589-8036-7039-ea4f-4a067a5d2600">
+      <Execution id="a159e47c-29ec-4d1a-8f48-9850fa2a2d99" />
+      <TestMethod codeBase="D:/Code/leonipack/Package代码/Brilliantech.PackagingWS/TestProject/bin/Release/TestProject.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject.SinglePackageRepoTest, TestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="FindSinglePackageTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="列表中未列出的结果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有已加载的结果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="627a1589-8036-7039-ea4f-4a067a5d2600" executionId="3942ee32-a3d6-4765-a649-fd4a3103057c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="3942ee32-a3d6-4765-a649-fd4a3103057c" testId="627a1589-8036-7039-ea4f-4a067a5d2600" testName="FindSinglePackageTest" computerName="NBSTY01" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3942ee32-a3d6-4765-a649-fd4a3103057c">
+    </UnitTestResult>
+  </Results>
+</TestRun>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Brilliantech.Packaging.WS" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Brilliantech.Packaging.WS" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Brilliantech.ReportGenConnector" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Brilliantech.Framework.WCF.Data" />
+  <xs:complexType name="PrintDataMessage">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Brilliantech.Framework.WCF.Data" base="q1:ServiceMessage">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Brilliantech.ReportGenConnector" minOccurs="0" name="PrintTask" nillable="true" type="q2:ArrayOfPrintTask" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PrintDataMessage" nillable="true" type="tns:PrintDataMessage" />
+</xs:schema>
