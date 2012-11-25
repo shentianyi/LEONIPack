@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="72fada09-2c18-48a4-ba87-6458b987b1fd" name="lenovo@WSCNS400 2011-10-19 10:40:58" runUser="WSCNS400\lenovo" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="4c445a77-c5eb-4fa4-a307-8d69a027c82f">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="lenovo_WSCNS400 2011-10-19 10_40_58">
+      <DeploymentItem filename="F:\InternalFramework\Brilliantech.Framework\Brilliantech.Framework\bin\Debug\Brilliantech.Framework.dll" />
+      <DeploymentItem filename="C:\Users\lenovo\Desktop\项目\用户管理\Code\SessionManager\SessionManager\bin\Debug\MongoDB.Bson.dll" />
+      <DeploymentItem filename="C:\Users\lenovo\Desktop\项目\用户管理\Code\SessionManager\SessionManager\bin\Debug\MongoDB.Driver.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-10-19T10:40:58.5630759+08:00" queuing="2011-10-19T10:40:59.8591500+08:00" start="2011-10-19T10:41:00.1401661+08:00" finish="2011-10-19T10:41:01.2122274+08:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="MongoDBContextConstructorTest" storage="f:\internalframework\brilliantech.framework\testprojectframework\bin\debug\testprojectframework.dll" id="c4be6293-62a1-7af0-59c1-fb94bda8793f">
+      <Execution id="42ab6b46-257f-4963-b47b-a280d5c0db8d" />
+      <TestMethod codeBase="F:/InternalFramework/Brilliantech.Framework/TestProjectFramework/bin/Debug/TestProjectFramework.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProjectFramework.MongoDBContextTest, TestProjectFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="MongoDBContextConstructorTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="c4be6293-62a1-7af0-59c1-fb94bda8793f" executionId="42ab6b46-257f-4963-b47b-a280d5c0db8d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="42ab6b46-257f-4963-b47b-a280d5c0db8d" testId="c4be6293-62a1-7af0-59c1-fb94bda8793f" testName="MongoDBContextConstructorTest" computerName="WSCNS400" duration="00:00:00.2743133" startTime="2011-10-19T10:41:00.2721736+08:00" endTime="2011-10-19T10:41:01.1172220+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="42ab6b46-257f-4963-b47b-a280d5c0db8d">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method TestProjectFramework.MongoDBContextTest.MongoDBContextConstructorTest threw exception: 
+System.ArgumentException: Database name is empty.</Message>
+          <StackTrace>    at MongoDB.Driver.MongoDatabase.ValidateDatabaseName(String name) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoDatabase.cs:line 873
+   at MongoDB.Driver.MongoDatabase..ctor(MongoServer server, MongoDatabaseSettings settings) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoDatabase.cs:line 53
+   at MongoDB.Driver.MongoServer.GetDatabase(MongoDatabaseSettings databaseSettings) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServer.cs:line 608
+   at MongoDB.Driver.MongoServer.GetDatabase(String databaseName) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServer.cs:line 625
+   at Brilliantech.Framework.Utilities.DBUtil.MongoDB.MongoDBContext..ctor(String connStr, String db) in F:\InternalFramework\Brilliantech.Framework\Brilliantech.Framework\Utilities\DBUtil\MongoDB\MongoDBContext.vb:line 16
+   at TestProjectFramework.MongoDBContextTest.MongoDBContextConstructorTest() in F:\InternalFramework\Brilliantech.Framework\TestProjectFramework\MongoDBContextTest.vb:line 68
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

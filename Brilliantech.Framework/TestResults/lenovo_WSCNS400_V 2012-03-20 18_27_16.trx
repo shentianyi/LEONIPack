@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="da560c25-c187-471a-bc16-fa06617a087d" name="lenovo@WSCNS400_V 2012-03-20 18:27:16" runUser="WSCNS400_V\lenovo" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="4c445a77-c5eb-4fa4-a307-8d69a027c82f">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="lenovo_WSCNS400_V 2012-03-20 18_27_16">
+      <DeploymentItem filename="F:\InternalFramework\Brilliantech.Framework\Brilliantech.Framework\bin\Debug\Brilliantech.Framework.dll" />
+      <DeploymentItem filename="C:\Users\lenovo\Desktop\SVW_KSK_SYSTEM_TRUNK_CODE_new\DataFactory1\bin\Debug\DataCollection.dll" />
+      <DeploymentItem filename="C:\Users\lenovo\Desktop\项目\用户管理\Code\SessionManager\SessionManager\bin\Debug\MongoDB.Bson.dll" />
+      <DeploymentItem filename="C:\Users\lenovo\Desktop\项目\用户管理\Code\SessionManager\SessionManager\bin\Debug\MongoDB.Driver.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-03-20T18:27:16.2138140+08:00" queuing="2012-03-20T18:27:16.7578451+08:00" start="2012-03-20T18:27:16.8528505+08:00" finish="2012-03-20T18:27:24.0392616+08:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="6" executed="6" error="0" failed="6" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="CollectionTest" storage="f:\internalframework\brilliantech.framework\testprojectframework\bin\debug\testprojectframework.dll" id="694c0ec0-6ca6-feb5-c26d-0e3ae4d7fe72">
+      <Execution id="3f26a677-a05e-49a9-9ee4-3eb19e030084" />
+      <TestMethod codeBase="F:/InternalFramework/Brilliantech.Framework/TestProjectFramework/bin/Debug/TestProjectFramework.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProjectFramework.MongoDBContextTest, TestProjectFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CollectionTest" />
+    </UnitTest>
+    <UnitTest name="MongoDBContextConstructorTest1" storage="f:\internalframework\brilliantech.framework\testprojectframework\bin\debug\testprojectframework.dll" id="2f440515-0bf2-29a9-3065-24fed161f311">
+      <Execution id="140ec490-010b-4f19-8c94-353b4453fa82" />
+      <TestMethod codeBase="F:/InternalFramework/Brilliantech.Framework/TestProjectFramework/bin/Debug/TestProjectFramework.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProjectFramework.MongoDBContextTest, TestProjectFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="MongoDBContextConstructorTest1" />
+    </UnitTest>
+    <UnitTest name="ConnStrTest" storage="f:\internalframework\brilliantech.framework\testprojectframework\bin\debug\testprojectframework.dll" id="011f6b93-43a0-d27b-f022-74304f4fb0de">
+      <Execution id="06feaee6-209a-4093-9cd0-c2495ccc7f31" />
+      <TestMethod codeBase="F:/InternalFramework/Brilliantech.Framework/TestProjectFramework/bin/Debug/TestProjectFramework.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProjectFramework.MongoDBContextTest, TestProjectFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ConnStrTest" />
+    </UnitTest>
+    <UnitTest name="MongoDBContextConstructorTest" storage="f:\internalframework\brilliantech.framework\testprojectframework\bin\debug\testprojectframework.dll" id="c4be6293-62a1-7af0-59c1-fb94bda8793f">
+      <Execution id="70a0f321-6af9-4551-be05-dc9e6bade75c" />
+      <TestMethod codeBase="F:/InternalFramework/Brilliantech.Framework/TestProjectFramework/bin/Debug/TestProjectFramework.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProjectFramework.MongoDBContextTest, TestProjectFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="MongoDBContextConstructorTest" />
+    </UnitTest>
+    <UnitTest name="MongoInstanceTest" storage="f:\internalframework\brilliantech.framework\testprojectframework\bin\debug\testprojectframework.dll" id="2188971a-235b-3a95-94ee-0c56faf3b048">
+      <Execution id="d4c1d75a-b787-428d-897f-ba86fe4064ff" />
+      <TestMethod codeBase="F:/InternalFramework/Brilliantech.Framework/TestProjectFramework/bin/Debug/TestProjectFramework.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProjectFramework.MongoDBContextTest, TestProjectFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="MongoInstanceTest" />
+    </UnitTest>
+    <UnitTest name="DBTest" storage="f:\internalframework\brilliantech.framework\testprojectframework\bin\debug\testprojectframework.dll" id="578bba96-2d20-5a6e-fc15-ccbad05b63d5">
+      <Execution id="ce5d5369-42e9-46ff-aacc-14451d858733" />
+      <TestMethod codeBase="F:/InternalFramework/Brilliantech.Framework/TestProjectFramework/bin/Debug/TestProjectFramework.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProjectFramework.MongoDBContextTest, TestProjectFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="DBTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="011f6b93-43a0-d27b-f022-74304f4fb0de" executionId="06feaee6-209a-4093-9cd0-c2495ccc7f31" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2188971a-235b-3a95-94ee-0c56faf3b048" executionId="d4c1d75a-b787-428d-897f-ba86fe4064ff" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2f440515-0bf2-29a9-3065-24fed161f311" executionId="140ec490-010b-4f19-8c94-353b4453fa82" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="578bba96-2d20-5a6e-fc15-ccbad05b63d5" executionId="ce5d5369-42e9-46ff-aacc-14451d858733" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="694c0ec0-6ca6-feb5-c26d-0e3ae4d7fe72" executionId="3f26a677-a05e-49a9-9ee4-3eb19e030084" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c4be6293-62a1-7af0-59c1-fb94bda8793f" executionId="70a0f321-6af9-4551-be05-dc9e6bade75c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="06feaee6-209a-4093-9cd0-c2495ccc7f31" testId="011f6b93-43a0-d27b-f022-74304f4fb0de" testName="ConnStrTest" computerName="WSCNS400_V" duration="00:00:01.6101022" startTime="2012-03-20T18:27:16.8988531+08:00" endTime="2012-03-20T18:27:18.8639655+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="06feaee6-209a-4093-9cd0-c2495ccc7f31">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method TestProjectFramework.MongoDBContextTest.ConnStrTest threw exception: 
+MongoDB.Driver.MongoConnectionException: Unable to connect to server. ---&gt; System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:27017</Message>
+          <StackTrace>    at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   at MongoDB.Driver.Internal.MongoConnection.Open() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\MongoConnection.cs:line 266
+   at MongoDB.Driver.Internal.MongoConnection.GetNetworkStream() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\MongoConnection.cs:line 409
+   at MongoDB.Driver.Internal.MongoConnection.SendMessage(MongoRequestMessage message, SafeMode safeMode) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\MongoConnection.cs:line 377
+   at MongoDB.Driver.Internal.MongoConnection.RunCommand(String collectionName, QueryFlags queryFlags, CommandDocument command) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\MongoConnection.cs:line 296
+   at MongoDB.Driver.MongoServerInstance.Connect(Boolean slaveOk) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServerInstance.cs:line 252
+   at MongoDB.Driver.Internal.DirectConnector.Connect(TimeSpan timeout) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\DirectConnector.cs:line 53
+ --- End of inner exception stack trace ---
+    at MongoDB.Driver.Internal.DirectConnector.Connect(TimeSpan timeout) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\DirectConnector.cs:line 67
+   at MongoDB.Driver.MongoServer.Connect(TimeSpan timeout) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServer.cs:line 431
+   at MongoDB.Driver.MongoServer.Connect() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServer.cs:line 415
+   at MongoDB.Driver.MongoServer.GetServerInstance(Boolean slaveOk) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServer.cs:line 949
+   at MongoDB.Driver.MongoServer.AcquireConnection(MongoDatabase database, Boolean slaveOk) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServer.cs:line 892
+   at MongoDB.Driver.MongoCursorEnumerator`1.AcquireConnection() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoCursorEnumerator.cs:line 184
+   at MongoDB.Driver.MongoCursorEnumerator`1.GetFirst() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoCursorEnumerator.cs:line 194
+   at MongoDB.Driver.MongoCursorEnumerator`1.MoveNext() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoCursorEnumerator.cs:line 126
+   at MongoDB.Driver.MongoDatabase.GetCollectionNames() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoDatabase.cs:line 649
+   at Brilliantech.Framework.Utilities.DBUtil.MongoDB.MongoDBContext..ctor(String connStr, String db) in F:\InternalFramework\Brilliantech.Framework\Brilliantech.Framework\Utilities\DBUtil\MongoDB\MongoDBContext.vb:line 21
+   at Brilliantech.Framework.Utilities.DBUtil.MongoDB.MongoDBContext..ctor() in F:\InternalFramework\Brilliantech.Framework\Brilliantech.Framework\Utilities\DBUtil\MongoDB\MongoDBContext.vb:line 33
+   at TestProjectFramework.MongoDBContextTest.ConnStrTest() in F:\InternalFramework\Brilliantech.Framework\TestProjectFramework\MongoDBContextTest.vb:line 97
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="d4c1d75a-b787-428d-897f-ba86fe4064ff" testId="2188971a-235b-3a95-94ee-0c56faf3b048" testName="MongoInstanceTest" computerName="WSCNS400_V" duration="00:00:01.0075663" startTime="2012-03-20T18:27:18.8839667+08:00" endTime="2012-03-20T18:27:19.8980247+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d4c1d75a-b787-428d-897f-ba86fe4064ff">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method TestProjectFramework.MongoDBContextTest.MongoInstanceTest threw exception: 
+MongoDB.Driver.MongoConnectionException: Unable to connect to server. ---&gt; System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:27017</Message>
+          <StackTrace>    at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   at MongoDB.Driver.Internal.MongoConnection.Open() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\MongoConnection.cs:line 266
+   at MongoDB.Driver.Internal.MongoConnection.GetNetworkStream() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\MongoConnection.cs:line 409
+   at MongoDB.Driver.Internal.MongoConnection.SendMessage(MongoRequestMessage message, SafeMode safeMode) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\MongoConnection.cs:line 377
+   at MongoDB.Driver.Internal.MongoConnection.RunCommand(String collectionName, QueryFlags queryFlags, CommandDocument command) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\MongoConnection.cs:line 296
+   at MongoDB.Driver.MongoServerInstance.Connect(Boolean slaveOk) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServerInstance.cs:line 252
+   at MongoDB.Driver.Internal.DirectConnector.Connect(TimeSpan timeout) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\DirectConnector.cs:line 53
+ --- End of inner exception stack trace ---
+    at MongoDB.Driver.Internal.DirectConnector.Connect(TimeSpan timeout) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\DirectConnector.cs:line 67
+   at MongoDB.Driver.MongoServer.Connect(TimeSpan timeout) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServer.cs:line 431
+   at MongoDB.Driver.MongoServer.Connect() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServer.cs:line 415
+   at MongoDB.Driver.MongoServer.GetServerInstance(Boolean slaveOk) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServer.cs:line 949
+   at MongoDB.Driver.MongoServer.AcquireConnection(MongoDatabase database, Boolean slaveOk) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServer.cs:line 892
+   at MongoDB.Driver.MongoCursorEnumerator`1.AcquireConnection() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoCursorEnumerator.cs:line 184
+   at MongoDB.Driver.MongoCursorEnumerator`1.GetFirst() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoCursorEnumerator.cs:line 194
+   at MongoDB.Driver.MongoCursorEnumerator`1.MoveNext() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoCursorEnumerator.cs:line 126
+   at MongoDB.Driver.MongoDatabase.GetCollectionNames() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoDatabase.cs:line 649
+   at Brilliantech.Framework.Utilities.DBUtil.MongoDB.MongoDBContext..ctor(String connStr, String db) in F:\InternalFramework\Brilliantech.Framework\Brilliantech.Framework\Utilities\DBUtil\MongoDB\MongoDBContext.vb:line 21
+   at Brilliantech.Framework.Utilities.DBUtil.MongoDB.MongoDBContext..ctor() in F:\InternalFramework\Brilliantech.Framework\Brilliantech.Framework\Utilities\DBUtil\MongoDB\MongoDBContext.vb:line 33
+   at TestProjectFramework.MongoDBContextTest.MongoInstanceTest() in F:\InternalFramework\Brilliantech.Framework\TestProjectFramework\MongoDBContextTest.vb:line 119
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="140ec490-010b-4f19-8c94-353b4453fa82" testId="2f440515-0bf2-29a9-3065-24fed161f311" testName="MongoDBContextConstructorTest1" computerName="WSCNS400_V" duration="00:00:01.0086324" startTime="2012-03-20T18:27:19.9010249+08:00" endTime="2012-03-20T18:27:20.9190831+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="140ec490-010b-4f19-8c94-353b4453fa82">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method TestProjectFramework.MongoDBContextTest.MongoDBContextConstructorTest1 threw exception: 
+MongoDB.Driver.MongoConnectionException: Unable to connect to server. ---&gt; System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:27017</Message>
+          <StackTrace>    at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   at MongoDB.Driver.Internal.MongoConnection.Open() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\MongoConnection.cs:line 266
+   at MongoDB.Driver.Internal.MongoConnection.GetNetworkStream() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\MongoConnection.cs:line 409
+   at MongoDB.Driver.Internal.MongoConnection.SendMessage(MongoRequestMessage message, SafeMode safeMode) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\MongoConnection.cs:line 377
+   at MongoDB.Driver.Internal.MongoConnection.RunCommand(String collectionName, QueryFlags queryFlags, CommandDocument command) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\MongoConnection.cs:line 296
+   at MongoDB.Driver.MongoServerInstance.Connect(Boolean slaveOk) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServerInstance.cs:line 252
+   at MongoDB.Driver.Internal.DirectConnector.Connect(TimeSpan timeout) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\DirectConnector.cs:line 53
+ --- End of inner exception stack trace ---
+    at MongoDB.Driver.Internal.DirectConnector.Connect(TimeSpan timeout) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\DirectConnector.cs:line 67
+   at MongoDB.Driver.MongoServer.Connect(TimeSpan timeout) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServer.cs:line 431
+   at MongoDB.Driver.MongoServer.Connect() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServer.cs:line 415
+   at MongoDB.Driver.MongoServer.GetServerInstance(Boolean slaveOk) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServer.cs:line 949
+   at MongoDB.Driver.MongoServer.AcquireConnection(MongoDatabase database, Boolean slaveOk) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServer.cs:line 892
+   at MongoDB.Driver.MongoCursorEnumerator`1.AcquireConnection() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoCursorEnumerator.cs:line 184
+   at MongoDB.Driver.MongoCursorEnumerator`1.GetFirst() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoCursorEnumerator.cs:line 194
+   at MongoDB.Driver.MongoCursorEnumerator`1.MoveNext() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoCursorEnumerator.cs:line 126
+   at MongoDB.Driver.MongoDatabase.GetCollectionNames() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoDatabase.cs:line 649
+   at Brilliantech.Framework.Utilities.DBUtil.MongoDB.MongoDBContext..ctor(String connStr, String db) in F:\InternalFramework\Brilliantech.Framework\Brilliantech.Framework\Utilities\DBUtil\MongoDB\MongoDBContext.vb:line 21
+   at Brilliantech.Framework.Utilities.DBUtil.MongoDB.MongoDBContext..ctor() in F:\InternalFramework\Brilliantech.Framework\Brilliantech.Framework\Utilities\DBUtil\MongoDB\MongoDBContext.vb:line 33
+   at TestProjectFramework.MongoDBContextTest.MongoDBContextConstructorTest1() in F:\InternalFramework\Brilliantech.Framework\TestProjectFramework\MongoDBContextTest.vb:line 77
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="ce5d5369-42e9-46ff-aacc-14451d858733" testId="578bba96-2d20-5a6e-fc15-ccbad05b63d5" testName="DBTest" computerName="WSCNS400_V" duration="00:00:01.0037530" startTime="2012-03-20T18:27:20.9290837+08:00" endTime="2012-03-20T18:27:21.9371413+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ce5d5369-42e9-46ff-aacc-14451d858733">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method TestProjectFramework.MongoDBContextTest.DBTest threw exception: 
+MongoDB.Driver.MongoConnectionException: Unable to connect to server. ---&gt; System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:27017</Message>
+          <StackTrace>    at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   at MongoDB.Driver.Internal.MongoConnection.Open() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\MongoConnection.cs:line 266
+   at MongoDB.Driver.Internal.MongoConnection.GetNetworkStream() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\MongoConnection.cs:line 409
+   at MongoDB.Driver.Internal.MongoConnection.SendMessage(MongoRequestMessage message, SafeMode safeMode) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\MongoConnection.cs:line 377
+   at MongoDB.Driver.Internal.MongoConnection.RunCommand(String collectionName, QueryFlags queryFlags, CommandDocument command) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\MongoConnection.cs:line 296
+   at MongoDB.Driver.MongoServerInstance.Connect(Boolean slaveOk) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServerInstance.cs:line 252
+   at MongoDB.Driver.Internal.DirectConnector.Connect(TimeSpan timeout) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\DirectConnector.cs:line 53
+ --- End of inner exception stack trace ---
+    at MongoDB.Driver.Internal.DirectConnector.Connect(TimeSpan timeout) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\DirectConnector.cs:line 67
+   at MongoDB.Driver.MongoServer.Connect(TimeSpan timeout) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServer.cs:line 431
+   at MongoDB.Driver.MongoServer.Connect() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServer.cs:line 415
+   at MongoDB.Driver.MongoServer.GetServerInstance(Boolean slaveOk) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServer.cs:line 949
+   at MongoDB.Driver.MongoServer.AcquireConnection(MongoDatabase database, Boolean slaveOk) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServer.cs:line 892
+   at MongoDB.Driver.MongoCursorEnumerator`1.AcquireConnection() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoCursorEnumerator.cs:line 184
+   at MongoDB.Driver.MongoCursorEnumerator`1.GetFirst() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoCursorEnumerator.cs:line 194
+   at MongoDB.Driver.MongoCursorEnumerator`1.MoveNext() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoCursorEnumerator.cs:line 126
+   at MongoDB.Driver.MongoDatabase.GetCollectionNames() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoDatabase.cs:line 649
+   at Brilliantech.Framework.Utilities.DBUtil.MongoDB.MongoDBContext..ctor(String connStr, String db) in F:\InternalFramework\Brilliantech.Framework\Brilliantech.Framework\Utilities\DBUtil\MongoDB\MongoDBContext.vb:line 21
+   at Brilliantech.Framework.Utilities.DBUtil.MongoDB.MongoDBContext..ctor() in F:\InternalFramework\Brilliantech.Framework\Brilliantech.Framework\Utilities\DBUtil\MongoDB\MongoDBContext.vb:line 33
+   at TestProjectFramework.MongoDBContextTest.DBTest() in F:\InternalFramework\Brilliantech.Framework\TestProjectFramework\MongoDBContextTest.vb:line 108
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="3f26a677-a05e-49a9-9ee4-3eb19e030084" testId="694c0ec0-6ca6-feb5-c26d-0e3ae4d7fe72" testName="CollectionTest" computerName="WSCNS400_V" duration="00:00:01.0038155" startTime="2012-03-20T18:27:21.9401415+08:00" endTime="2012-03-20T18:27:22.9541995+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3f26a677-a05e-49a9-9ee4-3eb19e030084">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method TestProjectFramework.MongoDBContextTest.CollectionTest threw exception: 
+MongoDB.Driver.MongoConnectionException: Unable to connect to server. ---&gt; System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:27017</Message>
+          <StackTrace>    at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   at MongoDB.Driver.Internal.MongoConnection.Open() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\MongoConnection.cs:line 266
+   at MongoDB.Driver.Internal.MongoConnection.GetNetworkStream() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\MongoConnection.cs:line 409
+   at MongoDB.Driver.Internal.MongoConnection.SendMessage(MongoRequestMessage message, SafeMode safeMode) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\MongoConnection.cs:line 377
+   at MongoDB.Driver.Internal.MongoConnection.RunCommand(String collectionName, QueryFlags queryFlags, CommandDocument command) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\MongoConnection.cs:line 296
+   at MongoDB.Driver.MongoServerInstance.Connect(Boolean slaveOk) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServerInstance.cs:line 252
+   at MongoDB.Driver.Internal.DirectConnector.Connect(TimeSpan timeout) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\DirectConnector.cs:line 53
+ --- End of inner exception stack trace ---
+    at MongoDB.Driver.Internal.DirectConnector.Connect(TimeSpan timeout) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\DirectConnector.cs:line 67
+   at MongoDB.Driver.MongoServer.Connect(TimeSpan timeout) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServer.cs:line 431
+   at MongoDB.Driver.MongoServer.Connect() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServer.cs:line 415
+   at MongoDB.Driver.MongoServer.GetServerInstance(Boolean slaveOk) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServer.cs:line 949
+   at MongoDB.Driver.MongoServer.AcquireConnection(MongoDatabase database, Boolean slaveOk) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServer.cs:line 892
+   at MongoDB.Driver.MongoCursorEnumerator`1.AcquireConnection() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoCursorEnumerator.cs:line 184
+   at MongoDB.Driver.MongoCursorEnumerator`1.GetFirst() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoCursorEnumerator.cs:line 194
+   at MongoDB.Driver.MongoCursorEnumerator`1.MoveNext() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoCursorEnumerator.cs:line 126
+   at MongoDB.Driver.MongoDatabase.GetCollectionNames() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoDatabase.cs:line 649
+   at Brilliantech.Framework.Utilities.DBUtil.MongoDB.MongoDBContext..ctor(String connStr, String db) in F:\InternalFramework\Brilliantech.Framework\Brilliantech.Framework\Utilities\DBUtil\MongoDB\MongoDBContext.vb:line 21
+   at Brilliantech.Framework.Utilities.DBUtil.MongoDB.MongoDBContext..ctor() in F:\InternalFramework\Brilliantech.Framework\Brilliantech.Framework\Utilities\DBUtil\MongoDB\MongoDBContext.vb:line 33
+   at TestProjectFramework.MongoDBContextTest.CollectionTest() in F:\InternalFramework\Brilliantech.Framework\TestProjectFramework\MongoDBContextTest.vb:line 86
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="70a0f321-6af9-4551-be05-dc9e6bade75c" testId="c4be6293-62a1-7af0-59c1-fb94bda8793f" testName="MongoDBContextConstructorTest" computerName="WSCNS400_V" duration="00:00:01.0044115" startTime="2012-03-20T18:27:22.9632000+08:00" endTime="2012-03-20T18:27:23.9762579+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="70a0f321-6af9-4551-be05-dc9e6bade75c">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method TestProjectFramework.MongoDBContextTest.MongoDBContextConstructorTest threw exception: 
+MongoDB.Driver.MongoConnectionException: Unable to connect to server. ---&gt; System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:27017</Message>
+          <StackTrace>    at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   at MongoDB.Driver.Internal.MongoConnection.Open() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\MongoConnection.cs:line 266
+   at MongoDB.Driver.Internal.MongoConnection.GetNetworkStream() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\MongoConnection.cs:line 409
+   at MongoDB.Driver.Internal.MongoConnection.SendMessage(MongoRequestMessage message, SafeMode safeMode) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\MongoConnection.cs:line 377
+   at MongoDB.Driver.Internal.MongoConnection.RunCommand(String collectionName, QueryFlags queryFlags, CommandDocument command) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\MongoConnection.cs:line 296
+   at MongoDB.Driver.MongoServerInstance.Connect(Boolean slaveOk) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServerInstance.cs:line 252
+   at MongoDB.Driver.Internal.DirectConnector.Connect(TimeSpan timeout) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\DirectConnector.cs:line 53
+ --- End of inner exception stack trace ---
+    at MongoDB.Driver.Internal.DirectConnector.Connect(TimeSpan timeout) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\DirectConnector.cs:line 67
+   at MongoDB.Driver.MongoServer.Connect(TimeSpan timeout) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServer.cs:line 431
+   at MongoDB.Driver.MongoServer.Connect() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServer.cs:line 415
+   at MongoDB.Driver.MongoServer.GetServerInstance(Boolean slaveOk) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServer.cs:line 949
+   at MongoDB.Driver.MongoServer.AcquireConnection(MongoDatabase database, Boolean slaveOk) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServer.cs:line 892
+   at MongoDB.Driver.MongoCursorEnumerator`1.AcquireConnection() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoCursorEnumerator.cs:line 184
+   at MongoDB.Driver.MongoCursorEnumerator`1.GetFirst() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoCursorEnumerator.cs:line 194
+   at MongoDB.Driver.MongoCursorEnumerator`1.MoveNext() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoCursorEnumerator.cs:line 126
+   at MongoDB.Driver.MongoDatabase.GetCollectionNames() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoDatabase.cs:line 649
+   at Brilliantech.Framework.Utilities.DBUtil.MongoDB.MongoDBContext..ctor(String connStr, String db) in F:\InternalFramework\Brilliantech.Framework\Brilliantech.Framework\Utilities\DBUtil\MongoDB\MongoDBContext.vb:line 21
+   at TestProjectFramework.MongoDBContextTest.MongoDBContextConstructorTest() in F:\InternalFramework\Brilliantech.Framework\TestProjectFramework\MongoDBContextTest.vb:line 68
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

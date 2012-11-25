@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Brilliantech.ReportGenConnector", "Brilliantech.ReportGenConnector\Brilliantech.ReportGenConnector.vbproj", "{8D7463C5-10DF-4ADA-B33B-1C3A941F2C4E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{27501D74-20FE-4DB6-A449-8F25BF96175A}"
+	ProjectSection(SolutionItems) = preProject
+		Brilliantech.ReportGenConnector.vsmdi = Brilliantech.ReportGenConnector.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Brilliantech.ReportGenConnector.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8D7463C5-10DF-4ADA-B33B-1C3A941F2C4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D7463C5-10DF-4ADA-B33B-1C3A941F2C4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D7463C5-10DF-4ADA-B33B-1C3A941F2C4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D7463C5-10DF-4ADA-B33B-1C3A941F2C4E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

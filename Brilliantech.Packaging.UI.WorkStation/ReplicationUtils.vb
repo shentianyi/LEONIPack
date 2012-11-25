@@ -16,6 +16,7 @@ Public Class ReplicationUtils
             Else
                 repl.Publication = config.Configs("MasterData").GetString("Publication")
                 Try
+
                     repl.AddSubscription(AddOption.ExistingDatabase)
                 Catch ex As Exception
 

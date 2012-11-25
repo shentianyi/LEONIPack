@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MongoDBTypeMapper>
+  <Mapping>
+    <TypeFullName>
+      IDGenerator
+    </TypeFullName>
+    <CollectionName>
+      IDGenerator
+    </CollectionName>
+  </Mapping>
+</MongoDBTypeMapper>

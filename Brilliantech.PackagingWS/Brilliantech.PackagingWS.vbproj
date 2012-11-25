@@ -178,15 +178,15 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Brilliantech.Framework\Brilliantech.Framework\Brilliantech.Framework.vbproj">
+      <Project>{DEA35FAB-BC7C-4739-B4FB-C2E8122E6308}</Project>
+      <Name>Brilliantech.Framework</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Brilliantech.Packaging.Data\Brilliantech.Packaging.Data.vbproj">
       <Project>{DA62D6C4-2840-451F-BCD2-5D44F062455E}</Project>
       <Name>Brilliantech.Packaging.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\InternalFramework\Brilliantech.Framework\Brilliantech.Framework\Brilliantech.Framework.vbproj">
-      <Project>{DEA35FAB-BC7C-4739-B4FB-C2E8122E6308}</Project>
-      <Name>Brilliantech.Framework</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\InternalFramework\Brilliantech.ReportGenConnector\Brilliantech.ReportGenConnector\Brilliantech.ReportGenConnector.vbproj">
+    <ProjectReference Include="..\Brilliantech.ReportGenConnector\Brilliantech.ReportGenConnector\Brilliantech.ReportGenConnector.vbproj">
       <Project>{8D7463C5-10DF-4ADA-B33B-1C3A941F2C4E}</Project>
       <Name>Brilliantech.ReportGenConnector</Name>
     </ProjectReference>

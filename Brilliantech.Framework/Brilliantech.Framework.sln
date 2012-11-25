@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Brilliantech.Framework", "Brilliantech.Framework\Brilliantech.Framework.vbproj", "{DEA35FAB-BC7C-4739-B4FB-C2E8122E6308}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TestProjectFramework", "TestProjectFramework\TestProjectFramework.vbproj", "{C5652719-6EBB-4DDF-B4B5-B266B45030F3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{453F26DA-16EE-4972-AC94-206D06EEC7E0}"
+	ProjectSection(SolutionItems) = preProject
+		Brilliantech.Framework.vsmdi = Brilliantech.Framework.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Brilliantech.Framework.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DEA35FAB-BC7C-4739-B4FB-C2E8122E6308}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEA35FAB-BC7C-4739-B4FB-C2E8122E6308}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEA35FAB-BC7C-4739-B4FB-C2E8122E6308}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEA35FAB-BC7C-4739-B4FB-C2E8122E6308}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5652719-6EBB-4DDF-B4B5-B266B45030F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5652719-6EBB-4DDF-B4B5-B266B45030F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5652719-6EBB-4DDF-B4B5-B266B45030F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5652719-6EBB-4DDF-B4B5-B266B45030F3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

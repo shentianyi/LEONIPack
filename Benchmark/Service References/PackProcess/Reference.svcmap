@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="98d58ea4-ba73-4e03-9968-66bf28b76978" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8080/packageService" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="packageService.disco" MetadataType="Disco" ID="3cb8d6e8-4646-4292-ab58-07bf39f52303" SourceId="1" SourceUrl="http://localhost:8080/packageService?disco" />
+    <MetadataFile FileName="PackProcess.wsdl" MetadataType="Wsdl" ID="35b515cc-4f02-4f2c-9e08-e148e72a8579" SourceId="1" SourceUrl="http://localhost:8080/packageService?wsdl" />
+    <MetadataFile FileName="packageService.xsd" MetadataType="Schema" ID="d0d51111-4291-479d-9ab5-52fa23c49c31" SourceId="1" SourceUrl="http://localhost:8080/packageService?xsd=xsd4" />
+    <MetadataFile FileName="packageService1.xsd" MetadataType="Schema" ID="ea1e7f92-c71d-42d0-bc8f-f95339ea6421" SourceId="1" SourceUrl="http://localhost:8080/packageService?xsd=xsd5" />
+    <MetadataFile FileName="packageService2.xsd" MetadataType="Schema" ID="60170451-1d48-47c9-8abb-3c1c6ad0db9a" SourceId="1" SourceUrl="http://localhost:8080/packageService?xsd=xsd2" />
+    <MetadataFile FileName="packageService3.xsd" MetadataType="Schema" ID="234faf5d-3afc-412f-9d84-4b7c308e9850" SourceId="1" SourceUrl="http://localhost:8080/packageService?xsd=xsd3" />
+    <MetadataFile FileName="packageService4.xsd" MetadataType="Schema" ID="765348ba-809f-44a9-aeea-551d70ebb523" SourceId="1" SourceUrl="http://localhost:8080/packageService?xsd=xsd0" />
+    <MetadataFile FileName="packageService5.xsd" MetadataType="Schema" ID="a33389e6-bec8-439f-a9fb-e8b41515183d" SourceId="1" SourceUrl="http://localhost:8080/packageService?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PackProcess" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8080/packageService?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8080/packageService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8080/packageService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Brilliantech.Packaging.WS" />
+      <xsd:import schemaLocation="http://localhost:8080/packageService?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Brilliantech.Framework.WCF.Data" />
+      <xsd:import schemaLocation="http://localhost:8080/packageService?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:8080/packageService?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Brilliantech.Packaging.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPackProcess_FindByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindByID" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_FindByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_FindByItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindByItem" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_FindByItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindByItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_CountItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:CountItem" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_CountItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CountItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_Create_InputMessage">
+    <wsdl:part name="parameters" element="tns:Create" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_Create_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_Scrap_InputMessage">
+    <wsdl:part name="parameters" element="tns:Scrap" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_Scrap_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ScrapResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_AddItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddItem" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_AddItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_Recover_InputMessage">
+    <wsdl:part name="parameters" element="tns:Recover" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_Recover_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RecoverResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_BeginProcess_InputMessage">
+    <wsdl:part name="parameters" element="tns:BeginProcess" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_BeginProcess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BeginProcessResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_EndProcess_InputMessage">
+    <wsdl:part name="parameters" element="tns:EndProcess" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_EndProcess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EndProcessResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_SuspendProcess_InputMessage">
+    <wsdl:part name="parameters" element="tns:SuspendProcess" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_SuspendProcess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SuspendProcessResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_GetUnfull_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnfull" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_GetUnfull_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnfullResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_CancelPackaging_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelPackaging" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_CancelPackaging_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelPackagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_GetPackageInfos_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPackageInfos" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_GetPackageInfos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPackageInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_GetItemsByPackageId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemsByPackageId" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_GetItemsByPackageId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemsByPackageIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_GetPackageStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPackageStatus" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_GetPackageStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPackageStatusResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPackProcess">
+    <wsdl:operation name="FindByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPackProcess/FindByID" message="tns:IPackProcess_FindByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPackProcess/FindByIDResponse" message="tns:IPackProcess_FindByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindByItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPackProcess/FindByItem" message="tns:IPackProcess_FindByItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPackProcess/FindByItemResponse" message="tns:IPackProcess_FindByItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CountItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPackProcess/CountItem" message="tns:IPackProcess_CountItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPackProcess/CountItemResponse" message="tns:IPackProcess_CountItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Create">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPackProcess/Create" message="tns:IPackProcess_Create_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPackProcess/CreateResponse" message="tns:IPackProcess_Create_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Scrap">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPackProcess/Scrap" message="tns:IPackProcess_Scrap_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPackProcess/ScrapResponse" message="tns:IPackProcess_Scrap_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPackProcess/AddItem" message="tns:IPackProcess_AddItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPackProcess/AddItemResponse" message="tns:IPackProcess_AddItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Recover">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPackProcess/Recover" message="tns:IPackProcess_Recover_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPackProcess/RecoverResponse" message="tns:IPackProcess_Recover_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BeginProcess">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPackProcess/BeginProcess" message="tns:IPackProcess_BeginProcess_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPackProcess/BeginProcessResponse" message="tns:IPackProcess_BeginProcess_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EndProcess">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPackProcess/EndProcess" message="tns:IPackProcess_EndProcess_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPackProcess/EndProcessResponse" message="tns:IPackProcess_EndProcess_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SuspendProcess">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPackProcess/SuspendProcess" message="tns:IPackProcess_SuspendProcess_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPackProcess/SuspendProcessResponse" message="tns:IPackProcess_SuspendProcess_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnfull">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPackProcess/GetUnfull" message="tns:IPackProcess_GetUnfull_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPackProcess/GetUnfullResponse" message="tns:IPackProcess_GetUnfull_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelPackaging">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPackProcess/CancelPackaging" message="tns:IPackProcess_CancelPackaging_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPackProcess/CancelPackagingResponse" message="tns:IPackProcess_CancelPackaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackageInfos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPackProcess/GetPackageInfos" message="tns:IPackProcess_GetPackageInfos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPackProcess/GetPackageInfosResponse" message="tns:IPackProcess_GetPackageInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemsByPackageId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPackProcess/GetItemsByPackageId" message="tns:IPackProcess_GetItemsByPackageId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPackProcess/GetItemsByPackageIdResponse" message="tns:IPackProcess_GetItemsByPackageId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackageStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPackProcess/GetPackageStatus" message="tns:IPackProcess_GetPackageStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPackProcess/GetPackageStatusResponse" message="tns:IPackProcess_GetPackageStatus_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPackProcess" type="tns:IPackProcess">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="FindByID">
+      <soap:operation soapAction="http://tempuri.org/IPackProcess/FindByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindByItem">
+      <soap:operation soapAction="http://tempuri.org/IPackProcess/FindByItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountItem">
+      <soap:operation soapAction="http://tempuri.org/IPackProcess/CountItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Create">
+      <soap:operation soapAction="http://tempuri.org/IPackProcess/Create" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Scrap">
+      <soap:operation soapAction="http://tempuri.org/IPackProcess/Scrap" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddItem">
+      <soap:operation soapAction="http://tempuri.org/IPackProcess/AddItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Recover">
+      <soap:operation soapAction="http://tempuri.org/IPackProcess/Recover" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BeginProcess">
+      <soap:operation soapAction="http://tempuri.org/IPackProcess/BeginProcess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EndProcess">
+      <soap:operation soapAction="http://tempuri.org/IPackProcess/EndProcess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SuspendProcess">
+      <soap:operation soapAction="http://tempuri.org/IPackProcess/SuspendProcess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnfull">
+      <soap:operation soapAction="http://tempuri.org/IPackProcess/GetUnfull" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelPackaging">
+      <soap:operation soapAction="http://tempuri.org/IPackProcess/CancelPackaging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackageInfos">
+      <soap:operation soapAction="http://tempuri.org/IPackProcess/GetPackageInfos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemsByPackageId">
+      <soap:operation soapAction="http://tempuri.org/IPackProcess/GetItemsByPackageId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackageStatus">
+      <soap:operation soapAction="http://tempuri.org/IPackProcess/GetPackageStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PackProcess">
+    <wsdl:port name="BasicHttpBinding_IPackProcess" binding="tns:BasicHttpBinding_IPackProcess">
+      <soap:address location="http://localhost:8080/packageService/basic" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

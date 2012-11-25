@@ -58,7 +58,7 @@ Public Class Begin
     End Sub
 
     Private Sub syncTimer_elasped() Handles syncTimer.Elapsed
-        timer.Stop()
+        syncTimer.Stop()
         Try
             ReplicationUtils.ReplicateMasterData()
         Catch ex As Exception
@@ -69,7 +69,10 @@ Public Class Begin
             End Try
 
         End Try
-        timer.Start()
+        Dim rd As System.Random = New System.Random
+
+        syncTimer.Interval = rd.Next(15, 35) * 60 * 1000
+        syncTimer.Start()
     End Sub
 
     Private Delegate Sub autoStart()
@@ -156,18 +159,8 @@ Public Class Begin
 
         syncTimer = New Timers.Timer
         syncTimer.Interval = My.Settings.syncInterval
-
-        Try
-            holdon.Close()
-            holdon = Nothing
-        Catch ex As Exception
-
-        End Try
-        holdon = New SplashWindow("正在与服务器同步数据，请稍候")
-
-        worker.RunWorkerAsync()
-        holdon.ShowDialog()
-        '开始同步数据库，下载主数据
+        syncTimer.Start()
+        ''开始同步数据库，下载主数据
 
 
 
@@ -176,6 +169,20 @@ Public Class Begin
         timer.Interval = My.Settings.restartInterval
 
 
+    End Sub
+
+    Private Sub DoSync()
+
+        Try
+            holdon.Close()
+            holdon = Nothing
+        Catch ex As Exception
+
+        End Try
+        holdon = New SplashWindow("正在与服务器同步数据，请稍候")
+        Me.syncTimer.Stop()
+        worker.RunWorkerAsync()
+        holdon.ShowDialog()
     End Sub
 
     Private Sub InitiateObject()
@@ -257,6 +264,8 @@ Public Class Begin
                     task.Config.Template = System.IO.Path.Combine(New String() {My.Application.Info.DirectoryPath, My.Settings.LabelFolder, task.Config.Template})
                     tecITprinter.Print(task.DataSet, task.Config)
                 Next
+            Else
+                Me.Textbox_PackageID.Text = unfullId
             End If
         Else
             Dim result As Brilliantech.Packaging.UI.WorkStation.PackService.PackageMessage = client.BeginProcess(Me.Textbox_PackageID.Text.Trim, Me.Textbox_workStNr.Text.Trim, mode)
@@ -290,9 +299,14 @@ Public Class Begin
     Private Sub StartPackWindow(ByVal packId As String)
         Dim main As MainWindow = New MainWindow(packId)
         isStarted = True
+        Me.Hide()
         If main.ShowDialog() = True And My.Settings.autoStart = True Then
+            Me.Show()
             RestartSamePart()
+
+
         Else
+            Me.Show()
             Me.InitiateObject()
         End If
         isStarted = False
@@ -427,9 +441,10 @@ Public Class Begin
         Try
             holdon.Close()
             holdon = Nothing
-            syncTimer.Start()
-        Catch ex As Exception
 
+        Catch ex As Exception
+        Finally
+            Me.syncTimer.Start()
         End Try
 
         If e.Result = False Then
@@ -441,5 +456,10 @@ Public Class Begin
     Private Sub Button_view_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles Button_view.Click
         Dim viewer As Window = New PackView
         viewer.Show()
+    End Sub
+
+    Private Sub Button_ManuSyn_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles Button_ManuSyn.Click
+        DoSync()
+
     End Sub
 End Class

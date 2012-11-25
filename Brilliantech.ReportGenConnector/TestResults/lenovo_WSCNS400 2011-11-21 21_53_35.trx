@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="8341e1b6-865a-4ade-b48e-75bb8fb7d583" name="lenovo@WSCNS400 2011-11-21 21:53:35" runUser="WSCNS400\lenovo" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="bd086e4c-febc-4340-b297-037b6b5a236b">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment userDeploymentRoot="F:\InternalFramework\Brilliantech.ReportGenConnector\TestResults" useDefaultDeploymentRoot="false" enabled="false" runDeploymentRoot="lenovo_WSCNS400 2011-11-21 21_53_35">
+      <DeploymentItem filename="F:\InternalFramework\Brilliantech.ReportGenConnector\Brilliantech.ReportGenConnector\bin\Debug\Brilliantech.ReportGenConnector.dll" />
+      <DeploymentItem filename="C:\Program Files\TEC-IT\TFORMer6\Bin\TECIT.TFORMer.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-11-21T21:53:35.1684335+08:00" queuing="2011-11-21T21:53:36.3875033+08:00" start="2011-11-21T21:53:36.5505126+08:00" finish="2011-11-21T21:53:49.2522391+08:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="1" executed="1" error="0" failed="0" timeout="0" aborted="1" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="WSCNS400" outcome="Error" timestamp="2011-11-21T21:53:49.2462387+08:00">
+        <Text>Test host process exited unexpectedly.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="RegisterTest" storage="f:\internalframework\brilliantech.reportgenconnector\testproject\bin\debug\testproject.dll" id="021ce1a0-ce19-a29c-d317-61a734d4b67f">
+      <Execution id="bdbd03d4-e8bc-4957-b011-34f70ea32e2c" />
+      <TestMethod codeBase="F:/InternalFramework/Brilliantech.ReportGenConnector/TestProject/bin/Debug/TestProject.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject.TECITLicenseTest, TestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="RegisterTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="021ce1a0-ce19-a29c-d317-61a734d4b67f" executionId="bdbd03d4-e8bc-4957-b011-34f70ea32e2c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="bdbd03d4-e8bc-4957-b011-34f70ea32e2c" testId="021ce1a0-ce19-a29c-d317-61a734d4b67f" testName="RegisterTest" computerName="WSCNS400" duration="00:00:12.5277166" startTime="2011-11-21T21:53:36.7245225+08:00" endTime="2011-11-21T21:53:49.2522391+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bdbd03d4-e8bc-4957-b011-34f70ea32e2c">
+    </UnitTestResult>
+  </Results>
+</TestRun>

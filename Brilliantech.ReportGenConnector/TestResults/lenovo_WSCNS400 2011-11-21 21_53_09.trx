@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="18be0c47-0832-4636-b2b1-43a9c93230af" name="lenovo@WSCNS400 2011-11-21 21:53:09" runUser="WSCNS400\lenovo" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="bd086e4c-febc-4340-b297-037b6b5a236b">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment userDeploymentRoot="F:\InternalFramework\Brilliantech.ReportGenConnector\TestResults" useDefaultDeploymentRoot="false" enabled="false" runDeploymentRoot="lenovo_WSCNS400 2011-11-21 21_53_09">
+      <DeploymentItem filename="F:\InternalFramework\Brilliantech.ReportGenConnector\Brilliantech.ReportGenConnector\bin\Debug\Brilliantech.ReportGenConnector.dll" />
+      <DeploymentItem filename="C:\Program Files\TEC-IT\TFORMer6\Bin\TECIT.TFORMer.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-11-21T21:53:09.5859703+08:00" queuing="2011-11-21T21:53:11.0670550+08:00" start="2011-11-21T21:53:11.1880619+08:00" finish="2011-11-21T21:53:33.6073442+08:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="RegisterTest" storage="f:\internalframework\brilliantech.reportgenconnector\testproject\bin\debug\testproject.dll" id="021ce1a0-ce19-a29c-d317-61a734d4b67f">
+      <Execution id="60a7ec6c-0636-429a-a567-0d7c970ffe71" />
+      <TestMethod codeBase="F:/InternalFramework/Brilliantech.ReportGenConnector/TestProject/bin/Debug/TestProject.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject.TECITLicenseTest, TestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="RegisterTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="021ce1a0-ce19-a29c-d317-61a734d4b67f" executionId="60a7ec6c-0636-429a-a567-0d7c970ffe71" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="60a7ec6c-0636-429a-a567-0d7c970ffe71" testId="021ce1a0-ce19-a29c-d317-61a734d4b67f" testName="RegisterTest" computerName="WSCNS400" duration="00:00:21.1708603" startTime="2011-11-21T21:53:11.3730725+08:00" endTime="2011-11-21T21:53:33.2763253+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="60a7ec6c-0636-429a-a567-0d7c970ffe71">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.IsInstanceOfType failed.  Expected type:&lt;ReportGenConnector.ReportGenLicenseException&gt;. Actual type:&lt;System.ArgumentException&gt;.</Message>
+          <StackTrace>   at TestProject.TECITLicenseTest.RegisterTest() in F:\InternalFramework\Brilliantech.ReportGenConnector\TestProject\TECITLicenseTest.vb:line 86
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

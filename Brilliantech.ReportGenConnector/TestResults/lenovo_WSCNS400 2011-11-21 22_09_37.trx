@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="040d41ab-5434-4543-8532-fa9713b1608f" name="lenovo@WSCNS400 2011-11-21 22:09:37" runUser="WSCNS400\lenovo" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="bd086e4c-febc-4340-b297-037b6b5a236b">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="lenovo_WSCNS400 2011-11-21 22_09_37">
+      <DeploymentItem filename="F:\InternalFramework\Brilliantech.ReportGenConnector\Brilliantech.ReportGenConnector\bin\Debug\Brilliantech.ReportGenConnector.dll" />
+      <DeploymentItem filename="C:\Program Files\TEC-IT\TFORMer6\Bin\TECIT.TFORMer.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-11-21T22:09:37.5974813+08:00" queuing="2011-11-21T22:09:37.6534845+08:00" start="2011-11-21T22:09:37.6714856+08:00" finish="2011-11-21T22:09:45.1079109+08:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="PrintTest" storage="f:\internalframework\brilliantech.reportgenconnector\testproject\bin\debug\testproject.dll" id="20fc3fd8-bafa-5309-a77f-d91cad39e258">
+      <Execution id="3b6e15ea-bc35-4c72-abee-af10894229de" />
+      <TestMethod codeBase="F:/InternalFramework/Brilliantech.ReportGenConnector/TestProject/bin/Debug/TestProject.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject.TecITGenerTest, TestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="PrintTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="20fc3fd8-bafa-5309-a77f-d91cad39e258" executionId="3b6e15ea-bc35-4c72-abee-af10894229de" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="3b6e15ea-bc35-4c72-abee-af10894229de" testId="20fc3fd8-bafa-5309-a77f-d91cad39e258" testName="PrintTest" computerName="WSCNS400" duration="00:00:07.0346520" startTime="2011-11-21T22:09:37.6904866+08:00" endTime="2011-11-21T22:09:45.0299064+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3b6e15ea-bc35-4c72-abee-af10894229de">
+    </UnitTestResult>
+  </Results>
+</TestRun>

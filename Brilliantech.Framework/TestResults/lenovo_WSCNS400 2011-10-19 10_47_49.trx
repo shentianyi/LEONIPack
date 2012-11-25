@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="eeb2fcb4-651d-4b57-8d55-3700b280718f" name="lenovo@WSCNS400 2011-10-19 10:47:49" runUser="WSCNS400\lenovo" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="4c445a77-c5eb-4fa4-a307-8d69a027c82f">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment userDeploymentRoot="F:\InternalFramework\Brilliantech.Framework\TestResults" useDefaultDeploymentRoot="false" enabled="false" runDeploymentRoot="lenovo_WSCNS400 2011-10-19 10_47_49">
+      <DeploymentItem filename="F:\InternalFramework\Brilliantech.Framework\Brilliantech.Framework\bin\Debug\Brilliantech.Framework.dll" />
+      <DeploymentItem filename="C:\Users\lenovo\Desktop\项目\用户管理\Code\SessionManager\SessionManager\bin\Debug\MongoDB.Bson.dll" />
+      <DeploymentItem filename="C:\Users\lenovo\Desktop\项目\用户管理\Code\SessionManager\SessionManager\bin\Debug\MongoDB.Driver.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-10-19T10:47:49.1685612+08:00" queuing="2011-10-19T10:47:50.5186384+08:00" start="2011-10-19T10:47:50.6416454+08:00" finish="2011-10-19T10:48:49.8040293+08:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="MongoDBContextConstructorTest" storage="f:\internalframework\brilliantech.framework\testprojectframework\bin\debug\testprojectframework.dll" id="c4be6293-62a1-7af0-59c1-fb94bda8793f">
+      <Execution id="d3e17d4b-c2c1-4ad8-b9da-014d2a4183dc" />
+      <TestMethod codeBase="F:/InternalFramework/Brilliantech.Framework/TestProjectFramework/bin/Debug/TestProjectFramework.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProjectFramework.MongoDBContextTest, TestProjectFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="MongoDBContextConstructorTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="c4be6293-62a1-7af0-59c1-fb94bda8793f" executionId="d3e17d4b-c2c1-4ad8-b9da-014d2a4183dc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="d3e17d4b-c2c1-4ad8-b9da-014d2a4183dc" testId="c4be6293-62a1-7af0-59c1-fb94bda8793f" testName="MongoDBContextConstructorTest" computerName="WSCNS400" duration="00:00:57.8387681" startTime="2011-10-19T10:47:50.7486515+08:00" endTime="2011-10-19T10:48:49.2849996+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d3e17d4b-c2c1-4ad8-b9da-014d2a4183dc">
+    </UnitTestResult>
+  </Results>
+</TestRun>

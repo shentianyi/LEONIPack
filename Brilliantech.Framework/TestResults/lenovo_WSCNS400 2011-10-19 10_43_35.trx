@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="ee1494cb-34e2-4634-b099-cbdc4ca46d8f" name="lenovo@WSCNS400 2011-10-19 10:43:35" runUser="WSCNS400\lenovo" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="4c445a77-c5eb-4fa4-a307-8d69a027c82f">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="lenovo_WSCNS400 2011-10-19 10_43_35">
+      <DeploymentItem filename="F:\InternalFramework\Brilliantech.Framework\Brilliantech.Framework\bin\Debug\Brilliantech.Framework.dll" />
+      <DeploymentItem filename="C:\Users\lenovo\Desktop\项目\用户管理\Code\SessionManager\SessionManager\bin\Debug\MongoDB.Bson.dll" />
+      <DeploymentItem filename="C:\Users\lenovo\Desktop\项目\用户管理\Code\SessionManager\SessionManager\bin\Debug\MongoDB.Driver.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-10-19T10:43:35.1760336+08:00" queuing="2011-10-19T10:43:35.2410373+08:00" start="2011-10-19T10:43:35.2590384+08:00" finish="2011-10-19T10:43:35.9440775+08:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="MongoDBContextConstructorTest" storage="f:\internalframework\brilliantech.framework\testprojectframework\bin\debug\testprojectframework.dll" id="c4be6293-62a1-7af0-59c1-fb94bda8793f">
+      <Execution id="e01bc686-29c7-4382-95b1-e2237170f70a" />
+      <TestMethod codeBase="F:/InternalFramework/Brilliantech.Framework/TestProjectFramework/bin/Debug/TestProjectFramework.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProjectFramework.MongoDBContextTest, TestProjectFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="MongoDBContextConstructorTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="c4be6293-62a1-7af0-59c1-fb94bda8793f" executionId="e01bc686-29c7-4382-95b1-e2237170f70a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="e01bc686-29c7-4382-95b1-e2237170f70a" testId="c4be6293-62a1-7af0-59c1-fb94bda8793f" testName="MongoDBContextConstructorTest" computerName="WSCNS400" duration="00:00:00.2961888" startTime="2011-10-19T10:43:35.2630386+08:00" endTime="2011-10-19T10:43:35.8660731+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e01bc686-29c7-4382-95b1-e2237170f70a">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method TestProjectFramework.MongoDBContextTest.MongoDBContextConstructorTest threw exception: 
+System.InvalidCastException: Unable to cast object of type 'System.Collections.Generic.List`1[System.String]' to type 'System.String[]'.</Message>
+          <StackTrace>    at Brilliantech.Framework.Utilities.DBUtil.MongoDB.MongoDBContext..ctor(String connStr, String db) in F:\InternalFramework\Brilliantech.Framework\Brilliantech.Framework\Utilities\DBUtil\MongoDB\MongoDBContext.vb:line 21
+   at TestProjectFramework.MongoDBContextTest.MongoDBContextConstructorTest() in F:\InternalFramework\Brilliantech.Framework\TestProjectFramework\MongoDBContextTest.vb:line 68
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>
