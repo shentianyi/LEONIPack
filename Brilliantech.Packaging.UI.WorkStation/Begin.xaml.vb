@@ -125,11 +125,11 @@ Public Class Begin
         Try
             Me.service_main.Close()
             Me.service_label.Close()
-            Try
-                ReplicationUtils.ReplicateMasterData()
-            Catch ex As Exception
+            'Try
+            '    ReplicationUtils.ReplicateMasterData()
+            'Catch ex As Exception
 
-            End Try
+            'End Try
         Catch ex As Exception
 
         End Try

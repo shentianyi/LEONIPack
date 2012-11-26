@@ -89,6 +89,13 @@ Public Class PackProcess
         Return returnedMsg
     End Function
 
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <param name="packageId"></param>
+    ''' <param name="wrkStnId"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     Public Function GetUnfull(ByVal packageId As String, ByVal wrkStnId As String) As String Implements IPackProcess.GetUnfull
         Dim unfullId As String = String.Empty
         Dim unitOfWork As IUnitofWork = New PackagingDataDataContext(connStr)
@@ -414,11 +421,22 @@ Public Class PackProcess
     End Function
 
 
-
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <param name="id"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     Public Function FindByItem(ByVal id As String) As PackageMessage Implements IPackProcess.FindByItem
         Return util.FindByItem(id)
     End Function
 
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <param name="packageId"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     Public Function CancelPackaging(ByVal packageId As String) As Framework.WCF.Data.ServiceMessage Implements IPackProcess.CancelPackaging
         Dim result As ServiceMessage = New ServiceMessage
         result = util.BasicValidatePackage(packageId)
@@ -446,17 +464,42 @@ Public Class PackProcess
         Return result
     End Function
 
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <param name="pId"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     Public Function GetItemsByPackageId(ByVal pId As String) As System.Collections.Generic.List(Of Data.PackageItem) Implements IPackProcess.GetItemsByPackageId
         Dim unitOfWork As IUnitofWork = New PackagingDataDataContext(connStr)
         Dim packageRepo As SinglePackageRepo = New SinglePackageRepo(unitOfWork)
         Return packageRepo.GetItemsByPId(pId).ToList
     End Function
 
+
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <param name="pid"></param>
+    ''' <param name="wrkstnr"></param>
+    ''' <param name="tnr"></param>
+    ''' <param name="partnr"></param>
+    ''' <param name="status"></param>
+    ''' <param name="fromDate"></param>
+    ''' <param name="toDate"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     Public Function GetPackageInfos(ByVal pid As String, ByVal wrkstnr As String, ByVal tnr As String, ByVal partnr As String, ByVal status As Integer, ByVal fromDate As Date, ByVal toDate As Date) As List(Of Data.FullPackageInfo) Implements IPackProcess.GetPackageInfos
         Dim unitOfWork As IUnitofWork = New PackagingDataDataContext(connStr)
         Dim packageRepo As SinglePackageRepo = New SinglePackageRepo(unitOfWork)
         Return packageRepo.FindSinglePackage(pid, wrkstnr, tnr, partnr, status, fromDate, toDate)
     End Function
+
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
 
     Public Function GetPackageStatus() As System.Collections.Generic.List(Of EnumObject) Implements IPackProcess.GetPackageStatus
         Return EnumObject.TryParse(GetType(PackageStatus))
