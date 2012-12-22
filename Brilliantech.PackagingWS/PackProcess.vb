@@ -90,11 +90,11 @@ Public Class PackProcess
     End Function
 
     ''' <summary>
-    ''' 
+    ''' 获得某个包装台某个型号零件的未满箱
     ''' </summary>
-    ''' <param name="packageId"></param>
-    ''' <param name="wrkStnId"></param>
-    ''' <returns></returns>
+    ''' <param name="packageId">包装箱ID， 如果传入的ID状态为99，则程序继续查找，否则返回空字符串</param>
+    ''' <param name="wrkStnId">包装台号</param>
+    ''' <returns>查找到的未满箱号或空字符串</returns>
     ''' <remarks></remarks>
     Public Function GetUnfull(ByVal packageId As String, ByVal wrkStnId As String) As String Implements IPackProcess.GetUnfull
         Dim unfullId As String = String.Empty
@@ -121,7 +121,8 @@ Public Class PackProcess
     ''' </summary>
     ''' <param name="packageID">需要开始的包装箱ID</param>
     ''' <param name="wrkStnID">当前的工作台ID</param>
-    ''' <returns></returns>
+    ''' <returns>一个PackageMessage实例对象，包含找到的包装对象，代表处理结果
+    ''' 的布尔值以及错误信息列表</returns>
     ''' <remarks></remarks>
     Public Function BeginProcess(ByVal packageID As String, ByVal wrkStnID As String, ByVal mode As PackagingType) As PackageMessage Implements IPackProcess.BeginProcess
         Dim result As ServiceMessage = New ServiceMessage With {.ReturnedResult = False}
@@ -422,20 +423,21 @@ Public Class PackProcess
 
 
     ''' <summary>
-    ''' 
+    ''' 通过包装项的ID号码来获取包装箱对象
     ''' </summary>
-    ''' <param name="id"></param>
-    ''' <returns></returns>
+    ''' <param name="id">包装项的ID号</param>
+    ''' <returns>一个PackageMessage实例对象，包含找到的包装对象，代表处理结果
+    ''' 的布尔值以及错误信息列表</returns>
     ''' <remarks></remarks>
     Public Function FindByItem(ByVal id As String) As PackageMessage Implements IPackProcess.FindByItem
         Return util.FindByItem(id)
     End Function
 
     ''' <summary>
-    ''' 
+    ''' 取消一次已经开始的装箱
     ''' </summary>
-    ''' <param name="packageId"></param>
-    ''' <returns></returns>
+    ''' <param name="packageId">要取消的装箱</param>
+    ''' <returns>一个ServiceMessage实例对象，包含处理是否成功的布尔值和错误信息列表</returns>
     ''' <remarks></remarks>
     Public Function CancelPackaging(ByVal packageId As String) As Framework.WCF.Data.ServiceMessage Implements IPackProcess.CancelPackaging
         Dim result As ServiceMessage = New ServiceMessage
@@ -465,10 +467,10 @@ Public Class PackProcess
     End Function
 
     ''' <summary>
-    ''' 
+    ''' 获取一个包装箱内的所有零件列表
     ''' </summary>
-    ''' <param name="pId"></param>
-    ''' <returns></returns>
+    ''' <param name="pId">包装箱号</param>
+    ''' <returns>包装箱项目列表</returns>
     ''' <remarks></remarks>
     Public Function GetItemsByPackageId(ByVal pId As String) As System.Collections.Generic.List(Of Data.PackageItem) Implements IPackProcess.GetItemsByPackageId
         Dim unitOfWork As IUnitofWork = New PackagingDataDataContext(connStr)
@@ -478,16 +480,16 @@ Public Class PackProcess
 
 
     ''' <summary>
-    ''' 
+    ''' 综合查询包装箱
     ''' </summary>
-    ''' <param name="pid"></param>
-    ''' <param name="wrkstnr"></param>
-    ''' <param name="tnr"></param>
-    ''' <param name="partnr"></param>
-    ''' <param name="status"></param>
-    ''' <param name="fromDate"></param>
-    ''' <param name="toDate"></param>
-    ''' <returns></returns>
+    ''' <param name="pid">包装箱ID</param>
+    ''' <param name="wrkstnr">操作台ID</param>
+    ''' <param name="tnr">包装项的追溯唯一号</param>
+    ''' <param name="partnr">零件号</param>
+    ''' <param name="status">包装状态</param>
+    ''' <param name="fromDate">开始的日期时间</param>
+    ''' <param name="toDate">结束的日期时间</param>
+    ''' <returns>包装箱信息视图列表</returns>
     ''' <remarks></remarks>
     Public Function GetPackageInfos(ByVal pid As String, ByVal wrkstnr As String, ByVal tnr As String, ByVal partnr As String, ByVal status As Integer, ByVal fromDate As Date, ByVal toDate As Date) As List(Of Data.FullPackageInfo) Implements IPackProcess.GetPackageInfos
         Dim unitOfWork As IUnitofWork = New PackagingDataDataContext(connStr)
@@ -496,11 +498,10 @@ Public Class PackProcess
     End Function
 
     ''' <summary>
-    ''' 
+    ''' 获取包装状态
     ''' </summary>
-    ''' <returns></returns>
+    ''' <returns>包装状态的EnumObject实例对象</returns>
     ''' <remarks></remarks>
-
     Public Function GetPackageStatus() As System.Collections.Generic.List(Of EnumObject) Implements IPackProcess.GetPackageStatus
         Return EnumObject.TryParse(GetType(PackageStatus))
     End Function

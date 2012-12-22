@@ -1,7 +1,10 @@
 ﻿Imports Brilliantech.Packaging.Data
 Imports Brilliantech.Framework.WCF.Data
 
-
+''' <summary>
+''' 处理包装流程的主服务的接口文件
+''' </summary>
+''' <remarks></remarks>
 <ServiceContract()>
 Public Interface IPackProcess
     <OperationContract()>

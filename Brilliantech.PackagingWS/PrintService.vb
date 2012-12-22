@@ -12,19 +12,34 @@ Public Class PrintService
     Implements IPrintService
 
 
-
+    ''' <summary>
+    ''' 配置集合的实例对象
+    ''' </summary>
+    ''' <remarks></remarks>
     Private Shared myConfig As IConfigSource = New IniConfigSource _
                                          (Path.Combine(My.Application.Info.DirectoryPath, "WSConfig\WSConfig.ini"))
 
-
+    ''' <summary>
+    ''' 数据库联接字符串
+    ''' </summary>
+    ''' <remarks></remarks>
     Private Shared connStr As String = myConfig.Configs("Connection").Get("connStr")
 
 
     'Private Shared log As ITracableIDLog = TracableIDLogManager.GetLogger("BusinessLogger")
-
+    ''' <summary>
+    ''' 工具类实例对象
+    ''' </summary>
+    ''' <remarks></remarks>
     Private Shared util As PackageUtil = New PackageUtil
 
 
+    ''' <summary>
+    ''' 获取结束标签所需要的数据
+    ''' </summary>
+    ''' <param name="packageID">包装箱号</param>
+    ''' <returns>一个PrintDataMessag，包含获取到的打印数据，代表获取状态的布尔值以及错误信息列表</returns>
+    ''' <remarks></remarks>
     Public Function PrintCloseLabel(packageID As String) As PrintDataMessage Implements IPrintService.PrintCloseLabel
         Dim result As PrintDataMessage = New PrintDataMessage With {.ReturnedResult = False}
         Dim serviceresult As ServiceMessage
@@ -69,7 +84,12 @@ Public Class PrintService
     End Function
 
 
-
+    ''' <summary>
+    ''' 获取开箱标签所需要的数据
+    ''' </summary>
+    ''' <param name="packageID">包装箱号</param>
+    ''' <returns>>一个PrintDataMessag，包含获取到的打印数据，代表获取状态的布尔值以及错误信息列表</returns>
+    ''' <remarks></remarks>
     Public Function PrintOpenLabel(packageID As String) As PrintDataMessage Implements IPrintService.PrintOpenLabel
         Dim result As PrintDataMessage = New PrintDataMessage With {.ReturnedResult = False}
         Dim serviceresult As ServiceMessage
@@ -106,7 +126,12 @@ Public Class PrintService
     End Function
 
 
-
+    ''' <summary>
+    ''' 获取暂停标签的数据
+    ''' </summary>
+    ''' <param name="packageID">包装箱号</param>
+    ''' <returns>>一个PrintDataMessag，包含获取到的打印数据，代表获取状态的布尔值以及错误信息列表</returns>
+    ''' <remarks></remarks>
     Public Function PrintUnfullLabel(packageID As String) As PrintDataMessage Implements IPrintService.PrintUnfullLabel
         Dim result As PrintDataMessage = New PrintDataMessage With {.ReturnedResult = False}
         Dim serviceresult As ServiceMessage

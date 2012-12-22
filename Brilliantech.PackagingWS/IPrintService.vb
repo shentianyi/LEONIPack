@@ -1,4 +1,8 @@
 ﻿Imports Brilliantech.ReportGenConnector
+''' <summary>
+''' 处理标签输出功能的主服务接口
+''' </summary>
+''' <remarks></remarks>
 <ServiceContract()>
 Public Interface IPrintService
     <OperationContract()>

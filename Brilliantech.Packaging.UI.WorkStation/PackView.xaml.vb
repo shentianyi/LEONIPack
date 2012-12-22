@@ -33,8 +33,8 @@ Public Class PackView
     End Sub
 
     Private Sub SetDateTime()
-        Me.DP_WindowsTimeFrom.SelectedDate = New DateTime(Now.Year, Now.Month - 2, 1)
-        Me.DP_WindowsTimeTo.SelectedDate = New DateTime(Now.Year, Now.Month + 1, 1)
+        Me.DP_WindowsTimeFrom.SelectedDate = New DateTime(Now.AddMonths(-1).Year, Now.AddMonths(-1).Month, 1)
+        Me.DP_WindowsTimeTo.SelectedDate = New DateTime(Now.AddMonths(1).Year, Now.AddMonths(1).Month, 1)
         Me.TP_WindowsTimeFrom.txtHours.Text = 0
         Me.TP_WindowsTimeFrom.txtHours.Text = 0
         Me.TP_WindowsTimeTo.txtHours.Text = 23
