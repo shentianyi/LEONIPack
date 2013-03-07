@@ -2,36 +2,40 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>
     </SchemaVersion>
-    <ProjectGuid>{DA62D6C4-2840-451F-BCD2-5D44F062455E}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>Brilliantech.Packaging.Data</RootNamespace>
-    <AssemblyName>Brilliantech.Packaging.Data</AssemblyName>
+    <ProjectGuid>{635EDC3F-F6C7-4EDB-B10C-6A0550C2FB7A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>PackSvc.PackSvc</StartupObject>
+    <RootNamespace>PackSvc</RootNamespace>
+    <AssemblyName>PackSvc</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <MyType>Windows</MyType>
+    <MyType>Console</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>Brilliantech.Packaging.Data.xml</DocumentationFile>
+    <DocumentationFile>PackSvc.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>Brilliantech.Packaging.Data.xml</DocumentationFile>
+    <DocumentationFile>PackSvc.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -47,10 +51,15 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\..\svwksk\DLL\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.Linq" />
-    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -67,16 +76,23 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enum\LabelType.vb" />
-    <Compile Include="Enum\PackageStatus.vb" />
-    <Compile Include="Enum\PackagingType.vb" />
-    <Compile Include="Model\FullPackageInfo.vb" />
-    <Compile Include="Model\IUnitofWork.vb" />
-    <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
+    <Compile Include="ProjectInstaller.Designer.vb">
+      <DependentUpon>ProjectInstaller.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectInstaller.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PackSvc.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PackSvc.Designer.vb">
+      <DependentUpon>PackSvc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -87,34 +103,20 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Model\PackageRemoteDb.designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PackageRemoteDb.dbml</DependentUpon>
-    </Compile>
-    <Compile Include="Partial\IModify.vb" />
-    <Compile Include="Partial\P_Context.vb" />
-    <Compile Include="Partial\P_PartContainerLabel.vb" />
-    <Compile Include="Partial\P_SinglePackage.vb" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Model\PackageRemoteDb.dbml.layout">
-      <DependentUpon>PackageRemoteDb.dbml</DependentUpon>
-    </None>
-    <None Include="app.config" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <None Include="Model\PackageRemoteDb.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>PackageRemoteDb.designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
+    <EmbeddedResource Include="ProjectInstaller.resx">
+      <DependentUpon>ProjectInstaller.vb</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -126,9 +128,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <ProjectReference Include="..\Brilliantech.PackagingWS\Brilliantech.PackagingWS.vbproj">
+      <Project>{2EFBD1C3-2EAF-44E7-8184-E0A366F37B30}</Project>
+      <Name>Brilliantech.PackagingWS</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="logConfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

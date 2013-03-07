@@ -1,9 +1,8 @@
 ﻿Imports Brilliantech.Packaging.UI.WorkStation.PackService
 Imports System.ServiceModel
-Imports Brilliantech.Packaging.WS
+
 Public Class ScanWorkStation
-    Dim service_main As ServiceHost
-    Dim service_label As ServiceHost
+
     Private Sub bt_reset_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles bt_reset.Click
         init()
     End Sub
@@ -16,8 +15,7 @@ Public Class ScanWorkStation
 
     Private Sub ScanWorkStation_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Closed
         Try
-            Me.service_main.Close()
-            Me.service_label.Close()
+ 
             'Try
             '    ReplicationUtils.ReplicateMasterData()
             'Catch ex As Exception
@@ -33,10 +31,7 @@ Public Class ScanWorkStation
     Private Sub Window_Loaded(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles MyBase.Loaded
         init()
         Try
-            service_main = New ServiceHost(GetType(PackProcess))
-            service_main.Open()
-            service_label = New ServiceHost(GetType(PrintService))
-            service_label.Open()
+
         Catch ex As Exception
 
         End Try

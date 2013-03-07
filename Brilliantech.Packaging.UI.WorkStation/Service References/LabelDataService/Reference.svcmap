@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="37ca79ef-fa62-42b0-b16b-2138ec2581d1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d7db9044-ece9-41df-bb31-092a3a32e039" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -17,36 +17,21 @@
       <ReferencedAssembly AssemblyName="Brilliantech.Framework" />
       <ReferencedAssembly AssemblyName="Brilliantech.Packaging.Data" />
       <ReferencedAssembly AssemblyName="Brilliantech.ReportGenConnector" />
-      <ReferencedAssembly AssemblyName="Microsoft.VisualBasic" />
-      <ReferencedAssembly AssemblyName="mscorlib" />
-      <ReferencedAssembly AssemblyName="PresentationCore" />
-      <ReferencedAssembly AssemblyName="PresentationFramework" />
-      <ReferencedAssembly AssemblyName="System" />
-      <ReferencedAssembly AssemblyName="System.Core" />
-      <ReferencedAssembly AssemblyName="System.Data" />
-      <ReferencedAssembly AssemblyName="System.Data.DataSetExtensions" />
-      <ReferencedAssembly AssemblyName="System.Drawing" />
-      <ReferencedAssembly AssemblyName="System.Runtime.Serialization" />
-      <ReferencedAssembly AssemblyName="System.ServiceModel" />
-      <ReferencedAssembly AssemblyName="System.Xaml" />
-      <ReferencedAssembly AssemblyName="System.Xml" />
-      <ReferencedAssembly AssemblyName="System.Xml.Linq" />
-      <ReferencedAssembly AssemblyName="WindowsBase" />
     </ReferencedAssemblies>
     <ReferencedDataContractTypes />
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8080/LabelService/mex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="http://192.168.0.253:9000/LabelService/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="5a04c10d-7e0d-40e6-b5c7-fbe2c935aec8" SourceId="1" SourceUrl="http://localhost:8080/LabelService/mex" />
-    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="2f990204-a124-451b-9413-29727da2858d" SourceId="1" SourceUrl="http://localhost:8080/LabelService/mex" />
-    <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="d506ecf5-8e72-4935-8bbb-d73847760560" SourceId="1" SourceUrl="http://localhost:8080/LabelService/mex" />
-    <MetadataFile FileName="Brilliantech.Packaging.WS1.xsd" MetadataType="Schema" ID="6ff253fe-4b8c-4df6-90aa-72a33ee9f85e" SourceId="1" SourceUrl="http://localhost:8080/LabelService/mex" />
-    <MetadataFile FileName="Brilliantech.Framework.WCF.Data1.xsd" MetadataType="Schema" ID="f1cbc2c3-9ac6-4146-85ab-7818b7bf3fa5" SourceId="1" SourceUrl="http://localhost:8080/LabelService/mex" />
-    <MetadataFile FileName="Arrays1.xsd" MetadataType="Schema" ID="4eb38340-32b8-455b-962c-f99ed634fcf2" SourceId="1" SourceUrl="http://localhost:8080/LabelService/mex" />
-    <MetadataFile FileName="Brilliantech.ReportGenConnector1.xsd" MetadataType="Schema" ID="324d82a1-5cb1-4a28-815e-e9e67e5733e5" SourceId="1" SourceUrl="http://localhost:8080/LabelService/mex" />
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="0b7a5840-868a-4451-b0fa-daab56d5680c" SourceId="1" SourceUrl="http://192.168.0.253:9000/LabelService/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="3bd07f00-fd84-444c-8181-b7d863a326e1" SourceId="1" SourceUrl="http://192.168.0.253:9000/LabelService/mex" />
+    <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="288feaa4-fec5-41f7-8306-68ac48c7a996" SourceId="1" SourceUrl="http://192.168.0.253:9000/LabelService/mex" />
+    <MetadataFile FileName="Brilliantech.Packaging.WS1.xsd" MetadataType="Schema" ID="decff3a9-617f-43c9-9a8e-7a6073a68511" SourceId="1" SourceUrl="http://192.168.0.253:9000/LabelService/mex" />
+    <MetadataFile FileName="Brilliantech.Framework.WCF.Data1.xsd" MetadataType="Schema" ID="7d2509eb-5a58-4101-af18-a911d07f3cc0" SourceId="1" SourceUrl="http://192.168.0.253:9000/LabelService/mex" />
+    <MetadataFile FileName="Arrays1.xsd" MetadataType="Schema" ID="64d81f3f-42e9-455c-9614-94cd14ce90bf" SourceId="1" SourceUrl="http://192.168.0.253:9000/LabelService/mex" />
+    <MetadataFile FileName="Brilliantech.ReportGenConnector1.xsd" MetadataType="Schema" ID="f70c2c21-01c4-4c5b-98ac-34a7c8aa72ab" SourceId="1" SourceUrl="http://192.168.0.253:9000/LabelService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

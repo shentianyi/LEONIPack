@@ -67,7 +67,8 @@ Public Class PackProcess
         toInsert.Capa = package.Capa
         toInsert.ContainerID = package.ContainerID
         toInsert.PartNr = package.PartNr
-        toInsert.PlanedDate = Now.ToString("yyyy-MM-dd")
+        toInsert.planedDate = Now
+
         Select Case mode
             Case PackagingType.normal
                 toInsert.Status = PackageStatus.NewCreated
@@ -323,7 +324,7 @@ Public Class PackProcess
                         result.ReturnedMessage.Add("包装未达到预定容量，不能关闭")
                     Else
                         package.Status = util.ChangeEndStatus(package.Status)
-                        package.PlanedDate = Now.ToString("yyyy-MM-dd")
+                        package.planedDate = Now
                         unitOfWork.Commit()
                         result.ReturnedResult = True
                     End If

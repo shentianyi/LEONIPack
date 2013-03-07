@@ -4,7 +4,6 @@ Imports Brilliantech.ReportGenConnector
 Imports Brilliantech.Packaging.UI.WorkStation.LabelDataService
 Imports Brilliantech.Packaging.Data
 Imports System.ServiceModel
-Imports Brilliantech.Packaging.WS
 Imports System.ComponentModel
 
 
@@ -18,7 +17,7 @@ Public Class Begin
     Protected WithEvents worker As BackgroundWorker = New BackgroundWorker
     Protected WithEvents syncTimer As System.Timers.Timer
     Private isStarted As Boolean = False
-    Private updater As Forms.Form
+
 
 
 
@@ -134,14 +133,7 @@ Public Class Begin
             Me.Close()
         End Try
 
-        Try
-            updater = New updater
-            updater.Show()
-
-
-        Catch ex As Exception
-
-        End Try
+     
 
         syncTimer = New Timers.Timer
         syncTimer.Interval = My.Settings.syncInterval
@@ -202,11 +194,7 @@ Public Class Begin
     End Sub
 
     Private Sub Button_Exist_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles Button_Exist.Click
-        Try
-            Me.updater.Close()
-        Catch ex As Exception
-
-        End Try
+     
         Me.Close()
 
     End Sub
@@ -439,7 +427,7 @@ Public Class Begin
         viewer.Show()
     End Sub
 
-    Private Sub Button_ManuSyn_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles Button_ManuSyn.Click
+    Private Sub Button_ManuSyn_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs)
         DoSync()
 
     End Sub

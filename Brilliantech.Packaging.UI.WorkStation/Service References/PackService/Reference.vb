@@ -11,53 +11,196 @@
 Option Strict On
 Option Explicit On
 
+Imports System
+Imports System.Runtime.Serialization
 
 Namespace PackService
+    
+    <System.Diagnostics.DebuggerStepThroughAttribute(),  _
+     System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0"),  _
+     System.Runtime.Serialization.DataContractAttribute(Name:="PackageMessage", [Namespace]:="http://schemas.datacontract.org/2004/07/Brilliantech.Packaging.WS"),  _
+     System.SerializableAttribute()>  _
+    Partial Public Class PackageMessage
+        Inherits Brilliantech.Framework.WCF.Data.ServiceMessage
+        Implements System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+        
+        <System.NonSerializedAttribute()>  _
+        Private extensionDataField As System.Runtime.Serialization.ExtensionDataObject
+        
+        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
+        Private PackageField As Brilliantech.Packaging.Data.SinglePackage
+        
+        <Global.System.ComponentModel.BrowsableAttribute(false)>  _
+        Public Property ExtensionData() As System.Runtime.Serialization.ExtensionDataObject Implements System.Runtime.Serialization.IExtensibleDataObject.ExtensionData
+            Get
+                Return Me.extensionDataField
+            End Get
+            Set
+                Me.extensionDataField = value
+            End Set
+        End Property
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property Package() As Brilliantech.Packaging.Data.SinglePackage
+            Get
+                Return Me.PackageField
+            End Get
+            Set
+                If (Object.ReferenceEquals(Me.PackageField, value) <> true) Then
+                    Me.PackageField = value
+                    Me.RaisePropertyChanged("Package")
+                End If
+            End Set
+        End Property
+        
+        Public Event PropertyChanged As System.ComponentModel.PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+        
+        Protected Sub RaisePropertyChanged(ByVal propertyName As String)
+            Dim propertyChanged As System.ComponentModel.PropertyChangedEventHandler = Me.PropertyChangedEvent
+            If (Not (propertyChanged) Is Nothing) Then
+                propertyChanged(Me, New System.ComponentModel.PropertyChangedEventArgs(propertyName))
+            End If
+        End Sub
+    End Class
+    
+    <System.Diagnostics.DebuggerStepThroughAttribute(),  _
+     System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0"),  _
+     System.Runtime.Serialization.DataContractAttribute(Name:="EnumObject", [Namespace]:="http://schemas.datacontract.org/2004/07/Brilliantech.Packaging.WS"),  _
+     System.SerializableAttribute(),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(PackService.PackageMessage)),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(PackService.EnumObject())),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(Brilliantech.Framework.WCF.Data.ServiceMessage)),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(String())),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(Brilliantech.Packaging.Data.SinglePackage)),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(Brilliantech.Packaging.Data.PackageItem())),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(Brilliantech.Packaging.Data.PackageItem)),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(Brilliantech.Packaging.Data.TrayItem())),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(Brilliantech.Packaging.Data.TrayItem)),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(Brilliantech.Packaging.Data.PackagingType)),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(Brilliantech.Packaging.Data.FullPackageInfo())),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(Brilliantech.Packaging.Data.FullPackageInfo)),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(Brilliantech.Packaging.Data.PackageStatus)),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(Brilliantech.Packaging.Data.CustomValidate())),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(Brilliantech.Packaging.Data.CustomValidate))>  _
+    Partial Public Class EnumObject
+        Inherits Object
+        Implements System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+        
+        <System.NonSerializedAttribute()>  _
+        Private extensionDataField As System.Runtime.Serialization.ExtensionDataObject
+        
+        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
+        Private DescriptionField As Object
+        
+        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
+        Private EnumKeyField As Object
+        
+        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
+        Private EnumValueField As Object
+        
+        <Global.System.ComponentModel.BrowsableAttribute(false)>  _
+        Public Property ExtensionData() As System.Runtime.Serialization.ExtensionDataObject Implements System.Runtime.Serialization.IExtensibleDataObject.ExtensionData
+            Get
+                Return Me.extensionDataField
+            End Get
+            Set
+                Me.extensionDataField = value
+            End Set
+        End Property
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property Description() As Object
+            Get
+                Return Me.DescriptionField
+            End Get
+            Set
+                If (Object.ReferenceEquals(Me.DescriptionField, value) <> true) Then
+                    Me.DescriptionField = value
+                    Me.RaisePropertyChanged("Description")
+                End If
+            End Set
+        End Property
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property EnumKey() As Object
+            Get
+                Return Me.EnumKeyField
+            End Get
+            Set
+                If (Object.ReferenceEquals(Me.EnumKeyField, value) <> true) Then
+                    Me.EnumKeyField = value
+                    Me.RaisePropertyChanged("EnumKey")
+                End If
+            End Set
+        End Property
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property EnumValue() As Object
+            Get
+                Return Me.EnumValueField
+            End Get
+            Set
+                If (Object.ReferenceEquals(Me.EnumValueField, value) <> true) Then
+                    Me.EnumValueField = value
+                    Me.RaisePropertyChanged("EnumValue")
+                End If
+            End Set
+        End Property
+        
+        Public Event PropertyChanged As System.ComponentModel.PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+        
+        Protected Sub RaisePropertyChanged(ByVal propertyName As String)
+            Dim propertyChanged As System.ComponentModel.PropertyChangedEventHandler = Me.PropertyChangedEvent
+            If (Not (propertyChanged) Is Nothing) Then
+                propertyChanged(Me, New System.ComponentModel.PropertyChangedEventArgs(propertyName))
+            End If
+        End Sub
+    End Class
     
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0"),  _
      System.ServiceModel.ServiceContractAttribute(ConfigurationName:="PackService.IPackProcess")>  _
     Public Interface IPackProcess
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IPackProcess/FindByID", ReplyAction:="http://tempuri.org/IPackProcess/FindByIDResponse")>  _
-        Function FindByID(ByVal id As String) As Brilliantech.Packaging.WS.PackageMessage
+        Function FindByID(ByVal id As String) As PackService.PackageMessage
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IPackProcess/FindByItem", ReplyAction:="http://tempuri.org/IPackProcess/FindByItemResponse")>  _
-        Function FindByItem(ByVal id As String) As Brilliantech.Packaging.WS.PackageMessage
+        Function FindByItem(ByVal id As String) As PackService.PackageMessage
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IPackProcess/CountItem", ReplyAction:="http://tempuri.org/IPackProcess/CountItemResponse")>  _
         Function CountItem(ByVal id As String) As Integer
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IPackProcess/Create", ReplyAction:="http://tempuri.org/IPackProcess/CreateResponse")>  _
-        Function Create(ByVal package As Brilliantech.Packaging.Data.SinglePackage, ByVal mode As Brilliantech.Packaging.Data.PackagingType) As Brilliantech.Packaging.WS.PackageMessage
+        Function Create(ByVal package As Brilliantech.Packaging.Data.SinglePackage, ByVal mode As Brilliantech.Packaging.Data.PackagingType) As PackService.PackageMessage
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IPackProcess/Scrap", ReplyAction:="http://tempuri.org/IPackProcess/ScrapResponse"),  _
-         System.ServiceModel.ServiceKnownTypeAttribute(GetType(Brilliantech.Packaging.WS.PackageMessage))>  _
+         System.ServiceModel.ServiceKnownTypeAttribute(GetType(PackService.PackageMessage))>  _
         Function Scrap(ByVal packageID As String) As Brilliantech.Framework.WCF.Data.ServiceMessage
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IPackProcess/AddItem", ReplyAction:="http://tempuri.org/IPackProcess/AddItemResponse"),  _
-         System.ServiceModel.ServiceKnownTypeAttribute(GetType(Brilliantech.Packaging.WS.PackageMessage))>  _
+         System.ServiceModel.ServiceKnownTypeAttribute(GetType(PackService.PackageMessage))>  _
         Function AddItem(ByVal packageID As String, ByVal barcodeStr As String) As Brilliantech.Framework.WCF.Data.ServiceMessage
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IPackProcess/Recover", ReplyAction:="http://tempuri.org/IPackProcess/RecoverResponse"),  _
-         System.ServiceModel.ServiceKnownTypeAttribute(GetType(Brilliantech.Packaging.WS.PackageMessage))>  _
+         System.ServiceModel.ServiceKnownTypeAttribute(GetType(PackService.PackageMessage))>  _
         Function Recover(ByVal packageID As String) As Brilliantech.Framework.WCF.Data.ServiceMessage
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IPackProcess/BeginProcess", ReplyAction:="http://tempuri.org/IPackProcess/BeginProcessResponse")>  _
-        Function BeginProcess(ByVal packageID As String, ByVal wrkStnID As String, ByVal mode As Brilliantech.Packaging.Data.PackagingType) As Brilliantech.Packaging.WS.PackageMessage
+        Function BeginProcess(ByVal packageID As String, ByVal wrkStnID As String, ByVal mode As Brilliantech.Packaging.Data.PackagingType) As PackService.PackageMessage
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IPackProcess/EndProcess", ReplyAction:="http://tempuri.org/IPackProcess/EndProcessResponse"),  _
-         System.ServiceModel.ServiceKnownTypeAttribute(GetType(Brilliantech.Packaging.WS.PackageMessage))>  _
+         System.ServiceModel.ServiceKnownTypeAttribute(GetType(PackService.PackageMessage))>  _
         Function EndProcess(ByVal packageID As String) As Brilliantech.Framework.WCF.Data.ServiceMessage
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IPackProcess/SuspendProcess", ReplyAction:="http://tempuri.org/IPackProcess/SuspendProcessResponse"),  _
-         System.ServiceModel.ServiceKnownTypeAttribute(GetType(Brilliantech.Packaging.WS.PackageMessage))>  _
+         System.ServiceModel.ServiceKnownTypeAttribute(GetType(PackService.PackageMessage))>  _
         Function SuspendProcess(ByVal packageID As String) As Brilliantech.Framework.WCF.Data.ServiceMessage
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IPackProcess/GetUnfull", ReplyAction:="http://tempuri.org/IPackProcess/GetUnfullResponse")>  _
         Function GetUnfull(ByVal packageId As String, ByVal wrkStnId As String) As String
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IPackProcess/CancelPackaging", ReplyAction:="http://tempuri.org/IPackProcess/CancelPackagingResponse"),  _
-         System.ServiceModel.ServiceKnownTypeAttribute(GetType(Brilliantech.Packaging.WS.PackageMessage))>  _
+         System.ServiceModel.ServiceKnownTypeAttribute(GetType(PackService.PackageMessage))>  _
         Function CancelPackaging(ByVal packageId As String) As Brilliantech.Framework.WCF.Data.ServiceMessage
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IPackProcess/GetPackageInfos", ReplyAction:="http://tempuri.org/IPackProcess/GetPackageInfosResponse")>  _
@@ -67,7 +210,7 @@ Namespace PackService
         Function GetItemsByPackageId(ByVal pId As String) As Brilliantech.Packaging.Data.PackageItem()
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IPackProcess/GetPackageStatus", ReplyAction:="http://tempuri.org/IPackProcess/GetPackageStatusResponse")>  _
-        Function GetPackageStatus() As Brilliantech.Packaging.WS.EnumObject()
+        Function GetPackageStatus() As PackService.EnumObject()
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IPackProcess/GetValidateItemsByPackageId", ReplyAction:="http://tempuri.org/IPackProcess/GetValidateItemsByPackageIdResponse")>  _
         Function GetValidateItemsByPackageId(ByVal packageId As String) As Brilliantech.Packaging.Data.CustomValidate()
@@ -110,11 +253,11 @@ Namespace PackService
             MyBase.New(binding, remoteAddress)
         End Sub
         
-        Public Function FindByID(ByVal id As String) As Brilliantech.Packaging.WS.PackageMessage Implements PackService.IPackProcess.FindByID
+        Public Function FindByID(ByVal id As String) As PackService.PackageMessage Implements PackService.IPackProcess.FindByID
             Return MyBase.Channel.FindByID(id)
         End Function
         
-        Public Function FindByItem(ByVal id As String) As Brilliantech.Packaging.WS.PackageMessage Implements PackService.IPackProcess.FindByItem
+        Public Function FindByItem(ByVal id As String) As PackService.PackageMessage Implements PackService.IPackProcess.FindByItem
             Return MyBase.Channel.FindByItem(id)
         End Function
         
@@ -122,7 +265,7 @@ Namespace PackService
             Return MyBase.Channel.CountItem(id)
         End Function
         
-        Public Function Create(ByVal package As Brilliantech.Packaging.Data.SinglePackage, ByVal mode As Brilliantech.Packaging.Data.PackagingType) As Brilliantech.Packaging.WS.PackageMessage Implements PackService.IPackProcess.Create
+        Public Function Create(ByVal package As Brilliantech.Packaging.Data.SinglePackage, ByVal mode As Brilliantech.Packaging.Data.PackagingType) As PackService.PackageMessage Implements PackService.IPackProcess.Create
             Return MyBase.Channel.Create(package, mode)
         End Function
         
@@ -138,7 +281,7 @@ Namespace PackService
             Return MyBase.Channel.Recover(packageID)
         End Function
         
-        Public Function BeginProcess(ByVal packageID As String, ByVal wrkStnID As String, ByVal mode As Brilliantech.Packaging.Data.PackagingType) As Brilliantech.Packaging.WS.PackageMessage Implements PackService.IPackProcess.BeginProcess
+        Public Function BeginProcess(ByVal packageID As String, ByVal wrkStnID As String, ByVal mode As Brilliantech.Packaging.Data.PackagingType) As PackService.PackageMessage Implements PackService.IPackProcess.BeginProcess
             Return MyBase.Channel.BeginProcess(packageID, wrkStnID, mode)
         End Function
         
@@ -166,7 +309,7 @@ Namespace PackService
             Return MyBase.Channel.GetItemsByPackageId(pId)
         End Function
         
-        Public Function GetPackageStatus() As Brilliantech.Packaging.WS.EnumObject() Implements PackService.IPackProcess.GetPackageStatus
+        Public Function GetPackageStatus() As PackService.EnumObject() Implements PackService.IPackProcess.GetPackageStatus
             Return MyBase.Channel.GetPackageStatus
         End Function
         

@@ -11,19 +11,21 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <MyType>Custom</MyType>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
     <PublishUrl>D:\Publish\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://192.168.0.253/PackUpdater/</InstallUrl>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>22</ApplicationRevision>
+    <ApplicationRevision>26</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -179,12 +181,6 @@
       <DependentUpon>TimePicker.xaml</DependentUpon>
     </Compile>
     <Compile Include="UnderProcessing.vb" />
-    <Compile Include="updater.Designer.vb">
-      <DependentUpon>updater.vb</DependentUpon>
-    </Compile>
-    <Compile Include="updater.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Usersession.vb" />
     <Compile Include="ViewPackageItem.xaml.vb">
       <DependentUpon>ViewPackageItem.xaml</DependentUpon>
@@ -303,9 +299,6 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
     </EmbeddedResource>
-    <EmbeddedResource Include="updater.resx">
-      <DependentUpon>updater.vb</DependentUpon>
-    </EmbeddedResource>
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
@@ -327,6 +320,20 @@
     </None>
     <AppDesigner Include="My Project\" />
     <Content Include="configures\ReplConf.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\readme.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="ImageMedia\包装系统icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\PackIcon.png" />
+    <Resource Include="Images\PackIcon.ico" />
+    <Resource Include="Images\PackIcon1.png" />
+    <Resource Include="Images\半成品icon%282%29 %281%29.ico" />
+    <Resource Include="Images\包装系统icon.ico" />
+    <Content Include="logs\logs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Service References\LabelDataService\Arrays1.xsd">
@@ -351,30 +358,22 @@
     <None Include="Service References\LabelDataService\service21.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="data\readme.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Resource Include="ImageMedia\包装系统icon.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\PackIcon.png" />
-    <Resource Include="Images\PackIcon.ico" />
-    <Resource Include="Images\PackIcon1.png" />
-    <Resource Include="Images\半成品icon%282%29 %281%29.ico" />
-    <Resource Include="Images\包装系统icon.ico" />
-    <Content Include="logs\logs.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <None Include="Service References\PackService\Arrays.xsd">
+    <None Include="Service References\PackService\Arrays1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PackService\Brilliantech.Framework.WCF.Data.xsd">
+    <None Include="Service References\PackService\Brilliantech.Framework.WCF.Data1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PackService\Brilliantech.Packaging.Data.xsd">
+    <None Include="Service References\PackService\Brilliantech.Packaging.Data1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PackService\Brilliantech.Packaging.WS.xsd">
+    <None Include="Service References\PackService\Brilliantech.Packaging.UI.WorkStation.PackService.EnumObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PackService\Brilliantech.Packaging.UI.WorkStation.PackService.PackageMessage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PackService\Brilliantech.Packaging.WS1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\PackService\configuration91.svcinfo" />
@@ -383,14 +382,20 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
+    <None Include="Service References\LabelDataService\configuration91.svcinfo" />
+    <None Include="Service References\LabelDataService\configuration.svcinfo" />
+    <None Include="Service References\LabelDataService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
     <Content Include="Template\CloseLabel.tff">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="Service References\PackService\service.wsdl" />
-    <None Include="Service References\PackService\service.xsd">
+    <None Include="Service References\PackService\service1.wsdl" />
+    <None Include="Service References\PackService\service2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PackService\service1.xsd">
+    <None Include="Service References\PackService\service21.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Template\CloseLabel.tfs">
@@ -417,10 +422,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\LabelDataService\" />
-    <WCFMetadataStorage Include="Service References\PackService\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\BEEP_error.WAV" />
@@ -461,12 +462,6 @@
     </Content>
     <Resource Include="Images\keyboard.png" />
     <None Include="Resources\WinZ X-Parcel.ico" />
-    <None Include="Service References\LabelDataService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.vb</LastGenOutput>
-    </None>
-    <None Include="Service References\LabelDataService\configuration.svcinfo" />
-    <None Include="Service References\LabelDataService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ImageMedia\Warning.png">
@@ -491,10 +486,6 @@
     <ProjectReference Include="..\Brilliantech.Packaging.Data\Brilliantech.Packaging.Data.vbproj">
       <Project>{DA62D6C4-2840-451F-BCD2-5D44F062455E}</Project>
       <Name>Brilliantech.Packaging.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Brilliantech.PackagingWS\Brilliantech.PackagingWS.vbproj">
-      <Project>{2EFBD1C3-2EAF-44E7-8184-E0A366F37B30}</Project>
-      <Name>Brilliantech.PackagingWS</Name>
     </ProjectReference>
     <ProjectReference Include="..\Brilliantech.ReportGenConnector\Brilliantech.ReportGenConnector\Brilliantech.ReportGenConnector.vbproj">
       <Project>{8D7463C5-10DF-4ADA-B33B-1C3A941F2C4E}</Project>
@@ -590,6 +581,9 @@
       <FileType>File</FileType>
     </PublishFile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\LabelDataService\" />
+    <WCFMetadataStorage Include="Service References\PackService\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

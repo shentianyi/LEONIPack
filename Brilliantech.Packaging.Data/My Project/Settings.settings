@@ -10,5 +10,13 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=WSCNS400\DEV01;Initial Catalog=Leoni_Packaging;Persist Security Info=True;User ID=sa;Password=1984323</Value>
     </Setting>
+    <Setting Name="Leoni_Packaging_prodConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=TIANYI-V-WIN03\dev001;Initial Catalog=Leoni_Packaging_prod;Persist Security Info=True;User ID=sa;Password=123456@&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=TIANYI-V-WIN03\dev001;Initial Catalog=Leoni_Packaging_prod;Persist Security Info=True;User ID=sa;Password=123456@</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

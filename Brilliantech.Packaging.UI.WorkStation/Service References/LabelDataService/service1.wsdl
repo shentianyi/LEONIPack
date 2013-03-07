@@ -74,7 +74,7 @@
   </wsdl:binding>
   <wsdl:service name="PrintService">
     <wsdl:port name="BasicHttpBinding_IPrintService" binding="tns:BasicHttpBinding_IPrintService">
-      <soap:address location="http://localhost:8080/labelService/basic" />
+      <soap:address location="http://localhost:9000/labelService/basic" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

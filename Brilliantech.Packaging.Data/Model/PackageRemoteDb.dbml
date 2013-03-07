@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Leoni_Packaging_prod" Class="PackagingDataDataContext" Serialization="Unidirectional" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=TIANYI-V-WIN03\dev001;Initial Catalog=Leoni_Packaging_prod;Persist Security Info=True;User ID=sa" SettingsObjectName="Brilliantech.Packaging.Data.My.MySettings" SettingsPropertyName="Leoni_Packaging_prodConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ContainerType" Member="ContainerTypes">
+    <Type Name="ContainerType">
+      <Column Name="containerID" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="containerName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="containerDesc" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="long" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="width" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="height" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="reusable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WorkStation" Member="WorkStations">
+    <Type Name="WorkStation">
+      <Column Name="wrkStnID" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="wrkStnName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="prodLineID" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="WorkStation_CustomValidate" Member="CustomValidates" ThisKey="wrkStnID" OtherKey="wrkstNr" Type="CustomValidate" />
+      <Association Name="WorkStation_PartAllowedSec" Member="PartAllowedSecs" ThisKey="wrkStnID" OtherKey="wrkstnr" Type="PartAllowedSec" />
+      <Association Name="WorkStation_SinglePackage" Member="SinglePackages" ThisKey="wrkStnID" OtherKey="wrkstnID" Type="SinglePackage" />
+      <Association Name="ProdLine_WorkStation" Member="ProdLine" ThisKey="prodLineID" OtherKey="prodLineID" Type="ProdLine" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CustomValidate" Member="CustomValidates">
+    <Type Name="CustomValidate">
+      <Column Name="validateId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="validateName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="validatePattern" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="partNr" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="wrkstNr" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="WorkStation_CustomValidate" Member="WorkStation" ThisKey="wrkstNr" OtherKey="wrkStnID" Type="WorkStation" IsForeignKey="true" />
+      <Association Name="Part_CustomValidate" Member="Part" ThisKey="partNr" OtherKey="partNr" Type="Part" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.History" Member="Histories">
+    <Type Name="History">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="packageID" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="eventID" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="message" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="PackagingEvent_History" Member="PackagingEvent" ThisKey="eventID" OtherKey="eventID" Type="PackagingEvent" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PackageItem" Member="PackageItems">
+    <Type Name="PackageItem">
+      <Column Name="itemUid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="itemSeq" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TNr" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="packagingTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="packageID" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="SinglePackage_PackageItem" Member="SinglePackage" ThisKey="packageID" OtherKey="packageID" Type="SinglePackage" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PackagingEvent" Member="PackagingEvents">
+    <Type Name="PackagingEvent">
+      <Column Name="eventID" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="eventShortDesc" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="eventDesc" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="eventLevel" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="PackagingEvent_History" Member="Histories" ThisKey="eventID" OtherKey="eventID" Type="History" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Part" Member="Parts">
+    <Type Name="Part">
+      <Column Name="partNr" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="partName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="customerPartNr" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="projectID" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="customerPCR" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="Part_CustomValidate" Member="CustomValidates" ThisKey="partNr" OtherKey="partNr" Type="CustomValidate" />
+      <Association Name="Part_PartAllowedSec" Member="PartAllowedSecs" ThisKey="partNr" OtherKey="partNr" Type="PartAllowedSec" />
+      <Association Name="Part_PartContainerLabel" Member="PartContainerLabels" ThisKey="partNr" OtherKey="partNr" Type="PartContainerLabel" />
+      <Association Name="Part_SinglePackage" Member="SinglePackages" ThisKey="partNr" OtherKey="partNr" Type="SinglePackage" />
+      <Association Name="Part_SourceBarcode" Member="SourceBarcodes" ThisKey="partNr" OtherKey="partNr" Type="SourceBarcode" />
+      <Association Name="Project_Part" Member="Project" ThisKey="projectID" OtherKey="projectID" Type="Project" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PartAllowedSec" Member="PartAllowedSecs">
+    <Type Name="PartAllowedSec">
+      <Column Name="relId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="wrkstnr" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="partNr" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="sec" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="Part_PartAllowedSec" Member="Part" ThisKey="partNr" OtherKey="partNr" Type="Part" IsForeignKey="true" />
+      <Association Name="WorkStation_PartAllowedSec" Member="WorkStation" ThisKey="wrkstnr" OtherKey="wrkStnID" Type="WorkStation" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PartContainerLabel" Member="PartContainerLabels">
+    <Type Name="PartContainerLabel">
+      <Column Name="relID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="partNr" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="labelTemplateName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="labelTeplateFile" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="labelType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="piece" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="Part_PartContainerLabel" Member="Part" ThisKey="partNr" OtherKey="partNr" Type="Part" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProdLine" Member="ProdLines">
+    <Type Name="ProdLine">
+      <Column Name="prodLineID" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="prodLineName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="projectID" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="ProdLine_WorkStation" Member="WorkStations" ThisKey="prodLineID" OtherKey="prodLineID" Type="WorkStation" />
+      <Association Name="Project_ProdLine" Member="Project" ThisKey="projectID" OtherKey="projectID" Type="Project" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Project" Member="Projects">
+    <Type Name="Project">
+      <Column Name="projectID" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="projectName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="Project_Part" Member="Parts" ThisKey="projectID" OtherKey="projectID" Type="Part" />
+      <Association Name="Project_ProdLine" Member="ProdLines" ThisKey="projectID" OtherKey="projectID" Type="ProdLine" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SinglePackage" Member="SinglePackages">
+    <Type Name="SinglePackage">
+      <Column Name="packageID" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="capa" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="containerID" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="planedDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="partNr" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="wrkstnID" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="SinglePackage_PackageItem" Member="PackageItems" ThisKey="packageID" OtherKey="packageID" Type="PackageItem" />
+      <Association Name="SinglePackage_TrayItem" Member="TrayItems" ThisKey="packageID" OtherKey="packageId" Type="TrayItem" />
+      <Association Name="Part_SinglePackage" Member="Part" ThisKey="partNr" OtherKey="partNr" Type="Part" IsForeignKey="true" />
+      <Association Name="WorkStation_SinglePackage" Member="WorkStation" ThisKey="wrkstnID" OtherKey="wrkStnID" Type="WorkStation" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SourceBarcode" Member="SourceBarcodes">
+    <Type Name="SourceBarcode">
+      <Column Name="sourceID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="partNr" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="defaultFixedText" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="fromPosition" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="length" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="isUniq" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="Part_SourceBarcode" Member="Part" ThisKey="partNr" OtherKey="partNr" Type="Part" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TrayItem" Member="TrayItems">
+    <Type Name="TrayItem">
+      <Column Name="itemId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="packageId" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="trayId" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="SinglePackage_TrayItem" Member="SinglePackage" ThisKey="packageId" OtherKey="packageID" Type="SinglePackage" IsForeignKey="true" />
+      <Association Name="Tray_TrayItem" Member="Tray" ThisKey="trayId" OtherKey="trayId" Type="Tray" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Trays" Member="Trays">
+    <Type Name="Tray">
+      <Column Name="trayId" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="createTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="warehouse" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="position" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="Tray_TrayItem" Member="TrayItems" ThisKey="trayId" OtherKey="trayId" Type="TrayItem" />
+    </Type>
+  </Table>
+</Database>

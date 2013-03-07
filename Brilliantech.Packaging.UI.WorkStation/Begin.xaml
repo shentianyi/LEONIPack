@@ -65,11 +65,6 @@
                     <DropShadowEffect BlurRadius="16" Direction="327" Opacity="0.225" />
                 </Button.Effect>
             </Button>
-            <Button Name="Button_ManuSyn" HorizontalAlignment="Right" BorderBrush="{x:Null}" Content="马上同步" MaxWidth="50"  MinWidth=" 50" MinHeight=" 50" Margin="10,0,0,15" Background="#FF77B116" Foreground="Black" FontSize="11" IsCancel="True">
-                <Button.Effect>
-                    <DropShadowEffect BlurRadius="16" Direction="327" Opacity="0.225"/>
-                </Button.Effect>
-            </Button>
             <Button Name="Button_Exist" BorderBrush="{x:Null}" Content="退出" MaxWidth="50" MinHeight=" 30" Margin="10,0,0,15" Background="#FF77B116" Foreground="Black" FontSize="16" IsCancel="True">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="16" Direction="327" Opacity="0.225" />

@@ -53,28 +53,6 @@ Namespace My
                 Return defaultInstance
             End Get
         End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=WSCNS400\DEV01;Initial Catalog=Leoni_Packaging;Persist Security Info="& _ 
-            "True;User ID=sa;Password=1984323")>  _
-        Public ReadOnly Property Leoni_PackagingConnectionString() As String
-            Get
-                Return CType(Me("Leoni_PackagingConnectionString"),String)
-            End Get
-        End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=TIANYI-V-WIN03\dev001;Initial Catalog=Leoni_Packaging_prod;Persist Se"& _ 
-            "curity Info=True;User ID=sa;Password=123456@")>  _
-        Public ReadOnly Property Leoni_Packaging_prodConnectionString() As String
-            Get
-                Return CType(Me("Leoni_Packaging_prodConnectionString"),String)
-            End Get
-        End Property
     End Class
 End Namespace
 
@@ -86,9 +64,9 @@ Namespace My
     Friend Module MySettingsProperty
         
         <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>  _
-        Friend ReadOnly Property Settings() As Global.Brilliantech.Packaging.Data.My.MySettings
+        Friend ReadOnly Property Settings() As Global.PackSvc.My.MySettings
             Get
-                Return Global.Brilliantech.Packaging.Data.My.MySettings.Default
+                Return Global.PackSvc.My.MySettings.Default
             End Get
         End Property
     End Module

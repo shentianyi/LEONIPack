@@ -58,15 +58,15 @@
                 <StackPanel Name="basicInfo" Orientation="Horizontal">
                     <StackPanel Orientation="Horizontal" Margin="5,5,5,0">
                         <Label HorizontalAlignment="Left" Content="操作台" Foreground="White"/>
-                        <Label HorizontalAlignment="Stretch" FontSize="13" FontWeight="Bold" Background="#00000000" Foreground="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" Content="{Binding Path=WrkstnID}" />
+                        <Label HorizontalAlignment="Stretch" FontSize="13" FontWeight="Bold" Background="#00000000" Foreground="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" Content="{Binding Path=wrkstnID}" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="20,5,5,0" >
                         <Label HorizontalAlignment="Left" Content="零件号" Foreground="White"/>
-                        <Label HorizontalAlignment="Stretch" FontSize="13" FontWeight="Bold" Foreground="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" Content="{Binding Path=PartNr}"/>
+                        <Label HorizontalAlignment="Stretch" FontSize="13" FontWeight="Bold" Foreground="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" Content="{Binding Path=partNr}"/>
                     </StackPanel>
                     <StackPanel  Orientation="Horizontal" Margin="20,5,5,0">
                         <Label HorizontalAlignment="Left" Content="包装箱号：" Foreground="White"/>
-                        <Label HorizontalAlignment="Stretch" FontSize="13" FontWeight="Bold" Foreground="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" Content="{Binding Path=PackageID}"/>
+                        <Label HorizontalAlignment="Stretch" FontSize="13" FontWeight="Bold" Foreground="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" Content="{Binding Path=packageID}"/>
                     </StackPanel>
                     <Button VerticalAlignment="Center" HorizontalAlignment="Right"  Background="#FF77B116" Content="选择打印机" Foreground="White" Name="Button1">
                         
