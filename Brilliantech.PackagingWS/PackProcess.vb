@@ -28,6 +28,8 @@ Public Class PackProcess
 
 
 
+
+
     ''' <summary>
     ''' Nini ini 配置实例
     ''' </summary>
@@ -504,5 +506,29 @@ Public Class PackProcess
     ''' <remarks></remarks>
     Public Function GetPackageStatus() As System.Collections.Generic.List(Of EnumObject) Implements IPackProcess.GetPackageStatus
         Return EnumObject.TryParse(GetType(PackageStatus))
+    End Function
+
+    Public Function GetValidateItemsByPackageId(ByVal packageId As String) As System.Collections.Generic.List(Of Data.CustomValidate) Implements IPackProcess.GetValidateItemsByPackageId
+        Dim packUtil As PackageUtil = New PackageUtil
+        Dim package As PackageMessage = packUtil.FindByID(packageId)
+        If package.Package IsNot Nothing Then
+            Dim unitOfWork As IUnitofWork = New PackagingDataDataContext(connStr)
+            Dim validateRepo As CustomValidateRepo = New CustomValidateRepo(unitOfWork)
+            Return validateRepo.GetByPartAndWrkstnr(package.Package.PartNr, package.Package.WrkstnID)
+        Else
+            Return New List(Of CustomValidate)
+        End If
+    End Function
+
+    Public Function GetValidateItemsByPartAndWrkst(ByVal partNr As String, ByVal wrkstnr As String) As System.Collections.Generic.List(Of Data.CustomValidate) Implements IPackProcess.GetValidateItemsByPartAndWrkst
+        Dim unitOfWork As IUnitofWork = New PackagingDataDataContext(connStr)
+        Dim validateRepo As CustomValidateRepo = New CustomValidateRepo(unitOfWork)
+        Return validateRepo.GetByPartAndWrkstnr(partNr, wrkstnr)
+    End Function
+
+    Public Function WorkstationExists(ByVal wrkstnr As String) As Boolean Implements IPackProcess.WorkstationExists
+        Dim unitOfWork As IUnitofWork = New PackagingDataDataContext(connStr)
+        Dim wrkstRepo As IWorkStationRepo = New WorkStationRepo(unitOfWork)
+        Return wrkstRepo.Exists(wrkstnr)
     End Function
 End Class

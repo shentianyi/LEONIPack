@@ -9,6 +9,7 @@ Imports System.Windows.Media.Animation
 Imports System.Windows.Navigation
 Imports Brilliantech.Packaging.UI.WorkStation.PackService
 Imports System.ComponentModel
+Imports Brilliantech.Packaging.WS
 
 
 Public Class PackView
@@ -63,7 +64,7 @@ Public Class PackView
         End Try
     End Sub
 
-  
+
     Private Sub Button_reset_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles Button_reset.Click
         Me.tb_packId.Text = ""
         Me.tb_partnr.Text = ""

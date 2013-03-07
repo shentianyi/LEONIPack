@@ -222,4 +222,47 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetValidateItemsByPackageId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="packageId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetValidateItemsByPackageIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Brilliantech.Packaging.Data" minOccurs="0" name="GetValidateItemsByPackageIdResult" nillable="true" type="q17:ArrayOfCustomValidate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetValidateItemsByPartAndWrkst">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="partNr" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="wrkstnr" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetValidateItemsByPartAndWrkstResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Brilliantech.Packaging.Data" minOccurs="0" name="GetValidateItemsByPartAndWrkstResult" nillable="true" type="q18:ArrayOfCustomValidate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WorkstationExists">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="wrkstnr" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WorkstationExistsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="WorkstationExistsResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

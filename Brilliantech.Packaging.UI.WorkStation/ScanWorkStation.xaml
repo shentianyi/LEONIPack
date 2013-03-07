@@ -1,0 +1,26 @@
+﻿<Window x:Class="ScanWorkStation"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="包装扫描系统-请扫描包装台号" Height="330" Width="660" BorderThickness="0" WindowStyle="None"  AllowsTransparency="True"   Foreground="White" Background="{x:Null}" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <Border CornerRadius="20" Opacity="0.9">
+        <Border.Background>
+            <RadialGradientBrush>
+                <GradientStop Color="#FF14B8EF" Offset="0"/>
+                <GradientStop Color="#FF0079FF" Offset="1"/>
+            </RadialGradientBrush>
+        </Border.Background>
+        <Grid>
+            <Canvas>
+                <Label Canvas.Left="85" Canvas.Top="81" Content="请扫描工作台号" Height="36" Name="Label1" FontSize="20" Foreground="White" />
+                <Label Canvas.Left="25" Canvas.Top="150" Content="请再扫描一次工作台号" Height="42" Name="Label2" FontSize="20" Foreground="White" />
+                <TextBox Canvas.Left="262" Canvas.Top="74" Height="43" Name="TextBox_firstScan" Width="244" FontSize="20" />
+                <TextBox Canvas.Left="262" Canvas.Top="150" Height="40" Name="TextBox_secondScan" Width="244" FontSize="20" />
+                <Button Canvas.Left="431" Canvas.Top="226" Content="重置" Height="37" Name="bt_reset" Width="75" BorderBrush="White" Background="#FF56B400" Foreground="White" />
+                <Button Background="#FF56B400" BorderBrush="White" Canvas.Left="534" Canvas.Top="226" Content="退出" Foreground="White" Height="37" Name="Button_exit" Width="75" />
+            </Canvas>
+        </Grid>
+    </Border>
+
+</Window>
+

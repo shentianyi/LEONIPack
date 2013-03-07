@@ -72,10 +72,10 @@
     <Compile Include="Enum\PackagingType.vb" />
     <Compile Include="Model\FullPackageInfo.vb" />
     <Compile Include="Model\IUnitofWork.vb" />
-    <Compile Include="Model\packageData201208111723.designer.vb">
+    <Compile Include="Model\packaging12226.designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>packageData201208111723.dbml</DependentUpon>
+      <DependentUpon>packaging12226.dbml</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -99,8 +99,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Model\packageData201208111723.dbml.layout">
-      <DependentUpon>packageData201208111723.dbml</DependentUpon>
+    <None Include="Model\packaging12226.dbml.layout">
+      <DependentUpon>packaging12226.dbml</DependentUpon>
     </None>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -110,9 +110,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Model\packageData201208111723.dbml">
+    <None Include="Model\packaging12226.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>packageData201208111723.designer.vb</LastGenOutput>
+      <LastGenOutput>packaging12226.designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="My Project\Application.myapp">

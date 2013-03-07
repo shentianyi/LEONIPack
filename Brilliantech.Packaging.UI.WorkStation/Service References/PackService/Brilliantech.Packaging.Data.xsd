@@ -18,6 +18,13 @@
           </xs:appinfo>
         </xs:annotation>
       </xs:element>
+      <xs:element minOccurs="0" name="TrayItems" nillable="true" type="tns:ArrayOfTrayItem">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:element name="SinglePackage" nillable="true" type="tns:SinglePackage" />
@@ -38,6 +45,21 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="PackageItem" nillable="true" type="tns:PackageItem" />
+  <xs:complexType name="ArrayOfTrayItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TrayItem" nillable="true" type="tns:TrayItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTrayItem" nillable="true" type="tns:ArrayOfTrayItem" />
+  <xs:complexType name="TrayItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ItemId" type="ser:guid" />
+      <xs:element minOccurs="0" name="PackageId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TrayId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rowguid" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrayItem" nillable="true" type="tns:TrayItem" />
   <xs:simpleType name="PackagingType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="normal" />
@@ -53,7 +75,7 @@
   <xs:element name="ArrayOfFullPackageInfo" nillable="true" type="tns:ArrayOfFullPackageInfo" />
   <xs:complexType name="FullPackageInfo">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Capa" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Capa" type="xs:int" />
       <xs:element minOccurs="0" name="CustomerPartNr" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="PId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="PartNr" nillable="true" type="xs:string" />
@@ -146,4 +168,21 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="PackageStatus" nillable="true" type="tns:PackageStatus" />
+  <xs:complexType name="ArrayOfCustomValidate">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CustomValidate" nillable="true" type="tns:CustomValidate" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCustomValidate" nillable="true" type="tns:ArrayOfCustomValidate" />
+  <xs:complexType name="CustomValidate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ValidateId" type="ser:guid" />
+      <xs:element minOccurs="0" name="ValidateName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ValidatePattern" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PartNr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WrkstNr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rowguid" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CustomValidate" nillable="true" type="tns:CustomValidate" />
 </xs:schema>

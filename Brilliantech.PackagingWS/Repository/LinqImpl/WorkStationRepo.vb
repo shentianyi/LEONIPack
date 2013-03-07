@@ -91,6 +91,11 @@ Public Class WorkStationRepo
     ''' <returns></returns>
     ''' <remarks></remarks>
     Public Function Exists(id As String) As Boolean Implements IBaseRepo(Of Data.WorkStation).Exists
-        Throw New MethodNotImplementException
+        Dim work As WorkStation = _context.WorkStations.SingleOrDefault(Function(c) String.Compare(c.WrkStnID, id, True) = 0)
+        If work Is Nothing Then
+            Return False
+        Else
+            Return True
+        End If
     End Function
 End Class

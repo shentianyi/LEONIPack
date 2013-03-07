@@ -100,6 +100,24 @@
   <wsdl:message name="IPackProcess_GetPackageStatus_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetPackageStatusResponse" />
   </wsdl:message>
+  <wsdl:message name="IPackProcess_GetValidateItemsByPackageId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetValidateItemsByPackageId" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_GetValidateItemsByPackageId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetValidateItemsByPackageIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_GetValidateItemsByPartAndWrkst_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetValidateItemsByPartAndWrkst" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_GetValidateItemsByPartAndWrkst_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetValidateItemsByPartAndWrkstResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_WorkstationExists_InputMessage">
+    <wsdl:part name="parameters" element="tns:WorkstationExists" />
+  </wsdl:message>
+  <wsdl:message name="IPackProcess_WorkstationExists_OutputMessage">
+    <wsdl:part name="parameters" element="tns:WorkstationExistsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IPackProcess">
     <wsdl:operation name="FindByID">
       <wsdl:input wsaw:Action="http://tempuri.org/IPackProcess/FindByID" message="tns:IPackProcess_FindByID_InputMessage" />
@@ -160,6 +178,18 @@
     <wsdl:operation name="GetPackageStatus">
       <wsdl:input wsaw:Action="http://tempuri.org/IPackProcess/GetPackageStatus" message="tns:IPackProcess_GetPackageStatus_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPackProcess/GetPackageStatusResponse" message="tns:IPackProcess_GetPackageStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetValidateItemsByPackageId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPackProcess/GetValidateItemsByPackageId" message="tns:IPackProcess_GetValidateItemsByPackageId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPackProcess/GetValidateItemsByPackageIdResponse" message="tns:IPackProcess_GetValidateItemsByPackageId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetValidateItemsByPartAndWrkst">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPackProcess/GetValidateItemsByPartAndWrkst" message="tns:IPackProcess_GetValidateItemsByPartAndWrkst_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPackProcess/GetValidateItemsByPartAndWrkstResponse" message="tns:IPackProcess_GetValidateItemsByPartAndWrkst_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="WorkstationExists">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPackProcess/WorkstationExists" message="tns:IPackProcess_WorkstationExists_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPackProcess/WorkstationExistsResponse" message="tns:IPackProcess_WorkstationExists_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IPackProcess" type="tns:IPackProcess">
@@ -292,6 +322,33 @@
     </wsdl:operation>
     <wsdl:operation name="GetPackageStatus">
       <soap:operation soapAction="http://tempuri.org/IPackProcess/GetPackageStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetValidateItemsByPackageId">
+      <soap:operation soapAction="http://tempuri.org/IPackProcess/GetValidateItemsByPackageId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetValidateItemsByPartAndWrkst">
+      <soap:operation soapAction="http://tempuri.org/IPackProcess/GetValidateItemsByPartAndWrkst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WorkstationExists">
+      <soap:operation soapAction="http://tempuri.org/IPackProcess/WorkstationExists" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

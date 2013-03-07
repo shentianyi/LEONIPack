@@ -11,11 +11,23 @@ Class MainWindow
     Private currentPackage As SinglePackage
     Private currentProcess As UnderProcessing
     Private currentPackageId As String
+    Private currentValidate As List(Of CustomValidateViewModel) = New List(Of CustomValidateViewModel)
 
     Public Sub New(packageID As String)
 
         InitializeComponent()
         currentPackageId = packageID
+        SetValidateItems()
+    End Sub
+
+    Private Sub SetValidateItems()
+        Dim client As PackProcessClient = New PackProcessClient
+        Dim _currentValidate() As Data.CustomValidate = client.GetValidateItemsByPackageId(currentPackageId)
+        If _currentValidate IsNot Nothing Then
+            For Each cv As Data.CustomValidate In _currentValidate
+                currentValidate.Add(New CustomValidateViewModel With {.BarcodeItemName = cv.ValidateName, .PatternString = cv.ValidatePattern})
+            Next
+        End If
        
     End Sub
 
@@ -58,9 +70,30 @@ Class MainWindow
         Me.Activate()
     End Sub
 
-    Private Sub Textbox_barcode_KeyUp(sender As Object, e As System.Windows.Input.KeyEventArgs) Handles Textbox_barcode.KeyUp
-        If Convert.ToInt16(e.Key) = Windows.Input.Key.Return Then
-            AddItem(Me.Textbox_barcode.Text)
+    Private Sub ResetValidator()
+        If Me.currentValidate IsNot Nothing Then
+            For Each cv As CustomValidateViewModel In currentValidate
+                cv.IsValidated = False
+            Next
+        End If
+    End Sub
+    Private Sub Textbox_barcode_PreviewKeyDown(ByVal sender As Object, ByVal e As System.Windows.Input.KeyEventArgs) Handles Textbox_barcode.PreviewKeyDown
+        If e.Key = Key.Enter Then
+            If Me.currentValidate.Count > 0 Then
+                Dim validateWin As CustomValidate = New CustomValidate(Me.currentValidate)
+                If validateWin.ShowDialog = False Then
+                    Dim info As InfoBoard = New InfoBoard(MsgLevel.Mistake, "没有通过自定义的扫描验证")
+                    info.ShowDialog()
+                    AutoFocus()
+                Else
+                    AddItem(Me.Textbox_barcode.Text)
+
+                End If
+                resetValidator()
+            Else
+                AddItem(Me.Textbox_barcode.Text)
+            End If
+
 
         End If
     End Sub
@@ -198,7 +231,8 @@ Class MainWindow
     Public Shared Sub PrintFinishLabels(packId As String)
         Dim tasks As List(Of PrintTask) = New List(Of PrintTask)
         Dim f_printClient As PrintServiceClient = New PrintServiceClient
-        tasks = f_printClient.PrintCloseLabel(packId).PrintTask.ToList
+        Dim msg As PrintDataMessage = f_printClient.PrintCloseLabel(packId)
+        tasks = msg.PrintTask.ToList
         For Each task As PrintTask In tasks
             Dim tecITprinter As TecITGener = New TecITGener
             task.Config.Printer = My.Settings.PrinterName

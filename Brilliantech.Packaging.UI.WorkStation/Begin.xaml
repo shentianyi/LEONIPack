@@ -48,7 +48,7 @@
                     <DropShadowEffect BlurRadius="16" Direction="327" Opacity="0.225" />
                 </Button.Effect>
             </Button>
-            <Button Name="Button_softKB" BorderBrush="{x:Null}" Content="软键盘" MaxWidth="45"  MinWidth=" 45" MinHeight=" 30" Margin="10,0,0,15" Background="#FF77B116" Foreground="Black" FontSize="12" IsCancel="True">
+            <Button Name="Button_softKB" BorderBrush="{x:Null}" Content="软键盘" MaxWidth="45"  MinWidth=" 45" MinHeight=" 30" Margin="10,0,0,15" Background="#FF77B116" Foreground="Black" FontSize="12" IsCancel="True" ClickMode="Press">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="16" Direction="327" Opacity="0.225"/>
                 </Button.Effect>
@@ -101,10 +101,10 @@
 			 	  
 			  	
 			 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Margin="10,0,0,25">
-    		  		<Label HorizontalAlignment="Right" Content="请扫描操作台ID" BorderThickness="0" Foreground="Black" FontWeight="Bold" FontSize="16">
+    		  		<Label HorizontalAlignment="Right" Content="当前工作操作台" BorderThickness="0" Foreground="Black" FontWeight="Bold" FontSize="16">
     		  				  		
 					</Label>
-					<TextBox Name="Textbox_workStNr" HorizontalAlignment="Left" MinWidth="200" Margin="25,0,0,0" Background="White"/>
+					<Label  Name="label_workStNr" HorizontalAlignment="Left" MinWidth="200" Margin="25,0,0,0" Background="{x:Null}" FontSize="20" Foreground="White" />
                 </StackPanel>
 
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Margin="10,0,0,25">

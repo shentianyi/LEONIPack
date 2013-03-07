@@ -10,8 +10,7 @@ Imports System.ComponentModel
 
 
 Public Class Begin
-    Dim service_main As ServiceHost
-    Dim service_label As ServiceHost
+
     Private client As PackProcessClient
     Private WithEvents timer As System.Timers.Timer
     Private mode As PackagingType = My.Settings.PackagingType
@@ -81,7 +80,7 @@ Public Class Begin
     Private Sub Restart()
         If My.Settings.autoStart = True Then
             client = New PackProcessClient
-            Dim packageMsg As Brilliantech.Packaging.UI.WorkStation.PackService.PackageMessage = client.FindByID(Me.Textbox_PackageID.Text)
+            Dim packageMsg As PackageMessage = client.FindByID(Me.Textbox_PackageID.Text)
             Try
                 client.Close()
             Catch ex As Exception
@@ -103,7 +102,7 @@ Public Class Begin
     Private Sub RestartSamePart()
         If My.Settings.autoStart = True Then
             client = New PackProcessClient
-            Dim packageMsg As Brilliantech.Packaging.UI.WorkStation.PackService.PackageMessage = client.FindByID(Me.Textbox_PackageID.Text)
+            Dim packageMsg As PackageMessage = client.FindByID(Me.Textbox_PackageID.Text)
             Try
                 client.Close()
             Catch ex As Exception
@@ -122,26 +121,13 @@ Public Class Begin
     End Sub
 
     Private Sub Begin_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Closed
-        Try
-            Me.service_main.Close()
-            Me.service_label.Close()
-            'Try
-            '    ReplicationUtils.ReplicateMasterData()
-            'Catch ex As Exception
-
-            'End Try
-        Catch ex As Exception
-
-        End Try
+       
     End Sub
     Private Sub Window_Loaded(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles MyBase.Loaded
         Try
-            service_main = New ServiceHost(GetType(PackProcess))
-            service_main.Open()
-            service_label = New ServiceHost(GetType(PrintService))
-            service_label.Open()
+          
             Me.Label_versionNr.Content = "当前版本: " & My.Application.Info.Version.ToString
-
+            Me.label_workStNr.Content = Usersession.WorkStationNr
         Catch ex As Exception
             Dim msg As InfoBoard = New InfoBoard(MsgLevel.Mistake, "启动程序失败，这常是由于上次关闭异常或者端口占用引起的，可以通过重启计算机来解决该问题")
             msg.ShowDialog()
@@ -208,7 +194,6 @@ Public Class Begin
 
     Private Sub Clear()
         Me.Textbox_PackageID.Text = ""
-        Me.Textbox_workStNr.Text = ""
         Me.Textbox_PackageID.Focus()
     End Sub
 
@@ -223,20 +208,16 @@ Public Class Begin
 
         End Try
         Me.Close()
-        Environment.Exit(0)
+
     End Sub
 
-    Private Sub Textbox_workStNr_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Input.KeyEventArgs) Handles Textbox_workStNr.KeyUp
-        If e.Key = Key.Return Then
-            StartProcess()
-        End If
-    End Sub
+ 
 
     Private Sub StartProcess()
         client = New PackProcessClient
         Dim unfullId As String
         Try
-            unfullId = client.GetUnfull(Me.Textbox_PackageID.Text.Trim, Me.Textbox_workStNr.Text.Trim)
+            unfullId = client.GetUnfull(Me.Textbox_PackageID.Text.Trim, Usersession.WorkStationNr.Trim)
         Catch ex As Exception
 
         End Try
@@ -268,7 +249,7 @@ Public Class Begin
                 Me.Textbox_PackageID.Text = unfullId
             End If
         Else
-            Dim result As Brilliantech.Packaging.UI.WorkStation.PackService.PackageMessage = client.BeginProcess(Me.Textbox_PackageID.Text.Trim, Me.Textbox_workStNr.Text.Trim, mode)
+            Dim result As PackageMessage = client.BeginProcess(Me.Textbox_PackageID.Text.Trim, Usersession.WorkStationNr.Trim, mode)
             Try
                 client.Close()
             Catch ex As Exception
@@ -299,25 +280,23 @@ Public Class Begin
     Private Sub StartPackWindow(ByVal packId As String)
         Dim main As MainWindow = New MainWindow(packId)
         isStarted = True
-        Me.Hide()
+        'Me.Hide()
         If main.ShowDialog() = True And My.Settings.autoStart = True Then
-            Me.Show()
+            'Me.Show()
             RestartSamePart()
 
 
         Else
-            Me.Show()
+            'Me.Show()
             Me.InitiateObject()
         End If
         isStarted = False
     End Sub
-    Private Sub Textbox_workStNr_TextChanged(ByVal sender As System.Object, ByVal e As System.Windows.Controls.TextChangedEventArgs) Handles Textbox_workStNr.TextChanged
-
-    End Sub
+ 
 
     Private Sub Textbox_PackageID_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Input.KeyEventArgs) Handles Textbox_PackageID.KeyUp
         If e.Key = Key.Return Then
-            Me.Textbox_workStNr.Focus()
+            StartProcess()
         End If
     End Sub
 
@@ -351,12 +330,14 @@ Public Class Begin
     End Sub
 
     Private Sub Button_softKB_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles Button_softKB.Click
+
         Try
             System.Diagnostics.Process.Start("C:\Windows\system32\Osk.exe")
         Catch ex As Exception
 
         End Try
 
+     
     End Sub
 
     Private Sub Button_printFull_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles Button_printFull.Click

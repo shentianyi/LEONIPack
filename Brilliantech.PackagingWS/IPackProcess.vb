@@ -58,6 +58,13 @@ Public Interface IPackProcess
     <OperationContract()>
     Function GetPackageStatus() As List(Of EnumObject)
 
+    <OperationContract()>
+    Function GetValidateItemsByPackageId(ByVal packageId As String) As List(Of CustomValidate)
 
+    <OperationContract()>
+    Function GetValidateItemsByPartAndWrkst(ByVal partNr As String, ByVal wrkstnr As String) As List(Of CustomValidate)
+
+    <OperationContract()>
+    Function WorkstationExists(ByVal wrkstnr As String) As Boolean
 
 End Interface

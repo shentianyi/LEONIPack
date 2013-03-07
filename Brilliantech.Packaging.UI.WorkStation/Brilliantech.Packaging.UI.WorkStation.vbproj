@@ -136,6 +136,10 @@
     <Compile Include="CreatePackage.xaml.vb">
       <DependentUpon>CreatePackage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomValidate.xaml.vb">
+      <DependentUpon>CustomValidate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomValidateViewModel.vb" />
     <Compile Include="Logger.vb" />
     <Compile Include="PackView.xaml.vb" />
     <Compile Include="enterPsw.xaml.vb">
@@ -155,6 +159,9 @@
       <DependentUpon>printLabel.xaml</DependentUpon>
     </Compile>
     <Compile Include="ReplicationUtils.vb" />
+    <Compile Include="ScanWorkStation.xaml.vb">
+      <DependentUpon>ScanWorkStation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Service References\LabelDataService\Reference.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -178,6 +185,7 @@
     <Compile Include="updater.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Usersession.vb" />
     <Compile Include="ViewPackageItem.xaml.vb">
       <DependentUpon>ViewPackageItem.xaml</DependentUpon>
     </Compile>
@@ -194,6 +202,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CreatePackage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomValidate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -230,6 +242,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="printLabel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ScanWorkStation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -299,8 +315,10 @@
     </Content>
     <None Include="My Project\app.manifest" />
     <None Include="My Project\DataSources\Brilliantech.Framework.WCF.Data.ServiceMessage.datasource" />
+    <None Include="My Project\DataSources\Brilliantech.Packaging.Data.CustomValidate.datasource" />
     <None Include="My Project\DataSources\Brilliantech.Packaging.Data.FullPackageInfo.datasource" />
     <None Include="My Project\DataSources\Brilliantech.Packaging.Data.PackageItem.datasource" />
+    <None Include="My Project\DataSources\Brilliantech.Packaging.WS.EnumObject.datasource" />
     <None Include="My Project\DataSources\Brilliantech.Packaging.WS.PackageMessage.datasource" />
     <None Include="My Project\DataSources\Brilliantech.Packaging.WS.PrintDataMessage.datasource" />
     <None Include="My Project\Settings.settings">
@@ -333,31 +351,6 @@
     <None Include="Service References\LabelDataService\service21.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PackService\Arrays.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PackService\Brilliantech.Framework.WCF.Data.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PackService\Brilliantech.Packaging.Data.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PackService\Brilliantech.Packaging.UI.WorkStation.PackService.EnumObject.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\PackService\Brilliantech.Packaging.UI.WorkStation.PackService.PackageMessage.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\PackService\Brilliantech.Packaging.WS.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PackService\service.wsdl" />
-    <None Include="Service References\PackService\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PackService\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="data\readme.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -372,9 +365,34 @@
     <Content Include="logs\logs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Service References\PackService\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PackService\Brilliantech.Framework.WCF.Data.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PackService\Brilliantech.Packaging.Data.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PackService\Brilliantech.Packaging.WS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PackService\configuration91.svcinfo" />
+    <None Include="Service References\PackService\configuration.svcinfo" />
+    <None Include="Service References\PackService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
     <Content Include="Template\CloseLabel.tff">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Service References\PackService\service.wsdl" />
+    <None Include="Service References\PackService\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PackService\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Template\CloseLabel.tfs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -442,12 +460,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="Images\keyboard.png" />
-    <None Include="Service References\PackService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.vb</LastGenOutput>
-    </None>
-    <None Include="Service References\PackService\configuration.svcinfo" />
-    <None Include="Service References\PackService\configuration91.svcinfo" />
     <None Include="Resources\WinZ X-Parcel.ico" />
     <None Include="Service References\LabelDataService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>

@@ -98,6 +98,7 @@
     <Compile Include="Repository\Interface\IBaseRepo.vb" />
     <Compile Include="Repository\Interface\IContainerLabelRepo.vb" />
     <Compile Include="Repository\Interface\IContainerTypeRepo.vb" />
+    <Compile Include="Repository\Interface\ICustomValidateRepo.vb" />
     <Compile Include="Repository\Interface\IEventRepo.vb" />
     <Compile Include="Repository\Interface\IHistoryRepo.vb" />
     <Compile Include="Repository\Interface\IPartRepository.vb" />
@@ -107,6 +108,7 @@
     <Compile Include="Repository\Interface\IWorkStationRepo.vb" />
     <Compile Include="Repository\LinqImpl\ContainerLabelRepo.vb" />
     <Compile Include="Repository\LinqImpl\ContainerTypeRepo.vb" />
+    <Compile Include="Repository\LinqImpl\CustomValidateRepo.vb" />
     <Compile Include="Repository\LinqImpl\EventRepo.vb" />
     <Compile Include="Repository\LinqImpl\HistoryRepo.vb" />
     <Compile Include="Repository\LinqImpl\PartRepo.vb" />

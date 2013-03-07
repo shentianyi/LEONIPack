@@ -63,13 +63,14 @@ Public Class PrintService
                 LabelData.Add("wrkstnr", package.WrkstnID)
                 LabelData.Add("planedDate", DateTime.Parse(package.PlanedDate).ToString("yyyy-MM-dd"))
                 LabelData.Add("status", package.Status)
-                LabelData.Add("FIFO", Now().ToString("ddMMyy"))
+                LabelData.Add("FIFO", Now().ToString("dd.MM.yy"))
                 LabelData.Add("custPartnr", package.Part.CustomerPartNr)
                 Dim records As RecordSet = New RecordSet
                 records.Add(LabelData)
 
 
                 Dim templateName As String = myConfig.Configs("LabelTemplateName").Get("CloseLabelFile")
+
                 Dim containerLabel As PartContainerLabel = package.Part.PartContainerLabels.FirstOrDefault(Function(c) c.LabelTemplateName = templateName)
                 Dim task As PrintTask = New PrintTask With {.Config = New ReportGenConfig With {.NumberOfCopies = piece, .Template = containerLabel.LabelTeplateFile}, .DataSet = records}
                 Dim tasks As List(Of PrintTask) = New List(Of PrintTask)
