@@ -67,10 +67,10 @@
 
                 <DataGrid.Columns>
 
-                    <DataGridTextColumn Header="包装箱号" Binding="{Binding Path=PackageID}" ElementStyle="{StaticResource contentCenterStyle}"/>
+                    <DataGridTextColumn Header="包装箱号" Binding="{Binding Path=packageID}" ElementStyle="{StaticResource contentCenterStyle}"/>
                     <DataGridTextColumn Header="唯一号" Binding="{Binding Path=TNr}" ElementStyle="{StaticResource contentCenterStyle}"/>
-                    <DataGridTextColumn Header="装入时间" Binding="{Binding Path=PackagingTime}" ElementStyle="{StaticResource contentCenterStyle}"/>
-                    <DataGridTextColumn Header="装入顺序" Binding="{Binding Path=ItemSeq}" ElementStyle="{StaticResource contentCenterStyle}"/>
+                    <DataGridTextColumn Header="装入时间" Binding="{Binding Path=packagingTime}" ElementStyle="{StaticResource contentCenterStyle}"/>
+                    <DataGridTextColumn Header="装入顺序" Binding="{Binding Path=itemSeq}" ElementStyle="{StaticResource contentCenterStyle}"/>
              
                 </DataGrid.Columns>
             </DataGrid>

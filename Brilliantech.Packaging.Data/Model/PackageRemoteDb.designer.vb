@@ -38,12 +38,6 @@ Partial Public Class PackagingDataDataContext
     End Sub
   Partial Private Sub DeleteContainerType(instance As ContainerType)
     End Sub
-  Partial Private Sub InsertWorkStation(instance As WorkStation)
-    End Sub
-  Partial Private Sub UpdateWorkStation(instance As WorkStation)
-    End Sub
-  Partial Private Sub DeleteWorkStation(instance As WorkStation)
-    End Sub
   Partial Private Sub InsertCustomValidate(instance As CustomValidate)
     End Sub
   Partial Private Sub UpdateCustomValidate(instance As CustomValidate)
@@ -122,6 +116,12 @@ Partial Public Class PackagingDataDataContext
     End Sub
   Partial Private Sub DeleteTray(instance As Tray)
     End Sub
+  Partial Private Sub InsertWorkStation(instance As WorkStation)
+    End Sub
+  Partial Private Sub UpdateWorkStation(instance As WorkStation)
+    End Sub
+  Partial Private Sub DeleteWorkStation(instance As WorkStation)
+    End Sub
   #End Region
 	
 	Public Sub New()
@@ -152,12 +152,6 @@ Partial Public Class PackagingDataDataContext
 	Public ReadOnly Property ContainerTypes() As System.Data.Linq.Table(Of ContainerType)
 		Get
 			Return Me.GetTable(Of ContainerType)
-		End Get
-	End Property
-	
-	Public ReadOnly Property WorkStations() As System.Data.Linq.Table(Of WorkStation)
-		Get
-			Return Me.GetTable(Of WorkStation)
 		End Get
 	End Property
 	
@@ -236,6 +230,12 @@ Partial Public Class PackagingDataDataContext
 	Public ReadOnly Property Trays() As System.Data.Linq.Table(Of Tray)
 		Get
 			Return Me.GetTable(Of Tray)
+		End Get
+	End Property
+	
+	Public ReadOnly Property WorkStations() As System.Data.Linq.Table(Of WorkStation)
+		Get
+			Return Me.GetTable(Of WorkStation)
 		End Get
 	End Property
 End Class
@@ -527,305 +527,6 @@ Partial Public Class ContainerType
 	End Sub
 End Class
 
-<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.WorkStation"),  _
- Global.System.Runtime.Serialization.DataContractAttribute()>  _
-Partial Public Class WorkStation
-	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
-	
-	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
-	
-	Private _wrkStnID As String
-	
-	Private _wrkStnName As String
-	
-	Private _status As Byte
-	
-	Private _prodLineID As String
-	
-	Private _rowguid As System.Guid
-	
-	Private _CustomValidates As EntitySet(Of CustomValidate)
-	
-	Private _PartAllowedSecs As EntitySet(Of PartAllowedSec)
-	
-	Private _SinglePackages As EntitySet(Of SinglePackage)
-	
-	Private _ProdLine As EntityRef(Of ProdLine)
-	
-	Private serializing As Boolean
-	
-    #Region "可扩展性方法定义"
-    Partial Private Sub OnLoaded()
-    End Sub
-    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
-    End Sub
-    Partial Private Sub OnCreated()
-    End Sub
-    Partial Private Sub OnwrkStnIDChanging(value As String)
-    End Sub
-    Partial Private Sub OnwrkStnIDChanged()
-    End Sub
-    Partial Private Sub OnwrkStnNameChanging(value As String)
-    End Sub
-    Partial Private Sub OnwrkStnNameChanged()
-    End Sub
-    Partial Private Sub OnstatusChanging(value As Byte)
-    End Sub
-    Partial Private Sub OnstatusChanged()
-    End Sub
-    Partial Private Sub OnprodLineIDChanging(value As String)
-    End Sub
-    Partial Private Sub OnprodLineIDChanged()
-    End Sub
-    Partial Private Sub OnrowguidChanging(value As System.Guid)
-    End Sub
-    Partial Private Sub OnrowguidChanged()
-    End Sub
-    #End Region
-	
-	Public Sub New()
-		MyBase.New
-		Me.Initialize
-	End Sub
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_wrkStnID", DbType:="VarChar(15) NOT NULL", CanBeNull:=false, IsPrimaryKey:=true),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=1)>  _
-	Public Property wrkStnID() As String
-		Get
-			Return Me._wrkStnID
-		End Get
-		Set
-			If (String.Equals(Me._wrkStnID, value) = false) Then
-				Me.OnwrkStnIDChanging(value)
-				Me.SendPropertyChanging
-				Me._wrkStnID = value
-				Me.SendPropertyChanged("wrkStnID")
-				Me.OnwrkStnIDChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_wrkStnName", DbType:="VarChar(30) NOT NULL", CanBeNull:=false),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=2)>  _
-	Public Property wrkStnName() As String
-		Get
-			Return Me._wrkStnName
-		End Get
-		Set
-			If (String.Equals(Me._wrkStnName, value) = false) Then
-				Me.OnwrkStnNameChanging(value)
-				Me.SendPropertyChanging
-				Me._wrkStnName = value
-				Me.SendPropertyChanged("wrkStnName")
-				Me.OnwrkStnNameChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_status", DbType:="TinyInt NOT NULL"),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=3)>  _
-	Public Property status() As Byte
-		Get
-			Return Me._status
-		End Get
-		Set
-			If ((Me._status = value)  _
-						= false) Then
-				Me.OnstatusChanging(value)
-				Me.SendPropertyChanging
-				Me._status = value
-				Me.SendPropertyChanged("status")
-				Me.OnstatusChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_prodLineID", DbType:="VarChar(15) NOT NULL", CanBeNull:=false),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=4)>  _
-	Public Property prodLineID() As String
-		Get
-			Return Me._prodLineID
-		End Get
-		Set
-			If (String.Equals(Me._prodLineID, value) = false) Then
-				If Me._ProdLine.HasLoadedOrAssignedValue Then
-					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
-				End If
-				Me.OnprodLineIDChanging(value)
-				Me.SendPropertyChanging
-				Me._prodLineID = value
-				Me.SendPropertyChanged("prodLineID")
-				Me.OnprodLineIDChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_rowguid", DbType:="UniqueIdentifier NOT NULL"),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=5)>  _
-	Public Property rowguid() As System.Guid
-		Get
-			Return Me._rowguid
-		End Get
-		Set
-			If ((Me._rowguid = value)  _
-						= false) Then
-				Me.OnrowguidChanging(value)
-				Me.SendPropertyChanging
-				Me._rowguid = value
-				Me.SendPropertyChanged("rowguid")
-				Me.OnrowguidChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="WorkStation_CustomValidate", Storage:="_CustomValidates", ThisKey:="wrkStnID", OtherKey:="wrkstNr"),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=6, EmitDefaultValue:=false)>  _
-	Public Property CustomValidates() As EntitySet(Of CustomValidate)
-		Get
-			If (Me.serializing  _
-						AndAlso (Me._CustomValidates.HasLoadedOrAssignedValues = false)) Then
-				Return Nothing
-			End If
-			Return Me._CustomValidates
-		End Get
-		Set
-			Me._CustomValidates.Assign(value)
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="WorkStation_PartAllowedSec", Storage:="_PartAllowedSecs", ThisKey:="wrkStnID", OtherKey:="wrkstnr"),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=7, EmitDefaultValue:=false)>  _
-	Public Property PartAllowedSecs() As EntitySet(Of PartAllowedSec)
-		Get
-			If (Me.serializing  _
-						AndAlso (Me._PartAllowedSecs.HasLoadedOrAssignedValues = false)) Then
-				Return Nothing
-			End If
-			Return Me._PartAllowedSecs
-		End Get
-		Set
-			Me._PartAllowedSecs.Assign(value)
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="WorkStation_SinglePackage", Storage:="_SinglePackages", ThisKey:="wrkStnID", OtherKey:="wrkstnID"),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=8, EmitDefaultValue:=false)>  _
-	Public Property SinglePackages() As EntitySet(Of SinglePackage)
-		Get
-			If (Me.serializing  _
-						AndAlso (Me._SinglePackages.HasLoadedOrAssignedValues = false)) Then
-				Return Nothing
-			End If
-			Return Me._SinglePackages
-		End Get
-		Set
-			Me._SinglePackages.Assign(value)
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="ProdLine_WorkStation", Storage:="_ProdLine", ThisKey:="prodLineID", OtherKey:="prodLineID", IsForeignKey:=true)>  _
-	Public Property ProdLine() As ProdLine
-		Get
-			Return Me._ProdLine.Entity
-		End Get
-		Set
-			Dim previousValue As ProdLine = Me._ProdLine.Entity
-			If ((Object.Equals(previousValue, value) = false)  _
-						OrElse (Me._ProdLine.HasLoadedOrAssignedValue = false)) Then
-				Me.SendPropertyChanging
-				If ((previousValue Is Nothing)  _
-							= false) Then
-					Me._ProdLine.Entity = Nothing
-					previousValue.WorkStations.Remove(Me)
-				End If
-				Me._ProdLine.Entity = value
-				If ((value Is Nothing)  _
-							= false) Then
-					value.WorkStations.Add(Me)
-					Me._prodLineID = value.prodLineID
-				Else
-					Me._prodLineID = CType(Nothing, String)
-				End If
-				Me.SendPropertyChanged("ProdLine")
-			End If
-		End Set
-	End Property
-	
-	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
-	
-	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
-	
-	Protected Overridable Sub SendPropertyChanging()
-		If ((Me.PropertyChangingEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
-		End If
-	End Sub
-	
-	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
-		If ((Me.PropertyChangedEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
-		End If
-	End Sub
-	
-	Private Sub attach_CustomValidates(ByVal entity As CustomValidate)
-		Me.SendPropertyChanging
-		entity.WorkStation = Me
-	End Sub
-	
-	Private Sub detach_CustomValidates(ByVal entity As CustomValidate)
-		Me.SendPropertyChanging
-		entity.WorkStation = Nothing
-	End Sub
-	
-	Private Sub attach_PartAllowedSecs(ByVal entity As PartAllowedSec)
-		Me.SendPropertyChanging
-		entity.WorkStation = Me
-	End Sub
-	
-	Private Sub detach_PartAllowedSecs(ByVal entity As PartAllowedSec)
-		Me.SendPropertyChanging
-		entity.WorkStation = Nothing
-	End Sub
-	
-	Private Sub attach_SinglePackages(ByVal entity As SinglePackage)
-		Me.SendPropertyChanging
-		entity.WorkStation = Me
-	End Sub
-	
-	Private Sub detach_SinglePackages(ByVal entity As SinglePackage)
-		Me.SendPropertyChanging
-		entity.WorkStation = Nothing
-	End Sub
-	
-	Private Sub Initialize()
-		Me._CustomValidates = New EntitySet(Of CustomValidate)(AddressOf Me.attach_CustomValidates, AddressOf Me.detach_CustomValidates)
-		Me._PartAllowedSecs = New EntitySet(Of PartAllowedSec)(AddressOf Me.attach_PartAllowedSecs, AddressOf Me.detach_PartAllowedSecs)
-		Me._SinglePackages = New EntitySet(Of SinglePackage)(AddressOf Me.attach_SinglePackages, AddressOf Me.detach_SinglePackages)
-		Me._ProdLine = CType(Nothing, EntityRef(Of ProdLine))
-		OnCreated
-	End Sub
-	
-	<Global.System.Runtime.Serialization.OnDeserializingAttribute(),  _
-	 Global.System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)>  _
-	Public Sub OnDeserializing(ByVal context As StreamingContext)
-		Me.Initialize
-	End Sub
-	
-	<Global.System.Runtime.Serialization.OnSerializingAttribute(),  _
-	 Global.System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)>  _
-	Public Sub OnSerializing(ByVal context As StreamingContext)
-		Me.serializing = true
-	End Sub
-	
-	<Global.System.Runtime.Serialization.OnSerializedAttribute(),  _
-	 Global.System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)>  _
-	Public Sub OnSerialized(ByVal context As StreamingContext)
-		Me.serializing = false
-	End Sub
-End Class
-
 <Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.CustomValidate"),  _
  Global.System.Runtime.Serialization.DataContractAttribute()>  _
 Partial Public Class CustomValidate
@@ -845,9 +546,9 @@ Partial Public Class CustomValidate
 	
 	Private _rowguid As System.Guid
 	
-	Private _WorkStation As EntityRef(Of WorkStation)
-	
 	Private _Part As EntityRef(Of Part)
+	
+	Private _WorkStation As EntityRef(Of WorkStation)
 	
     #Region "可扩展性方法定义"
     Partial Private Sub OnLoaded()
@@ -997,34 +698,6 @@ Partial Public Class CustomValidate
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="WorkStation_CustomValidate", Storage:="_WorkStation", ThisKey:="wrkstNr", OtherKey:="wrkStnID", IsForeignKey:=true)>  _
-	Public Property WorkStation() As WorkStation
-		Get
-			Return Me._WorkStation.Entity
-		End Get
-		Set
-			Dim previousValue As WorkStation = Me._WorkStation.Entity
-			If ((Object.Equals(previousValue, value) = false)  _
-						OrElse (Me._WorkStation.HasLoadedOrAssignedValue = false)) Then
-				Me.SendPropertyChanging
-				If ((previousValue Is Nothing)  _
-							= false) Then
-					Me._WorkStation.Entity = Nothing
-					previousValue.CustomValidates.Remove(Me)
-				End If
-				Me._WorkStation.Entity = value
-				If ((value Is Nothing)  _
-							= false) Then
-					value.CustomValidates.Add(Me)
-					Me._wrkstNr = value.wrkStnID
-				Else
-					Me._wrkstNr = CType(Nothing, String)
-				End If
-				Me.SendPropertyChanged("WorkStation")
-			End If
-		End Set
-	End Property
-	
 	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Part_CustomValidate", Storage:="_Part", ThisKey:="partNr", OtherKey:="partNr", IsForeignKey:=true)>  _
 	Public Property Part() As Part
 		Get
@@ -1053,6 +726,34 @@ Partial Public Class CustomValidate
 		End Set
 	End Property
 	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="WorkStation_CustomValidate", Storage:="_WorkStation", ThisKey:="wrkstNr", OtherKey:="wrkStnID", IsForeignKey:=true)>  _
+	Public Property WorkStation() As WorkStation
+		Get
+			Return Me._WorkStation.Entity
+		End Get
+		Set
+			Dim previousValue As WorkStation = Me._WorkStation.Entity
+			If ((Object.Equals(previousValue, value) = false)  _
+						OrElse (Me._WorkStation.HasLoadedOrAssignedValue = false)) Then
+				Me.SendPropertyChanging
+				If ((previousValue Is Nothing)  _
+							= false) Then
+					Me._WorkStation.Entity = Nothing
+					previousValue.CustomValidates.Remove(Me)
+				End If
+				Me._WorkStation.Entity = value
+				If ((value Is Nothing)  _
+							= false) Then
+					value.CustomValidates.Add(Me)
+					Me._wrkstNr = value.wrkStnID
+				Else
+					Me._wrkstNr = CType(Nothing, String)
+				End If
+				Me.SendPropertyChanged("WorkStation")
+			End If
+		End Set
+	End Property
+	
 	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
 	
 	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
@@ -1072,8 +773,8 @@ Partial Public Class CustomValidate
 	End Sub
 	
 	Private Sub Initialize()
-		Me._WorkStation = CType(Nothing, EntityRef(Of WorkStation))
 		Me._Part = CType(Nothing, EntityRef(Of Part))
+		Me._WorkStation = CType(Nothing, EntityRef(Of WorkStation))
 		OnCreated
 	End Sub
 	
@@ -1099,8 +800,6 @@ Partial Public Class History
 	
 	Private _message As String
 	
-	Private _rowguid As System.Guid
-	
 	Private _PackagingEvent As EntityRef(Of PackagingEvent)
 	
     #Region "可扩展性方法定义"
@@ -1125,10 +824,6 @@ Partial Public Class History
     Partial Private Sub OnmessageChanging(value As String)
     End Sub
     Partial Private Sub OnmessageChanged()
-    End Sub
-    Partial Private Sub OnrowguidChanging(value As System.Guid)
-    End Sub
-    Partial Private Sub OnrowguidChanged()
     End Sub
     #End Region
 	
@@ -1209,24 +904,6 @@ Partial Public Class History
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_rowguid", DbType:="UniqueIdentifier NOT NULL"),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=5)>  _
-	Public Property rowguid() As System.Guid
-		Get
-			Return Me._rowguid
-		End Get
-		Set
-			If ((Me._rowguid = value)  _
-						= false) Then
-				Me.OnrowguidChanging(value)
-				Me.SendPropertyChanging
-				Me._rowguid = value
-				Me.SendPropertyChanged("rowguid")
-				Me.OnrowguidChanged
-			End If
-		End Set
-	End Property
-	
 	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="PackagingEvent_History", Storage:="_PackagingEvent", ThisKey:="eventID", OtherKey:="eventID", IsForeignKey:=true)>  _
 	Public Property PackagingEvent() As PackagingEvent
 		Get
@@ -1302,8 +979,6 @@ Partial Public Class PackageItem
 	
 	Private _packageID As String
 	
-	Private _rowguid As System.Guid
-	
 	Private _SinglePackage As EntityRef(Of SinglePackage)
 	
     #Region "可扩展性方法定义"
@@ -1332,10 +1007,6 @@ Partial Public Class PackageItem
     Partial Private Sub OnpackageIDChanging(value As String)
     End Sub
     Partial Private Sub OnpackageIDChanged()
-    End Sub
-    Partial Private Sub OnrowguidChanging(value As System.Guid)
-    End Sub
-    Partial Private Sub OnrowguidChanged()
     End Sub
     #End Region
 	
@@ -1435,24 +1106,6 @@ Partial Public Class PackageItem
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_rowguid", DbType:="UniqueIdentifier NOT NULL"),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=6)>  _
-	Public Property rowguid() As System.Guid
-		Get
-			Return Me._rowguid
-		End Get
-		Set
-			If ((Me._rowguid = value)  _
-						= false) Then
-				Me.OnrowguidChanging(value)
-				Me.SendPropertyChanging
-				Me._rowguid = value
-				Me.SendPropertyChanged("rowguid")
-				Me.OnrowguidChanged
-			End If
-		End Set
-	End Property
-	
 	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="SinglePackage_PackageItem", Storage:="_SinglePackage", ThisKey:="packageID", OtherKey:="packageID", IsForeignKey:=true)>  _
 	Public Property SinglePackage() As SinglePackage
 		Get
@@ -1526,8 +1179,6 @@ Partial Public Class PackagingEvent
 	
 	Private _eventLevel As String
 	
-	Private _rowguid As System.Guid
-	
 	Private _Histories As EntitySet(Of History)
 	
 	Private serializing As Boolean
@@ -1554,10 +1205,6 @@ Partial Public Class PackagingEvent
     Partial Private Sub OneventLevelChanging(value As String)
     End Sub
     Partial Private Sub OneventLevelChanged()
-    End Sub
-    Partial Private Sub OnrowguidChanging(value As System.Guid)
-    End Sub
-    Partial Private Sub OnrowguidChanged()
     End Sub
     #End Region
 	
@@ -1634,26 +1281,8 @@ Partial Public Class PackagingEvent
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_rowguid", DbType:="UniqueIdentifier NOT NULL"),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=5)>  _
-	Public Property rowguid() As System.Guid
-		Get
-			Return Me._rowguid
-		End Get
-		Set
-			If ((Me._rowguid = value)  _
-						= false) Then
-				Me.OnrowguidChanging(value)
-				Me.SendPropertyChanging
-				Me._rowguid = value
-				Me.SendPropertyChanged("rowguid")
-				Me.OnrowguidChanged
-			End If
-		End Set
-	End Property
-	
 	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="PackagingEvent_History", Storage:="_Histories", ThisKey:="eventID", OtherKey:="eventID"),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=6, EmitDefaultValue:=false)>  _
+	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=5, EmitDefaultValue:=false)>  _
 	Public Property Histories() As EntitySet(Of History)
 		Get
 			If (Me.serializing  _
@@ -3629,8 +3258,6 @@ Partial Public Class TrayItem
 	
 	Private _trayId As String
 	
-	Private _rowguid As System.Guid
-	
 	Private _SinglePackage As EntityRef(Of SinglePackage)
 	
 	Private _Tray As EntityRef(Of Tray)
@@ -3653,10 +3280,6 @@ Partial Public Class TrayItem
     Partial Private Sub OntrayIdChanging(value As String)
     End Sub
     Partial Private Sub OntrayIdChanged()
-    End Sub
-    Partial Private Sub OnrowguidChanging(value As System.Guid)
-    End Sub
-    Partial Private Sub OnrowguidChanged()
     End Sub
     #End Region
 	
@@ -3719,24 +3342,6 @@ Partial Public Class TrayItem
 				Me._trayId = value
 				Me.SendPropertyChanged("trayId")
 				Me.OntrayIdChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_rowguid", DbType:="UniqueIdentifier NOT NULL"),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=4)>  _
-	Public Property rowguid() As System.Guid
-		Get
-			Return Me._rowguid
-		End Get
-		Set
-			If ((Me._rowguid = value)  _
-						= false) Then
-				Me.OnrowguidChanging(value)
-				Me.SendPropertyChanging
-				Me._rowguid = value
-				Me.SendPropertyChanged("rowguid")
-				Me.OnrowguidChanged
 			End If
 		End Set
 	End Property
@@ -3845,8 +3450,6 @@ Partial Public Class Tray
 	
 	Private _status As Integer
 	
-	Private _rowguid As System.Guid
-	
 	Private _TrayItems As EntitySet(Of TrayItem)
 	
 	Private serializing As Boolean
@@ -3877,10 +3480,6 @@ Partial Public Class Tray
     Partial Private Sub OnstatusChanging(value As Integer)
     End Sub
     Partial Private Sub OnstatusChanged()
-    End Sub
-    Partial Private Sub OnrowguidChanging(value As System.Guid)
-    End Sub
-    Partial Private Sub OnrowguidChanged()
     End Sub
     #End Region
 	
@@ -3976,26 +3575,8 @@ Partial Public Class Tray
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_rowguid", DbType:="UniqueIdentifier NOT NULL"),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=6)>  _
-	Public Property rowguid() As System.Guid
-		Get
-			Return Me._rowguid
-		End Get
-		Set
-			If ((Me._rowguid = value)  _
-						= false) Then
-				Me.OnrowguidChanging(value)
-				Me.SendPropertyChanging
-				Me._rowguid = value
-				Me.SendPropertyChanged("rowguid")
-				Me.OnrowguidChanged
-			End If
-		End Set
-	End Property
-	
 	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Tray_TrayItem", Storage:="_TrayItems", ThisKey:="trayId", OtherKey:="trayId"),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=7, EmitDefaultValue:=false)>  _
+	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=6, EmitDefaultValue:=false)>  _
 	Public Property TrayItems() As EntitySet(Of TrayItem)
 		Get
 			If (Me.serializing  _
@@ -4039,6 +3620,305 @@ Partial Public Class Tray
 	
 	Private Sub Initialize()
 		Me._TrayItems = New EntitySet(Of TrayItem)(AddressOf Me.attach_TrayItems, AddressOf Me.detach_TrayItems)
+		OnCreated
+	End Sub
+	
+	<Global.System.Runtime.Serialization.OnDeserializingAttribute(),  _
+	 Global.System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)>  _
+	Public Sub OnDeserializing(ByVal context As StreamingContext)
+		Me.Initialize
+	End Sub
+	
+	<Global.System.Runtime.Serialization.OnSerializingAttribute(),  _
+	 Global.System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)>  _
+	Public Sub OnSerializing(ByVal context As StreamingContext)
+		Me.serializing = true
+	End Sub
+	
+	<Global.System.Runtime.Serialization.OnSerializedAttribute(),  _
+	 Global.System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)>  _
+	Public Sub OnSerialized(ByVal context As StreamingContext)
+		Me.serializing = false
+	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.WorkStation"),  _
+ Global.System.Runtime.Serialization.DataContractAttribute()>  _
+Partial Public Class WorkStation
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _wrkStnID As String
+	
+	Private _wrkStnName As String
+	
+	Private _status As Byte
+	
+	Private _prodLineID As String
+	
+	Private _rowguid As System.Guid
+	
+	Private _CustomValidates As EntitySet(Of CustomValidate)
+	
+	Private _PartAllowedSecs As EntitySet(Of PartAllowedSec)
+	
+	Private _SinglePackages As EntitySet(Of SinglePackage)
+	
+	Private _ProdLine As EntityRef(Of ProdLine)
+	
+	Private serializing As Boolean
+	
+    #Region "可扩展性方法定义"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnwrkStnIDChanging(value As String)
+    End Sub
+    Partial Private Sub OnwrkStnIDChanged()
+    End Sub
+    Partial Private Sub OnwrkStnNameChanging(value As String)
+    End Sub
+    Partial Private Sub OnwrkStnNameChanged()
+    End Sub
+    Partial Private Sub OnstatusChanging(value As Byte)
+    End Sub
+    Partial Private Sub OnstatusChanged()
+    End Sub
+    Partial Private Sub OnprodLineIDChanging(value As String)
+    End Sub
+    Partial Private Sub OnprodLineIDChanged()
+    End Sub
+    Partial Private Sub OnrowguidChanging(value As System.Guid)
+    End Sub
+    Partial Private Sub OnrowguidChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		Me.Initialize
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_wrkStnID", DbType:="VarChar(15) NOT NULL", CanBeNull:=false, IsPrimaryKey:=true),  _
+	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=1)>  _
+	Public Property wrkStnID() As String
+		Get
+			Return Me._wrkStnID
+		End Get
+		Set
+			If (String.Equals(Me._wrkStnID, value) = false) Then
+				Me.OnwrkStnIDChanging(value)
+				Me.SendPropertyChanging
+				Me._wrkStnID = value
+				Me.SendPropertyChanged("wrkStnID")
+				Me.OnwrkStnIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_wrkStnName", DbType:="VarChar(30) NOT NULL", CanBeNull:=false),  _
+	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=2)>  _
+	Public Property wrkStnName() As String
+		Get
+			Return Me._wrkStnName
+		End Get
+		Set
+			If (String.Equals(Me._wrkStnName, value) = false) Then
+				Me.OnwrkStnNameChanging(value)
+				Me.SendPropertyChanging
+				Me._wrkStnName = value
+				Me.SendPropertyChanged("wrkStnName")
+				Me.OnwrkStnNameChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_status", DbType:="TinyInt NOT NULL"),  _
+	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=3)>  _
+	Public Property status() As Byte
+		Get
+			Return Me._status
+		End Get
+		Set
+			If ((Me._status = value)  _
+						= false) Then
+				Me.OnstatusChanging(value)
+				Me.SendPropertyChanging
+				Me._status = value
+				Me.SendPropertyChanged("status")
+				Me.OnstatusChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_prodLineID", DbType:="VarChar(15) NOT NULL", CanBeNull:=false),  _
+	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=4)>  _
+	Public Property prodLineID() As String
+		Get
+			Return Me._prodLineID
+		End Get
+		Set
+			If (String.Equals(Me._prodLineID, value) = false) Then
+				If Me._ProdLine.HasLoadedOrAssignedValue Then
+					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
+				End If
+				Me.OnprodLineIDChanging(value)
+				Me.SendPropertyChanging
+				Me._prodLineID = value
+				Me.SendPropertyChanged("prodLineID")
+				Me.OnprodLineIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_rowguid", DbType:="UniqueIdentifier NOT NULL"),  _
+	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=5)>  _
+	Public Property rowguid() As System.Guid
+		Get
+			Return Me._rowguid
+		End Get
+		Set
+			If ((Me._rowguid = value)  _
+						= false) Then
+				Me.OnrowguidChanging(value)
+				Me.SendPropertyChanging
+				Me._rowguid = value
+				Me.SendPropertyChanged("rowguid")
+				Me.OnrowguidChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="WorkStation_CustomValidate", Storage:="_CustomValidates", ThisKey:="wrkStnID", OtherKey:="wrkstNr"),  _
+	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=6, EmitDefaultValue:=false)>  _
+	Public Property CustomValidates() As EntitySet(Of CustomValidate)
+		Get
+			If (Me.serializing  _
+						AndAlso (Me._CustomValidates.HasLoadedOrAssignedValues = false)) Then
+				Return Nothing
+			End If
+			Return Me._CustomValidates
+		End Get
+		Set
+			Me._CustomValidates.Assign(value)
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="WorkStation_PartAllowedSec", Storage:="_PartAllowedSecs", ThisKey:="wrkStnID", OtherKey:="wrkstnr"),  _
+	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=7, EmitDefaultValue:=false)>  _
+	Public Property PartAllowedSecs() As EntitySet(Of PartAllowedSec)
+		Get
+			If (Me.serializing  _
+						AndAlso (Me._PartAllowedSecs.HasLoadedOrAssignedValues = false)) Then
+				Return Nothing
+			End If
+			Return Me._PartAllowedSecs
+		End Get
+		Set
+			Me._PartAllowedSecs.Assign(value)
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="WorkStation_SinglePackage", Storage:="_SinglePackages", ThisKey:="wrkStnID", OtherKey:="wrkstnID"),  _
+	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=8, EmitDefaultValue:=false)>  _
+	Public Property SinglePackages() As EntitySet(Of SinglePackage)
+		Get
+			If (Me.serializing  _
+						AndAlso (Me._SinglePackages.HasLoadedOrAssignedValues = false)) Then
+				Return Nothing
+			End If
+			Return Me._SinglePackages
+		End Get
+		Set
+			Me._SinglePackages.Assign(value)
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="ProdLine_WorkStation", Storage:="_ProdLine", ThisKey:="prodLineID", OtherKey:="prodLineID", IsForeignKey:=true)>  _
+	Public Property ProdLine() As ProdLine
+		Get
+			Return Me._ProdLine.Entity
+		End Get
+		Set
+			Dim previousValue As ProdLine = Me._ProdLine.Entity
+			If ((Object.Equals(previousValue, value) = false)  _
+						OrElse (Me._ProdLine.HasLoadedOrAssignedValue = false)) Then
+				Me.SendPropertyChanging
+				If ((previousValue Is Nothing)  _
+							= false) Then
+					Me._ProdLine.Entity = Nothing
+					previousValue.WorkStations.Remove(Me)
+				End If
+				Me._ProdLine.Entity = value
+				If ((value Is Nothing)  _
+							= false) Then
+					value.WorkStations.Add(Me)
+					Me._prodLineID = value.prodLineID
+				Else
+					Me._prodLineID = CType(Nothing, String)
+				End If
+				Me.SendPropertyChanged("ProdLine")
+			End If
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+	
+	Private Sub attach_CustomValidates(ByVal entity As CustomValidate)
+		Me.SendPropertyChanging
+		entity.WorkStation = Me
+	End Sub
+	
+	Private Sub detach_CustomValidates(ByVal entity As CustomValidate)
+		Me.SendPropertyChanging
+		entity.WorkStation = Nothing
+	End Sub
+	
+	Private Sub attach_PartAllowedSecs(ByVal entity As PartAllowedSec)
+		Me.SendPropertyChanging
+		entity.WorkStation = Me
+	End Sub
+	
+	Private Sub detach_PartAllowedSecs(ByVal entity As PartAllowedSec)
+		Me.SendPropertyChanging
+		entity.WorkStation = Nothing
+	End Sub
+	
+	Private Sub attach_SinglePackages(ByVal entity As SinglePackage)
+		Me.SendPropertyChanging
+		entity.WorkStation = Me
+	End Sub
+	
+	Private Sub detach_SinglePackages(ByVal entity As SinglePackage)
+		Me.SendPropertyChanging
+		entity.WorkStation = Nothing
+	End Sub
+	
+	Private Sub Initialize()
+		Me._CustomValidates = New EntitySet(Of CustomValidate)(AddressOf Me.attach_CustomValidates, AddressOf Me.detach_CustomValidates)
+		Me._PartAllowedSecs = New EntitySet(Of PartAllowedSec)(AddressOf Me.attach_PartAllowedSecs, AddressOf Me.detach_PartAllowedSecs)
+		Me._SinglePackages = New EntitySet(Of SinglePackage)(AddressOf Me.attach_SinglePackages, AddressOf Me.detach_SinglePackages)
+		Me._ProdLine = CType(Nothing, EntityRef(Of ProdLine))
 		OnCreated
 	End Sub
 	

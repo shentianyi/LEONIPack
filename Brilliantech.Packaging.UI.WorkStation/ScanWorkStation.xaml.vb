@@ -41,6 +41,7 @@ Public Class ScanWorkStation
 
     Private Sub TextBox_secondScan_PreviewKeyUp(ByVal sender As Object, ByVal e As System.Windows.Input.KeyEventArgs) Handles TextBox_secondScan.PreviewKeyUp
         If e.Key = Key.Enter Then
+            e.Handled = True
             Process()
 
         End If
@@ -77,6 +78,8 @@ Public Class ScanWorkStation
 
         Usersession.WorkStationNr = TextBox_firstScan.Text
         Dim beginWindow As Window = New Begin
+        beginWindow.Owner = Me
+
         beginWindow.ShowDialog()
         Usersession.Clear()
         init()

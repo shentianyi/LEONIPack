@@ -306,10 +306,10 @@ Public Class PackageUtil
                 result.ReturnedMessage.Add("产品唯一号已经存在，请确认是否重复扫描了同一件产品")
             Else
                 package.PackageItems.Add(New PackageItem With _
-                                    {.ItemUid = Guid.NewGuid, _
-                                        .ItemSeq = package.PackageItems.Count + 1, _
-                                     .PackageID = packId, _
-                                     .PackagingTime = Now(), .TNr = tnr, .Rowguid = Guid.NewGuid})
+                                    {.itemUid = Guid.NewGuid, _
+                                        .itemSeq = package.PackageItems.Count + 1, _
+                                     .packageID = packId, _
+                                     .packagingTime = Now(), .TNr = tnr})
                 unitOfWork.Commit()
                 result.ReturnedResult = True
             End If

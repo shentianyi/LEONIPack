@@ -22,6 +22,7 @@ Public Class ChangePrinter
 
     Private Sub exit_Click(sender As System.Object, e As System.Windows.RoutedEventArgs) Handles [exit].Click
         Me.Close()
+
     End Sub
 
     Private Sub Window_Loaded(sender As System.Object, e As System.Windows.RoutedEventArgs) Handles MyBase.Loaded

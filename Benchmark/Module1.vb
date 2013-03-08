@@ -81,11 +81,11 @@ Module Module1
                 Dim packageRepo1 As SinglePackageRepo = New SinglePackageRepo(unitOfWork1)
                 Dim package As SinglePackage = packageRepo1.GetByID(packId)
 
-                package.PackageItems.Add(New PackageItem With _
-                      {.ItemUid = Guid.NewGuid, _
-                          .ItemSeq = package.PackageItems.Count + 1, _
-                       .PackageID = packId, _
-                       .PackagingTime = Now(), .TNr = Now.ToString("yyyyMMddhhmmssffff"), .Rowguid = Guid.NewGuid})
+                    package.PackageItems.Add(New PackageItem With _
+                          {.itemUid = Guid.NewGuid, _
+                              .itemSeq = package.PackageItems.Count + 1, _
+                           .packageID = packId, _
+                           .packagingTime = Now(), .TNr = Now.ToString("yyyyMMddhhmmssffff")})
                 unitOfWork1.Commit()
                 Dim endTime As DateTime = Now
                 Dim consume As TimeSpan = endTime - beginTime

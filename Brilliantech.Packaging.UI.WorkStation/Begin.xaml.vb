@@ -15,7 +15,7 @@ Public Class Begin
     Private mode As PackagingType = My.Settings.PackagingType
     Private holdon As SplashWindow
     Protected WithEvents worker As BackgroundWorker = New BackgroundWorker
-    Protected WithEvents syncTimer As System.Timers.Timer
+    'Protected WithEvents syncTimer As System.Timers.Timer
     Private isStarted As Boolean = False
 
 
@@ -55,23 +55,23 @@ Public Class Begin
         Dispatcher.Invoke(New autoStart(AddressOf Restart))
     End Sub
 
-    Private Sub syncTimer_elasped() Handles syncTimer.Elapsed
-        syncTimer.Stop()
-        Try
-            ReplicationUtils.ReplicateMasterData()
-        Catch ex As Exception
-            Try
-                Logger.Write("在自动同步时出现问题" & ex.ToString)
-            Catch ex1 As Exception
+    'Private Sub syncTimer_elasped() Handles syncTimer.Elapsed
+    '    syncTimer.Stop()
+    '    Try
+    '        ReplicationUtils.ReplicateMasterData()
+    '    Catch ex As Exception
+    '        Try
+    '            Logger.Write("在自动同步时出现问题" & ex.ToString)
+    '        Catch ex1 As Exception
 
-            End Try
+    '        End Try
 
-        End Try
-        Dim rd As System.Random = New System.Random
+    '    End Try
+    '    Dim rd As System.Random = New System.Random
 
-        syncTimer.Interval = rd.Next(15, 35) * 60 * 1000
-        syncTimer.Start()
-    End Sub
+    '    syncTimer.Interval = rd.Next(15, 35) * 60 * 1000
+    '    syncTimer.Start()
+    'End Sub
 
     Private Delegate Sub autoStart()
 
@@ -135,9 +135,9 @@ Public Class Begin
 
      
 
-        syncTimer = New Timers.Timer
-        syncTimer.Interval = My.Settings.syncInterval
-        syncTimer.Start()
+        'syncTimer = New Timers.Timer
+        'syncTimer.Interval = My.Settings.syncInterval
+        'syncTimer.Start()
         ''开始同步数据库，下载主数据
 
 
@@ -149,19 +149,19 @@ Public Class Begin
 
     End Sub
 
-    Private Sub DoSync()
+    'Private Sub DoSync()
 
-        Try
-            holdon.Close()
-            holdon = Nothing
-        Catch ex As Exception
+    '    Try
+    '        holdon.Close()
+    '        holdon = Nothing
+    '    Catch ex As Exception
 
-        End Try
-        holdon = New SplashWindow("正在与服务器同步数据，请稍候")
-        Me.syncTimer.Stop()
-        worker.RunWorkerAsync()
-        holdon.ShowDialog()
-    End Sub
+    '    End Try
+    '    holdon = New SplashWindow("正在与服务器同步数据，请稍候")
+    '    Me.syncTimer.Stop()
+    '    worker.RunWorkerAsync()
+    '    holdon.ShowDialog()
+    'End Sub
 
     Private Sub InitiateObject()
         Try
@@ -268,6 +268,7 @@ Public Class Begin
     Private Sub StartPackWindow(ByVal packId As String)
         Dim main As MainWindow = New MainWindow(packId)
         isStarted = True
+        main.Owner = Me
         'Me.Hide()
         If main.ShowDialog() = True And My.Settings.autoStart = True Then
             'Me.Show()
@@ -298,6 +299,7 @@ Public Class Begin
 
     Private Sub Button_setPrinter_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles Button_setPrinter.Click
         Dim PrintWindow As Window = New ChangePrinter
+        PrintWindow.Owner = Me
         PrintWindow.ShowDialog()
 
     End Sub
@@ -413,7 +415,7 @@ Public Class Begin
 
         Catch ex As Exception
         Finally
-            Me.syncTimer.Start()
+            'Me.syncTimer.Start()
         End Try
 
         If e.Result = False Then
@@ -427,8 +429,8 @@ Public Class Begin
         viewer.Show()
     End Sub
 
-    Private Sub Button_ManuSyn_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs)
-        DoSync()
+    'Private Sub Button_ManuSyn_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs)
+    '    DoSync()
 
-    End Sub
+    'End Sub
 End Class

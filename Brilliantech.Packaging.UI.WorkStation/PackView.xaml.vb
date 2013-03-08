@@ -56,6 +56,7 @@ Public Class PackView
 
     Private Sub BindComb()
         packStatus = GetPackageStatus()
+        packStatus.Add(New EnumObject() With {.EnumKey = "全部", .EnumValue = "-1", .Description = "全部"})
         Me.comb_packStatus.ItemsSource = packStatus
         Try
             Me.comb_packStatus.SelectedIndex = 0
