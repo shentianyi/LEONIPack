@@ -21,56 +21,56 @@
 		</Grid.RowDefinitions>	
         <Image Source="/Brilliantech.Packaging.UI.WorkStation;component/Images/longBanner.jpg" Grid.Row=" 0" Stretch="UniformToFill" Margin="0,0,0,5" Name="Image1" />
     	<StackPanel Orientation="Horizontal" Grid.Row="1" Margin="10,1,12,0">
-    		 <Button Name="Button_Verify" HorizontalAlignment="Right" BorderBrush="{x:Null}" Content="异常验证" MaxWidth="50"  MinWidth=" 50" MinHeight=" 50" Margin="0,0,0,15" Background="#FF77B116" Foreground="Black" FontSize="11" IsCancel="True">
+    		 <Button Name="Button_Verify" HorizontalAlignment="Right" BorderBrush="{x:Null}" Content="异常验证" MaxWidth="50"  MinWidth=" 50" MinHeight=" 50" Margin="0,0,0,15" Background="#FF77B116" Foreground="Black" FontSize="11" >
                     <Button.Effect>
                         <DropShadowEffect BlurRadius="16" Direction="327" Opacity="0.225"/>
                     </Button.Effect>
                 </Button>
-            <Button Name="Button_clear" HorizontalAlignment="Right" BorderBrush="{x:Null}" Content="清除" MaxWidth="50"  MinWidth=" 50" MinHeight=" 30" Margin="10,0,0,15" Background="#FF77B116" Foreground="Black" FontSize="16" IsCancel="True">
+            <Button Name="Button_clear" HorizontalAlignment="Right" BorderBrush="{x:Null}" Content="清除" MaxWidth="50"  MinWidth=" 50" MinHeight=" 30" Margin="10,0,0,15" Background="#FF77B116" Foreground="Black" FontSize="16" >
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="16" Direction="327" Opacity="0.225"/>
                 </Button.Effect>
             </Button>
 
 
-            <Button Name="Button_setPrinter" HorizontalAlignment="Right" BorderBrush="{x:Null}" Content="设置" MaxWidth="50"  MinWidth=" 50" MinHeight=" 30" Margin="10,0,0,15" Background="#FF77B116" Foreground="Black" FontSize="16" IsCancel="True">
+            <Button Name="Button_setPrinter" HorizontalAlignment="Right" BorderBrush="{x:Null}" Content="设置" MaxWidth="50"  MinWidth=" 50" MinHeight=" 30" Margin="10,0,0,15" Background="#FF77B116" Foreground="Black" FontSize="16" >
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="16" Direction="327" Opacity="0.225"/>
                 </Button.Effect>
             </Button>
-            <Button Name="Button_printFull" HorizontalAlignment="Right" BorderBrush="{x:Null}" Content="补打标签" MaxWidth="50"  MinWidth=" 50" MinHeight=" 30" Margin="10,0,0,15" Background="#FF77B116" Foreground="Black" FontSize="11" IsCancel="True">
+            <Button Name="Button_printFull" HorizontalAlignment="Right" BorderBrush="{x:Null}" Content="补打标签" MaxWidth="50"  MinWidth=" 50" MinHeight=" 30" Margin="10,0,0,15" Background="#FF77B116" Foreground="Black" FontSize="11" >
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="16" Direction="327" Opacity="0.225"/>
                 </Button.Effect>
             </Button>
-            <Button Name="Button_rework" HorizontalAlignment="Right" BorderBrush="{x:Null}" Content="返工模式" MaxWidth="50" MinWidth=" 50" MinHeight=" 30" Margin="10,0,0,15" Background="#FF77B116" Foreground="Black" FontSize="11" IsCancel="True">
+            <Button Name="Button_rework" HorizontalAlignment="Right" BorderBrush="{x:Null}" Content="返工模式" MaxWidth="50" MinWidth=" 50" MinHeight=" 30" Margin="10,0,0,15" Background="#FF77B116" Foreground="Black" FontSize="11" >
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="16" Direction="327" Opacity="0.225" />
                 </Button.Effect>
             </Button>
-            <Button Name="Button_softKB" BorderBrush="{x:Null}" Content="软键盘" MaxWidth="45"  MinWidth=" 45" MinHeight=" 30" Margin="10,0,0,15" Background="#FF77B116" Foreground="Black" FontSize="12" IsCancel="True" ClickMode="Press">
+            <Button Name="Button_softKB" BorderBrush="{x:Null}" Content="软键盘" MaxWidth="45"  MinWidth=" 45" MinHeight=" 30" Margin="10,0,0,15" Background="#FF77B116" Foreground="Black" FontSize="12" ClickMode="Press">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="16" Direction="327" Opacity="0.225"/>
                 </Button.Effect>
             </Button>
-            <Button Name="Button_cancel" BorderBrush="{x:Null}" Content="撤销包装" MaxWidth="50" MinWidth=" 50" MinHeight=" 30" Margin="10,0,0,15" Background="#FF77B116" Foreground="Black" FontSize="12" IsCancel="True">
+            <Button Name="Button_cancel" BorderBrush="{x:Null}" Content="撤销包装" MaxWidth="50" MinWidth=" 50" MinHeight=" 30" Margin="10,0,0,15" Background="#FF77B116" Foreground="Black" FontSize="12" >
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="16" Direction="327" Opacity="0.225" />
                 </Button.Effect>
             </Button>
       
 
-            <Button Name="Button_view" BorderBrush="{x:Null}" Content="查看" MaxWidth="50" MinHeight=" 30" Margin="10,0,0,15" Background="#FF77B116" Foreground="Black" FontSize="16" IsCancel="True">
+            <Button Name="Button_view" BorderBrush="{x:Null}" Content="查看" MaxWidth="50" MinHeight=" 30" Margin="10,0,0,15" Background="#FF77B116" Foreground="Black" FontSize="16" >
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="16" Direction="327" Opacity="0.225" />
                 </Button.Effect>
             </Button>
-            <Button Name="Button_ManuSyn" HorizontalAlignment="Right" BorderBrush="{x:Null}" Content="马上同步" MaxWidth="50"  MinWidth=" 50" MinHeight=" 50" Margin="10,0,0,15" Background="#FF77B116" Foreground="Black" FontSize="11" IsCancel="True">
+            <Button Name="Button_ManuSyn" HorizontalAlignment="Right" BorderBrush="{x:Null}" Content="马上同步" MaxWidth="50"  MinWidth=" 50" MinHeight=" 50" Margin="10,0,0,15" Background="#FF77B116" Foreground="Black" FontSize="11" >
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="16" Direction="327" Opacity="0.225"/>
                 </Button.Effect>
             </Button>
-            <Button Name="Button_Exist" BorderBrush="{x:Null}" Content="退出" MaxWidth="50" MinHeight=" 30" Margin="10,0,0,15" Background="#FF77B116" Foreground="Black" FontSize="16" IsCancel="True">
+            <Button Name="Button_Exist" BorderBrush="{x:Null}" Content="退出" MaxWidth="50" MinHeight=" 30" Margin="10,0,0,15" Background="#FF77B116" Foreground="Black" FontSize="16" >
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="16" Direction="327" Opacity="0.225" />
                 </Button.Effect>

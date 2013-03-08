@@ -93,9 +93,8 @@
     <Reference Include="AppUpdater">
       <HintPath>C:\Users\tianyi\Downloads\dotnetupdater\redist\AppUpdater\bin\Release\AppUpdater.dll</HintPath>
     </Reference>
-    <Reference Include="Nini, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Brilliantech.PackagingWS\bin\Release\Nini.dll</HintPath>
+    <Reference Include="Nini">
+      <HintPath>..\dll\Nini.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SqlServerCe, Version=3.5.1.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
@@ -351,6 +350,9 @@
     <None Include="Service References\LabelDataService\service21.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="data\package.sdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="data\readme.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

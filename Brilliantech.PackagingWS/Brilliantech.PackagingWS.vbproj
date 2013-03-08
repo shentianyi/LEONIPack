@@ -50,13 +50,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="log4net">
-      <HintPath>F:\InternalFramework\log4net.Ext.TraceableID\cs\build\release\log4net.dll</HintPath>
-    </Reference>
-    <Reference Include="log4net.Ext.TID">
-      <HintPath>F:\InternalFramework\log4net.Ext.TraceableID\cs\build\release\log4net.Ext.TID.dll</HintPath>
+      <HintPath>..\..\..\svwksk\DLL\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Nini">
-      <HintPath>C:\Users\lenovo\Downloads\Nini-1.1.0\Nini\Bin\DotNet\4.0\Release\Nini.dll</HintPath>
+      <HintPath>..\dll\Nini.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

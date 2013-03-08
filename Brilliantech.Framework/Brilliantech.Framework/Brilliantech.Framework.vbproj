@@ -125,6 +125,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\MongoDB.Bson.dll" />
+    <Content Include="bin\Debug\MongoDB.Driver.dll" />
     <Content Include="Utilities\DBUtil\MongoDB\XMLMapper.xml" />
   </ItemGroup>
   <ItemGroup>

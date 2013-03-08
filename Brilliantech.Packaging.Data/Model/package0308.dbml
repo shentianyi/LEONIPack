@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="package" Class="PackagingDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="ContainerType" Member="ContainerTypes">
+    <Type Name="ContainerType">
+      <Column Name="containerID" Member="ContainerID" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="containerName" Member="ContainerName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="containerDesc" Member="ContainerDesc" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="long" Member="Long" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="width" Member="Width" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="height" Member="Height" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="reusable" Member="Reusable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Member="Weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="status" Member="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Member="Rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="CustomValidate" Member="CustomValidates">
+    <Type Name="CustomValidate">
+      <Column Name="validateId" Member="ValidateId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="validateName" Member="ValidateName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="validatePattern" Member="ValidatePattern" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="partNr" Member="PartNr" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="wrkstNr" Member="WrkstNr" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Member="Rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="Part_CustomValidate" Member="Part" ThisKey="PartNr" OtherKey="PartNr" Type="Part" IsForeignKey="true" />
+      <Association Name="WorkStation_CustomValidate" Member="WorkStation" ThisKey="WrkstNr" OtherKey="WrkStnID" Type="WorkStation" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Part" Member="Parts">
+    <Type Name="Part">
+      <Column Name="partNr" Member="PartNr" Type="System.String" DbType="NVarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="partName" Member="PartName" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="customerPartNr" Member="CustomerPartNr" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="projectID" Member="ProjectID" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="customerPCR" Member="CustomerPCR" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Member="Rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="Part_CustomValidate" Member="CustomValidates" ThisKey="PartNr" OtherKey="PartNr" Type="CustomValidate" />
+      <Association Name="Part_PartAllowedSec" Member="PartAllowedSecs" ThisKey="PartNr" OtherKey="PartNr" Type="PartAllowedSec" />
+      <Association Name="Part_PartContainerLabel" Member="PartContainerLabels" ThisKey="PartNr" OtherKey="PartNr" Type="PartContainerLabel" />
+      <Association Name="Part_SinglePackage" Member="SinglePackages" ThisKey="PartNr" OtherKey="PartNr" Type="SinglePackage" />
+      <Association Name="Part_SourceBarcode" Member="SourceBarcodes" ThisKey="PartNr" OtherKey="PartNr" Type="SourceBarcode" />
+      <Association Name="Project_Part" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="PartAllowedSec" Member="PartAllowedSecs">
+    <Type Name="PartAllowedSec">
+      <Column Name="relId" Member="RelId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="wrkstnr" Member="Wrkstnr" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="partNr" Member="PartNr" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="sec" Member="Sec" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Member="Rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="Part_PartAllowedSec" Member="Part" ThisKey="PartNr" OtherKey="PartNr" Type="Part" IsForeignKey="true" />
+      <Association Name="WorkStation_PartAllowedSec" Member="WorkStation" ThisKey="Wrkstnr" OtherKey="WrkStnID" Type="WorkStation" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="PartContainerLabel" Member="PartContainerLabels">
+    <Type Name="PartContainerLabel">
+      <Column Name="relID" Member="RelID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="partNr" Member="PartNr" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="labelTemplateName" Member="LabelTemplateName" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="labelTeplateFile" Member="LabelTeplateFile" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="labelType" Member="LabelType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="piece" Member="Piece" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Member="Rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="Part_PartContainerLabel" Member="Part" ThisKey="PartNr" OtherKey="PartNr" Type="Part" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="ProdLine" Member="ProdLines">
+    <Type Name="ProdLine">
+      <Column Name="prodLineID" Member="ProdLineID" Type="System.String" DbType="NVarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="prodLineName" Member="ProdLineName" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="projectID" Member="ProjectID" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Member="Rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="ProdLine_WorkStation" Member="WorkStations" ThisKey="ProdLineID" OtherKey="ProdLineID" Type="WorkStation" />
+      <Association Name="Project_ProdLine" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Project" Member="Projects">
+    <Type Name="Project">
+      <Column Name="projectID" Member="ProjectID" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="projectName" Member="ProjectName" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Member="Rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="Project_Part" Member="Parts" ThisKey="ProjectID" OtherKey="ProjectID" Type="Part" />
+      <Association Name="Project_ProdLine" Member="ProdLines" ThisKey="ProjectID" OtherKey="ProjectID" Type="ProdLine" />
+    </Type>
+  </Table>
+  <Table Name="SinglePackage" Member="SinglePackages">
+    <Type Name="SinglePackage">
+      <Column Name="packageID" Member="PackageID" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="capa" Member="Capa" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="status" Member="Status" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="containerID" Member="ContainerID" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="planedDate" Member="PlanedDate" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="partNr" Member="PartNr" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="wrkstnID" Member="WrkstnID" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Member="Rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="Part_SinglePackage" Member="Part" ThisKey="PartNr" OtherKey="PartNr" Type="Part" IsForeignKey="true" />
+      <Association Name="WorkStation_SinglePackage" Member="WorkStation" ThisKey="WrkstnID" OtherKey="WrkStnID" Type="WorkStation" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="SourceBarcode" Member="SourceBarcodes">
+    <Type Name="SourceBarcode">
+      <Column Name="sourceID" Member="SourceID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="partNr" Member="PartNr" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="defaultFixedText" Member="DefaultFixedText" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="fromPosition" Member="FromPosition" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="length" Member="Length" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="isUniq" Member="IsUniq" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Member="Rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="Part_SourceBarcode" Member="Part" ThisKey="PartNr" OtherKey="PartNr" Type="Part" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="WorkStation" Member="WorkStations">
+    <Type Name="WorkStation">
+      <Column Name="wrkStnID" Member="WrkStnID" Type="System.String" DbType="NVarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="wrkStnName" Member="WrkStnName" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="status" Member="Status" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="prodLineID" Member="ProdLineID" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Member="Rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="WorkStation_CustomValidate" Member="CustomValidates" ThisKey="WrkStnID" OtherKey="WrkstNr" Type="CustomValidate" />
+      <Association Name="WorkStation_PartAllowedSec" Member="PartAllowedSecs" ThisKey="WrkStnID" OtherKey="Wrkstnr" Type="PartAllowedSec" />
+      <Association Name="WorkStation_SinglePackage" Member="SinglePackages" ThisKey="WrkStnID" OtherKey="WrkstnID" Type="SinglePackage" />
+      <Association Name="ProdLine_WorkStation" Member="ProdLine" ThisKey="ProdLineID" OtherKey="ProdLineID" Type="ProdLine" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
