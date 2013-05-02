@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14, 19.625" name="PackageRemoteDb">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14.125, 19.625" name="PackageRemoteDb">
   <DataContextMoniker Name="/PackagingDataDataContext" />
   <nestedChildShapes>
     <classShape Id="cec21c4a-936e-434c-a5e6-205efc69e0e4" absoluteBounds="6.75, 0.75, 2, 2.7176639811197916">
@@ -18,12 +18,6 @@
       <DataClassMoniker Name="/PackagingDataDataContext/History" />
       <nestedChildShapes>
         <elementListCompartment Id="3fcb6658-145a-4ee1-a4d4-43c56c17966e" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.0115458170572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="164ac57d-7d14-4441-a560-4b8555297a09" absoluteBounds="11.75, 13.875, 2, 1.7625655110677094">
-      <DataClassMoniker Name="/PackagingDataDataContext/PackageItem" />
-      <nestedChildShapes>
-        <elementListCompartment Id="ea85810e-dea0-4216-b0ca-6d6c0200c41b" absoluteBounds="11.765, 14.335, 1.9700000000000002, 1.2025655110677083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="4a2ff704-4d1f-4dba-a7a0-a9627f50aa08" absoluteBounds="0.75, 0.875, 2, 1.5715458170572916">
@@ -106,95 +100,101 @@
         <classShapeMoniker Id="a170acd1-4006-418d-8e54-4cb2ba3cd3ee" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.4687475 : 10.625); (4.4687475 : 9.5); (7.69791916666667 : 9.5 : JumpStart); (7.86458583333333 : 9.5 : JumpEnd); (8.54166666666667 : 9.5 : JumpStart); (8.70833333333333 : 9.5 : JumpEnd); (9 : 9.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(4.4687475 : 10.625); (4.4687475 : 9.5); (7.69791916666667 : 9.5 : JumpStart); (7.86458583333333 : 9.5 : JumpEnd); (9 : 9.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PackagingDataDataContext/Part/Part_PartAllowedSec" />
       <nodes>
         <classShapeMoniker Id="bac36eb1-4b2d-4698-ae18-31308a627711" />
         <classShapeMoniker Id="052b3b41-47e9-4ce7-8f90-5803d3c4c6f0" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.5 : 12.5785852050781); (4.5 : 15.4473024495443); (4.94791916666667 : 15.4473024495443 : JumpStart); (5.11458583333333 : 15.4473024495443 : JumpEnd); (6.25 : 15.4473024495443)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(4.5 : 12.5785852050781); (4.5 : 15.4473024495443); (4.94791916666667 : 15.4473024495443 : JumpStart); (5.11458583333333 : 15.4473024495443 : JumpEnd); (6.25 : 15.4473024495443)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PackagingDataDataContext/Part/Part_PartContainerLabel" />
       <nodes>
         <classShapeMoniker Id="bac36eb1-4b2d-4698-ae18-31308a627711" />
         <classShapeMoniker Id="d71b237c-8887-42dd-95c7-47e409679f2c" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 10.8777630615234); (3.5 : 10.8777630615234)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 10.8777630615234); (3.5 : 10.8777630615234)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PackagingDataDataContext/Project/Project_Part" />
       <nodes>
         <classShapeMoniker Id="50eaa152-fe77-4a0f-890d-4b458616431e" />
         <classShapeMoniker Id="bac36eb1-4b2d-4698-ae18-31308a627711" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.75 : 9.75); (1.75 : 7.53577290852865); (3.5 : 7.53577290852865)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.75 : 9.75); (1.75 : 7.53577290852865); (3.5 : 7.53577290852865)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PackagingDataDataContext/Project/Project_ProdLine" />
       <nodes>
         <classShapeMoniker Id="50eaa152-fe77-4a0f-890d-4b458616431e" />
         <classShapeMoniker Id="d971c17b-2c78-44d4-a079-9f058bcbaa01" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(11 : 13.835624593099); (11.375 : 14.210624593099); (11.375 : 13.5); (11.5035744349011 : 13.6285744349011 : JumpStart); (11.6214255650989 : 13.7464255650989 : JumpEnd); (11.75 : 13.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/PackagingDataDataContext/SinglePackage/SinglePackage_PackageItem" />
-      <nodes>
-        <classShapeMoniker Id="50290669-7060-4c74-bf4d-4ed9114d59d2" />
-        <classShapeMoniker Id="164ac57d-7d14-4441-a560-4b8555297a09" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 12.0392926025391); (7.69791916666667 : 12.0392926025391 : JumpStart); (7.86458583333333 : 12.0392926025391 : JumpEnd); (9 : 12.0392926025391)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 12.0392926025391); (7.69791916666667 : 12.0392926025391 : JumpStart); (7.86458583333333 : 12.0392926025391 : JumpEnd); (9 : 12.0392926025391)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PackagingDataDataContext/Part/Part_SinglePackage" />
       <nodes>
         <classShapeMoniker Id="bac36eb1-4b2d-4698-ae18-31308a627711" />
         <classShapeMoniker Id="50290669-7060-4c74-bf4d-4ed9114d59d2" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.0312525 : 12.5785852050781); (5.0312525 : 18.3223024495443); (6.25 : 18.3223024495443)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.0312525 : 12.5785852050781); (5.0312525 : 18.3223024495443); (6.25 : 18.3223024495443)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PackagingDataDataContext/Part/Part_SourceBarcode" />
       <nodes>
         <classShapeMoniker Id="bac36eb1-4b2d-4698-ae18-31308a627711" />
         <classShapeMoniker Id="5d5cdc55-39e0-49ce-bf1b-958938f6143e" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(11 : 11.9402630615234); (11.4791666666667 : 11.9402630615234 : JumpStart); (11.6458333333333 : 11.9402630615234 : JumpEnd); (11.75 : 11.9402630615234)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(11 : 11.9402630615234); (11.75 : 11.9402630615234)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PackagingDataDataContext/SinglePackage/SinglePackage_TrayItem" />
       <nodes>
         <classShapeMoniker Id="50290669-7060-4c74-bf4d-4ed9114d59d2" />
         <classShapeMoniker Id="4b7902c6-d4a3-4cf4-aea1-5e26456c02f1" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(11 : 14.8123667026993); (11.5625 : 14.2498667026993); (11.5625 : 11.4388795307617); (11.75 : 11.4388795307617)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(11 : 16.3893253580729); (13.65625 : 16.3893253580729); (13.65625 : 12.3805261230469)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PackagingDataDataContext/Tray/Tray_TrayItem" />
       <nodes>
         <classShapeMoniker Id="412367d0-e87c-4a02-8a7c-4ea5a0bcf0db" />
         <classShapeMoniker Id="4b7902c6-d4a3-4cf4-aea1-5e26456c02f1" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 7.07054010253906); (9 : 7.07054010253906)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 7.07054010253906); (9 : 7.07054010253906)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PackagingDataDataContext/WorkStation/WorkStation_CustomValidate" />
       <nodes>
         <classShapeMoniker Id="8a844df6-61ee-4f4d-a050-2e6943be465f" />
         <classShapeMoniker Id="a170acd1-4006-418d-8e54-4cb2ba3cd3ee" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(7.25 : 8.38756551106771); (7.25 : 9.0937475); (7.69791916666667 : 9.0937475 : JumpStart); (7.86458583333333 : 9.0937475 : JumpEnd); (8.54166666666667 : 9.0937475 : JumpStart); (8.70833333333333 : 9.0937475 : JumpEnd); (9 : 9.0937475)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7.25 : 8.38756551106771); (7.25 : 9.0937475); (7.69791916666667 : 9.0937475 : JumpStart); (7.86458583333333 : 9.0937475 : JumpEnd); (9 : 9.0937475)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PackagingDataDataContext/WorkStation/WorkStation_PartAllowedSec" />
       <nodes>
         <classShapeMoniker Id="8a844df6-61ee-4f4d-a050-2e6943be465f" />
         <classShapeMoniker Id="052b3b41-47e9-4ce7-8f90-5803d3c4c6f0" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(7.7812525 : 8.38756551106771); (7.7812525 : 12.968711097819); (9 : 12.968711097819)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7.7812525 : 8.38756551106771); (7.7812525 : 12.968711097819); (9 : 12.968711097819)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PackagingDataDataContext/WorkStation/WorkStation_SinglePackage" />
       <nodes>
         <classShapeMoniker Id="8a844df6-61ee-4f4d-a050-2e6943be465f" />
         <classShapeMoniker Id="50290669-7060-4c74-bf4d-4ed9114d59d2" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 7.53577290852865); (6.25 : 7.53577290852865)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 7.53577290852865); (6.25 : 7.53577290852865)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PackagingDataDataContext/ProdLine/ProdLine_WorkStation" />
       <nodes>
         <classShapeMoniker Id="d971c17b-2c78-44d4-a079-9f058bcbaa01" />
         <classShapeMoniker Id="8a844df6-61ee-4f4d-a050-2e6943be465f" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="27c07dea-170a-4fd6-b9bd-4ebf31804d21" absoluteBounds="11.5, 14.25, 2, 1.9535852050781251">
+      <DataClassMoniker Name="/PackagingDataDataContext/PackageItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3e8e897b-58db-4a52-8979-84485b1faa44" absoluteBounds="11.515, 14.71, 1.9700000000000002, 1.393585205078125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11 : 13.835624593099); (11.5 : 14.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/PackagingDataDataContext/SinglePackage/SinglePackage_PackageItem" />
+      <nodes>
+        <classShapeMoniker Id="50290669-7060-4c74-bf4d-4ed9114d59d2" />
+        <classShapeMoniker Id="27c07dea-170a-4fd6-b9bd-4ebf31804d21" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

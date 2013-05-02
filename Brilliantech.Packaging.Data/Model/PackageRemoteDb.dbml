@@ -35,16 +35,6 @@
       <Association Name="PackagingEvent_History" Member="PackagingEvent" ThisKey="eventID" OtherKey="eventID" Type="PackagingEvent" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.PackageItem" Member="PackageItems">
-    <Type Name="PackageItem">
-      <Column Name="itemUid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="itemSeq" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="TNr" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="packagingTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="packageID" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Association Name="SinglePackage_PackageItem" Member="SinglePackage" ThisKey="packageID" OtherKey="packageID" Type="SinglePackage" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.PackagingEvent" Member="PackagingEvents">
     <Type Name="PackagingEvent">
       <Column Name="eventID" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -122,8 +112,8 @@
       <Column Name="partNr" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="wrkstnID" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
       <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Association Name="SinglePackage_PackageItem" Member="PackageItems" ThisKey="packageID" OtherKey="packageID" Type="PackageItem" />
       <Association Name="SinglePackage_TrayItem" Member="TrayItems" ThisKey="packageID" OtherKey="packageId" Type="TrayItem" />
+      <Association Name="SinglePackage_PackageItem" Member="PackageItems" ThisKey="packageID" OtherKey="packageID" Type="PackageItem" />
       <Association Name="Part_SinglePackage" Member="Part" ThisKey="partNr" OtherKey="partNr" Type="Part" IsForeignKey="true" />
       <Association Name="WorkStation_SinglePackage" Member="WorkStation" ThisKey="wrkstnID" OtherKey="wrkStnID" Type="WorkStation" IsForeignKey="true" />
     </Type>
@@ -170,6 +160,17 @@
       <Association Name="WorkStation_PartAllowedSec" Member="PartAllowedSecs" ThisKey="wrkStnID" OtherKey="wrkstnr" Type="PartAllowedSec" />
       <Association Name="WorkStation_SinglePackage" Member="SinglePackages" ThisKey="wrkStnID" OtherKey="wrkstnID" Type="SinglePackage" />
       <Association Name="ProdLine_WorkStation" Member="ProdLine" ThisKey="prodLineID" OtherKey="prodLineID" Type="ProdLine" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PackageItem" Member="PackageItems">
+    <Type Name="PackageItem">
+      <Column Name="itemUid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="itemSeq" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TNr" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="packagingTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="packageID" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="SinglePackage_PackageItem" Member="SinglePackage" ThisKey="packageID" OtherKey="packageID" Type="SinglePackage" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

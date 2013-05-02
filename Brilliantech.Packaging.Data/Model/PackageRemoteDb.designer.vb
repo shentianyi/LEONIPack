@@ -50,12 +50,6 @@ Partial Public Class PackagingDataDataContext
     End Sub
   Partial Private Sub DeleteHistory(instance As History)
     End Sub
-  Partial Private Sub InsertPackageItem(instance As PackageItem)
-    End Sub
-  Partial Private Sub UpdatePackageItem(instance As PackageItem)
-    End Sub
-  Partial Private Sub DeletePackageItem(instance As PackageItem)
-    End Sub
   Partial Private Sub InsertPackagingEvent(instance As PackagingEvent)
     End Sub
   Partial Private Sub UpdatePackagingEvent(instance As PackagingEvent)
@@ -122,6 +116,12 @@ Partial Public Class PackagingDataDataContext
     End Sub
   Partial Private Sub DeleteWorkStation(instance As WorkStation)
     End Sub
+  Partial Private Sub InsertPackageItem(instance As PackageItem)
+    End Sub
+  Partial Private Sub UpdatePackageItem(instance As PackageItem)
+    End Sub
+  Partial Private Sub DeletePackageItem(instance As PackageItem)
+    End Sub
   #End Region
 	
 	Public Sub New()
@@ -164,12 +164,6 @@ Partial Public Class PackagingDataDataContext
 	Public ReadOnly Property Histories() As System.Data.Linq.Table(Of History)
 		Get
 			Return Me.GetTable(Of History)
-		End Get
-	End Property
-	
-	Public ReadOnly Property PackageItems() As System.Data.Linq.Table(Of PackageItem)
-		Get
-			Return Me.GetTable(Of PackageItem)
 		End Get
 	End Property
 	
@@ -236,6 +230,12 @@ Partial Public Class PackagingDataDataContext
 	Public ReadOnly Property WorkStations() As System.Data.Linq.Table(Of WorkStation)
 		Get
 			Return Me.GetTable(Of WorkStation)
+		End Get
+	End Property
+	
+	Public ReadOnly Property PackageItems() As System.Data.Linq.Table(Of PackageItem)
+		Get
+			Return Me.GetTable(Of PackageItem)
 		End Get
 	End Property
 End Class
@@ -952,208 +952,6 @@ Partial Public Class History
 	
 	Private Sub Initialize()
 		Me._PackagingEvent = CType(Nothing, EntityRef(Of PackagingEvent))
-		OnCreated
-	End Sub
-	
-	<Global.System.Runtime.Serialization.OnDeserializingAttribute(),  _
-	 Global.System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)>  _
-	Public Sub OnDeserializing(ByVal context As StreamingContext)
-		Me.Initialize
-	End Sub
-End Class
-
-<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.PackageItem"),  _
- Global.System.Runtime.Serialization.DataContractAttribute()>  _
-Partial Public Class PackageItem
-	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
-	
-	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
-	
-	Private _itemUid As System.Guid
-	
-	Private _itemSeq As Integer
-	
-	Private _TNr As String
-	
-	Private _packagingTime As Date
-	
-	Private _packageID As String
-	
-	Private _SinglePackage As EntityRef(Of SinglePackage)
-	
-    #Region "可扩展性方法定义"
-    Partial Private Sub OnLoaded()
-    End Sub
-    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
-    End Sub
-    Partial Private Sub OnCreated()
-    End Sub
-    Partial Private Sub OnitemUidChanging(value As System.Guid)
-    End Sub
-    Partial Private Sub OnitemUidChanged()
-    End Sub
-    Partial Private Sub OnitemSeqChanging(value As Integer)
-    End Sub
-    Partial Private Sub OnitemSeqChanged()
-    End Sub
-    Partial Private Sub OnTNrChanging(value As String)
-    End Sub
-    Partial Private Sub OnTNrChanged()
-    End Sub
-    Partial Private Sub OnpackagingTimeChanging(value As Date)
-    End Sub
-    Partial Private Sub OnpackagingTimeChanged()
-    End Sub
-    Partial Private Sub OnpackageIDChanging(value As String)
-    End Sub
-    Partial Private Sub OnpackageIDChanged()
-    End Sub
-    #End Region
-	
-	Public Sub New()
-		MyBase.New
-		Me.Initialize
-	End Sub
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_itemUid", DbType:="UniqueIdentifier NOT NULL", IsPrimaryKey:=true),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=1)>  _
-	Public Property itemUid() As System.Guid
-		Get
-			Return Me._itemUid
-		End Get
-		Set
-			If ((Me._itemUid = value)  _
-						= false) Then
-				Me.OnitemUidChanging(value)
-				Me.SendPropertyChanging
-				Me._itemUid = value
-				Me.SendPropertyChanged("itemUid")
-				Me.OnitemUidChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_itemSeq", DbType:="Int NOT NULL"),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=2)>  _
-	Public Property itemSeq() As Integer
-		Get
-			Return Me._itemSeq
-		End Get
-		Set
-			If ((Me._itemSeq = value)  _
-						= false) Then
-				Me.OnitemSeqChanging(value)
-				Me.SendPropertyChanging
-				Me._itemSeq = value
-				Me.SendPropertyChanged("itemSeq")
-				Me.OnitemSeqChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TNr", DbType:="VarChar(200) NOT NULL", CanBeNull:=false),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=3)>  _
-	Public Property TNr() As String
-		Get
-			Return Me._TNr
-		End Get
-		Set
-			If (String.Equals(Me._TNr, value) = false) Then
-				Me.OnTNrChanging(value)
-				Me.SendPropertyChanging
-				Me._TNr = value
-				Me.SendPropertyChanged("TNr")
-				Me.OnTNrChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_packagingTime", DbType:="DateTime NOT NULL"),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=4)>  _
-	Public Property packagingTime() As Date
-		Get
-			Return Me._packagingTime
-		End Get
-		Set
-			If ((Me._packagingTime = value)  _
-						= false) Then
-				Me.OnpackagingTimeChanging(value)
-				Me.SendPropertyChanging
-				Me._packagingTime = value
-				Me.SendPropertyChanged("packagingTime")
-				Me.OnpackagingTimeChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_packageID", DbType:="VarChar(20) NOT NULL", CanBeNull:=false),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=5)>  _
-	Public Property packageID() As String
-		Get
-			Return Me._packageID
-		End Get
-		Set
-			If (String.Equals(Me._packageID, value) = false) Then
-				If Me._SinglePackage.HasLoadedOrAssignedValue Then
-					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
-				End If
-				Me.OnpackageIDChanging(value)
-				Me.SendPropertyChanging
-				Me._packageID = value
-				Me.SendPropertyChanged("packageID")
-				Me.OnpackageIDChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="SinglePackage_PackageItem", Storage:="_SinglePackage", ThisKey:="packageID", OtherKey:="packageID", IsForeignKey:=true)>  _
-	Public Property SinglePackage() As SinglePackage
-		Get
-			Return Me._SinglePackage.Entity
-		End Get
-		Set
-			Dim previousValue As SinglePackage = Me._SinglePackage.Entity
-			If ((Object.Equals(previousValue, value) = false)  _
-						OrElse (Me._SinglePackage.HasLoadedOrAssignedValue = false)) Then
-				Me.SendPropertyChanging
-				If ((previousValue Is Nothing)  _
-							= false) Then
-					Me._SinglePackage.Entity = Nothing
-					previousValue.PackageItems.Remove(Me)
-				End If
-				Me._SinglePackage.Entity = value
-				If ((value Is Nothing)  _
-							= false) Then
-					value.PackageItems.Add(Me)
-					Me._packageID = value.packageID
-				Else
-					Me._packageID = CType(Nothing, String)
-				End If
-				Me.SendPropertyChanged("SinglePackage")
-			End If
-		End Set
-	End Property
-	
-	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
-	
-	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
-	
-	Protected Overridable Sub SendPropertyChanging()
-		If ((Me.PropertyChangingEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
-		End If
-	End Sub
-	
-	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
-		If ((Me.PropertyChangedEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
-		End If
-	End Sub
-	
-	Private Sub Initialize()
-		Me._SinglePackage = CType(Nothing, EntityRef(Of SinglePackage))
 		OnCreated
 	End Sub
 	
@@ -2642,9 +2440,9 @@ Partial Public Class SinglePackage
 	
 	Private _rowguid As System.Guid
 	
-	Private _PackageItems As EntitySet(Of PackageItem)
-	
 	Private _TrayItems As EntitySet(Of TrayItem)
+	
+	Private _PackageItems As EntitySet(Of PackageItem)
 	
 	Private _Part As EntityRef(Of Part)
 	
@@ -2844,23 +2642,8 @@ Partial Public Class SinglePackage
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="SinglePackage_PackageItem", Storage:="_PackageItems", ThisKey:="packageID", OtherKey:="packageID"),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=9, EmitDefaultValue:=false)>  _
-	Public Property PackageItems() As EntitySet(Of PackageItem)
-		Get
-			If (Me.serializing  _
-						AndAlso (Me._PackageItems.HasLoadedOrAssignedValues = false)) Then
-				Return Nothing
-			End If
-			Return Me._PackageItems
-		End Get
-		Set
-			Me._PackageItems.Assign(value)
-		End Set
-	End Property
-	
 	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="SinglePackage_TrayItem", Storage:="_TrayItems", ThisKey:="packageID", OtherKey:="packageId"),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=10, EmitDefaultValue:=false)>  _
+	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=9, EmitDefaultValue:=false)>  _
 	Public Property TrayItems() As EntitySet(Of TrayItem)
 		Get
 			If (Me.serializing  _
@@ -2871,6 +2654,21 @@ Partial Public Class SinglePackage
 		End Get
 		Set
 			Me._TrayItems.Assign(value)
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="SinglePackage_PackageItem", Storage:="_PackageItems", ThisKey:="packageID", OtherKey:="packageID"),  _
+	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=10, EmitDefaultValue:=false)>  _
+	Public Property PackageItems() As EntitySet(Of PackageItem)
+		Get
+			If (Me.serializing  _
+						AndAlso (Me._PackageItems.HasLoadedOrAssignedValues = false)) Then
+				Return Nothing
+			End If
+			Return Me._PackageItems
+		End Get
+		Set
+			Me._PackageItems.Assign(value)
 		End Set
 	End Property
 	
@@ -2948,16 +2746,6 @@ Partial Public Class SinglePackage
 		End If
 	End Sub
 	
-	Private Sub attach_PackageItems(ByVal entity As PackageItem)
-		Me.SendPropertyChanging
-		entity.SinglePackage = Me
-	End Sub
-	
-	Private Sub detach_PackageItems(ByVal entity As PackageItem)
-		Me.SendPropertyChanging
-		entity.SinglePackage = Nothing
-	End Sub
-	
 	Private Sub attach_TrayItems(ByVal entity As TrayItem)
 		Me.SendPropertyChanging
 		entity.SinglePackage = Me
@@ -2968,9 +2756,19 @@ Partial Public Class SinglePackage
 		entity.SinglePackage = Nothing
 	End Sub
 	
+	Private Sub attach_PackageItems(ByVal entity As PackageItem)
+		Me.SendPropertyChanging
+		entity.SinglePackage = Me
+	End Sub
+	
+	Private Sub detach_PackageItems(ByVal entity As PackageItem)
+		Me.SendPropertyChanging
+		entity.SinglePackage = Nothing
+	End Sub
+	
 	Private Sub Initialize()
-		Me._PackageItems = New EntitySet(Of PackageItem)(AddressOf Me.attach_PackageItems, AddressOf Me.detach_PackageItems)
 		Me._TrayItems = New EntitySet(Of TrayItem)(AddressOf Me.attach_TrayItems, AddressOf Me.detach_TrayItems)
+		Me._PackageItems = New EntitySet(Of PackageItem)(AddressOf Me.attach_PackageItems, AddressOf Me.detach_PackageItems)
 		Me._Part = CType(Nothing, EntityRef(Of Part))
 		Me._WorkStation = CType(Nothing, EntityRef(Of WorkStation))
 		OnCreated
@@ -3938,5 +3736,231 @@ Partial Public Class WorkStation
 	 Global.System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)>  _
 	Public Sub OnSerialized(ByVal context As StreamingContext)
 		Me.serializing = false
+	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.PackageItem"),  _
+ Global.System.Runtime.Serialization.DataContractAttribute()>  _
+Partial Public Class PackageItem
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _itemUid As System.Guid
+	
+	Private _itemSeq As Integer
+	
+	Private _TNr As String
+	
+	Private _packagingTime As Date
+	
+	Private _packageID As String
+	
+	Private _rowguid As System.Guid
+	
+	Private _SinglePackage As EntityRef(Of SinglePackage)
+	
+    #Region "可扩展性方法定义"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnitemUidChanging(value As System.Guid)
+    End Sub
+    Partial Private Sub OnitemUidChanged()
+    End Sub
+    Partial Private Sub OnitemSeqChanging(value As Integer)
+    End Sub
+    Partial Private Sub OnitemSeqChanged()
+    End Sub
+    Partial Private Sub OnTNrChanging(value As String)
+    End Sub
+    Partial Private Sub OnTNrChanged()
+    End Sub
+    Partial Private Sub OnpackagingTimeChanging(value As Date)
+    End Sub
+    Partial Private Sub OnpackagingTimeChanged()
+    End Sub
+    Partial Private Sub OnpackageIDChanging(value As String)
+    End Sub
+    Partial Private Sub OnpackageIDChanged()
+    End Sub
+    Partial Private Sub OnrowguidChanging(value As System.Guid)
+    End Sub
+    Partial Private Sub OnrowguidChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		Me.Initialize
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_itemUid", DbType:="UniqueIdentifier NOT NULL", IsPrimaryKey:=true),  _
+	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=1)>  _
+	Public Property itemUid() As System.Guid
+		Get
+			Return Me._itemUid
+		End Get
+		Set
+			If ((Me._itemUid = value)  _
+						= false) Then
+				Me.OnitemUidChanging(value)
+				Me.SendPropertyChanging
+				Me._itemUid = value
+				Me.SendPropertyChanged("itemUid")
+				Me.OnitemUidChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_itemSeq", DbType:="Int NOT NULL"),  _
+	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=2)>  _
+	Public Property itemSeq() As Integer
+		Get
+			Return Me._itemSeq
+		End Get
+		Set
+			If ((Me._itemSeq = value)  _
+						= false) Then
+				Me.OnitemSeqChanging(value)
+				Me.SendPropertyChanging
+				Me._itemSeq = value
+				Me.SendPropertyChanged("itemSeq")
+				Me.OnitemSeqChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TNr", DbType:="VarChar(200) NOT NULL", CanBeNull:=false),  _
+	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=3)>  _
+	Public Property TNr() As String
+		Get
+			Return Me._TNr
+		End Get
+		Set
+			If (String.Equals(Me._TNr, value) = false) Then
+				Me.OnTNrChanging(value)
+				Me.SendPropertyChanging
+				Me._TNr = value
+				Me.SendPropertyChanged("TNr")
+				Me.OnTNrChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_packagingTime", DbType:="DateTime NOT NULL"),  _
+	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=4)>  _
+	Public Property packagingTime() As Date
+		Get
+			Return Me._packagingTime
+		End Get
+		Set
+			If ((Me._packagingTime = value)  _
+						= false) Then
+				Me.OnpackagingTimeChanging(value)
+				Me.SendPropertyChanging
+				Me._packagingTime = value
+				Me.SendPropertyChanged("packagingTime")
+				Me.OnpackagingTimeChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_packageID", DbType:="VarChar(20) NOT NULL", CanBeNull:=false),  _
+	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=5)>  _
+	Public Property packageID() As String
+		Get
+			Return Me._packageID
+		End Get
+		Set
+			If (String.Equals(Me._packageID, value) = false) Then
+				If Me._SinglePackage.HasLoadedOrAssignedValue Then
+					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
+				End If
+				Me.OnpackageIDChanging(value)
+				Me.SendPropertyChanging
+				Me._packageID = value
+				Me.SendPropertyChanged("packageID")
+				Me.OnpackageIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_rowguid", DbType:="UniqueIdentifier NOT NULL"),  _
+	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=6)>  _
+	Public Property rowguid() As System.Guid
+		Get
+			Return Me._rowguid
+		End Get
+		Set
+			If ((Me._rowguid = value)  _
+						= false) Then
+				Me.OnrowguidChanging(value)
+				Me.SendPropertyChanging
+				Me._rowguid = value
+				Me.SendPropertyChanged("rowguid")
+				Me.OnrowguidChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="SinglePackage_PackageItem", Storage:="_SinglePackage", ThisKey:="packageID", OtherKey:="packageID", IsForeignKey:=true)>  _
+	Public Property SinglePackage() As SinglePackage
+		Get
+			Return Me._SinglePackage.Entity
+		End Get
+		Set
+			Dim previousValue As SinglePackage = Me._SinglePackage.Entity
+			If ((Object.Equals(previousValue, value) = false)  _
+						OrElse (Me._SinglePackage.HasLoadedOrAssignedValue = false)) Then
+				Me.SendPropertyChanging
+				If ((previousValue Is Nothing)  _
+							= false) Then
+					Me._SinglePackage.Entity = Nothing
+					previousValue.PackageItems.Remove(Me)
+				End If
+				Me._SinglePackage.Entity = value
+				If ((value Is Nothing)  _
+							= false) Then
+					value.PackageItems.Add(Me)
+					Me._packageID = value.packageID
+				Else
+					Me._packageID = CType(Nothing, String)
+				End If
+				Me.SendPropertyChanged("SinglePackage")
+			End If
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+	
+	Private Sub Initialize()
+		Me._SinglePackage = CType(Nothing, EntityRef(Of SinglePackage))
+		OnCreated
+	End Sub
+	
+	<Global.System.Runtime.Serialization.OnDeserializingAttribute(),  _
+	 Global.System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)>  _
+	Public Sub OnDeserializing(ByVal context As StreamingContext)
+		Me.Initialize
 	End Sub
 End Class

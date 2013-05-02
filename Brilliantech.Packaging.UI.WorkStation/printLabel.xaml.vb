@@ -1,6 +1,6 @@
 ﻿Imports Brilliantech.Packaging.UI.WorkStation.PackService
 Imports Brilliantech.Packaging.Data
-Imports Brilliantech.Packaging.WS
+
 
 Public Class printLabel
 
@@ -28,7 +28,9 @@ Public Class printLabel
             Else
                 If (result.Package.Status <> PackageStatus.Close And _
                     result.Package.Status <> PackageStatus.CloseUnfull And _
-                    result.Package.Status <> PackageStatus.CloseWithException) Then
+                    result.Package.Status <> PackageStatus.CloseWithException And _
+                    result.Package.Status <> PackageStatus.ReworkClose And _
+                    result.Package.Status <> PackageStatus.ReworkCloseWithException) Then
                     MsgBox("只有满箱才能补打满箱标签")
                 Else
                     Try

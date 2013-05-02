@@ -3,7 +3,9 @@ Imports Brilliantech.Framework.WCF.Data
 Imports Brilliantech.Packaging.WS.IDService
 Imports Brilliantech.Framework.Utilities.EnumUtil
 Imports Nini.Config
+Imports System.Text.RegularExpressions
 'Imports log4net
+
 'Imports log4net.Ext.TracableID
 Imports System.IO
 
@@ -309,7 +311,7 @@ Public Class PackageUtil
                                     {.itemUid = Guid.NewGuid, _
                                         .itemSeq = package.PackageItems.Count + 1, _
                                      .packageID = packId, _
-                                     .packagingTime = Now(), .TNr = tnr})
+                                     .packagingTime = Now(), .TNr = tnr, .rowguid = Guid.NewGuid})
                 unitOfWork.Commit()
                 result.ReturnedResult = True
             End If
@@ -341,17 +343,17 @@ Public Class PackageUtil
                 result.ReturnedMessage.Add("包装箱已经到达最大容量")
             Else
                 Dim barcodeSetting As SourceBarcode = package.Part.SourceBarcodes.First
-                Dim fixedContent As String = barcodeSetting.defaultFixedText
-                Dim scanedFix As String = ""
-                Try
-                    scanedFix = barcodeContent.Substring(barcodeSetting.fromPosition, barcodeSetting.length)
-                Catch ex As Exception
+                'Dim fixedContent As String = barcodeSetting.defaultFixedText
+                'Dim scanedFix As String = ""
+                'Try
+                '    scanedFix = barcodeContent.Substring(barcodeSetting.fromPosition, barcodeSetting.length)
+                'Catch ex As Exception
 
-                End Try
+                'End Try
 
-                If String.Compare(fixedContent, scanedFix, _
-                                  myConfig.Configs("BarcodeContent").GetBoolean("IgnoreBarcodeSource")) <> 0 Then
-                    result.ReturnedMessage.Add("非指定产品，请检查是否是错误的产品")
+
+                If Regex.IsMatch(barcodeContent, barcodeSetting.defaultFixedText) = False Then
+                    result.ReturnedMessage.Add("非指定产品或扫描了错误的条码，请检查是否是错误的产品")
                 Else
                     result.ReturnedResult = True
                 End If

@@ -400,7 +400,7 @@ Public Class Begin
 
     Private Sub worker_DoWork(ByVal sender As Object, ByVal e As System.ComponentModel.DoWorkEventArgs) Handles worker.DoWork
         Try
-            ReplicationUtils.ReplicateMasterData()
+            'ReplicationUtils.ReplicateMasterData()
             e.Result = True
         Catch ex As Exception
             e.Result = False
