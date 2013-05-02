@@ -49,12 +49,6 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net">
-      <HintPath>F:\InternalFramework\log4net.Ext.TraceableID\cs\build\release\log4net.dll</HintPath>
-    </Reference>
-    <Reference Include="log4net.Ext.TID">
-      <HintPath>F:\InternalFramework\log4net.Ext.TraceableID\cs\build\release\log4net.Ext.TID.dll</HintPath>
-    </Reference>
     <Reference Include="Nini">
       <HintPath>C:\Users\lenovo\Downloads\Nini-1.1.0\Nini\Bin\DotNet\4.0\Release\Nini.dll</HintPath>
     </Reference>
@@ -187,6 +181,10 @@
     <ProjectReference Include="..\Brilliantech.Packaging.Data\Brilliantech.Packaging.Data.vbproj">
       <Project>{DA62D6C4-2840-451F-BCD2-5D44F062455E}</Project>
       <Name>Brilliantech.Packaging.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Brilliantech.Packaging.EpmIntegration\Brilliantech.Packaging.EpmIntegration.csproj">
+      <Project>{B7CAEC78-5AF4-482A-9FFE-B5EB066C22D5}</Project>
+      <Name>Brilliantech.Packaging.EpmIntegration</Name>
     </ProjectReference>
     <ProjectReference Include="..\Brilliantech.ReportGenConnector\Brilliantech.ReportGenConnector\Brilliantech.ReportGenConnector.vbproj">
       <Project>{8D7463C5-10DF-4ADA-B33B-1C3A941F2C4E}</Project>

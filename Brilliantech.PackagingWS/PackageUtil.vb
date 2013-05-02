@@ -4,6 +4,10 @@ Imports Brilliantech.Packaging.WS.IDService
 Imports Brilliantech.Framework.Utilities.EnumUtil
 Imports Nini.Config
 Imports System.Text.RegularExpressions
+Imports System.Threading
+Imports Brilliantech.Packaging.EpmIntegration
+
+
 'Imports log4net
 
 'Imports log4net.Ext.TracableID
@@ -307,13 +311,27 @@ Public Class PackageUtil
             If packageRepo.HasItem(tnr) Then
                 result.ReturnedMessage.Add("产品唯一号已经存在，请确认是否重复扫描了同一件产品")
             Else
-                package.PackageItems.Add(New PackageItem With _
+                Dim newItem As PackageItem = New PackageItem With _
                                     {.itemUid = Guid.NewGuid, _
                                         .itemSeq = package.PackageItems.Count + 1, _
                                      .packageID = packId, _
-                                     .packagingTime = Now(), .TNr = tnr, .rowguid = Guid.NewGuid})
+                                     .packagingTime = Now(), .TNr = tnr, .rowguid = Guid.NewGuid}
+                package.PackageItems.Add(newItem)
                 unitOfWork.Commit()
                 result.ReturnedResult = True
+
+                Dim params As ArrayList = New ArrayList
+                Try
+                    params.Add(package)
+                    params.Add(newItem)
+                    params.Add(package.WorkStation.prodLineID)
+                Catch ex As Exception
+
+                End Try
+   
+                ThreadPool.QueueUserWorkItem(New WaitCallback(AddressOf PerformExternalNotify))
+             
+            
             End If
            
         Catch ex As Exception
@@ -323,6 +341,20 @@ Public Class PackageUtil
     End Function
 
 
+    ''' <summary>
+    ''' 多线程下将一个产品生产完成的信息传送至整合服务
+    ''' </summary>
+    ''' <param name="params">ArrayList，第一个元素为SinglePackage对象，
+    ''' 第二个元素为PackageItem对象</param>
+    ''' <remarks>当出现错误时，调用Log方法记录Log</remarks>
+    Private Sub PerformExternalNotify(ByVal params As Object)
+        Dim integrator As Integration = New Integration
+        Try
+            integrator.notifyEpm(params(0), params(1), params(2))
+        Catch ex As Exception
+            integrator.log("exception during launch the notification", Now, ex.ToString)
+        End Try
+    End Sub
 
     ''' <summary>
     ''' 扫描一个产品入包装时的主验证方法，用于检查扫描的物品是否适合放入当前包装
