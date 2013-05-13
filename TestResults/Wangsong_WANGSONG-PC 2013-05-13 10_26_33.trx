@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="4cb291f8-b768-4b8a-8dfd-2d25a8baba84" name="Wangsong@WANGSONG-PC 2013-05-13 10:26:33" runUser="Wangsong-PC\Wangsong" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="本地" id="f7471ad7-7223-4255-adc8-bfedd733e2e1">
+    <Description>这些设置为本地测试运行的默认测试设置。</Description>
+    <Deployment enabled="false" runDeploymentRoot="Wangsong_WANGSONG-PC 2013-05-13 10_26_33">
+      <DeploymentItem filename="C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\LEONIPack\Brilliantech.ReportGenConnector\Brilliantech.ReportGenConnector\bin\Debug\Brilliantech.ReportGenConnector.dll" />
+      <DeploymentItem filename="C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\LEONIPack\Brilliantech.Packaging.Data\bin\Debug\Brilliantech.Packaging.Data.dll" />
+      <DeploymentItem filename="D:\File\DLL\Thrift.dll" />
+      <DeploymentItem filename="C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\LEONIPack\Brilliantech.Packaging.EpmIntegration\bin\Debug\Brilliantech.Packaging.EpmIntegration.dll" />
+      <DeploymentItem filename="C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\LEONIPack\Brilliantech.Framework\Brilliantech.Framework\bin\Debug\Brilliantech.Framework.dll" />
+      <DeploymentItem filename="D:\File\DLL\Nini.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-05-13T10:26:33.9868000+08:00" queuing="2013-05-13T10:26:34.0318000+08:00" start="2013-05-13T10:26:34.0398000+08:00" finish="2013-05-13T10:26:34.3378000+08:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="notifyEpmTest" storage="c:\users\wangsong\documents\visual studio 2010\projects\leonipack\testproject\bin\debug\testproject.dll" id="a2a65208-cf1f-509c-ac4b-630153ee3404">
+      <Execution id="d0db3406-3b96-4301-88ef-6ff8b2d326f0" />
+      <TestMethod codeBase="C:/Users/Wangsong/Documents/Visual Studio 2010/Projects/LEONIPack/TestProject/bin/Debug/TestProject.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject.IntegrationTest, TestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="notifyEpmTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="列表中未列出的结果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有已加载的结果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="a2a65208-cf1f-509c-ac4b-630153ee3404" executionId="d0db3406-3b96-4301-88ef-6ff8b2d326f0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="d0db3406-3b96-4301-88ef-6ff8b2d326f0" testId="a2a65208-cf1f-509c-ac4b-630153ee3404" testName="notifyEpmTest" computerName="WANGSONG-PC" duration="00:00:00.0511363" startTime="2013-05-13T10:26:34.0608000+08:00" endTime="2013-05-13T10:26:34.3098000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d0db3406-3b96-4301-88ef-6ff8b2d326f0">
+    </UnitTestResult>
+  </Results>
+</TestRun>

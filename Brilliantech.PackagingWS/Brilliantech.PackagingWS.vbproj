@@ -50,7 +50,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Nini">
-      <HintPath>C:\Users\lenovo\Downloads\Nini-1.1.0\Nini\Bin\DotNet\4.0\Release\Nini.dll</HintPath>
+      <HintPath>D:\File\DLL\Nini.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

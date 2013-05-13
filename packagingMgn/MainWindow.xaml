@@ -31,7 +31,7 @@
                     <Label Canvas.Left="214" Canvas.Top="93" Content="件" Height="28" Name="Label3" />
                     <Label Canvas.Left="6" Canvas.Top="149" Content="莱尼号" Height="28" Name="Label4" />
                     <Label Canvas.Left="6" Canvas.Top="206" Content="操作台号" Height="28" Name="Label5" />
-                    <TextBox Canvas.Left="126" Canvas.Top="156" Height="22" Name="TextBox_partnr" Width="198" />
+                    <TextBox Canvas.Left="126" Canvas.Top="156" Height="22" Name="TextBox_partNr_leoni" Width="198" />
                     <TextBox Canvas.Left="124" Canvas.Top="206" Height="22" Name="TextBox_wrkstnr" Width="200" />
                     <Button Canvas.Left="6" Canvas.Top="290" Content="确定" Height="22" Name="Button_okStartLabel" Width="75" />
                 </Canvas>

@@ -1,4 +1,4 @@
-﻿using Brilliantech.Packaging.WS;
+﻿
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using Brilliantech.Packaging.Data;
@@ -69,38 +69,38 @@ namespace TestProject
         /// <summary>
         ///FindSinglePackage 的测试
         ///</summary>
-        [TestMethod()]
-        public void FindSinglePackageTest()
-        {
-            PackagingDataDataContext context = new PackagingDataDataContext("D:\\vm\\DBBackup\\Minor-TSK-055\\package.sdf"); // TODO: 初始化为适当的值
-            SinglePackageRepo target = new SinglePackageRepo(context); // TODO: 初始化为适当的值
-            string pid = "P120825085853069"; // TODO: 初始化为适当的值
-            string wrkstnr = string.Empty; // TODO: 初始化为适当的值
-            string tnr = string.Empty ; // TODO: 初始化为适当的值
-            string partnr = string.Empty; // TODO: 初始化为适当的值
-            int status =-1; // TODO: 初始化为适当的值
-            DateTime fromDate = new DateTime(1990,1,1); // TODO: 初始化为适当的值
-            DateTime toDate = new DateTime(2100,1,1); // TODO: 初始化为适当的值
-            System.Collections.Generic.List<FullPackageInfo > actual;
-            actual = target.FindSinglePackage(pid, wrkstnr, tnr, partnr, status, fromDate, toDate);
-            Assert.IsNotNull (actual);
-            Assert.AreEqual(actual.Count(), 1);
+        //[TestMethod()]
+        //public void FindSinglePackageTest()
+        //{
+        //    PackagingDataDataContext context = new PackagingDataDataContext("D:\\vm\\DBBackup\\Minor-TSK-055\\package.sdf"); // TODO: 初始化为适当的值
+        //    SinglePackageRepo target = new SinglePackageRepo(context); // TODO: 初始化为适当的值
+        //    string pid = "P120825085853069"; // TODO: 初始化为适当的值
+        //    string wrkstnr = string.Empty; // TODO: 初始化为适当的值
+        //    string tnr = string.Empty ; // TODO: 初始化为适当的值
+        //    string partnr = string.Empty; // TODO: 初始化为适当的值
+        //    int status =-1; // TODO: 初始化为适当的值
+        //    DateTime fromDate = new DateTime(1990,1,1); // TODO: 初始化为适当的值
+        //    DateTime toDate = new DateTime(2100,1,1); // TODO: 初始化为适当的值
+        //    System.Collections.Generic.List<FullPackageInfo > actual;
+        //    actual = target.FindSinglePackage(pid, wrkstnr, tnr, partnr, status, fromDate, toDate);
+        //    Assert.IsNotNull (actual);
+        //    Assert.AreEqual(actual.Count(), 1);
          
-        }
+        //}
 
-        /// <summary>
-        ///GetItemsByPId 的测试
-        ///</summary>
-        [TestMethod()]
-        public void GetItemsByPIdTest()
-        {
-            PackagingDataDataContext context = new PackagingDataDataContext("D:\\vm\\DBBackup\\Minor-TSK-055\\package.sdf"); // TODO: 初始化为适当的值
-            SinglePackageRepo target = new SinglePackageRepo(context); // TODO: 初始化为适当的值
-            string pid = "P120813083031247"; // TODO: 初始化为适当的值
-            IQueryable<PackageItem> actual;
-            actual = target.GetItemsByPId(pid);
-            Assert.IsNotNull (actual);
-            Assert.AreEqual (actual.ToList().Count, 18);
-        }
+        ///// <summary>
+        /////GetItemsByPId 的测试
+        /////</summary>
+        //[TestMethod()]
+        //public void GetItemsByPIdTest()
+        //{
+        //    PackagingDataDataContext context = new PackagingDataDataContext("D:\\vm\\DBBackup\\Minor-TSK-055\\package.sdf"); // TODO: 初始化为适当的值
+        //    SinglePackageRepo target = new SinglePackageRepo(context); // TODO: 初始化为适当的值
+        //    string pid = "P120813083031247"; // TODO: 初始化为适当的值
+        //    IQueryable<PackageItem> actual;
+        //    actual = target.GetItemsByPId(pid);
+        //    Assert.IsNotNull (actual);
+        //    Assert.AreEqual (actual.ToList().Count, 18);
+        //}
     }
 }

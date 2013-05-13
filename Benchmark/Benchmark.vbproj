@@ -181,9 +181,6 @@
     <None Include="Service References\PackProcess\PackProcess.wsdl" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="data\package.sdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <None Include="Service References\PackProcess\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
@@ -234,6 +231,9 @@
       <Project>{2EFBD1C3-2EAF-44E7-8184-E0A366F37B30}</Project>
       <Name>Brilliantech.PackagingWS</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="data\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
