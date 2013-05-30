@@ -74,4 +74,15 @@ Public Class FullPackageInfo
             _status = value
         End Set
     End Property
+
+    Private _containerId As String
+    <DataMember()>
+    Public Property ContainerType As String
+        Get
+            Return _containerId
+        End Get
+        Set(ByVal value As String)
+            _containerId = value
+        End Set
+    End Property
 End Class
