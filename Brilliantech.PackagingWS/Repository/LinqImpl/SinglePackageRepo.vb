@@ -98,6 +98,7 @@ Public Class SinglePackageRepo
 
         Dim toModify As SinglePackage = GetByID(entity.packageID)
         toModify.Modify(entity)
+        _context.SubmitChanges()
     End Sub
 
 
@@ -265,7 +266,8 @@ Public Class SinglePackageRepo
                     pack.PartNr = info.PartNr
                     pack.PId = info.PackageID
                     pack.status = info.Status
-                    pack.Wrkst = info.WrkstnID
+                    pack.Wrkst = info.wrkstnID
+                    pack.ContainerType = info.containerID
                     infos.Add(pack)
                 Next
             End If

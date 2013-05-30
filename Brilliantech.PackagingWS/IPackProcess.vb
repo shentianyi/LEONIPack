@@ -67,4 +67,7 @@ Public Interface IPackProcess
     <OperationContract()>
     Function WorkstationExists(ByVal wrkstnr As String) As Boolean
 
+    <OperationContract()>
+    Function ModifyPackage(ByVal pack As SinglePackage) As ServiceMessage
+
 End Interface

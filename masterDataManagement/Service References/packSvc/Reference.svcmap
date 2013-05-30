@@ -18,16 +18,16 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://192.168.0.253:9000/packageService/mex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="http://localhost:9000/packageService/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="9938c330-2429-4994-9934-45f4aa340351" SourceId="1" SourceUrl="http://192.168.0.253:9000/packageService/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="4c4a8471-9530-46be-ad16-9d21766e57a3" SourceId="1" SourceUrl="http://192.168.0.253:9000/packageService/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="ec4e85ad-ff7d-4844-92c0-5fbc5776c681" SourceId="1" SourceUrl="http://192.168.0.253:9000/packageService/mex" />
-    <MetadataFile FileName="Brilliantech.Packaging.WS.xsd" MetadataType="Schema" ID="bdaf0431-73a6-4d4d-b559-6aa175d6dc18" SourceId="1" SourceUrl="http://192.168.0.253:9000/packageService/mex" />
-    <MetadataFile FileName="Brilliantech.Framework.WCF.Data.xsd" MetadataType="Schema" ID="dbcd2af9-a84c-4f42-8df6-7303d28dc0f2" SourceId="1" SourceUrl="http://192.168.0.253:9000/packageService/mex" />
-    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="e6bdcf23-cbc5-496e-ac4d-a2c12c5783a7" SourceId="1" SourceUrl="http://192.168.0.253:9000/packageService/mex" />
-    <MetadataFile FileName="Brilliantech.Packaging.Data.xsd" MetadataType="Schema" ID="a51126ca-e573-4f94-842f-7b105672cc80" SourceId="1" SourceUrl="http://192.168.0.253:9000/packageService/mex" />
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="1cfce30f-ab63-4da4-9776-a3107882a667" SourceId="1" SourceUrl="http://localhost:9000/packageService/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="d8ff04ff-bd4e-44eb-89fe-e938f25ff9fb" SourceId="1" SourceUrl="http://localhost:9000/packageService/mex" />
+    <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="6d0adc1a-fd72-4118-9288-0538b035a892" SourceId="1" SourceUrl="http://localhost:9000/packageService/mex" />
+    <MetadataFile FileName="Brilliantech.Packaging.WS1.xsd" MetadataType="Schema" ID="a57d5b32-c929-40cd-908d-0045c88cec35" SourceId="1" SourceUrl="http://localhost:9000/packageService/mex" />
+    <MetadataFile FileName="Brilliantech.Framework.WCF.Data1.xsd" MetadataType="Schema" ID="032a89a8-a084-4061-8f04-c6c0048a4a43" SourceId="1" SourceUrl="http://localhost:9000/packageService/mex" />
+    <MetadataFile FileName="Arrays1.xsd" MetadataType="Schema" ID="9effac7f-5f57-4edd-a7cc-df4cc9a6088a" SourceId="1" SourceUrl="http://localhost:9000/packageService/mex" />
+    <MetadataFile FileName="Brilliantech.Packaging.Data1.xsd" MetadataType="Schema" ID="c7991cbb-8db9-4a58-a076-182457b2f9a7" SourceId="1" SourceUrl="http://localhost:9000/packageService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

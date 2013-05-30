@@ -56,6 +56,9 @@
     <MyType>Windows</MyType>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Brilliantech.DatahouseService">
+      <HintPath>..\dll\Brilliantech.DatahouseService.dll</HintPath>
+    </Reference>
     <Reference Include="log4net">
       <HintPath>D:\File\DLL\log4net.dll</HintPath>
     </Reference>
@@ -76,7 +79,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Thrift">
-      <HintPath>D:\File\DLL\Thrift.dll</HintPath>
+      <HintPath>..\dll\Thrift.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -149,6 +152,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="ClassDiagram1.cd" />
+    <None Include="conf.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="log4.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Service References\IDService\Brilliantech.Packaging.WS.IDService.IDMessage.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

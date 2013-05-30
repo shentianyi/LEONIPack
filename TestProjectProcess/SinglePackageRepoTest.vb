@@ -70,4 +70,28 @@ Public Class SinglePackageRepoTest
         Assert.IsNotNull(actual)
 
     End Sub
+
+
+    <TestMethod()> _
+    Public Sub TestModify()
+
+    End Sub
+
+    '''<summary>
+    '''Modify 的测试
+    '''</summary>
+    <TestMethod()> _
+    Public Sub ModifyTest()
+        Dim context As PackagingDataDataContext = New PackagingDataDataContext("Data Source=192.168.0.253\dev001;Initial Catalog=Leoni_Packaging_prod;User ID=sa;Password=123456@") ' TODO: 初始化为适当的值
+        Dim target As IBaseRepo(Of SinglePackage) = New SinglePackageRepo(context) ' TODO: 初始化为适当的值
+        Dim entity As SinglePackage = New SinglePackage With {.capa = 46, .containerID = "MBSTP", .packageID = "TMB001", .partNr = "91G004702", .planedDate = Now, .rowguid = New Guid("{81f9b732-2e87-e211-93f2-000c2901ecf9}"), .status = 99, .wrkstnID = "Minor-TSK-041"}
+        Try
+            target.Modify(entity)
+            Assert.Fail()
+        Catch ex As Exception
+
+        End Try
+
+
+    End Sub
 End Class

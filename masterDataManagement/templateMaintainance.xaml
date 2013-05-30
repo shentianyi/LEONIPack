@@ -116,6 +116,15 @@
                         </Button.Background>
                     </Button>
 
+                    <Button Name="Button_setPrinter" Padding="4,4,4,4" MinHeight="65" MinWidth="65" Content="设置打印机" Foreground="White" Margin="5,0" FontSize="13.333" FontWeight="Bold">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF084F6A" Offset="0"/>
+                                <GradientStop Color="#FF4FACDE" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+
                     <Button Name="Button_reset" Padding="4,4,4,4" MinHeight="65" MinWidth="65" Content="重置" Foreground="White" Margin="5,0" FontSize="13.333" FontWeight="Bold">
                         <Button.Background>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

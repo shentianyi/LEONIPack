@@ -49,6 +49,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
@@ -68,6 +69,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ChangeCapa.xaml.vb">
+      <DependentUpon>ChangeCapa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePrinter.xaml.vb">
+      <DependentUpon>ChangePrinter.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Service References\packSvc\Reference.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -79,6 +86,14 @@
     <Compile Include="templateMaintainance.xaml.vb">
       <DependentUpon>templateMaintainance.xaml</DependentUpon>
     </Compile>
+    <Page Include="ChangeCapa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChangePrinter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -150,16 +165,16 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <AppDesigner Include="My Project\" />
-    <None Include="Service References\packSvc\Arrays.xsd">
+    <None Include="Service References\packSvc\Arrays1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\packSvc\Brilliantech.Framework.WCF.Data.xsd">
+    <None Include="Service References\packSvc\Brilliantech.Framework.WCF.Data1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\packSvc\Brilliantech.Packaging.Data.xsd">
+    <None Include="Service References\packSvc\Brilliantech.Packaging.Data1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\packSvc\Brilliantech.Packaging.WS.xsd">
+    <None Include="Service References\packSvc\Brilliantech.Packaging.WS1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\packSvc\masterDataManagement.packSvc.EnumObject.datasource">
@@ -171,14 +186,16 @@
     <None Include="Service References\packSvc\masterDataManagement.packSvc.ServiceMessage.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\packSvc\service.wsdl" />
-    <None Include="Service References\packSvc\service.xsd">
+    <None Include="Service References\packSvc\service1.wsdl" />
+    <None Include="Service References\packSvc\service2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\packSvc\service1.xsd">
+    <None Include="Service References\packSvc\service21.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Templates\templateLabel.tff" />
+    <None Include="Templates\templateLabel.tff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\longBanner.jpg" />
@@ -208,6 +225,10 @@
     <ProjectReference Include="..\Brilliantech.Packaging.Data\Brilliantech.Packaging.Data.vbproj">
       <Project>{DA62D6C4-2840-451F-BCD2-5D44F062455E}</Project>
       <Name>Brilliantech.Packaging.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Brilliantech.ReportGenConnector\Brilliantech.ReportGenConnector\Brilliantech.ReportGenConnector.vbproj">
+      <Project>{8D7463C5-10DF-4ADA-B33B-1C3A941F2C4E}</Project>
+      <Name>Brilliantech.ReportGenConnector</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

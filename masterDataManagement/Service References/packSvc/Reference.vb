@@ -255,6 +255,9 @@ Namespace packSvc
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IPackProcess/WorkstationExists", ReplyAction:="http://tempuri.org/IPackProcess/WorkstationExistsResponse")>  _
         Function WorkstationExists(ByVal wrkstnr As String) As Boolean
+        
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IPackProcess/ModifyPackage", ReplyAction:="http://tempuri.org/IPackProcess/ModifyPackageResponse")>  _
+        Function ModifyPackage(ByVal pack As Brilliantech.Packaging.Data.SinglePackage) As packSvc.ServiceMessage
     End Interface
     
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")>  _
@@ -358,6 +361,10 @@ Namespace packSvc
         
         Public Function WorkstationExists(ByVal wrkstnr As String) As Boolean Implements packSvc.IPackProcess.WorkstationExists
             Return MyBase.Channel.WorkstationExists(wrkstnr)
+        End Function
+        
+        Public Function ModifyPackage(ByVal pack As Brilliantech.Packaging.Data.SinglePackage) As packSvc.ServiceMessage Implements packSvc.IPackProcess.ModifyPackage
+            Return MyBase.Channel.ModifyPackage(pack)
         End Function
     End Class
 End Namespace

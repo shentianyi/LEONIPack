@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Brilliantech.Packaging.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Brilliantech.Packaging.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="SinglePackage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="packageID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="capa" type="xs:int" />
+      <xs:element minOccurs="0" name="status" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="containerID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="planedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="partNr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="wrkstnID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rowguid" type="ser:guid" />
+      <xs:element minOccurs="0" name="TrayItems" nillable="true" type="tns:ArrayOfTrayItem">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="PackageItems" nillable="true" type="tns:ArrayOfPackageItem">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SinglePackage" nillable="true" type="tns:SinglePackage" />
+  <xs:complexType name="ArrayOfTrayItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TrayItem" nillable="true" type="tns:TrayItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTrayItem" nillable="true" type="tns:ArrayOfTrayItem" />
+  <xs:complexType name="TrayItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="itemId" type="ser:guid" />
+      <xs:element minOccurs="0" name="packageId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="trayId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrayItem" nillable="true" type="tns:TrayItem" />
+  <xs:complexType name="ArrayOfPackageItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PackageItem" nillable="true" type="tns:PackageItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPackageItem" nillable="true" type="tns:ArrayOfPackageItem" />
+  <xs:complexType name="PackageItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="itemUid" type="ser:guid" />
+      <xs:element minOccurs="0" name="itemSeq" type="xs:int" />
+      <xs:element minOccurs="0" name="TNr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="packagingTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="packageID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rowguid" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PackageItem" nillable="true" type="tns:PackageItem" />
+  <xs:simpleType name="PackagingType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="normal" />
+      <xs:enumeration value="rework" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PackagingType" nillable="true" type="tns:PackagingType" />
+  <xs:complexType name="ArrayOfFullPackageInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FullPackageInfo" nillable="true" type="tns:FullPackageInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFullPackageInfo" nillable="true" type="tns:ArrayOfFullPackageInfo" />
+  <xs:complexType name="FullPackageInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Capa" type="xs:int" />
+      <xs:element minOccurs="0" name="ContainerType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerPartNr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PartNr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wrkst" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="status" type="tns:PackageStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FullPackageInfo" nillable="true" type="tns:FullPackageInfo" />
+  <xs:simpleType name="PackageStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NewCreated" />
+      <xs:enumeration value="Begin" />
+      <xs:enumeration value="Unfull" />
+      <xs:enumeration value="Rebegin" />
+      <xs:enumeration value="BeginUnexpect" />
+      <xs:enumeration value="Close" />
+      <xs:enumeration value="CloseUnfull" />
+      <xs:enumeration value="CloseWithException" />
+      <xs:enumeration value="UnfullExpection" />
+      <xs:enumeration value="Scraped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">999</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ReworkNew">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">9</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ReworkBegin">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ReworkUnfull">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">11</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ReworkRebegin">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">12</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ReworkBeginUnexpect">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">13</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ReworkClose">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">14</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ReworkCloseWithException">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">15</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ReworkUnfullExpection">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Template">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">99</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PackageStatus" nillable="true" type="tns:PackageStatus" />
+  <xs:complexType name="ArrayOfCustomValidate">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CustomValidate" nillable="true" type="tns:CustomValidate" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCustomValidate" nillable="true" type="tns:ArrayOfCustomValidate" />
+  <xs:complexType name="CustomValidate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="validateId" type="ser:guid" />
+      <xs:element minOccurs="0" name="validateName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="validatePattern" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="partNr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="wrkstNr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rowguid" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CustomValidate" nillable="true" type="tns:CustomValidate" />
+</xs:schema>

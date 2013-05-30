@@ -30,6 +30,7 @@ Public Class PackProcess
 
 
 
+
     ''' <summary>
     ''' Nini ini 配置实例
     ''' </summary>
@@ -64,22 +65,22 @@ Public Class PackProcess
     Public Function Create(ByVal package As Data.SinglePackage, ByVal mode As PackagingType) As PackageMessage Implements IPackProcess.Create
         Dim returnedMsg As PackageMessage = New PackageMessage With {.ReturnedResult = False}
         Dim toInsert As SinglePackage = New SinglePackage
-        toInsert.Capa = package.Capa
-        toInsert.ContainerID = package.ContainerID
-        toInsert.PartNr = package.PartNr
+        toInsert.capa = package.capa
+        toInsert.containerID = package.containerID
+        toInsert.partNr = package.partNr
         toInsert.planedDate = Now
 
         Select Case mode
             Case PackagingType.normal
-                toInsert.Status = PackageStatus.NewCreated
+                toInsert.status = PackageStatus.NewCreated
             Case PackagingType.rework
-                toInsert.Status = PackageStatus.ReworkNew
+                toInsert.status = PackageStatus.ReworkNew
         End Select
 
-        toInsert.WrkstnID = package.WrkstnID
-        toInsert.Rowguid = Guid.NewGuid
+        toInsert.wrkstnID = package.wrkstnID
+        toInsert.rowguid = Guid.NewGuid
         Try
-            toInsert.PackageID = util.GetNewPackageID(package.WrkstnID)
+            toInsert.packageID = util.GetNewPackageID(package.wrkstnID)
             Dim unitOfWork As IUnitofWork = New PackagingDataDataContext(connStr)
             Dim packageRepo As SinglePackageRepo = New SinglePackageRepo(unitOfWork)
             packageRepo.Insert(toInsert)
@@ -105,9 +106,9 @@ Public Class PackProcess
         Dim packageRepo As SinglePackageRepo = New SinglePackageRepo(unitOfWork)
         Dim package As SinglePackage = packageRepo.GetByID(packageId)
 
-        If package.Status = PackageStatus.Template Then
-            If util.HasSingleUnfull(packageId, package.ContainerID, wrkStnId) = True Then
-                unfullId = packageRepo.GetFirstUnfullPID(package.PartNr, package.ContainerID, package.WrkstnID)
+        If package.status = PackageStatus.Template Then
+            If util.HasSingleUnfull(packageId, package.containerID, wrkStnId) = True Then
+                unfullId = packageRepo.GetFirstUnfullPID(package.partNr, package.containerID, package.wrkstnID)
             End If
         End If
         Return unfullId
@@ -144,23 +145,23 @@ Public Class PackProcess
                     result.ReturnedMessage.Add("没有找到包装箱号为 " & packageID & " 的包装箱")
                     Return result
                 End If
-                If String.Compare(package.WrkstnID, wrkStnID) <> 0 Then
-                    returnedResult.ReturnedMessage.Add("此装箱任务属于操作台 " & package.WrkstnID)
+                If String.Compare(package.wrkstnID, wrkStnID) <> 0 Then
+                    returnedResult.ReturnedMessage.Add("此装箱任务属于操作台 " & package.wrkstnID)
                 Else
-                    If package.Status = PackageStatus.Template Then
-                        If util.HasSingleUnfull(packageID, package.ContainerID, wrkStnID) = True Then
+                    If package.status = PackageStatus.Template Then
+                        If util.HasSingleUnfull(packageID, package.containerID, wrkStnID) = True Then
                             returnedResult.ReturnedResult = False
                             returnedResult.ReturnedMessage.Add _
                                 ("此操作台已经有一个同型号的未满箱，包装箱号为 " _
-                                 & packageRepo.GetFirstUnfullPID(package.PartNr, package.ContainerID, package.WrkstnID) & " ,请装满后再开新箱")
+                                 & packageRepo.GetFirstUnfullPID(package.partNr, package.containerID, package.wrkstnID) & " ,请装满后再开新箱")
                         Else
                             returnedResult = Create(package, mode)
                             If returnedResult.ReturnedResult = True Then
                                 returnedResult.ReturnedResult = False
                                 Dim unitOfWork1 As IUnitofWork = New PackagingDataDataContext(connStr)
                                 Dim packageRepo1 As SinglePackageRepo = New SinglePackageRepo(unitOfWork1)
-                                Dim package1 As SinglePackage = packageRepo1.GetByID(returnedResult.Package.PackageID)
-                                package1.Status = util.ChangeStatusToBegin(package1.Status)
+                                Dim package1 As SinglePackage = packageRepo1.GetByID(returnedResult.Package.packageID)
+                                package1.status = util.ChangeStatusToBegin(package1.status)
                                 unitOfWork1.Commit()
                                 returnedResult.Package = package1
                                 returnedResult.ReturnedResult = True
@@ -169,10 +170,10 @@ Public Class PackProcess
 
 
                     Else
-                        result = util.CheckPackageStatusforBegin(packageID, package.Status)
+                        result = util.CheckPackageStatusforBegin(packageID, package.status)
                         If result.ReturnedResult = True Then
                             returnedResult.ReturnedResult = False
-                            package.Status = util.ChangeStatusToBegin(package.Status)
+                            package.status = util.ChangeStatusToBegin(package.status)
                             unitOfWork.Commit()
                             returnedResult.Package = package
                             returnedResult.ReturnedResult = True
@@ -213,10 +214,10 @@ Public Class PackProcess
                 Dim unitOfWork As IUnitofWork = New PackagingDataDataContext(connStr)
                 Dim packageRepo As SinglePackageRepo = New SinglePackageRepo(unitOfWork)
                 Dim package As SinglePackage = packageRepo.GetByID(packageID)
-                result = util.CheckReoverStatus(package.Status)
+                result = util.CheckReoverStatus(package.status)
                 If result.ReturnedResult = True Then
                     result.ReturnedResult = False
-                    package.Status = util.ChangeRecoverStatus(package.Status)
+                    package.status = util.ChangeRecoverStatus(package.status)
                     unitOfWork.Commit()
                     result.ReturnedResult = True
                 End If
@@ -277,10 +278,10 @@ Public Class PackProcess
                 result.ReturnedResult = True
             Else
                 Dim lastItem As PackageItem = packageRepo.GetLastItem(packageID)
-                Dim allowedTime As PartAllowedSec = packageRepo.GetPartTime(package.PartNr, package.WrkstnID)
+                Dim allowedTime As PartAllowedSec = packageRepo.GetPartTime(package.partNr, package.wrkstnID)
 
-                Dim timeSpan As TimeSpan = Now - lastItem.PackagingTime
-                If timeSpan.TotalSeconds < allowedTime.Sec Then
+                Dim timeSpan As TimeSpan = Now - lastItem.packagingTime
+                If timeSpan.TotalSeconds < allowedTime.sec Then
                     result.ReturnedMessage.Add("扫描间隔时间过短，请检查扫描枪灵敏度")
                 Else
                     result.ReturnedResult = True
@@ -317,13 +318,13 @@ Public Class PackProcess
                 Dim unitOfWork As IUnitofWork = New PackagingDataDataContext(connStr)
                 Dim packageRepo As SinglePackageRepo = New SinglePackageRepo(unitOfWork)
                 Dim package As SinglePackage = packageRepo.GetByID(packageID)
-                result = util.CheckEndStatus(package.Status)
+                result = util.CheckEndStatus(package.status)
                 If result.ReturnedResult = True Then
                     result.ReturnedResult = False
-                    If package.PackageItems.Count < package.Capa Then
+                    If package.PackageItems.Count < package.capa Then
                         result.ReturnedMessage.Add("包装未达到预定容量，不能关闭")
                     Else
-                        package.Status = util.ChangeEndStatus(package.Status)
+                        package.status = util.ChangeEndStatus(package.status)
                         package.planedDate = Now
                         unitOfWork.Commit()
                         result.ReturnedResult = True
@@ -371,10 +372,10 @@ Public Class PackProcess
                 Dim unitOfWork As IUnitofWork = New PackagingDataDataContext(connStr)
                 Dim packageRepo As SinglePackageRepo = New SinglePackageRepo(unitOfWork)
                 Dim package As SinglePackage = packageRepo.GetByID(packageID)
-                result = util.CheckSuspendStatus(package.Status)
+                result = util.CheckSuspendStatus(package.status)
                 If result.ReturnedResult = True Then
                     result.ReturnedResult = False
-                    package.Status = util.ChangeSuspendStatus(package.Status)
+                    package.status = util.ChangeSuspendStatus(package.status)
                     unitOfWork.Commit()
                     result.ReturnedResult = True
                 End If
@@ -449,7 +450,7 @@ Public Class PackProcess
             result = New ServiceMessage
             Dim toDel As PackageMessage = util.FindByID(packageId)
             Try
-                If toDel.Package.Status = PackageStatus.Template Then
+                If toDel.Package.status = PackageStatus.Template Then
                     result.ReturnedMessage.Add("不能删除一个启动标签")
                 Else
                     Try
@@ -515,7 +516,7 @@ Public Class PackProcess
         If package.Package IsNot Nothing Then
             Dim unitOfWork As IUnitofWork = New PackagingDataDataContext(connStr)
             Dim validateRepo As CustomValidateRepo = New CustomValidateRepo(unitOfWork)
-            Return validateRepo.GetByPartAndWrkstnr(package.Package.PartNr, package.Package.WrkstnID)
+            Return validateRepo.GetByPartAndWrkstnr(package.Package.partNr, package.Package.wrkstnID)
         Else
             Return New List(Of CustomValidate)
         End If
@@ -531,5 +532,24 @@ Public Class PackProcess
         Dim unitOfWork As IUnitofWork = New PackagingDataDataContext(connStr)
         Dim wrkstRepo As IWorkStationRepo = New WorkStationRepo(unitOfWork)
         Return wrkstRepo.Exists(wrkstnr)
+    End Function
+
+    Public Function ModifyPackage(ByVal pack As Data.SinglePackage) As Framework.WCF.Data.ServiceMessage Implements IPackProcess.ModifyPackage
+        Dim msg As ServiceMessage = New ServiceMessage
+        If pack Is Nothing Then
+            msg.ReturnedMessage.Add("收到空的包装信息")
+        Else
+            Dim unitOfWork As IUnitofWork = New PackagingDataDataContext(connStr)
+            Dim packRepo As ISinglePackageRepo = New SinglePackageRepo(unitOfWork)
+            Try
+                packRepo.Modify(pack)
+                msg.ReturnedResult = True
+            Catch ex As Exception
+                msg.ReturnedMessage.Add("更新失败：" & ex.Message)
+            End Try
+
+        End If
+        Return msg
+
     End Function
 End Class
