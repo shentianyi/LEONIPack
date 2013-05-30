@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="f0293725-dc0d-42d0-8741-9b0d4b04ec72" name="Wangsong@WANGSONG-PC 2013-05-17 16:23:28" runUser="Wangsong-PC\Wangsong" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="本地" id="f7471ad7-7223-4255-adc8-bfedd733e2e1">
+    <Description>这些设置为本地测试运行的默认测试设置。</Description>
+    <Deployment userDeploymentRoot="C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\LEONIPack\TestResults" useDefaultDeploymentRoot="false" enabled="false" runDeploymentRoot="Wangsong_WANGSONG-PC 2013-05-17 16_23_28">
+      <DeploymentItem filename="C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\IFDatahouseService\Brilliantech.DatahouseService\bin\Debug\Brilliantech.DatahouseService.dll" />
+      <DeploymentItem filename="C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\LEONIPack\Brilliantech.PackagingWS\bin\Debug\Brilliantech.Packaging.WS.dll" />
+      <DeploymentItem filename="C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\LEONIPack\Brilliantech.ReportGenConnector\Brilliantech.ReportGenConnector\bin\Debug\Brilliantech.ReportGenConnector.dll" />
+      <DeploymentItem filename="C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\LEONIPack\Brilliantech.Framework\Brilliantech.Framework\bin\Debug\Brilliantech.Framework.dll" />
+      <DeploymentItem filename="C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\LEONIPack\Brilliantech.Packaging.Data\bin\Debug\Brilliantech.Packaging.Data.dll" />
+      <DeploymentItem filename="D:\File\DLL\Thrift.dll" />
+      <DeploymentItem filename="D:\File\DLL\Nini.dll" />
+      <DeploymentItem filename="D:\File\DLL\log4net.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-05-17T16:23:28.6904000+08:00" queuing="2013-05-17T16:23:30.2004000+08:00" start="2013-05-17T16:23:30.3554000+08:00" finish="2013-05-17T16:23:48.6304000+08:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="_addItemTest" storage="c:\users\wangsong\documents\visual studio 2010\projects\leonipack\testproject\bin\debug\testproject.dll" id="934278cd-874c-cc33-c0f6-e20a82f222a2">
+      <Execution id="b972d2f0-dd7c-44ef-8337-21dfdc99fa26" />
+      <TestMethod codeBase="C:/Users/Wangsong/Documents/Visual Studio 2010/Projects/LEONIPack/TestProject/bin/Debug/TestProject.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject.PackageUtilTest, TestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="_addItemTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="列表中未列出的结果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有已加载的结果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="934278cd-874c-cc33-c0f6-e20a82f222a2" executionId="b972d2f0-dd7c-44ef-8337-21dfdc99fa26" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="b972d2f0-dd7c-44ef-8337-21dfdc99fa26" testId="934278cd-874c-cc33-c0f6-e20a82f222a2" testName="_addItemTest" computerName="WANGSONG-PC" duration="00:00:17.2693435" startTime="2013-05-17T16:23:30.4964000+08:00" endTime="2013-05-17T16:23:48.5714000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b972d2f0-dd7c-44ef-8337-21dfdc99fa26">
+    </UnitTestResult>
+  </Results>
+</TestRun>

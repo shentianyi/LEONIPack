@@ -19,7 +19,7 @@ Imports System.Runtime.InteropServices
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
 <Assembly: Guid("f82d7d28-ee8e-43de-a216-ab68a801c7fc")> 
-
+<Assembly: log4net.Config.XmlConfigurator(ConfigFile:="log4.config", Watch:=True)> 
 ' Version information for an assembly consists of the following four values:
 '
 '      Major Version

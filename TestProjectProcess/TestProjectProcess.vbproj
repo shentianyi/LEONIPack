@@ -108,10 +108,6 @@
       <Project>{8D7463C5-10DF-4ADA-B33B-1C3A941F2C4E}</Project>
       <Name>Brilliantech.ReportGenConnector</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TestProject\TestProject.csproj">
-      <Project>{B80CC2D6-BC89-4218-9032-8FA4B6E5B367}</Project>
-      <Name>TestProject</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

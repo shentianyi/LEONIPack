@@ -33,22 +33,34 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>D:\File\DLL\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="microsoft.visualbasic" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Nini">
-      <HintPath>..\Brilliantech.PackagingWS\bin\Release\Nini.dll</HintPath>
+      <HintPath>D:\File\DLL\Nini.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="Thrift">
+      <HintPath>D:\File\DLL\Thrift.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
@@ -56,14 +68,25 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IntegrationTest.cs" />
+    <Compile Include="PackageUtilTest.cs" />
     <Compile Include="PackProcessTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServicerTest.cs" />
     <Compile Include="SinglePackageRepoTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\IFDatahouseService\Brilliantech.DatahouseService\Brilliantech.DatahouseService.csproj">
+      <Project>{B4B90588-10EA-4BBD-9BF4-50EA56FA0D47}</Project>
+      <Name>Brilliantech.DatahouseService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Brilliantech.Framework\Brilliantech.Framework\Brilliantech.Framework.vbproj">
       <Project>{DEA35FAB-BC7C-4739-B4FB-C2E8122E6308}</Project>
       <Name>Brilliantech.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Brilliantech.PackagingWS\Brilliantech.PackagingWS.vbproj">
+      <Project>{2EFBD1C3-2EAF-44E7-8184-E0A366F37B30}</Project>
+      <Name>Brilliantech.PackagingWS</Name>
     </ProjectReference>
     <ProjectReference Include="..\Brilliantech.ReportGenConnector\Brilliantech.ReportGenConnector\Brilliantech.ReportGenConnector.vbproj">
       <Project>{8D7463C5-10DF-4ADA-B33B-1C3A941F2C4E}</Project>
@@ -72,10 +95,6 @@
     <ProjectReference Include="..\Brilliantech.Packaging.Data\Brilliantech.Packaging.Data.vbproj">
       <Project>{DA62D6C4-2840-451F-BCD2-5D44F062455E}</Project>
       <Name>Brilliantech.Packaging.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Brilliantech.PackagingWS\Brilliantech.PackagingWS.vbproj">
-      <Project>{2EFBD1C3-2EAF-44E7-8184-E0A366F37B30}</Project>
-      <Name>Brilliantech.PackagingWS</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

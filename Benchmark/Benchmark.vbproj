@@ -14,7 +14,8 @@
     <FileAlignment>512</FileAlignment>
     <MyType>Console</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -140,22 +141,14 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\DataSources\Brilliantech.Packaging.Data.FullPackageInfo.datasource" />
+    <None Include="My Project\DataSources\Brilliantech.Packaging.Data.PackageItem.datasource" />
+    <None Include="My Project\DataSources\Brilliantech.Packaging.WS.EnumObject.datasource" />
+    <None Include="My Project\DataSources\Brilliantech.Packaging.WS.PackageMessage.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
-    </None>
-    <None Include="Service References\PackProcess\Benchmark.PackProcess.EnumObject.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\PackProcess\Benchmark.PackProcess.FullPackageInfo.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\PackProcess\Benchmark.PackProcess.PackageItem.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\PackProcess\Benchmark.PackProcess.PackageMessage.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\PackProcess\Benchmark.PackProcess.ServiceMessage.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -181,9 +174,6 @@
     <None Include="Service References\PackProcess\PackProcess.wsdl" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="data\package.sdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <None Include="Service References\PackProcess\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
@@ -234,6 +224,9 @@
       <Project>{2EFBD1C3-2EAF-44E7-8184-E0A366F37B30}</Project>
       <Name>Brilliantech.PackagingWS</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="data\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

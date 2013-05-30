@@ -12,7 +12,8 @@
     <AssemblyName>Brilliantech.Packaging.EpmIntegration</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,17 +33,45 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>D:\File\DLL\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Nini">
+      <HintPath>D:\File\DLL\Nini.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Thrift">
+      <HintPath>D:\File\DLL\Thrift.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conf.cs" />
+    <Compile Include="EpmServiceProvider\ConnectionProvider.cs" />
+    <Compile Include="EpmServiceProvider\EpmService.cs" />
+    <Compile Include="EpmServiceProvider\IConnectionProvider.cs" />
+    <Compile Include="IFDatahouseService\Datahouse.cs" />
+    <Compile Include="IFDatahouseService\IllegalArgument.cs" />
+    <Compile Include="IFDatahouseService\IOError.cs" />
+    <Compile Include="IFDatahouseService\ProductInspectHandledType.cs" />
+    <Compile Include="IFDatahouseService\ProductInspectType.cs" />
+    <Compile Include="IFDatahouseService\ProductState.cs" />
     <Compile Include="Integration.cs" />
+    <Content Include="log4.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\ConfigUtil.cs" />
+    <Compile Include="Util\LogUtil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="conf.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Brilliantech.Packaging.Data\Brilliantech.Packaging.Data.vbproj">

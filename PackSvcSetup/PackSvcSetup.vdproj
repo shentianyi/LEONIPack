@@ -57,6 +57,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_2782AC1724B34850BE7B044C0905CDF2"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_29C3A85C68113C337A88BEFFCA7D813A"
         "OwnerKey" = "8:_66C4EDF2DF8A4BCA806B1925005C08BA"
         "MsmSig" = "8:_UNDEFINED"
@@ -94,13 +100,13 @@
         "Entry"
         {
         "MsmKey" = "8:_866907F781D0755B2D88E8404D390D4A"
-        "OwnerKey" = "8:_66C4EDF2DF8A4BCA806B1925005C08BA"
+        "OwnerKey" = "8:_AC29E377778343C567C2C504CA7B195E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_866907F781D0755B2D88E8404D390D4A"
-        "OwnerKey" = "8:_AC29E377778343C567C2C504CA7B195E"
+        "OwnerKey" = "8:_66C4EDF2DF8A4BCA806B1925005C08BA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -118,6 +124,12 @@
         "Entry"
         {
         "MsmKey" = "8:_BA269CDFA3FF4F98AA725912BF8DBF7A"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_C21894DCEE964126886870AAC9679297"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -148,43 +160,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_66C4EDF2DF8A4BCA806B1925005C08BA"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_29C3A85C68113C337A88BEFFCA7D813A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_EF274A30C733BF6B98EC00068336DFF6"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_21D2A4F0EE70296C85C1853DC19864D8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_70516B4CD4F8919916ADB49B1CD0CE2E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_EDCEF705D3FB891862245B7C57A40C7C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_0776B2E6F90ED58E25D1261F6DD2C288"
+        "OwnerKey" = "8:_866907F781D0755B2D88E8404D390D4A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -196,7 +172,43 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_866907F781D0755B2D88E8404D390D4A"
+        "OwnerKey" = "8:_0776B2E6F90ED58E25D1261F6DD2C288"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_EDCEF705D3FB891862245B7C57A40C7C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_70516B4CD4F8919916ADB49B1CD0CE2E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_21D2A4F0EE70296C85C1853DC19864D8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_EF274A30C733BF6B98EC00068336DFF6"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_29C3A85C68113C337A88BEFFCA7D813A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_66C4EDF2DF8A4BCA806B1925005C08BA"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -217,6 +229,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -233,6 +253,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -325,11 +353,6 @@
             "AssemblyAsmDisplayName" = "8:Brilliantech.Framework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_0776B2E6F90ED58E25D1261F6DD2C288"
-                    {
-                    "Name" = "8:Brilliantech.Framework.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Brilliantech.Framework.dll"
             "TargetName" = "8:"
@@ -376,11 +399,6 @@
             "AssemblyAsmDisplayName" = "8:Nini, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_21D2A4F0EE70296C85C1853DC19864D8"
-                    {
-                    "Name" = "8:Nini.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Nini.dll"
             "TargetName" = "8:"
@@ -407,11 +425,6 @@
             "AssemblyAsmDisplayName" = "8:TECIT.TFORMer, Version=6.0.3.0, Culture=neutral, PublicKeyToken=1b5f4306b234b83d, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_262EC16FD9C031C3B943886762D76736"
-                    {
-                    "Name" = "8:TECIT.TFORMer.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:TECIT.TFORMer.dll"
             "TargetName" = "8:"
@@ -431,6 +444,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2782AC1724B34850BE7B044C0905CDF2"
+            {
+            "SourcePath" = "8:..\\PackSvc\\bin\\Debug\\conf.ini"
+            "TargetName" = "8:conf.ini"
+            "Tag" = "8:"
+            "Folder" = "8:_03D2B8E7A6ED4FAC85678541DC0C5A4A"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_29C3A85C68113C337A88BEFFCA7D813A"
             {
             "AssemblyRegister" = "3:1"
@@ -438,11 +471,6 @@
             "AssemblyAsmDisplayName" = "8:log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_29C3A85C68113C337A88BEFFCA7D813A"
-                    {
-                    "Name" = "8:log4net.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:log4net.dll"
             "TargetName" = "8:"
@@ -489,11 +517,6 @@
             "AssemblyAsmDisplayName" = "8:Brilliantech.ReportGenConnector, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_70516B4CD4F8919916ADB49B1CD0CE2E"
-                    {
-                    "Name" = "8:Brilliantech.ReportGenConnector.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Brilliantech.ReportGenConnector.dll"
             "TargetName" = "8:"
@@ -520,11 +543,6 @@
             "AssemblyAsmDisplayName" = "8:MongoDB.Bson, Version=1.1.0.4184, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_866907F781D0755B2D88E8404D390D4A"
-                    {
-                    "Name" = "8:MongoDB.Bson.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:MongoDB.Bson.dll"
             "TargetName" = "8:"
@@ -551,11 +569,6 @@
             "AssemblyAsmDisplayName" = "8:MongoDB.Driver, Version=1.1.0.4184, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_AC29E377778343C567C2C504CA7B195E"
-                    {
-                    "Name" = "8:MongoDB.Driver.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:MongoDB.Driver.dll"
             "TargetName" = "8:"
@@ -595,6 +608,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C21894DCEE964126886870AAC9679297"
+            {
+            "SourcePath" = "8:..\\PackSvc\\bin\\Debug\\log4.config"
+            "TargetName" = "8:log4.config"
+            "Tag" = "8:"
+            "Folder" = "8:_03D2B8E7A6ED4FAC85678541DC0C5A4A"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_EDCEF705D3FB891862245B7C57A40C7C"
             {
             "AssemblyRegister" = "3:1"
@@ -602,11 +635,6 @@
             "AssemblyAsmDisplayName" = "8:Brilliantech.Packaging.Data, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_EDCEF705D3FB891862245B7C57A40C7C"
-                    {
-                    "Name" = "8:Brilliantech.Packaging.Data.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Brilliantech.Packaging.Data.dll"
             "TargetName" = "8:"
@@ -633,11 +661,6 @@
             "AssemblyAsmDisplayName" = "8:Brilliantech.Packaging.WS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_EF274A30C733BF6B98EC00068336DFF6"
-                    {
-                    "Name" = "8:Brilliantech.Packaging.WS.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Brilliantech.Packaging.WS.dll"
             "TargetName" = "8:"
@@ -1271,7 +1294,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_66C4EDF2DF8A4BCA806B1925005C08BA"
             {
-            "SourcePath" = "8:..\\PackSvc\\obj\\x86\\Release\\PackSvc.exe"
+            "SourcePath" = "8:..\\PackSvc\\obj\\x86\\Debug\\PackSvc.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_03D2B8E7A6ED4FAC85678541DC0C5A4A"

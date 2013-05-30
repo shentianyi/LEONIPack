@@ -1,4 +1,4 @@
-﻿using Brilliantech.Packaging.WS;
+﻿
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using Brilliantech.Packaging.Data;
@@ -66,31 +66,31 @@ namespace TestProject
         #endregion
 
 
-        /// <summary>
-        ///GetItemsByPackageId 的测试
-        ///</summary>
-        [TestMethod()]
-        public void GetItemsByPackageIdTest()
-        {
-            IPackProcess target = new PackProcess(); // TODO: 初始化为适当的值
-            string pId = "P120813083031247"; // TODO: 初始化为适当的值
-            List<PackageItem> actual;
-            actual = target.GetItemsByPackageId(pId);
-            Assert.IsNotNull (actual);
-            Assert.Equals(actual.Count, 18);
-        }
+        ///// <summary>
+        /////GetItemsByPackageId 的测试
+        /////</summary>
+        //[TestMethod()]
+        //public void GetItemsByPackageIdTest()
+        //{
+        //    IPackProcess target = new PackProcess(); // TODO: 初始化为适当的值
+        //    string pId = "P120813083031247"; // TODO: 初始化为适当的值
+        //    List<PackageItem> actual;
+        //    actual = target.GetItemsByPackageId(pId);
+        //    Assert.IsNotNull (actual);
+        //    Assert.Equals(actual.Count, 18);
+        //}
 
-        /// <summary>
-        ///GetPackageStatus 的测试
-        ///</summary>
-        [TestMethod()]
-        public void GetPackageStatusTest()
-        {
-            IPackProcess target = new PackProcess(); // TODO: 初始化为适当的值
-            List<EnumObject> actual;
-            actual = target.GetPackageStatus();
-            Assert.IsNotNull(actual);
-            Assert.AreEqual(actual.Count, 19);
-        }
+        ///// <summary>
+        /////GetPackageStatus 的测试
+        /////</summary>
+        //[TestMethod()]
+        //public void GetPackageStatusTest()
+        //{
+        //    IPackProcess target = new PackProcess(); // TODO: 初始化为适当的值
+        //    List<EnumObject> actual;
+        //    actual = target.GetPackageStatus();
+        //    Assert.IsNotNull(actual);
+        //    Assert.AreEqual(actual.Count, 19);
+        //}
     }
 }

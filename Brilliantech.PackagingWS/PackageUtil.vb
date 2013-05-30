@@ -5,9 +5,9 @@ Imports Brilliantech.Framework.Utilities.EnumUtil
 Imports Nini.Config
 Imports System.Text.RegularExpressions
 Imports System.Threading
-Imports Brilliantech.Packaging.EpmIntegration
+Imports Brilliantech.DatahouseService
 
-
+Imports System.Text
 'Imports log4net
 
 'Imports log4net.Ext.TracableID
@@ -326,12 +326,10 @@ Public Class PackageUtil
                     params.Add(newItem)
                     params.Add(package.WorkStation.prodLineID)
                 Catch ex As Exception
-
+                    Brilliantech.DatahouseService.Util.LogUtil.Logger.Error(ex.Message)
                 End Try
-   
-                ThreadPool.QueueUserWorkItem(New WaitCallback(AddressOf PerformExternalNotify))
-             
-            
+                ThreadPool.QueueUserWorkItem(New WaitCallback(AddressOf PerformExternalNotify), params)
+                'PerformExternalNotify(params)
             End If
            
         Catch ex As Exception
@@ -348,12 +346,20 @@ Public Class PackageUtil
     ''' 第二个元素为PackageItem对象</param>
     ''' <remarks>当出现错误时，调用Log方法记录Log</remarks>
     Private Sub PerformExternalNotify(ByVal params As Object)
-        Dim integrator As Integration = New Integration
         Try
-            integrator.notifyEpm(params(0), params(1), params(2))
+            Dim service = New Brilliantech.DatahouseService.ServiceProvider.Servicer
+            'MARK
+            Dim data As New Dictionary(Of String, String)
+            data.Add("entityId", params(2))
+            data.Add("packTime", Brilliantech.DatahouseService.Util.TimeUtil.GetMilliseconds(DateTime.Now).ToString())
+            data.Add("productNr", params(1).itemUid.ToString())
+            data.Add("partId", params(0).partNr)
+            Brilliantech.DatahouseService.Util.LogUtil.Logger.Error(data)
+            service.AddProductPack(data)
         Catch ex As Exception
-            integrator.log("exception during launch the notification", Now, ex.ToString)
+            Brilliantech.DatahouseService.Util.LogUtil.Logger.Error(ex.Message)
         End Try
+
     End Sub
 
     ''' <summary>
@@ -363,7 +369,7 @@ Public Class PackageUtil
     ''' <param name="barcodeContent">扫描的物品条码内容</param>
     ''' <returns>一个ServiceMessage实例对象，包含代表验证结果的布尔值和错误信息列表</returns>
     ''' <remarks></remarks>
-    Public Function CheckItemContent(packageid As String, barcodeContent As String) As ServiceMessage
+    Public Function CheckItemContent(ByVal packageid As String, ByVal barcodeContent As String) As ServiceMessage
         Dim result As ServiceMessage = New ServiceMessage With {.ReturnedResult = False}
         If String.IsNullOrEmpty(barcodeContent) Then
             result.ReturnedMessage.Add("读取的条形码内容为空")
@@ -402,7 +408,7 @@ Public Class PackageUtil
     ''' <param name="packageID">包装箱ID</param>
     ''' <returns>ServiceMessage实例对象，包含代表验证结果的布尔值及错误信息列表</returns>
     ''' <remarks></remarks>
-    Public Function CheckPackageIDStatusForAdd(packageID As String) As ServiceMessage
+    Public Function CheckPackageIDStatusForAdd(ByVal packageID As String) As ServiceMessage
         Dim result As ServiceMessage = New ServiceMessage With {.ReturnedResult = False}
         Dim unitOfWork As IUnitofWork = New PackagingDataDataContext(connStr)
         Dim packageRepo As SinglePackageRepo = New SinglePackageRepo(unitOfWork)
@@ -430,7 +436,7 @@ Public Class PackageUtil
     ''' <param name="wrkStNr">操作台ID</param>
     ''' <returns>生成的包装箱号</returns>
     ''' <remarks></remarks>
-    Public Function GetNewPackageID(wrkStNr As String) As String
+    Public Function GetNewPackageID(ByVal wrkStNr As String) As String
         Return "P" & Now.ToString("yyMMddHHmmssfff")
         'Return GetID(myConfig.Configs("NumericID").Get("PackageID"))
     End Function
@@ -457,7 +463,7 @@ Public Class PackageUtil
     ''' <param name="numericID">ID生成器ID</param>
     ''' <returns>新生成的ID</returns>
     ''' <remarks>已停用</remarks>
-    Public Function GetID(numericID As String) As String
+    Public Function GetID(ByVal numericID As String) As String
         IDClient = New NumericIDWSClient( _
            myConfig.Configs("IDService").Get("EndPointConfig"), myConfig.Configs("IDService").Get("RemoteAddress"))
         Dim result As IDMessage = IDClient.GetID(numericID)
@@ -478,7 +484,7 @@ Public Class PackageUtil
     ''' <returns>一个PackageMessage实例对象，包含找到的包装对象，代表处理结果
     ''' 的布尔值以及错误信息列表</returns>
     ''' <remarks></remarks>
-    Public Function FindByItem(itemTnr As String) As PackageMessage
+    Public Function FindByItem(ByVal itemTnr As String) As PackageMessage
         Dim result As PackageMessage = New PackageMessage With {.ReturnedResult = False}
 
         Try
@@ -506,7 +512,7 @@ Public Class PackageUtil
     ''' <returns>一个PackageMessage实例对象，包含找到的包装对象，代表处理结果
     ''' 的布尔值以及错误信息列表</returns>
     ''' <remarks></remarks>
-    Public Function FindByID(id As String) As PackageMessage
+    Public Function FindByID(ByVal id As String) As PackageMessage
         Dim result As ServiceMessage = New ServiceMessage With {.ReturnedResult = False}
         Dim result_returned As PackageMessage = New PackageMessage
         result = Me.BasicValidatePackage(id)
@@ -534,7 +540,7 @@ Public Class PackageUtil
     ''' <param name="id">包装箱号</param>
     ''' <returns>已经装入的货物数量的整型</returns>
     ''' <remarks></remarks>
-    Public Function CountItem(id As String) As Integer
+    Public Function CountItem(ByVal id As String) As Integer
         Dim count As Integer = -1
         Dim result As ServiceMessage = BasicValidatePackage(id)
         If result.ReturnedResult = True Then
