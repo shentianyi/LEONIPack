@@ -130,10 +130,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\IFDatahouseService\Brilliantech.DatahouseService\Brilliantech.DatahouseService.csproj">
-      <Project>{B4B90588-10EA-4BBD-9BF4-50EA56FA0D47}</Project>
-      <Name>Brilliantech.DatahouseService</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Brilliantech.PackagingWS\Brilliantech.PackagingWS.vbproj">
       <Project>{2EFBD1C3-2EAF-44E7-8184-E0A366F37B30}</Project>
       <Name>Brilliantech.PackagingWS</Name>

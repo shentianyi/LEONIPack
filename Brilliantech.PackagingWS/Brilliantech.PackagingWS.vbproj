@@ -191,10 +191,6 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\IFDatahouseService\Brilliantech.DatahouseService\Brilliantech.DatahouseService.csproj">
-      <Project>{B4B90588-10EA-4BBD-9BF4-50EA56FA0D47}</Project>
-      <Name>Brilliantech.DatahouseService</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Brilliantech.Framework\Brilliantech.Framework\Brilliantech.Framework.vbproj">
       <Project>{DEA35FAB-BC7C-4739-B4FB-C2E8122E6308}</Project>
       <Name>Brilliantech.Framework</Name>

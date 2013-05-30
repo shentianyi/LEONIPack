@@ -178,6 +178,7 @@
     <None Include="Service References\packSvc\service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Templates\templateLabel.tff" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\longBanner.jpg" />
