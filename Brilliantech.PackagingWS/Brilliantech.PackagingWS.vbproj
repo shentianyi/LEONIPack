@@ -12,7 +12,8 @@
     <ProjectTypeGuids>{3D9AD99F-2412-4246-B90B-4EAA41C64699};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
     <StartArguments>/client:"WcfTestClient.exe"</StartArguments>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,7 +49,16 @@
   <PropertyGroup>
     <SignManifests>false</SignManifests>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <MyType>Windows</MyType>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>D:\File\DLL\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Nini">
       <HintPath>D:\File\DLL\Nini.dll</HintPath>
     </Reference>
@@ -56,11 +66,18 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="Thrift">
+      <HintPath>D:\File\DLL\Thrift.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -174,6 +191,10 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\IFDatahouseService\Brilliantech.DatahouseService\Brilliantech.DatahouseService.csproj">
+      <Project>{B4B90588-10EA-4BBD-9BF4-50EA56FA0D47}</Project>
+      <Name>Brilliantech.DatahouseService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Brilliantech.Framework\Brilliantech.Framework\Brilliantech.Framework.vbproj">
       <Project>{DEA35FAB-BC7C-4739-B4FB-C2E8122E6308}</Project>
       <Name>Brilliantech.Framework</Name>
@@ -181,10 +202,6 @@
     <ProjectReference Include="..\Brilliantech.Packaging.Data\Brilliantech.Packaging.Data.vbproj">
       <Project>{DA62D6C4-2840-451F-BCD2-5D44F062455E}</Project>
       <Name>Brilliantech.Packaging.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Brilliantech.Packaging.EpmIntegration\Brilliantech.Packaging.EpmIntegration.csproj">
-      <Project>{B7CAEC78-5AF4-482A-9FFE-B5EB066C22D5}</Project>
-      <Name>Brilliantech.Packaging.EpmIntegration</Name>
     </ProjectReference>
     <ProjectReference Include="..\Brilliantech.ReportGenConnector\Brilliantech.ReportGenConnector\Brilliantech.ReportGenConnector.vbproj">
       <Project>{8D7463C5-10DF-4ADA-B33B-1C3A941F2C4E}</Project>

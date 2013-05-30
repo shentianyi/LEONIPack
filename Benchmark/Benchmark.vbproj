@@ -14,7 +14,8 @@
     <FileAlignment>512</FileAlignment>
     <MyType>Console</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -140,22 +141,14 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\DataSources\Brilliantech.Packaging.Data.FullPackageInfo.datasource" />
+    <None Include="My Project\DataSources\Brilliantech.Packaging.Data.PackageItem.datasource" />
+    <None Include="My Project\DataSources\Brilliantech.Packaging.WS.EnumObject.datasource" />
+    <None Include="My Project\DataSources\Brilliantech.Packaging.WS.PackageMessage.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
-    </None>
-    <None Include="Service References\PackProcess\Benchmark.PackProcess.EnumObject.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\PackProcess\Benchmark.PackProcess.FullPackageInfo.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\PackProcess\Benchmark.PackProcess.PackageItem.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\PackProcess\Benchmark.PackProcess.PackageMessage.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\PackProcess\Benchmark.PackProcess.ServiceMessage.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>

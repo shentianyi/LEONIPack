@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="cea152c2-1794-4240-b179-dfcb53f3b581" name="Wangsong@WANGSONG-PC 2013-05-17 15:36:44" runUser="Wangsong-PC\Wangsong" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="本地" id="f7471ad7-7223-4255-adc8-bfedd733e2e1">
+    <Description>这些设置为本地测试运行的默认测试设置。</Description>
+    <Deployment enabled="false" runDeploymentRoot="Wangsong_WANGSONG-PC 2013-05-17 15_36_44">
+      <DeploymentItem filename="C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\IFDatahouseService\Brilliantech.DatahouseService\bin\Debug\Brilliantech.DatahouseService.dll" />
+      <DeploymentItem filename="C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\LEONIPack\Brilliantech.PackagingWS\bin\Debug\Brilliantech.Packaging.WS.dll" />
+      <DeploymentItem filename="C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\LEONIPack\Brilliantech.ReportGenConnector\Brilliantech.ReportGenConnector\bin\Debug\Brilliantech.ReportGenConnector.dll" />
+      <DeploymentItem filename="C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\LEONIPack\Brilliantech.Framework\Brilliantech.Framework\bin\Debug\Brilliantech.Framework.dll" />
+      <DeploymentItem filename="C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\LEONIPack\Brilliantech.Packaging.Data\bin\Debug\Brilliantech.Packaging.Data.dll" />
+      <DeploymentItem filename="D:\File\DLL\Thrift.dll" />
+      <DeploymentItem filename="D:\File\DLL\Nini.dll" />
+      <DeploymentItem filename="D:\File\DLL\log4net.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-05-17T15:36:44.3114000+08:00" queuing="2013-05-17T15:36:44.3344000+08:00" start="2013-05-17T15:36:44.3654000+08:00" finish="2013-05-17T15:38:57.6284000+08:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="_addItemTest" storage="c:\users\wangsong\documents\visual studio 2010\projects\leonipack\testproject\bin\debug\testproject.dll" id="934278cd-874c-cc33-c0f6-e20a82f222a2">
+      <Execution id="44d5fb64-1611-4084-876a-418b5775b1c3" />
+      <TestMethod codeBase="C:/Users/Wangsong/Documents/Visual Studio 2010/Projects/LEONIPack/TestProject/bin/Debug/TestProject.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject.PackageUtilTest, TestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="_addItemTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="列表中未列出的结果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有已加载的结果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="934278cd-874c-cc33-c0f6-e20a82f222a2" executionId="44d5fb64-1611-4084-876a-418b5775b1c3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="44d5fb64-1611-4084-876a-418b5775b1c3" testId="934278cd-874c-cc33-c0f6-e20a82f222a2" testName="_addItemTest" computerName="WANGSONG-PC" duration="00:02:13.0078414" startTime="2013-05-17T15:36:44.3744000+08:00" endTime="2013-05-17T15:38:57.5724000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="44d5fb64-1611-4084-876a-418b5775b1c3">
+      <Output>
+        <StdOut>log4net: Configuration update mode [Merge].
+log4net: Logger [root] Level string is [DUBEG].
+log4net: Logger [root] level set to [name="DEBUG",value=30000].
+log4net: Loading Appender [RollingLogFileAppender] type: [log4net.Appender.RollingFileAppender]
+log4net: Setting Property [File] to String value [IFDatahouseLog.log]
+log4net: Setting Property [AppendToFile] to Boolean value [True]
+log4net: Setting Property [RollingStyle] to RollingMode value [Size]
+log4net: Setting Property [MaxSizeRollBackups] to Int32 value [10]
+log4net: Setting Property [MaximumFileSize] to String value [2MB]
+log4net: Setting Property [StaticLogFileName] to Boolean value [True]
+log4net: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Setting Property [ConversionPattern] to String value [[%date]  %thread -- %-5level -- %logger [%M] -- %message%newline]
+log4net: Converter [literal] Option [[] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Converter [date] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Converter [literal] Option []  ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Converter [thread] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Converter [literal] Option [ -- ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Converter [level] Option [] Format [min=5,max=2147483647,leftAlign=True]
+log4net: Converter [literal] Option [ -- ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Converter [logger] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Converter [literal] Option [ [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Converter [M] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Converter [literal] Option [] -- ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Setting Property [Layout] to object [log4net.Layout.PatternLayout]
+log4net: Searched for existing files in [C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\LEONIPack\TestProject\bin\Debug]
+log4net: curSizeRollBackups starts at [0]
+log4net: Opening file for writing [C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\LEONIPack\TestProject\bin\Debug\IFDatahouseLog.log] append [True]
+log4net: reated Appender [RollingLogFileAppender]
+log4net: Adding appender named [RollingLogFileAppender] to logger [root].
+log4net: Hierarchy Threshold []
+log4net: configuring repository [log4net-default-repository] using .config file section
+log4net: Application config file is [C:\Program Files\Microsoft Visual Studio 10.0\Common7\IDE\QTAgent32.exe.Config]</StdOut>
+        <StdErr>log4net:ERROR You have tried to set a null level to root.
+log4net.Core.LogException: 应用程序中的错误。
+log4net:ERROR Failed to find configuration section 'log4net' in the application's .config file. Check your .config file for the &lt;log4net&gt; and &lt;configSections&gt; elements. The configuration section should look like: &lt;section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler,log4net" /&gt;</StdErr>
+        <DebugTrace>log4net: Configuration update mode [Merge].
+log4net: Logger [root] Level string is [DUBEG].
+log4net:ERROR You have tried to set a null level to root.
+log4net.Core.LogException: 应用程序中的错误。
+log4net: Logger [root] level set to [name="DEBUG",value=30000].
+log4net: Loading Appender [RollingLogFileAppender] type: [log4net.Appender.RollingFileAppender]
+log4net: Setting Property [File] to String value [IFDatahouseLog.log]
+log4net: Setting Property [AppendToFile] to Boolean value [True]
+log4net: Setting Property [RollingStyle] to RollingMode value [Size]
+log4net: Setting Property [MaxSizeRollBackups] to Int32 value [10]
+log4net: Setting Property [MaximumFileSize] to String value [2MB]
+log4net: Setting Property [StaticLogFileName] to Boolean value [True]
+log4net: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Setting Property [ConversionPattern] to String value [[%date]  %thread -- %-5level -- %logger [%M] -- %message%newline]
+log4net: Converter [literal] Option [[] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Converter [date] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Converter [literal] Option []  ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Converter [thread] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Converter [literal] Option [ -- ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Converter [level] Option [] Format [min=5,max=2147483647,leftAlign=True]
+log4net: Converter [literal] Option [ -- ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Converter [logger] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Converter [literal] Option [ [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Converter [M] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Converter [literal] Option [] -- ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Setting Property [Layout] to object [log4net.Layout.PatternLayout]
+log4net: Searched for existing files in [C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\LEONIPack\TestProject\bin\Debug]
+log4net: curSizeRollBackups starts at [0]
+log4net: Opening file for writing [C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\LEONIPack\TestProject\bin\Debug\IFDatahouseLog.log] append [True]
+log4net: reated Appender [RollingLogFileAppender]
+log4net: Adding appender named [RollingLogFileAppender] to logger [root].
+log4net: Hierarchy Threshold []
+log4net: configuring repository [log4net-default-repository] using .config file section
+log4net: Application config file is [C:\Program Files\Microsoft Visual Studio 10.0\Common7\IDE\QTAgent32.exe.Config]
+log4net:ERROR Failed to find configuration section 'log4net' in the application's .config file. Check your .config file for the &lt;log4net&gt; and &lt;configSections&gt; elements. The configuration section should look like: &lt;section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler,log4net" /&gt;
+</DebugTrace>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>
