@@ -41,6 +41,8 @@ Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PackSvcSetup", "PackSvcSetu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brilliantech.Packaging.EpmIntegration", "Brilliantech.Packaging.EpmIntegration\Brilliantech.Packaging.EpmIntegration.csproj", "{B7CAEC78-5AF4-482A-9FFE-B5EB066C22D5}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "masterDataManagement", "masterDataManagement\masterDataManagement.vbproj", "{D3D90FB4-2177-4258-A255-40BA9D60E8BC}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Brilliantech.PackagingWS.vsmdi
@@ -200,6 +202,16 @@ Global
 		{B7CAEC78-5AF4-482A-9FFE-B5EB066C22D5}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{B7CAEC78-5AF4-482A-9FFE-B5EB066C22D5}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{B7CAEC78-5AF4-482A-9FFE-B5EB066C22D5}.Release|x86.ActiveCfg = Release|Any CPU
+		{D3D90FB4-2177-4258-A255-40BA9D60E8BC}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{D3D90FB4-2177-4258-A255-40BA9D60E8BC}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{D3D90FB4-2177-4258-A255-40BA9D60E8BC}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{D3D90FB4-2177-4258-A255-40BA9D60E8BC}.Debug|x86.ActiveCfg = Debug|x86
+		{D3D90FB4-2177-4258-A255-40BA9D60E8BC}.Debug|x86.Build.0 = Debug|x86
+		{D3D90FB4-2177-4258-A255-40BA9D60E8BC}.Release|Any CPU.ActiveCfg = Release|x86
+		{D3D90FB4-2177-4258-A255-40BA9D60E8BC}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{D3D90FB4-2177-4258-A255-40BA9D60E8BC}.Release|Mixed Platforms.Build.0 = Release|x86
+		{D3D90FB4-2177-4258-A255-40BA9D60E8BC}.Release|x86.ActiveCfg = Release|x86
+		{D3D90FB4-2177-4258-A255-40BA9D60E8BC}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

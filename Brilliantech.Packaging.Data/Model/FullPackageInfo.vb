@@ -74,4 +74,6 @@ Public Class FullPackageInfo
             _status = value
         End Set
     End Property
+
+
 End Class
