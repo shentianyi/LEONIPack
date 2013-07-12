@@ -65,20 +65,20 @@ Public Class ScanWorkStation
             Exit Sub
         End If
 
-        'Dim client As PackProcessClient = New PackProcessClient
-        'Dim hasWrkstn As Boolean = False
-        'Try
-        '    hasWrkstn = client.WorkstationExists(Me.TextBox_firstScan.Text)
-        '    client.Close()
-        'Catch ex As Exception
-        '    client.Abort()
-        'End Try
+        Dim client As PackProcessClient = New PackProcessClient
+        Dim hasWrkstn As Boolean = False
+        Try
+            hasWrkstn = client.WorkstationExists(Me.TextBox_firstScan.Text)
+            client.Close()
+        Catch ex As Exception
+            client.Abort()
+        End Try
 
-        'If hasWrkstn = False Then
-        '    Dim info As InfoBoard = (New InfoBoard(MsgLevel.Mistake, "扫描入的操作台号不存在"))
-        '    info.ShowDialog()
-        '    Exit Sub
-        'End If
+        If hasWrkstn = False Then
+            Dim info As InfoBoard = (New InfoBoard(MsgLevel.Mistake, "扫描入的操作台号不存在"))
+            info.ShowDialog()
+            Exit Sub
+        End If
 
         Usersession.WorkStationNr = TextBox_firstScan.Text
         Dim beginWindow As Window = New Begin

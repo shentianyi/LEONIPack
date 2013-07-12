@@ -15,10 +15,10 @@ Public Class Begin
     Private WithEvents timer As System.Timers.Timer
     Private mode As PackagingType = My.Settings.PackagingType
     Private holdon As SplashWindow
-    Protected WithEvents worker As BackgroundWorker = New BackgroundWorker
-    Protected WithEvents syncTimer As System.Timers.Timer
+    'Protected WithEvents worker As BackgroundWorker = New BackgroundWorker
+    'Protected WithEvents syncTimer As System.Timers.Timer
     Private isStarted As Boolean = False
-    Private updater As Forms.Form
+    'Private updater As Forms.Form
 
 
 
@@ -56,23 +56,23 @@ Public Class Begin
         Dispatcher.Invoke(New autoStart(AddressOf Restart))
     End Sub
 
-    Private Sub syncTimer_elasped() Handles syncTimer.Elapsed
-        syncTimer.Stop()
-        Try
-            ReplicationUtils.ReplicateMasterData()
-        Catch ex As Exception
-            Try
-                Logger.Write("在自动同步时出现问题" & ex.ToString)
-            Catch ex1 As Exception
+    'Private Sub syncTimer_elasped() Handles syncTimer.Elapsed
+    '    syncTimer.Stop()
+    '    Try
+    '        ReplicationUtils.ReplicateMasterData()
+    '    Catch ex As Exception
+    '        Try
+    '            Logger.Write("在自动同步时出现问题" & ex.ToString)
+    '        Catch ex1 As Exception
 
-            End Try
+    '        End Try
 
-        End Try
-        Dim rd As System.Random = New System.Random
+    '    End Try
+    '    Dim rd As System.Random = New System.Random
 
-        syncTimer.Interval = rd.Next(15, 35) * 60 * 1000
-        syncTimer.Start()
-    End Sub
+    '    syncTimer.Interval = rd.Next(15, 35) * 60 * 1000
+    '    syncTimer.Start()
+    'End Sub
 
     Private Delegate Sub autoStart()
 
@@ -134,18 +134,18 @@ Public Class Begin
             Me.Close()
         End Try
 
-        Try
-            updater = New updater
-            updater.Show()
+        'Try
+        '    updater = New updater
+        '    updater.Show()
 
 
-        Catch ex As Exception
+        'Catch ex As Exception
 
-        End Try
+        'End Try
 
-        syncTimer = New Timers.Timer
-        syncTimer.Interval = My.Settings.syncInterval
-        syncTimer.Start()
+        'syncTimer = New Timers.Timer
+        'syncTimer.Interval = My.Settings.syncInterval
+        'syncTimer.Start()
         ''开始同步数据库，下载主数据
 
 
@@ -157,19 +157,19 @@ Public Class Begin
 
     End Sub
 
-    Private Sub DoSync()
+    'Private Sub DoSync()
 
-        Try
-            holdon.Close()
-            holdon = Nothing
-        Catch ex As Exception
+    '    Try
+    '        holdon.Close()
+    '        holdon = Nothing
+    '    Catch ex As Exception
 
-        End Try
-        holdon = New SplashWindow("正在与服务器同步数据，请稍候")
-        Me.syncTimer.Stop()
-        worker.RunWorkerAsync()
-        holdon.ShowDialog()
-    End Sub
+    '    End Try
+    '    holdon = New SplashWindow("正在与服务器同步数据，请稍候")
+    '    Me.syncTimer.Stop()
+    '    worker.RunWorkerAsync()
+    '    holdon.ShowDialog()
+    'End Sub
 
     Private Sub InitiateObject()
         Try
@@ -202,11 +202,11 @@ Public Class Begin
     End Sub
 
     Private Sub Button_Exist_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles Button_Exist.Click
-        Try
-            Me.updater.Close()
-        Catch ex As Exception
+        'Try
+        '    Me.updater.Close()
+        'Catch ex As Exception
 
-        End Try
+        'End Try
         Me.Close()
 
     End Sub
@@ -408,39 +408,39 @@ Public Class Begin
         End If
     End Function
 
-    Private Sub worker_DoWork(ByVal sender As Object, ByVal e As System.ComponentModel.DoWorkEventArgs) Handles worker.DoWork
-        Try
-            ReplicationUtils.ReplicateMasterData()
-            e.Result = True
-        Catch ex As Exception
-            e.Result = False
-        End Try
+    'Private Sub worker_DoWork(ByVal sender As Object, ByVal e As System.ComponentModel.DoWorkEventArgs) Handles worker.DoWork
+    '    Try
+    '        ReplicationUtils.ReplicateMasterData()
+    '        e.Result = True
+    '    Catch ex As Exception
+    '        e.Result = False
+    '    End Try
 
-    End Sub
+    'End Sub
 
-    Private Sub worker_RunWorkerCompleted(ByVal sender As Object, ByVal e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles worker.RunWorkerCompleted
-        Try
-            holdon.Close()
-            holdon = Nothing
+    'Private Sub worker_RunWorkerCompleted(ByVal sender As Object, ByVal e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles worker.RunWorkerCompleted
+    '    Try
+    '        holdon.Close()
+    '        holdon = Nothing
 
-        Catch ex As Exception
-        Finally
-            Me.syncTimer.Start()
-        End Try
+    '    Catch ex As Exception
+    '    Finally
+    '        Me.syncTimer.Start()
+    '    End Try
 
-        If e.Result = False Then
-            Dim info As InfoBoard = New InfoBoard(MsgLevel.Mistake, "从服务器同步数据失败，您可以继续使用该系统，但请通报管理员该错误")
-            info.ShowDialog()
-        End If
-    End Sub
+    '    If e.Result = False Then
+    '        Dim info As InfoBoard = New InfoBoard(MsgLevel.Mistake, "从服务器同步数据失败，您可以继续使用该系统，但请通报管理员该错误")
+    '        info.ShowDialog()
+    '    End If
+    'End Sub
 
     Private Sub Button_view_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles Button_view.Click
         Dim viewer As Window = New PackView
         viewer.Show()
     End Sub
 
-    Private Sub Button_ManuSyn_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles Button_ManuSyn.Click
-        DoSync()
+    'Private Sub Button_ManuSyn_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles Button_ManuSyn.Click
+    '    DoSync()
 
-    End Sub
+    'End Sub
 End Class

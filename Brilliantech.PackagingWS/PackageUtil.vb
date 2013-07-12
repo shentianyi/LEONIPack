@@ -6,6 +6,7 @@ Imports Nini.Config
 'Imports log4net
 'Imports log4net.Ext.TracableID
 Imports System.IO
+Imports System.Text.RegularExpressions
 
 ''' <summary>
 ''' 包装服务的工具类
@@ -35,7 +36,7 @@ Public Class PackageUtil
     ''' <param name="ChangeEndStatus">当前的状态</param>
     ''' <returns>故障恢复后的最终状态</returns>
     ''' <remarks></remarks>
-    Public Function ChangeRecoverStatus(ChangeEndStatus As PackageStatus) As PackageStatus
+    Public Function ChangeRecoverStatus(ByVal ChangeEndStatus As PackageStatus) As PackageStatus
         Select Case ChangeEndStatus
             Case PackageStatus.ReworkBegin
                 Return PackageStatus.ReworkBeginUnexpect
@@ -57,7 +58,7 @@ Public Class PackageUtil
     ''' <param name="wrkStnr">操作台</param>
     ''' <returns>是否存在未满箱</returns>
     ''' <remarks></remarks>
-    Public Function HasSingleUnfull(packageID As String, containerId As String, wrkStnr As String) As Boolean
+    Public Function HasSingleUnfull(ByVal packageID As String, ByVal containerId As String, ByVal wrkStnr As String) As Boolean
         Dim result As Boolean = True
 
         Try
@@ -65,7 +66,7 @@ Public Class PackageUtil
             Dim packageRepo As SinglePackageRepo = New SinglePackageRepo(unitOfWork)
             Dim package As SinglePackage = packageRepo.GetByID(packageID)
 
-            If packageRepo.CountUnfull(package.partNr, containerId, package.wrkstnID) < 1 Then
+            If packageRepo.CountUnfull(package.PartNr, containerId, package.WrkstnID) < 1 Then
                 result = False
             End If
 
@@ -85,7 +86,7 @@ Public Class PackageUtil
     ''' <param name="status">当前包装箱状态</param>
     ''' <returns>ServiceMessage对象实例，包含一个ReturnedResult的布尔类型属性，指示是否允许异常恢复</returns>
     ''' <remarks></remarks>
-    Public Function CheckReoverStatus(status As PackageStatus) As ServiceMessage
+    Public Function CheckReoverStatus(ByVal status As PackageStatus) As ServiceMessage
         Dim result As ServiceMessage = New ServiceMessage With {.ReturnedResult = False}
         If Not RecoverAllowedStatus.IsAllowed(status) Then
             result.ReturnedMessage.Add("包装ID状态 " & EnumContainer.GetEnumContent( _
@@ -104,7 +105,7 @@ Public Class PackageUtil
     ''' <param name="packageID">待验证的包装号</param>
     ''' <returns>ServiceMessage实例对象，说明验证是否通过并包含可能的错误信息</returns>
     ''' <remarks></remarks>
-    Public Function BasicValidatePackage(packageID As String) As ServiceMessage
+    Public Function BasicValidatePackage(ByVal packageID As String) As ServiceMessage
         Dim result As ServiceMessage = New ServiceMessage With {.ReturnedResult = False}
         If String.IsNullOrEmpty(packageID) Then
             result.ReturnedMessage.Add("包装ID是空值，检查扫描枪，条码完整性后重试")
@@ -133,7 +134,7 @@ Public Class PackageUtil
     ''' <param name="status">当前状态</param>
     ''' <returns>修改后的包装状态</returns>
     ''' <remarks></remarks>
-    Public Function ChangeStatusToBegin(status) As PackageStatus
+    Public Function ChangeStatusToBegin(ByVal status) As PackageStatus
         Select Case status
             Case PackageStatus.NewCreated
                 Return PackageStatus.Begin
@@ -161,7 +162,7 @@ Public Class PackageUtil
     ''' <param name="status">当前状态</param>
     ''' <returns>ServiceMessage实例对象，包含检查结果的布尔值和一个错误信息集合的List</returns>
     ''' <remarks></remarks>
-    Public Function CheckPackageStatusforBegin(packageID As String, status As PackageStatus) As ServiceMessage
+    Public Function CheckPackageStatusforBegin(ByVal packageID As String, ByVal status As PackageStatus) As ServiceMessage
         Dim result As ServiceMessage = New ServiceMessage With {.ReturnedResult = False}
         If Not PackBeginAllowedStatus.IsAllowed(status) Then
             result.ReturnedMessage.Add("包装ID状态 " & EnumContainer.GetEnumContent( _
@@ -183,7 +184,7 @@ Public Class PackageUtil
     ''' <param name="stat">当前的包装状态</param>
     ''' <returns>修改后的状态</returns>
     ''' <remarks></remarks>
-    Public Function ChangeEndStatus(stat As PackageStatus) As PackageStatus
+    Public Function ChangeEndStatus(ByVal stat As PackageStatus) As PackageStatus
         Select Case stat
             Case PackageStatus.Begin
                 Return PackageStatus.Close
@@ -210,7 +211,7 @@ Public Class PackageUtil
     ''' <param name="stat">当前状态</param>
     ''' <returns>ServiceMessage实例对象，包含一个代表检查结果的布尔值和错误信息列表</returns>
     ''' <remarks></remarks>
-    Public Function CheckEndStatus(stat As PackageStatus) As ServiceMessage
+    Public Function CheckEndStatus(ByVal stat As PackageStatus) As ServiceMessage
         Dim result As ServiceMessage = New ServiceMessage With {.ReturnedResult = False}
         If EndAllowedStatus.IsAllowed(stat) = False Then
             result.ReturnedMessage.Add( _
@@ -230,7 +231,7 @@ Public Class PackageUtil
     ''' <param name="stat">当前状态</param>
     ''' <returns>修改后的状态</returns>
     ''' <remarks></remarks>
-    Public Function ChangeSuspendStatus(stat As PackageStatus) As PackageStatus
+    Public Function ChangeSuspendStatus(ByVal stat As PackageStatus) As PackageStatus
         Select Case stat
             Case PackageStatus.Begin
                 Return PackageStatus.Unfull
@@ -257,7 +258,7 @@ Public Class PackageUtil
     ''' <param name="stat">当前状态</param>
     ''' <returns>ServiceMessage实例，包含一个代表检查结果的布尔值和错误信息列表</returns>
     ''' <remarks></remarks>
-    Public Function CheckSuspendStatus(stat As PackageStatus) As ServiceMessage
+    Public Function CheckSuspendStatus(ByVal stat As PackageStatus) As ServiceMessage
         Dim result As ServiceMessage = New ServiceMessage With {.ReturnedResult = False}
         If PauseAllowedStatus.IsAllowed(stat) = False Then
             result.ReturnedMessage.Add( _
@@ -277,11 +278,11 @@ Public Class PackageUtil
     ''' <param name="barcodeStr">输入的包装项条码</param>
     ''' <returns>生成的追踪唯一号</returns>
     ''' <remarks>如果产品条码不唯一，则系统生成一个GUID，如果已经唯一，则直接返回输入的条码内容</remarks>
-    Public Function GetItemTnr(packageID As String, barcodeStr As String) As String
+    Public Function GetItemTnr(ByVal packageID As String, ByVal barcodeStr As String) As String
         Dim unitOfWork As IUnitofWork = New PackagingDataDataContext(connStr)
         Dim packageRepo As SinglePackageRepo = New SinglePackageRepo(unitOfWork)
         Dim package As SinglePackage = packageRepo.GetByID(packageID)
-        If package.Part.SourceBarcodes.First.isUniq Then
+        If package.Part.SourceBarcodes.First.IsUniq Then
             Return barcodeStr
         Else
             Return GetTID()
@@ -296,7 +297,7 @@ Public Class PackageUtil
     ''' <param name="tnr">产品追溯唯一号</param>
     ''' <returns>ServiceMessage实例对象，包含一个代表操作结果的布尔值和错误信息列表</returns>
     ''' <remarks></remarks>
-    Public Function _addItem(packId As String, tnr As String) As ServiceMessage
+    Public Function _addItem(ByVal packId As String, ByVal tnr As String) As ServiceMessage
         Dim result As ServiceMessage = New ServiceMessage With {.ReturnedResult = False}
         Try
             Dim unitOfWork As IUnitofWork = New PackagingDataDataContext(connStr)
@@ -313,7 +314,7 @@ Public Class PackageUtil
                 unitOfWork.Commit()
                 result.ReturnedResult = True
             End If
-           
+
         Catch ex As Exception
             result.ReturnedMessage.Add("装入单个货物时系统出错，请联系管理员：" & ex.Message)
         End Try
@@ -329,7 +330,7 @@ Public Class PackageUtil
     ''' <param name="barcodeContent">扫描的物品条码内容</param>
     ''' <returns>一个ServiceMessage实例对象，包含代表验证结果的布尔值和错误信息列表</returns>
     ''' <remarks></remarks>
-    Public Function CheckItemContent(packageid As String, barcodeContent As String) As ServiceMessage
+    Public Function CheckItemContent(ByVal packageid As String, ByVal barcodeContent As String) As ServiceMessage
         Dim result As ServiceMessage = New ServiceMessage With {.ReturnedResult = False}
         If String.IsNullOrEmpty(barcodeContent) Then
             result.ReturnedMessage.Add("读取的条形码内容为空")
@@ -337,21 +338,21 @@ Public Class PackageUtil
             Dim unitOfWork As IUnitofWork = New PackagingDataDataContext(connStr)
             Dim packageRepo As SinglePackageRepo = New SinglePackageRepo(unitOfWork)
             Dim package As SinglePackage = packageRepo.GetByID(packageid)
-            If package.PackageItems.Count = package.capa Then
+            If package.PackageItems.Count = package.Capa Then
                 result.ReturnedMessage.Add("包装箱已经到达最大容量")
             Else
                 Dim barcodeSetting As SourceBarcode = package.Part.SourceBarcodes.First
-                Dim fixedContent As String = barcodeSetting.defaultFixedText
-                Dim scanedFix As String = ""
-                Try
-                    scanedFix = barcodeContent.Substring(barcodeSetting.fromPosition, barcodeSetting.length)
-                Catch ex As Exception
+                'Dim fixedContent As String = barcodeSetting.defaultFixedText
+                'Dim scanedFix As String = ""
+                'Try
+                '    scanedFix = barcodeContent.Substring(barcodeSetting.fromPosition, barcodeSetting.length)
+                'Catch ex As Exception
 
-                End Try
+                'End Try
 
-                If String.Compare(fixedContent, scanedFix, _
-                                  myConfig.Configs("BarcodeContent").GetBoolean("IgnoreBarcodeSource")) <> 0 Then
-                    result.ReturnedMessage.Add("非指定产品，请检查是否是错误的产品")
+
+                If Regex.IsMatch(barcodeContent, barcodeSetting.DefaultFixedText) = False Then
+                    result.ReturnedMessage.Add("非指定产品或扫描了错误的条码，请检查是否是错误的产品")
                 Else
                     result.ReturnedResult = True
                 End If
@@ -368,7 +369,7 @@ Public Class PackageUtil
     ''' <param name="packageID">包装箱ID</param>
     ''' <returns>ServiceMessage实例对象，包含代表验证结果的布尔值及错误信息列表</returns>
     ''' <remarks></remarks>
-    Public Function CheckPackageIDStatusForAdd(packageID As String) As ServiceMessage
+    Public Function CheckPackageIDStatusForAdd(ByVal packageID As String) As ServiceMessage
         Dim result As ServiceMessage = New ServiceMessage With {.ReturnedResult = False}
         Dim unitOfWork As IUnitofWork = New PackagingDataDataContext(connStr)
         Dim packageRepo As SinglePackageRepo = New SinglePackageRepo(unitOfWork)
@@ -376,10 +377,10 @@ Public Class PackageUtil
         If package Is Nothing Then
             result.ReturnedMessage.Add("没有找到包装号，可能已经被删除或锁定")
         Else
-            If Not PackagingAllowedStatus.IsAllowed(package.status) Then
+            If Not PackagingAllowedStatus.IsAllowed(package.Status) Then
                 result.ReturnedMessage.Add( _
                     "包装当前的状态 " & _
-                    EnumContainer.GetEnumContent(GetType(PackageStatus), CType(package.status, Integer)).Description & _
+                    EnumContainer.GetEnumContent(GetType(PackageStatus), CType(package.Status, Integer)).Description & _
                     "不能再装产品。")
             Else
                 result.ReturnedResult = True
@@ -396,7 +397,7 @@ Public Class PackageUtil
     ''' <param name="wrkStNr">操作台ID</param>
     ''' <returns>生成的包装箱号</returns>
     ''' <remarks></remarks>
-    Public Function GetNewPackageID(wrkStNr As String) As String
+    Public Function GetNewPackageID(ByVal wrkStNr As String) As String
         Return "P" & Now.ToString("yyMMddHHmmssfff")
         'Return GetID(myConfig.Configs("NumericID").Get("PackageID"))
     End Function
@@ -423,7 +424,7 @@ Public Class PackageUtil
     ''' <param name="numericID">ID生成器ID</param>
     ''' <returns>新生成的ID</returns>
     ''' <remarks>已停用</remarks>
-    Public Function GetID(numericID As String) As String
+    Public Function GetID(ByVal numericID As String) As String
         IDClient = New NumericIDWSClient( _
            myConfig.Configs("IDService").Get("EndPointConfig"), myConfig.Configs("IDService").Get("RemoteAddress"))
         Dim result As IDMessage = IDClient.GetID(numericID)
@@ -444,7 +445,7 @@ Public Class PackageUtil
     ''' <returns>一个PackageMessage实例对象，包含找到的包装对象，代表处理结果
     ''' 的布尔值以及错误信息列表</returns>
     ''' <remarks></remarks>
-    Public Function FindByItem(itemTnr As String) As PackageMessage
+    Public Function FindByItem(ByVal itemTnr As String) As PackageMessage
         Dim result As PackageMessage = New PackageMessage With {.ReturnedResult = False}
 
         Try
@@ -472,7 +473,7 @@ Public Class PackageUtil
     ''' <returns>一个PackageMessage实例对象，包含找到的包装对象，代表处理结果
     ''' 的布尔值以及错误信息列表</returns>
     ''' <remarks></remarks>
-    Public Function FindByID(id As String) As PackageMessage
+    Public Function FindByID(ByVal id As String) As PackageMessage
         Dim result As ServiceMessage = New ServiceMessage With {.ReturnedResult = False}
         Dim result_returned As PackageMessage = New PackageMessage
         result = Me.BasicValidatePackage(id)
@@ -500,7 +501,7 @@ Public Class PackageUtil
     ''' <param name="id">包装箱号</param>
     ''' <returns>已经装入的货物数量的整型</returns>
     ''' <remarks></remarks>
-    Public Function CountItem(id As String) As Integer
+    Public Function CountItem(ByVal id As String) As Integer
         Dim count As Integer = -1
         Dim result As ServiceMessage = BasicValidatePackage(id)
         If result.ReturnedResult = True Then

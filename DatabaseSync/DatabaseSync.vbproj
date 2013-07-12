@@ -126,6 +126,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="data\rm.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Content Include="picon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
