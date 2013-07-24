@@ -1,0 +1,20 @@
+﻿<Window x:Class="changePartInfo"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="changePartInfo" Height="228" Width="554">
+    <Grid>
+        <Canvas>
+            <Button Canvas.Left="451" Canvas.Top="154" Content="确定" Height="23" Name="bt_modify" Width="75" />
+        </Canvas>
+        <Canvas Name="Canvas1" Margin="6,6,94,12">
+            <Label Canvas.Left="6" Canvas.Top="6" Content="零件号：" Height="28" Name="Label1" />
+            <Label Canvas.Left="6" Canvas.Top="40" Content="零件名称" Height="28" Name="Label2" />
+            <Label Canvas.Left="215" Canvas.Top="6" Content="项目：" Height="28" Name="Label3" />
+            <Label Canvas.Left="6" Canvas.Top="97" Content="客户零件号：" Height="28" Name="Label4" />
+            <Label Canvas.Left="70" Canvas.Top="6" Height="28" Name="Label_partnr" />
+            <Label Canvas.Left="271" Canvas.Top="6" Height="28" Name="Label_project" />
+            <TextBox Canvas.Left="6" Canvas.Top="68" Height="23" Name="TextBox_partname" Width="320" />
+            <TextBox Canvas.Left="6" Canvas.Top="120" Height="23" Name="TextBox_customPartNr" Width="320" />
+        </Canvas>
+    </Grid>
+</Window>

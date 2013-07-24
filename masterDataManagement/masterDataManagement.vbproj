@@ -72,8 +72,20 @@
     <Compile Include="ChangeCapa.xaml.vb">
       <DependentUpon>ChangeCapa.xaml</DependentUpon>
     </Compile>
+    <Compile Include="changePartInfo.xaml.vb">
+      <DependentUpon>changePartInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="changePartTime.xaml.vb">
+      <DependentUpon>changePartTime.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ChangePrinter.xaml.vb">
       <DependentUpon>ChangePrinter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="containerLabel.xaml.vb">
+      <DependentUpon>containerLabel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PartMaintenance.xaml.vb">
+      <DependentUpon>PartMaintenance.xaml</DependentUpon>
     </Compile>
     <Compile Include="Service References\packSvc\Reference.vb">
       <AutoGen>True</AutoGen>
@@ -90,9 +102,21 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="changePartInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="changePartTime.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ChangePrinter.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="containerLabel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -106,6 +130,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PartMaintenance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SplashWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

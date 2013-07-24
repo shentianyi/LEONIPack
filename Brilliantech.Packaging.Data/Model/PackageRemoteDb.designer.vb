@@ -122,6 +122,18 @@ Partial Public Class PackagingDataDataContext
     End Sub
   Partial Private Sub DeletePackageItem(instance As PackageItem)
     End Sub
+  Partial Private Sub InsertProdEntity(instance As ProdEntity)
+    End Sub
+  Partial Private Sub UpdateProdEntity(instance As ProdEntity)
+    End Sub
+  Partial Private Sub DeleteProdEntity(instance As ProdEntity)
+    End Sub
+  Partial Private Sub InsertPartEntityRel(instance As PartEntityRel)
+    End Sub
+  Partial Private Sub UpdatePartEntityRel(instance As PartEntityRel)
+    End Sub
+  Partial Private Sub DeletePartEntityRel(instance As PartEntityRel)
+    End Sub
   #End Region
 	
 	Public Sub New()
@@ -236,6 +248,18 @@ Partial Public Class PackagingDataDataContext
 	Public ReadOnly Property PackageItems() As System.Data.Linq.Table(Of PackageItem)
 		Get
 			Return Me.GetTable(Of PackageItem)
+		End Get
+	End Property
+	
+	Public ReadOnly Property ProdEntities() As System.Data.Linq.Table(Of ProdEntity)
+		Get
+			Return Me.GetTable(Of ProdEntity)
+		End Get
+	End Property
+	
+	Public ReadOnly Property PartEntityRels() As System.Data.Linq.Table(Of PartEntityRel)
+		Get
+			Return Me.GetTable(Of PartEntityRel)
 		End Get
 	End Property
 End Class
@@ -1175,6 +1199,8 @@ Partial Public Class Part
 	
 	Private _SourceBarcodes As EntitySet(Of SourceBarcode)
 	
+	Private _PartEntityRels As EntitySet(Of PartEntityRel)
+	
 	Private _Project As EntityRef(Of Project)
 	
 	Private serializing As Boolean
@@ -1398,6 +1424,21 @@ Partial Public Class Part
 		End Set
 	End Property
 	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Part_PartEntityRel", Storage:="_PartEntityRels", ThisKey:="partNr", OtherKey:="partNr"),  _
+	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=12, EmitDefaultValue:=false)>  _
+	Public Property PartEntityRels() As EntitySet(Of PartEntityRel)
+		Get
+			If (Me.serializing  _
+						AndAlso (Me._PartEntityRels.HasLoadedOrAssignedValues = false)) Then
+				Return Nothing
+			End If
+			Return Me._PartEntityRels
+		End Get
+		Set
+			Me._PartEntityRels.Assign(value)
+		End Set
+	End Property
+	
 	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Project_Part", Storage:="_Project", ThisKey:="projectID", OtherKey:="projectID", IsForeignKey:=true)>  _
 	Public Property Project() As Project
 		Get
@@ -1494,12 +1535,23 @@ Partial Public Class Part
 		entity.Part = Nothing
 	End Sub
 	
+	Private Sub attach_PartEntityRels(ByVal entity As PartEntityRel)
+		Me.SendPropertyChanging
+		entity.Part = Me
+	End Sub
+	
+	Private Sub detach_PartEntityRels(ByVal entity As PartEntityRel)
+		Me.SendPropertyChanging
+		entity.Part = Nothing
+	End Sub
+	
 	Private Sub Initialize()
 		Me._CustomValidates = New EntitySet(Of CustomValidate)(AddressOf Me.attach_CustomValidates, AddressOf Me.detach_CustomValidates)
 		Me._PartAllowedSecs = New EntitySet(Of PartAllowedSec)(AddressOf Me.attach_PartAllowedSecs, AddressOf Me.detach_PartAllowedSecs)
 		Me._PartContainerLabels = New EntitySet(Of PartContainerLabel)(AddressOf Me.attach_PartContainerLabels, AddressOf Me.detach_PartContainerLabels)
 		Me._SinglePackages = New EntitySet(Of SinglePackage)(AddressOf Me.attach_SinglePackages, AddressOf Me.detach_SinglePackages)
 		Me._SourceBarcodes = New EntitySet(Of SourceBarcode)(AddressOf Me.attach_SourceBarcodes, AddressOf Me.detach_SourceBarcodes)
+		Me._PartEntityRels = New EntitySet(Of PartEntityRel)(AddressOf Me.attach_PartEntityRels, AddressOf Me.detach_PartEntityRels)
 		Me._Project = CType(Nothing, EntityRef(Of Project))
 		OnCreated
 	End Sub
@@ -3955,6 +4007,332 @@ Partial Public Class PackageItem
 	
 	Private Sub Initialize()
 		Me._SinglePackage = CType(Nothing, EntityRef(Of SinglePackage))
+		OnCreated
+	End Sub
+	
+	<Global.System.Runtime.Serialization.OnDeserializingAttribute(),  _
+	 Global.System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)>  _
+	Public Sub OnDeserializing(ByVal context As StreamingContext)
+		Me.Initialize
+	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.ProdEntity"),  _
+ Global.System.Runtime.Serialization.DataContractAttribute()>  _
+Partial Public Class ProdEntity
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _entityId As String
+	
+	Private _entityName As String
+	
+	Private _PartEntityRels As EntitySet(Of PartEntityRel)
+	
+	Private serializing As Boolean
+	
+    #Region "可扩展性方法定义"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnentityIdChanging(value As String)
+    End Sub
+    Partial Private Sub OnentityIdChanged()
+    End Sub
+    Partial Private Sub OnentityNameChanging(value As String)
+    End Sub
+    Partial Private Sub OnentityNameChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		Me.Initialize
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_entityId", DbType:="VarChar(50) NOT NULL", CanBeNull:=false, IsPrimaryKey:=true),  _
+	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=1)>  _
+	Public Property entityId() As String
+		Get
+			Return Me._entityId
+		End Get
+		Set
+			If (String.Equals(Me._entityId, value) = false) Then
+				Me.OnentityIdChanging(value)
+				Me.SendPropertyChanging
+				Me._entityId = value
+				Me.SendPropertyChanged("entityId")
+				Me.OnentityIdChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_entityName", DbType:="VarChar(100) NOT NULL", CanBeNull:=false),  _
+	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=2)>  _
+	Public Property entityName() As String
+		Get
+			Return Me._entityName
+		End Get
+		Set
+			If (String.Equals(Me._entityName, value) = false) Then
+				Me.OnentityNameChanging(value)
+				Me.SendPropertyChanging
+				Me._entityName = value
+				Me.SendPropertyChanged("entityName")
+				Me.OnentityNameChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="ProdEntity_PartEntityRel", Storage:="_PartEntityRels", ThisKey:="entityId", OtherKey:="entityId"),  _
+	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=3, EmitDefaultValue:=false)>  _
+	Public Property PartEntityRels() As EntitySet(Of PartEntityRel)
+		Get
+			If (Me.serializing  _
+						AndAlso (Me._PartEntityRels.HasLoadedOrAssignedValues = false)) Then
+				Return Nothing
+			End If
+			Return Me._PartEntityRels
+		End Get
+		Set
+			Me._PartEntityRels.Assign(value)
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+	
+	Private Sub attach_PartEntityRels(ByVal entity As PartEntityRel)
+		Me.SendPropertyChanging
+		entity.ProdEntity = Me
+	End Sub
+	
+	Private Sub detach_PartEntityRels(ByVal entity As PartEntityRel)
+		Me.SendPropertyChanging
+		entity.ProdEntity = Nothing
+	End Sub
+	
+	Private Sub Initialize()
+		Me._PartEntityRels = New EntitySet(Of PartEntityRel)(AddressOf Me.attach_PartEntityRels, AddressOf Me.detach_PartEntityRels)
+		OnCreated
+	End Sub
+	
+	<Global.System.Runtime.Serialization.OnDeserializingAttribute(),  _
+	 Global.System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)>  _
+	Public Sub OnDeserializing(ByVal context As StreamingContext)
+		Me.Initialize
+	End Sub
+	
+	<Global.System.Runtime.Serialization.OnSerializingAttribute(),  _
+	 Global.System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)>  _
+	Public Sub OnSerializing(ByVal context As StreamingContext)
+		Me.serializing = true
+	End Sub
+	
+	<Global.System.Runtime.Serialization.OnSerializedAttribute(),  _
+	 Global.System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)>  _
+	Public Sub OnSerialized(ByVal context As StreamingContext)
+		Me.serializing = false
+	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.PartEntityRel"),  _
+ Global.System.Runtime.Serialization.DataContractAttribute()>  _
+Partial Public Class PartEntityRel
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _id As Integer
+	
+	Private _partNr As String
+	
+	Private _entityId As String
+	
+	Private _Part As EntityRef(Of Part)
+	
+	Private _ProdEntity As EntityRef(Of ProdEntity)
+	
+    #Region "可扩展性方法定义"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnidChanging(value As Integer)
+    End Sub
+    Partial Private Sub OnidChanged()
+    End Sub
+    Partial Private Sub OnpartNrChanging(value As String)
+    End Sub
+    Partial Private Sub OnpartNrChanged()
+    End Sub
+    Partial Private Sub OnentityIdChanging(value As String)
+    End Sub
+    Partial Private Sub OnentityIdChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		Me.Initialize
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_id", AutoSync:=AutoSync.OnInsert, DbType:="Int NOT NULL IDENTITY", IsPrimaryKey:=true, IsDbGenerated:=true),  _
+	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=1)>  _
+	Public Property id() As Integer
+		Get
+			Return Me._id
+		End Get
+		Set
+			If ((Me._id = value)  _
+						= false) Then
+				Me.OnidChanging(value)
+				Me.SendPropertyChanging
+				Me._id = value
+				Me.SendPropertyChanged("id")
+				Me.OnidChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_partNr", DbType:="VarChar(30) NOT NULL", CanBeNull:=false),  _
+	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=2)>  _
+	Public Property partNr() As String
+		Get
+			Return Me._partNr
+		End Get
+		Set
+			If (String.Equals(Me._partNr, value) = false) Then
+				If Me._Part.HasLoadedOrAssignedValue Then
+					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
+				End If
+				Me.OnpartNrChanging(value)
+				Me.SendPropertyChanging
+				Me._partNr = value
+				Me.SendPropertyChanged("partNr")
+				Me.OnpartNrChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_entityId", DbType:="VarChar(50) NOT NULL", CanBeNull:=false),  _
+	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=3)>  _
+	Public Property entityId() As String
+		Get
+			Return Me._entityId
+		End Get
+		Set
+			If (String.Equals(Me._entityId, value) = false) Then
+				If Me._ProdEntity.HasLoadedOrAssignedValue Then
+					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
+				End If
+				Me.OnentityIdChanging(value)
+				Me.SendPropertyChanging
+				Me._entityId = value
+				Me.SendPropertyChanged("entityId")
+				Me.OnentityIdChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Part_PartEntityRel", Storage:="_Part", ThisKey:="partNr", OtherKey:="partNr", IsForeignKey:=true)>  _
+	Public Property Part() As Part
+		Get
+			Return Me._Part.Entity
+		End Get
+		Set
+			Dim previousValue As Part = Me._Part.Entity
+			If ((Object.Equals(previousValue, value) = false)  _
+						OrElse (Me._Part.HasLoadedOrAssignedValue = false)) Then
+				Me.SendPropertyChanging
+				If ((previousValue Is Nothing)  _
+							= false) Then
+					Me._Part.Entity = Nothing
+					previousValue.PartEntityRels.Remove(Me)
+				End If
+				Me._Part.Entity = value
+				If ((value Is Nothing)  _
+							= false) Then
+					value.PartEntityRels.Add(Me)
+					Me._partNr = value.partNr
+				Else
+					Me._partNr = CType(Nothing, String)
+				End If
+				Me.SendPropertyChanged("Part")
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="ProdEntity_PartEntityRel", Storage:="_ProdEntity", ThisKey:="entityId", OtherKey:="entityId", IsForeignKey:=true)>  _
+	Public Property ProdEntity() As ProdEntity
+		Get
+			Return Me._ProdEntity.Entity
+		End Get
+		Set
+			Dim previousValue As ProdEntity = Me._ProdEntity.Entity
+			If ((Object.Equals(previousValue, value) = false)  _
+						OrElse (Me._ProdEntity.HasLoadedOrAssignedValue = false)) Then
+				Me.SendPropertyChanging
+				If ((previousValue Is Nothing)  _
+							= false) Then
+					Me._ProdEntity.Entity = Nothing
+					previousValue.PartEntityRels.Remove(Me)
+				End If
+				Me._ProdEntity.Entity = value
+				If ((value Is Nothing)  _
+							= false) Then
+					value.PartEntityRels.Add(Me)
+					Me._entityId = value.entityId
+				Else
+					Me._entityId = CType(Nothing, String)
+				End If
+				Me.SendPropertyChanged("ProdEntity")
+			End If
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+	
+	Private Sub Initialize()
+		Me._Part = CType(Nothing, EntityRef(Of Part))
+		Me._ProdEntity = CType(Nothing, EntityRef(Of ProdEntity))
 		OnCreated
 	End Sub
 	

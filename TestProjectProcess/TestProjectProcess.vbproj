@@ -94,6 +94,7 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityPartRelRepoTest.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="PackageUtilTest.vb" />
     <Compile Include="SinglePackageRepoTest.vb" />

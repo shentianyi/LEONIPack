@@ -321,10 +321,25 @@ Public Class PackageUtil
                 result.ReturnedResult = True
 
                 Dim params As ArrayList = New ArrayList
+
                 Try
+
                     params.Add(package)
                     params.Add(newItem)
-                    params.Add(package.WorkStation.prodLineID)
+                    Dim unitOfWork1 As IUnitofWork = New PackagingDataDataContext(connStr)
+                    Dim partRel As EntityPartRelRepo = New EntityPartRelRepo(unitOfWork)
+                    Dim rels As List(Of PartEntityRel) = partRel.GetByPartNumber(package.partNr).ToList
+                    If rels IsNot Nothing Then
+                        If rels.Count > 0 Then
+                            params.Add(rels(0).entityId)
+                        Else
+                            params.Add(String.Empty)
+                        End If
+                    Else
+                        params.Add(String.Empty)
+                    End If
+
+                    params.Add(package.wrkstnID)
                 Catch ex As Exception
                     Brilliantech.DatahouseService.Util.LogUtil.Logger.Error(ex.Message)
                 End Try
