@@ -33,6 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Brilliantech.BaseClassLib">
+      <HintPath>..\..\ifDataHouse\IFDatahouseClientService\Brilliantech.BaseClassLib\bin\Debug\Brilliantech.BaseClassLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Brilliantech.DatahouseService, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ifDataHouse\IFDatahouseClientService\Brilliantech.DatahouseService\bin\Debug\Brilliantech.DatahouseService.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ifDataHouse\IFDatahouseClientService\Brilliantech.DatahouseService\bin\Debug\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="microsoft.visualbasic" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />

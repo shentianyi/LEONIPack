@@ -1,0 +1,71 @@
+﻿<Window x:Class="Brilliantech.Packaging.Store.UI.Setting"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       Title="设 置" Height="400" Width="700" WindowStartupLocation="CenterScreen"   ResizeMode="CanMinimize"
+        Icon="/Images/Printer.ico" Loaded="Window_Loaded" WindowStyle="SingleBorderWindow">
+ 
+        <Grid>
+            <Grid.RowDefinitions >
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="4*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+            <StackPanel    Grid.ColumnSpan="2"  Grid.Row=" 0">
+                <StackPanel.Background>
+                    <ImageBrush ImageSource="/Images/longBanner.jpg"/>
+                </StackPanel.Background>
+            </StackPanel>
+        <StackPanel Grid.Row="1">
+            <TabControl Height="228" Name="TabSetting" Width="670" HorizontalAlignment="Center" Margin="0,10,0,0">
+                <TabItem Header="打印机设置" Name="TIPrintSet" FontSize="16" FontWeight="Bold" Width="120" Height="35" Foreground="#FF0090C2">
+                    <Grid>
+                        <Label Canvas.Left="26" Canvas.Top="97" FontWeight="Normal"
+                               Content="请选择打印机" Name="Label1" FontSize="20" Margin="64,20,465,125" />
+                        <ComboBox Canvas.Left="162" Canvas.Top="97" Height="34"   FontWeight="Normal"
+                                  Name="CBPrinters" Width="302" FontSize="15" Background="White" 
+                                  BorderBrush="#FF008EC2" Margin="197,21,161,126" />
+                        <Label Canvas.Left="470" Canvas.Top="97" Content="自动关闭时间"
+                               Height="34" Name="Label2" FontSize="20"  FontWeight="Normal" Margin="66,70,465,77" />
+                        <TextBox Canvas.Left="598" Canvas.Top="97" Height="34"  FontWeight="Normal"
+                                 Name="TBSecond" Width="95" FontSize="20" Margin="196,72,368,75"
+                                 BorderBrush="#FF008EC2"/>
+                        <Label Canvas.Left="699" Canvas.Top="96" Content="秒"  FontWeight="Normal"
+                               Height="37" Name="Label3" FontSize="20" Width="39" 
+                               Margin="298,72,322,72" />
+                        <Label Canvas.Left="470" Canvas.Top="97"
+                               Content="打印张数" FontSize="20" FontWeight="Normal" Height="34" Margin="105,121,465,26" Name="label7" />
+                        <TextBox Canvas.Left="598" Canvas.Top="97" 
+                                 FontSize="20" FontWeight="Normal" BorderBrush="#FF008EC2"
+                                 Height="34" Margin="197,123,368,24" Name="TBCopy" Width="95" />
+                    </Grid>
+                </TabItem>
+                <TabItem Header="仓库设置" Name="TIWarehouseSet" FontSize="16" FontWeight="Bold" 
+                         Width="120" Height="35" Foreground="#FF0090C2">
+                    <Grid>
+                        <Label Canvas.Left="26"  FontWeight="Normal" Canvas.Top="142" Content="仓 库" FontSize="20" Name="label4" Margin="84,34,508,0" Height="34" VerticalAlignment="Top" />
+                        <TextBox Canvas.Left="88"  FontWeight="Normal" Canvas.Top="144" FontSize="20" Height="34" Name="TBWarehouse" Width="262" HorizontalAlignment="Right" Margin="0,34,249,114" />
+                        <Label Canvas.Left="365"   FontWeight="Normal" Canvas.Top="144" Content="库 位" FontSize="20" Name="label5" Margin="84,84,508,61" />
+                        <TextBox Canvas.Left="431" IsEnabled="False"  FontWeight="Normal" Canvas.Top="142" FontSize="20" Height="34" Name="TBPosition" Width="262" Margin="149,86,249,62" />
+                       
+                    </Grid>
+                </TabItem>
+                <TabItem Header="日期设置" Name="TIDateSet" FontSize="16" FontWeight="Bold" 
+                         Width="120" Height="35" Foreground="#FF0090C2">
+                    <Grid>
+                        <Label Canvas.Left="26"  FontWeight="Normal" Canvas.Top="142" Content="日期格式" FontSize="20" Name="label6" Margin="84,54,485,0" Height="34" VerticalAlignment="Top" />
+                        <TextBox Canvas.Left="88"  FontWeight="Normal" Canvas.Top="144" 
+                                 FontSize="20" Height="34" Name="TBDateFormat" Width="287" HorizontalAlignment="Right" Margin="0,55,198,92" />
+                    
+                    </Grid>
+                </TabItem>
+                
+            </TabControl>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Margin="20,0,0,0" Content="确定" Height="48" Name="BtnOk" Width="99" Background="White" 
+                    BorderBrush="#FF0091C1" FontSize="26" Foreground="#FF0091C1" Click="BtnOk_Click"></Button>
+            <Button Content="退出" Height="48" Name="exit" Width="101" Margin="50,0,50,0"
+                    Background="White" Foreground="#FF0090C2" FontSize="26" BorderBrush="#FF008EC3" Click="exit_Click"></Button>
+        </StackPanel>
+    </Grid>
+</Window>

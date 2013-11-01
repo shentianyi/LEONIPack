@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{18EE3366-FC94-475D-A0B7-02A1A1FB2DB9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Brilliantech.Packaging.Store.DLL</RootNamespace>
+    <AssemblyName>Brilliantech.Packaging.Store.DLL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConditionService.cs" />
+    <Compile Include="ExportService.cs" />
+    <Compile Include="Helpers\MSSqlHelper.cs" />
+    <Compile Include="Helpers\PackageStatusHelper.cs" />
+    <Compile Include="Helpers\TrayPackViewHelper.cs" />
+    <Compile Include="Helpers\TrayPackStatusHelper.cs" />
+    <Compile Include="IConditionService.cs" />
+    <Compile Include="IExportService.cs" />
+    <Compile Include="IPackageStoreService.cs" />
+    <Compile Include="IPrintService.cs" />
+    <Compile Include="Message\PrintDataMessage.cs" />
+    <Compile Include="PackageStoreService.cs" />
+    <Compile Include="Helpers\TraysHelper.cs" />
+    <Compile Include="PrintService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Brilliantech.Framework\Brilliantech.Framework\Brilliantech.Framework.vbproj">
+      <Project>{DEA35FAB-BC7C-4739-B4FB-C2E8122E6308}</Project>
+      <Name>Brilliantech.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Brilliantech.Packaging.Store.Data\Brilliantech.Packaging.Store.Data.csproj">
+      <Project>{61D1F275-6B1C-41F5-84D1-43D65CE641DF}</Project>
+      <Name>Brilliantech.Packaging.Store.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Brilliantech.ReportGenConnector\Brilliantech.ReportGenConnector\Brilliantech.ReportGenConnector.vbproj">
+      <Project>{8D7463C5-10DF-4ADA-B33B-1C3A941F2C4E}</Project>
+      <Name>Brilliantech.ReportGenConnector</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="printer.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="conn.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

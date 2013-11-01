@@ -1,0 +1,233 @@
+﻿<Window x:Class="Brilliantech.Packaging.Store.UI.TraySearch"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        Title="托盘查询" Height="600" Width="800" WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize" WindowStyle="SingleBorderWindow" Loaded="Window_Loaded">
+    <Window.Resources>
+        <Style x:Key="contentCenterStyle"
+               TargetType="{x:Type TextBlock}">
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="10,15,10,15"/>
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="FontFamily" Value="Times New Roman" />
+        </Style>
+    </Window.Resources>
+
+    <Window.Background >
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="White" Offset="0"/>
+            <GradientStop Color="#FFF7F7F7" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+  
+    <Grid>
+        <Grid.RowDefinitions >
+            <RowDefinition Height="1.19*"/>
+            <RowDefinition Height="7.3*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.2*"/>
+            <ColumnDefinition Width="3.3*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel    Grid.ColumnSpan="2"  Grid.Row=" 0">
+            <StackPanel.Background>
+                <ImageBrush ImageSource="/Images/longBanner.jpg"/>
+            </StackPanel.Background>
+            <Label Content=" -- 托盘查询" FontSize="21" Foreground="White" FontWeight="Bold" Margin="225,29,0,0"/>
+        </StackPanel>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="0" Grid.Row="1">
+            <StackPanel  Name="selector" Margin="5,5,0,0" MinWidth="150" UseLayoutRounding="True"  >
+                <StackPanel Margin="0,0,0,10">
+                    <Label Content="托盘号：" />
+                    <StackPanel  Orientation="Horizontal">
+                        <TextBox Name="TBTrayId"   Width="178"/>
+                        <Image Source="/Images/delete.png" Name="TBTrayIdCleanImg" MouseUp="ImgCleanTB_MouseUp" Height="20" Width="20"/>
+                    </StackPanel>
+                    <Label Margin="0,0,0,0" Content="包装号："/>
+                    <StackPanel  Orientation="Horizontal">
+                        <TextBox Name="TBPackageId"   Width="178"/>
+                        <Image Source="/Images/delete.png" Name="TBPackageIdCleanImg" MouseUp="ImgCleanTB_MouseUp" Height="20" Width="20"/>
+                    </StackPanel>
+
+                    <Label Margin="0,0,0,0" Content="零件号："/>
+
+                    <StackPanel  Orientation="Horizontal">
+                        <TextBox Name="TBPartNr"   Width="178"/>
+                        <Image Source="/Images/delete.png" Name="TBPartNrCleanImg" MouseUp="ImgCleanTB_MouseUp" Height="20" Width="20"/>
+                    </StackPanel>
+
+                    <Label Margin="0,0,0,0" Content="仓库："/>
+
+                    <StackPanel  Orientation="Horizontal">
+                        <TextBox Name="TBWarehouse"   Width="178"/>
+                        <Image Source="/Images/delete.png" Name="TBWarehouseCleanImg" MouseUp="ImgCleanTB_MouseUp" Height="20" Width="20"/>
+                    </StackPanel>
+
+                    <Label Margin="0,0,0,0" Content="库位："/>
+                    <StackPanel  Orientation="Horizontal">
+                        <TextBox Name="TBPosition"   Width="178"/>
+                        <Image Source="/Images/delete.png" Name="TBPositionCleanImg" MouseUp="ImgCleanTB_MouseUp" Height="20" Width="20"/>
+                    </StackPanel>
+
+                    <Label Content="托盘状态：" Margin="0,0,0,0"/>
+                    <ComboBox Background="White" Name="CBTrayStatus" Margin="0,0,0,10" HorizontalContentAlignment="Stretch"
+                              SelectedValuePath="Value" SelectionChanged="CBTrayStatus_SelectionChanged">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="#FF1D8DBC" BorderThickness="1" CornerRadius="1">
+                                    <StackPanel >
+                                        <StackPanel Orientation="Horizontal">
+                                            <Label Content="{Binding Path=Description}" VerticalAlignment="Top" HorizontalAlignment="Center" 
+                                                   FontWeight="Bold" Margin="0,0.4,0,0" FontFamily="Arial" Background="{x:Null}" FontSize="12" />
+                                        </StackPanel>
+
+                                    </StackPanel>
+
+                                </Border>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+                    <Label Content="入库时间从：" Margin="0,0,0,0"/>
+                    <StackPanel  Orientation="Horizontal">
+                        <!--<DatePicker Name="DPStartDate"   Width="178" DisplayDate="10/11/2012" />-->
+                        <xctk:DateTimePicker Name="DPStartDate"  Width="178" Height="35" />
+                        <Image Source="/Images/delete.png" Name="DPStartDateCleanImg" MouseUp="ImgCleanTB_MouseUp" Height="20" Width="20"/>
+                    </StackPanel>
+
+                    <Label Content="入库时间至：" Margin="0,0,0,0"/>
+                    <StackPanel  Orientation="Horizontal">
+                        <!--<DatePicker Name="DPEndDate"   Width="178" SelectedDateFormat="Long" />-->
+                        <xctk:DateTimePicker Name="DPEndDate"  Width="178" Height="35"  />
+                        <Image Source="/Images/delete.png" Name="DPEndDateCleanImg" MouseUp="ImgCleanTB_MouseUp" Height="20" Width="20"/>
+                    </StackPanel>
+
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="7*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Margin="0,10,0,0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button Content="查询" Name="BtnSearch" 
+                         Height="33" Width="70" Margin="0,0,0,0"
+                        Foreground="White" FontSize="15" BorderBrush="Transparent" Click="BtnSearch_Click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF28A3D1" Offset="0"/>
+                            <GradientStop Color="#FF08749D" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <Button.Effect>
+                        <DropShadowEffect Opacity="0.195"/>
+                    </Button.Effect>
+                </Button>
+
+                <Button Content="取消" Name="BtnCancle" 
+                         Height="33" Width="70" Margin="20,0,0,0"
+                        Foreground="White" FontSize="15" BorderBrush="Transparent" Click="BtnCancle_Click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF28A3D1" Offset="0"/>
+                            <GradientStop Color="#FF08749D" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <Button.Effect>
+                        <DropShadowEffect Opacity="0.195"/>
+                    </Button.Effect>
+                </Button>
+                <Button Content="详细" Name="BtnDetail" 
+                         Height="33" Width="70" Margin="30,0,0,0"
+                        Foreground="White" FontSize="15" BorderBrush="Transparent" Click="BtnDetail_Click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF28A3D1" Offset="0"/>
+                            <GradientStop Color="#FF08749D" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <Button.Effect>
+                        <DropShadowEffect Opacity="0.195"/>
+                    </Button.Effect>
+                </Button>
+                <Button Content="重打" Name="BtnReprint" 
+                         Height="34" Width="70" Margin="20,0,0,0"
+                        Foreground="White" FontSize="15" BorderBrush="Transparent" Click="BtnReprint_Click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF28A3D1" Offset="0"/>
+                            <GradientStop Color="#FF08749D" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <Button.Effect>
+                        <DropShadowEffect Opacity="0.195"/>
+                    </Button.Effect>
+                </Button>
+                
+                <Button Content="导出" Name="BtnExport" IsEnabled="False"
+                         Height="32" Width="70" Margin="20,0,0,0"
+                        Foreground="White" FontSize="15" BorderBrush="Transparent" Click="BtnExport_Click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF28A3D1" Offset="0"/>
+                            <GradientStop Color="#FF08749D" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <Button.Effect>
+                        <DropShadowEffect Opacity="0.195"/>
+                    </Button.Effect>
+                </Button>
+                
+                <Button Content="退出" Name="BtnClose"
+                         Height="32" Width="70" Margin="20,0,0,0"
+                        Foreground="White" FontSize="15" BorderBrush="Transparent" Click="BtnClose_Click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF28A3D1" Offset="0"/>
+                            <GradientStop Color="#FF08749D" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <Button.Effect>
+                        <DropShadowEffect Opacity="0.195"/>
+                    </Button.Effect>
+                </Button>
+            </StackPanel>
+            <StackPanel Grid.Row="1">
+                <DataGrid Name="DGTrayItemsDetail" Height="399"
+                              BorderThickness="0"  Margin="4,0,0,0"  IsReadOnly="True" SelectedIndex="-1"
+                              ClipboardCopyMode="IncludeHeader" AutoGenerateColumns="False" CanUserAddRows="false"
+                              CanUserDeleteRows="false" SnapsToDevicePixels="True"  FontSize="14">
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF269EF1"/>
+                                        <GradientStop Color="#FF052841" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontSize" Value="14" />
+                            <Setter Property="Padding" Value="10,10,10,10"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="托盘标签号" Binding="{Binding Path=trayId}" ElementStyle="{StaticResource contentCenterStyle}" />
+                        <DataGridTextColumn Header="仓 库" Binding="{Binding Path=warehouse}" ElementStyle="{StaticResource contentCenterStyle}"/>
+                        <DataGridTextColumn Header="库 位" Binding="{Binding Path=position}" ElementStyle="{StaticResource contentCenterStyle}"/>
+                        <DataGridTextColumn Header="状 态" Binding="{Binding Path=StatusCN}" ElementStyle="{StaticResource contentCenterStyle}"/>
+                        <DataGridTextColumn Header="入库时间" Binding="{Binding Path=createTime}" ElementStyle="{StaticResource contentCenterStyle}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

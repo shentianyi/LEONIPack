@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
-using Brilliantech.DatahouseService.Util;
+using Brilliantech.BaseClassLib.Util; 
 
 namespace TestProject
 {
@@ -67,7 +67,7 @@ namespace TestProject
 
 
         /// <summary>
-        ///AddProductPack 的测试
+        ///AddProductPack 的测试8
         ///</summary>
         [TestMethod()]
         public void AddProductPackTest()
@@ -76,10 +76,10 @@ namespace TestProject
             {
                 Dictionary<string, string> data = new Dictionary<string, string>();
                 data.Add("entityId", "RBA4");
-                data.Add("packTime", Brilliantech.DatahouseService.Util.TimeUtil.GetMilliseconds(DateTime.Now).ToString());
+                data.Add("packTime",  Brilliantech.BaseClassLib.Util.TimeUtil.GetMilliseconds(DateTime.Now).ToString());
                 data.Add("productNr", Guid.NewGuid().ToString());
                 data.Add("partId", "91G9067");
-                Brilliantech.DatahouseService.Util.LogUtil.Logger.Error(data);
+               Brilliantech.BaseClassLib.Util.LogUtil.Logger.Error(data);
                 Servicer service = new Servicer();
                 service.AddProductPack(data);
             }
