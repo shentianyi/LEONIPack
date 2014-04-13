@@ -53,5 +53,37 @@ namespace Brilliantech.Packaging.Store.DLL
                 }
             }
         }
+
+
+        public ProcessMsg GenPosition(string datePositionFormat, string positionFormat)
+        {
+            using (TransactionScope trans = new TransactionScope())
+            {
+                using (IUnitOfWork unit = MSSqlHelper.DataContext())
+                {
+                    ProcessMsg msg = new ProcessMsg();
+                    try
+                    {
+                        ITraysRep tr = new TraysRep(unit);
+                        string position = string.Empty;
+                        int count = tr.GetTrayCountByDay();
+                        position = string.Format("{0} {1}", string.Format(datePositionFormat,DateTime.Now.Day), string.Format(positionFormat, count + 1));
+                        msg.result = true;
+                        msg.AddMessage(ReturnCode.OK, position);
+                    }
+                    catch (Exception e)
+                    {
+                        msg.result = false;
+                        msg.AddMessage(ReturnCode.Error, "错误：" + e.Message + "\n请联系程序管理员！");
+                    }
+                    finally
+                    {
+                        trans.Dispose();
+                    }
+
+                    return msg;
+                }
+            }
+        }
     }
 }

@@ -47,12 +47,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MongoDB.Bson">
-      <HintPath>D:\File\DLL\MongoCSharpDriver\MongoDB.Bson.dll</HintPath>
+      <HintPath>..\..\dll\MongoDB.Bson.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="MongoDB.Driver">
-      <HintPath>D:\File\DLL\MongoCSharpDriver\MongoDB.Driver.dll</HintPath>
+      <HintPath>..\..\dll\MongoDB.Driver.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Nini">
+      <HintPath>..\..\dll\Nini.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

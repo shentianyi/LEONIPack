@@ -216,16 +216,6 @@
     <WCFMetadataStorage Include="Service References\PackProcess\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Brilliantech.Packaging.Data\Brilliantech.Packaging.Data.vbproj">
-      <Project>{DA62D6C4-2840-451F-BCD2-5D44F062455E}</Project>
-      <Name>Brilliantech.Packaging.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Brilliantech.PackagingWS\Brilliantech.PackagingWS.vbproj">
-      <Project>{2EFBD1C3-2EAF-44E7-8184-E0A366F37B30}</Project>
-      <Name>Brilliantech.PackagingWS</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="data\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

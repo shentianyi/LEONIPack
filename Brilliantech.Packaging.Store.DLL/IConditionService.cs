@@ -12,5 +12,7 @@ namespace Brilliantech.Packaging.Store.DLL
     {
         List<EnumItem> GetEnumItemOptions<T>(T _enum);
         ProcessMsg GenPosition(string positionFormat);
+
+        ProcessMsg GenPosition(string datePositionFormat,string positionFormat);
     }
 }

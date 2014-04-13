@@ -369,10 +369,10 @@ Public Class PackageUtil
             data.Add("packTime", Brilliantech.DatahouseService.Util.TimeUtil.GetMilliseconds(DateTime.Now).ToString())
             data.Add("productNr", params(1).itemUid.ToString())
             data.Add("partId", params(0).partNr)
-            Brilliantech.DatahouseService.Util.LogUtil.Logger.Error(data)
+            'Brilliantech.DatahouseService.Util.LogUtil.Logger.Error(data)
             service.AddProductPack(data)
         Catch ex As Exception
-            Brilliantech.DatahouseService.Util.LogUtil.Logger.Error(ex.Message)
+            'Brilliantech.DatahouseService.Util.LogUtil.Logger.Error(ex.Message)
         End Try
 
     End Sub

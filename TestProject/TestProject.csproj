@@ -77,24 +77,6 @@
     <Compile Include="ServicerTest.cs" />
     <Compile Include="SinglePackageRepoTest.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Brilliantech.Framework\Brilliantech.Framework\Brilliantech.Framework.vbproj">
-      <Project>{DEA35FAB-BC7C-4739-B4FB-C2E8122E6308}</Project>
-      <Name>Brilliantech.Framework</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Brilliantech.PackagingWS\Brilliantech.PackagingWS.vbproj">
-      <Project>{2EFBD1C3-2EAF-44E7-8184-E0A366F37B30}</Project>
-      <Name>Brilliantech.PackagingWS</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Brilliantech.ReportGenConnector\Brilliantech.ReportGenConnector\Brilliantech.ReportGenConnector.vbproj">
-      <Project>{8D7463C5-10DF-4ADA-B33B-1C3A941F2C4E}</Project>
-      <Name>Brilliantech.ReportGenConnector</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Brilliantech.Packaging.Data\Brilliantech.Packaging.Data.vbproj">
-      <Project>{DA62D6C4-2840-451F-BCD2-5D44F062455E}</Project>
-      <Name>Brilliantech.Packaging.Data</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
