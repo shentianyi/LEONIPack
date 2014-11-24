@@ -32,6 +32,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Brilliantech.Framework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dll\Brilliantech.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Brilliantech.ReportGenConnector">
+      <HintPath>..\dll\Brilliantech.ReportGenConnector.dll</HintPath>
+    </Reference>
     <Reference Include="Nini">
       <HintPath>..\dll\Nini.dll</HintPath>
     </Reference>
@@ -92,12 +99,6 @@
     <None Include="StoreModel\PackagingStoreData.dbml.layout">
       <DependentUpon>PackagingStoreData.dbml</DependentUpon>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Brilliantech.Framework\Brilliantech.Framework\Brilliantech.Framework.vbproj">
-      <Project>{DEA35FAB-BC7C-4739-B4FB-C2E8122E6308}</Project>
-      <Name>Brilliantech.Framework</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

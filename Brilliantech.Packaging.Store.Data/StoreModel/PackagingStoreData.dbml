@@ -83,17 +83,6 @@
       <Association Name="Trays_TrayItem" Member="Trays" ThisKey="trayId" OtherKey="trayId" Type="Trays" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Trays" Member="Trays">
-    <Type Name="Trays">
-      <Column Name="trayId" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="createTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="warehouse" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="position" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Association Name="Trays_TrayItem" Member="TrayItem" ThisKey="trayId" OtherKey="trayId" Type="TrayItem" />
-    </Type>
-  </Table>
   <Table Name="dbo.TrayPackView" Member="TrayPackView">
     <Type Name="TrayPackView">
       <Column Name="packageID" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
@@ -106,6 +95,30 @@
       <Column Name="warehouse" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="createTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="customerPartNr" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HandSinglePackage" Member="HandSinglePackage">
+    <Type Name="HandSinglePackage">
+      <Column Name="packageID" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="capa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="status" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="partNr" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="projectID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cusPartNr" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="createDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Trays" Member="Trays">
+    <Type Name="Trays">
+      <Column Name="trayId" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="createTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="warehouse" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="position" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="sync" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Trays_TrayItem" Member="TrayItem" ThisKey="trayId" OtherKey="trayId" Type="TrayItem" />
     </Type>
   </Table>
 </Database>

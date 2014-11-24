@@ -51,6 +51,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Brilliantech.Framework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dll\Brilliantech.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Brilliantech.ReportGenConnector, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dll\Brilliantech.ReportGenConnector.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -196,10 +204,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Brilliantech.Framework\Brilliantech.Framework\Brilliantech.Framework.vbproj">
-      <Project>{DEA35FAB-BC7C-4739-B4FB-C2E8122E6308}</Project>
-      <Name>Brilliantech.Framework</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Brilliantech.Packaging.Store.Data\Brilliantech.Packaging.Store.Data.csproj">
       <Project>{61D1F275-6B1C-41F5-84D1-43D65CE641DF}</Project>
       <Name>Brilliantech.Packaging.Store.Data</Name>
