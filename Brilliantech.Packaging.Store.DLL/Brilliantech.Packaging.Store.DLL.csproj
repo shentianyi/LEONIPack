@@ -34,24 +34,19 @@
   <ItemGroup>
     <Reference Include="Brilliantech.Framework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\dll\Brilliantech.Framework.dll</HintPath>
+      <HintPath>..\..\LEONIPack\dll\Brilliantech.Framework.dll</HintPath>
     </Reference>
-    <Reference Include="Brilliantech.Packaging.Store.Data">
-      <HintPath>..\dll\Brilliantech.Packaging.Store.Data.dll</HintPath>
+    <Reference Include="Brilliantech.Packaging.Store.Data, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\LEONIPack\dll\Brilliantech.Packaging.Store.Data.dll</HintPath>
     </Reference>
     <Reference Include="Brilliantech.ReportGenConnector, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\dll\Brilliantech.ReportGenConnector.dll</HintPath>
-    </Reference>
-    <Reference Include="RestSharp">
-      <HintPath>..\dll\RestSharp.dll</HintPath>
+      <HintPath>..\..\LEONIPack\dll\Brilliantech.ReportGenConnector.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
-    <Reference Include="System.Net" />
-    <Reference Include="System.ServiceModel" />
-    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -59,7 +54,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApiService.cs" />
     <Compile Include="ConditionService.cs" />
     <Compile Include="ExportService.cs" />
     <Compile Include="Helpers\MSSqlHelper.cs" />
@@ -92,7 +86,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="api.ini" />
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

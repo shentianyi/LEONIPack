@@ -51,7 +51,6 @@ namespace Brilliantech.Packaging.Store.DLL
 
         public ProcessMsg CompleteStore(List<string> packageId, string whouse, string posi)
         {
-
             using (TransactionScope trans = new TransactionScope())
             {
                 using (IUnitOfWork unit = MSSqlHelper.DataContext())

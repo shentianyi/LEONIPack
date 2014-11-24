@@ -45,7 +45,7 @@ namespace Brilliantech.Packaging.Store.DLL
             if (msg.Valid)
             {
                 List<TrayPackView> tpv = TrayPackViewHelper.GetTPVByTrayIdsGropSumPartNr(new List<string>() { trayId });
-
+                string[] dateFormats = dateFormat.Split(',');
                 List<PrintTask> tasks = new List<PrintTask>();
                 foreach (string keeper in keepers)
                 {
@@ -61,7 +61,8 @@ namespace Brilliantech.Packaging.Store.DLL
                         label.Add("PartNr", t.partNr);
                         label.Add("Capa", t.capa.ToString());
                         label.Add("Keeper", keeper);
-                        label.Add("CreateTime", DateUtil.DateFormat(t.createTime, dateFormat));
+                        label.Add("CreateTime",t.createTime.ToString(dateFormats[0]));
+                        label.Add("StoreCreateTime", t.createTime.ToString(dateFormats[1]));
                         rs.Add(label);
                     }
                     tasks.Add(task);
