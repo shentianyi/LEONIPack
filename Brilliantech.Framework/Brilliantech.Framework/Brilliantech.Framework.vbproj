@@ -46,16 +46,18 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="MongoDB.Bson">
-      <HintPath>..\..\dll\MongoDB.Bson.dll</HintPath>
+      <HintPath>C:\Users\lenovo\Desktop\项目\用户管理\Code\SessionManager\SessionManager\bin\Debug\MongoDB.Bson.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="MongoDB.Driver">
-      <HintPath>..\..\dll\MongoDB.Driver.dll</HintPath>
+      <HintPath>C:\Users\lenovo\Desktop\项目\用户管理\Code\SessionManager\SessionManager\bin\Debug\MongoDB.Driver.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
-    <Reference Include="Nini">
-      <HintPath>..\..\dll\Nini.dll</HintPath>
+    <Reference Include="Nini, Version=1.1.0.0, Culture=neutral, PublicKeyToken=691faec150a7fa7b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\File\DLL\Nini.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -80,6 +82,7 @@
   <ItemGroup>
     <Compile Include="Messages\ProcessMsg.vb" />
     <Compile Include="Messages\ReturnCode.vb" />
+    <Compile Include="Messages\ValidateMsg.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -97,6 +100,12 @@
     </Compile>
     <Compile Include="Structures\NumberRate.vb" />
     <Compile Include="Utilities\ArrayUtil\ArrayUtil.vb" />
+    <Compile Include="Utilities\ClassUtil\ClassUtil.vb" />
+    <Compile Include="Utilities\ConfigUtil\ConfigUitl.vb" />
+    <Compile Include="Utilities\CSVUtil\CSVDataRecord.vb" />
+    <Compile Include="Utilities\CSVUtil\CSVDataSet.vb" />
+    <Compile Include="Utilities\CSVUtil\CSVUtil.vb" />
+    <Compile Include="Utilities\DateUtil\DateUtil.vb" />
     <Compile Include="Utilities\DBUtil\IGenericRepository.vb" />
     <Compile Include="Utilities\DBUtil\MongoDB\IMongoRepository.vb" />
     <Compile Include="Utilities\DBUtil\MongoDB\MongoDBContext.vb" />
@@ -106,6 +115,8 @@
     <Compile Include="Utilities\DBUtil\MongoDB\TypeTableMappingException.vb" />
     <Compile Include="Utilities\EnumUtil\EnumContainer.vb" />
     <Compile Include="Utilities\EnumUtil\EnumItem.vb" />
+    <Compile Include="Utilities\EnumUtil\EnumUitl.vb" />
+    <Compile Include="Utilities\PrinterUtil\PrinterUtil.vb" />
     <Compile Include="WCF\Data\ServiceMessage.vb" />
   </ItemGroup>
   <ItemGroup>
@@ -128,6 +139,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="My Project\Nini.dll" />
     <Content Include="Utilities\DBUtil\MongoDB\XMLMapper.xml" />
   </ItemGroup>
   <ItemGroup>

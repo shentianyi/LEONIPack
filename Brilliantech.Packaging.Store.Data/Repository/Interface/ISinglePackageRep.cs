@@ -9,5 +9,6 @@ namespace Brilliantech.Packaging.Store.Data.Repository.Interface
 {
     public interface ISinglePackageRep:IBaseRep<SinglePackage>
     {
+        List<SinglePackage> GetListByIds(List<string> ids);
     }
 }

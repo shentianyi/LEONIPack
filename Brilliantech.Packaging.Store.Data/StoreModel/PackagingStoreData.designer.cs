@@ -54,6 +54,9 @@ namespace Brilliantech.Packaging.Store.Data.StoreModel
     partial void InsertTrays(Trays instance);
     partial void UpdateTrays(Trays instance);
     partial void DeleteTrays(Trays instance);
+    partial void InsertProdLine(ProdLine instance);
+    partial void UpdateProdLine(ProdLine instance);
+    partial void DeleteProdLine(ProdLine instance);
     #endregion
 		
 		public PackagingStoreDataDataContext() : 
@@ -163,6 +166,14 @@ namespace Brilliantech.Packaging.Store.Data.StoreModel
 			get
 			{
 				return this.GetTable<Trays>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ProdLine> ProdLine
+		{
+			get
+			{
+				return this.GetTable<ProdLine>();
 			}
 		}
 	}
@@ -491,6 +502,8 @@ namespace Brilliantech.Packaging.Store.Data.StoreModel
 		
 		private EntitySet<SinglePackage> _SinglePackage;
 		
+		private EntityRef<ProdLine> _ProdLine;
+		
     #region 可扩展性方法定义
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -510,6 +523,7 @@ namespace Brilliantech.Packaging.Store.Data.StoreModel
 		public WorkStation()
 		{
 			this._SinglePackage = new EntitySet<SinglePackage>(new Action<SinglePackage>(this.attach_SinglePackage), new Action<SinglePackage>(this.detach_SinglePackage));
+			this._ProdLine = default(EntityRef<ProdLine>);
 			OnCreated();
 		}
 		
@@ -584,6 +598,10 @@ namespace Brilliantech.Packaging.Store.Data.StoreModel
 			{
 				if ((this._prodLineID != value))
 				{
+					if (this._ProdLine.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnprodLineIDChanging(value);
 					this.SendPropertyChanging();
 					this._prodLineID = value;
@@ -623,6 +641,40 @@ namespace Brilliantech.Packaging.Store.Data.StoreModel
 			set
 			{
 				this._SinglePackage.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProdLine_WorkStation", Storage="_ProdLine", ThisKey="prodLineID", OtherKey="prodLineID", IsForeignKey=true)]
+		public ProdLine ProdLine
+		{
+			get
+			{
+				return this._ProdLine.Entity;
+			}
+			set
+			{
+				ProdLine previousValue = this._ProdLine.Entity;
+				if (((previousValue != value) 
+							|| (this._ProdLine.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ProdLine.Entity = null;
+						previousValue.WorkStation.Remove(this);
+					}
+					this._ProdLine.Entity = value;
+					if ((value != null))
+					{
+						value.WorkStation.Add(this);
+						this._prodLineID = value.prodLineID;
+					}
+					else
+					{
+						this._prodLineID = default(string);
+					}
+					this.SendPropertyChanged("ProdLine");
+				}
 			}
 		}
 		
@@ -1147,6 +1199,8 @@ namespace Brilliantech.Packaging.Store.Data.StoreModel
 		
 		private EntitySet<Part> _Part;
 		
+		private EntitySet<ProdLine> _ProdLine;
+		
     #region 可扩展性方法定义
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1162,6 +1216,7 @@ namespace Brilliantech.Packaging.Store.Data.StoreModel
 		public Project()
 		{
 			this._Part = new EntitySet<Part>(new Action<Part>(this.attach_Part), new Action<Part>(this.detach_Part));
+			this._ProdLine = new EntitySet<ProdLine>(new Action<ProdLine>(this.attach_ProdLine), new Action<ProdLine>(this.detach_ProdLine));
 			OnCreated();
 		}
 		
@@ -1238,6 +1293,19 @@ namespace Brilliantech.Packaging.Store.Data.StoreModel
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_ProdLine", Storage="_ProdLine", ThisKey="projectID", OtherKey="projectID")]
+		public EntitySet<ProdLine> ProdLine
+		{
+			get
+			{
+				return this._ProdLine;
+			}
+			set
+			{
+				this._ProdLine.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1265,6 +1333,18 @@ namespace Brilliantech.Packaging.Store.Data.StoreModel
 		}
 		
 		private void detach_Part(Part entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = null;
+		}
+		
+		private void attach_ProdLine(ProdLine entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = this;
+		}
+		
+		private void detach_ProdLine(ProdLine entity)
 		{
 			this.SendPropertyChanging();
 			entity.Project = null;
@@ -2469,6 +2549,209 @@ namespace Brilliantech.Packaging.Store.Data.StoreModel
 		{
 			this.SendPropertyChanging();
 			entity.Trays = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ProdLine")]
+	public partial class ProdLine : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _prodLineID;
+		
+		private string _prodLineName;
+		
+		private string _projectID;
+		
+		private System.Guid _rowguid;
+		
+		private EntitySet<WorkStation> _WorkStation;
+		
+		private EntityRef<Project> _Project;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnprodLineIDChanging(string value);
+    partial void OnprodLineIDChanged();
+    partial void OnprodLineNameChanging(string value);
+    partial void OnprodLineNameChanged();
+    partial void OnprojectIDChanging(string value);
+    partial void OnprojectIDChanged();
+    partial void OnrowguidChanging(System.Guid value);
+    partial void OnrowguidChanged();
+    #endregion
+		
+		public ProdLine()
+		{
+			this._WorkStation = new EntitySet<WorkStation>(new Action<WorkStation>(this.attach_WorkStation), new Action<WorkStation>(this.detach_WorkStation));
+			this._Project = default(EntityRef<Project>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_prodLineID", DbType="VarChar(15) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string prodLineID
+		{
+			get
+			{
+				return this._prodLineID;
+			}
+			set
+			{
+				if ((this._prodLineID != value))
+				{
+					this.OnprodLineIDChanging(value);
+					this.SendPropertyChanging();
+					this._prodLineID = value;
+					this.SendPropertyChanged("prodLineID");
+					this.OnprodLineIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_prodLineName", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string prodLineName
+		{
+			get
+			{
+				return this._prodLineName;
+			}
+			set
+			{
+				if ((this._prodLineName != value))
+				{
+					this.OnprodLineNameChanging(value);
+					this.SendPropertyChanging();
+					this._prodLineName = value;
+					this.SendPropertyChanged("prodLineName");
+					this.OnprodLineNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_projectID", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string projectID
+		{
+			get
+			{
+				return this._projectID;
+			}
+			set
+			{
+				if ((this._projectID != value))
+				{
+					if (this._Project.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnprojectIDChanging(value);
+					this.SendPropertyChanging();
+					this._projectID = value;
+					this.SendPropertyChanged("projectID");
+					this.OnprojectIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rowguid", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid rowguid
+		{
+			get
+			{
+				return this._rowguid;
+			}
+			set
+			{
+				if ((this._rowguid != value))
+				{
+					this.OnrowguidChanging(value);
+					this.SendPropertyChanging();
+					this._rowguid = value;
+					this.SendPropertyChanged("rowguid");
+					this.OnrowguidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProdLine_WorkStation", Storage="_WorkStation", ThisKey="prodLineID", OtherKey="prodLineID")]
+		public EntitySet<WorkStation> WorkStation
+		{
+			get
+			{
+				return this._WorkStation;
+			}
+			set
+			{
+				this._WorkStation.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_ProdLine", Storage="_Project", ThisKey="projectID", OtherKey="projectID", IsForeignKey=true)]
+		public Project Project
+		{
+			get
+			{
+				return this._Project.Entity;
+			}
+			set
+			{
+				Project previousValue = this._Project.Entity;
+				if (((previousValue != value) 
+							|| (this._Project.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Project.Entity = null;
+						previousValue.ProdLine.Remove(this);
+					}
+					this._Project.Entity = value;
+					if ((value != null))
+					{
+						value.ProdLine.Add(this);
+						this._projectID = value.projectID;
+					}
+					else
+					{
+						this._projectID = default(string);
+					}
+					this.SendPropertyChanged("Project");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_WorkStation(WorkStation entity)
+		{
+			this.SendPropertyChanging();
+			entity.ProdLine = this;
+		}
+		
+		private void detach_WorkStation(WorkStation entity)
+		{
+			this.SendPropertyChanging();
+			entity.ProdLine = null;
 		}
 	}
 }

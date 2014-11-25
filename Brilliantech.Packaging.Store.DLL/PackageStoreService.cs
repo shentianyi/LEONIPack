@@ -9,6 +9,7 @@ using Brilliantech.Packaging.Store.Data.Repository.Interface;
 using Brilliantech.Packaging.Store.Data.Enum;
 using System.Transactions;
 using Brilliantech.Packaging.Store.DLL.Helpers;
+using System.Collections;
 
 namespace Brilliantech.Packaging.Store.DLL
 {
@@ -27,7 +28,7 @@ namespace Brilliantech.Packaging.Store.DLL
                     if (sp == null)
                     {
                         msg.Valid = false;
-                        msg.Message.Add("包装箱:"+packageId+" 不存在");
+                        msg.Message.Add("包装箱:" + packageId + " 不存在");
                     }
                     else
                         if (!PackageStatusHelper.CanStoredStatus(sp.status))
@@ -36,12 +37,14 @@ namespace Brilliantech.Packaging.Store.DLL
                             msg.Message.Add("包装箱:" + packageId + " 还未结束包装或标签为开箱标签！");
                         }
                         else
-                            if (!spr.Valid(sp.packageID)) {
+                            if (!spr.Valid(sp.packageID))
+                            {
                                 msg.Valid = false;
                                 msg.Message.Add("包装箱:" + packageId + " 已经入库！");
                             }
                 }
-                catch (Exception e) {
+                catch (Exception e)
+                {
                     msg.Valid = false;
                     msg.Message.Add("错误：" + e.Message);
                 }
@@ -49,30 +52,34 @@ namespace Brilliantech.Packaging.Store.DLL
             }
         }
 
-        public ProcessMsg CompleteStore(List<string> packageId, string whouse, string posi)
+        public ProcessMsg CompleteStore(List<string> packageIds, string whouse, string posi)
         {
             using (TransactionScope trans = new TransactionScope())
             {
                 using (IUnitOfWork unit = MSSqlHelper.DataContext())
                 {
-                    ProcessMsg msg =new ProcessMsg ();
+                    ProcessMsg msg = new ProcessMsg();
                     try
                     {
-                        string trayId ="T"+DateTime.Now.ToString("yyyyMMddHHmmssfff");
+                        string trayId = "T" + DateTime.Now.ToString("yyyyMMddHHmmssfff");
+
                         ITraysRep tr = new TraysRep(unit);
                         ITrayItemRep tir = new TrayItemRep(unit);
+                        ISinglePackageRep spr = new SinglePackageRep(unit);
+
                         Trays ts = new Trays()
                         {
                             trayId = trayId,
                             createTime = DateTime.Now,
                             warehouse = whouse,
                             position = posi,
-                            status =(int)TrayStatus.Stored,
+                            status = (int)TrayStatus.Stored,
                             rowguid = Guid.NewGuid()
                         };
 
                         List<TrayItem> tis = new List<TrayItem>();
-                        foreach (string pid in packageId)
+                        foreach (string pid in packageIds)
+                        {
                             tis.Add(new TrayItem()
                             {
                                 itemId = Guid.NewGuid(),
@@ -80,27 +87,49 @@ namespace Brilliantech.Packaging.Store.DLL
                                 packageId = pid,
                                 rowguid = Guid.NewGuid()
                             });
+                        }
+                        bool synced = false;
+                        // sync container data
+                        try
+                        {
+                            List<SinglePackage> singlePackages = spr.GetListByIds(packageIds);
+                            synced = new ApiService().SyncContainer(GenContainers(ts, singlePackages));
+                        }
+                        catch
+                        {
+                            synced = false;
+                        }
+                        ts.sync = synced;
 
                         tr.AddSingle(ts);
                         tir.AddMuti(tis);
                         unit.Submit();
                         trans.Complete();
                         msg.result = true;
-                        msg.AddMessage(ReturnCode.OK, ts.trayId );
+                        if (synced)
+                        {
+                            msg.AddMessage(ReturnCode.OK, ts.trayId);
+                        }
+                        else
+                        {
+                            msg.AddMessage(ReturnCode.OK, ts.trayId);
+                            msg.AddMessage(ReturnCode.Warning, "托盘生成成功，但WMS同步失败，请稍候重新同步！");
+                        }
                     }
                     catch (Exception e)
                     {
                         msg.result = false;
-                        msg.AddMessage(ReturnCode.Error, "错误：" + e.Message+"\n请联系程序管理员！");
+                        msg.AddMessage(ReturnCode.Error, "错误：" + e.Message + "\n请联系程序管理员！");
                     }
-                    finally {
+                    finally
+                    {
                         trans.Dispose();
                     }
                     return msg;
                 }
             }
         }
-      
+
         public ProcessMsg CancleStored(List<string> trayIds)
         {
             using (TransactionScope trans = new TransactionScope())
@@ -122,7 +151,7 @@ namespace Brilliantech.Packaging.Store.DLL
                     catch (Exception e)
                     {
                         msg.result = false;
-                        msg.AddMessage(ReturnCode.Error,"错误：" + e.Message+"\n请联系程序管理员！");
+                        msg.AddMessage(ReturnCode.Error, "错误：" + e.Message + "\n请联系程序管理员！");
                     }
                     finally
                     {
@@ -167,6 +196,26 @@ namespace Brilliantech.Packaging.Store.DLL
                     return null;
                 }
             }
+        }
+
+        private Hashtable GenContainers(Trays tray, List<SinglePackage> singlePackages)
+        {
+            Hashtable containers = new Hashtable();
+            containers.Add("id", tray.trayId);
+            List<Dictionary<string, string>> packages = new List<Dictionary<string, string>>();
+
+            foreach (var package in singlePackages)
+            {
+                Dictionary<string, string> p = new Dictionary<string, string>();
+                p.Add("id", package.packageID);
+                p.Add("part_id", package.partNr);
+                p.Add("quantity", package.capa.ToString());
+                p.Add("fifo_time", tray.createTime.ToString());
+                p.Add("project", package.WorkStation.ProdLine.projectID);
+                packages.Add(p);
+            }
+            containers.Add("packages", packages);
+            return containers;
         }
     }
 }

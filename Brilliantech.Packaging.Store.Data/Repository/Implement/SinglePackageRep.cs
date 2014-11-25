@@ -17,12 +17,19 @@ namespace Brilliantech.Packaging.Store.Data.Repository.Implement
            this.context = _unit as PackagingStoreDataDataContext;
        }
 
-       public SinglePackage GetSingleById(string nr)
+       public SinglePackage GetSingleById(string id)
        {
-          List<SinglePackage> list= context.SinglePackage.Where(s => s.packageID.Equals(nr)).ToList();
-          if (list.Count>0)
-              return list[0];
-          return null;
+          //List<SinglePackage> list= context.SinglePackage.Where(s => s.packageID.Equals(id)).ToList();
+          //if (list.Count>0)
+          //    return list[0];
+          //return null;
+           try
+           {
+               return context.SinglePackage.Single(s => s.packageID.Equals(id));
+           }
+           catch (Exception e) {
+               return null;
+           }
        }
 
        public bool Valid(string packageId)
@@ -34,6 +41,11 @@ namespace Brilliantech.Packaging.Store.Data.Repository.Implement
        public bool Valid(SinglePackage obj)
        {
            throw new NotImplementedException();
+       }
+
+       public List<SinglePackage> GetListByIds(List<string> ids)
+       {
+          return context.SinglePackage.Where(s => ids.Contains(s.packageID)).ToList();
        }
     }
 }

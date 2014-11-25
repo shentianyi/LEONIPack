@@ -113,20 +113,26 @@ namespace Brilliantech.Packaging.Store.UI
                     if (SPDataSource != null)
                     {
                       ProcessMsg msg= packageStoreService.CompleteStore(SPDataSource.Select(t => t.packageID).ToList<string>(), TBWarehouse.Text, TBPosition.Text.ToString());
+
                       if (msg.result)
                       {
-                          TBTrayId.Text = msg.GetAllLevelMsgs().Trim();
+                          string errorMsg = msg.GetMessage(ReturnCode.Warning).Trim();
+                          if (errorMsg.Length > 0) {
+                              new InfoBoard(MsgLevel.Warning, errorMsg).ShowDialog();
+                          }
+                          TBTrayId.Text = msg.GetMessage(ReturnCode.OK).Trim();
                           TBPackageId.IsEnabled = false;
                           BtnFinsh.IsEnabled = false;
                           BtnRePrint.IsEnabled = true;
                           BtnNew.IsEnabled = true;
-                          bool? print=new InfoBoard(MsgLevel.Successful, "入库成功，是否打印包装箱标签？\n标签号为：" + TBTrayId.Text).ShowDialog();
+                          bool? print = new InfoBoard(MsgLevel.Successful, "入库成功，是否打印包装箱标签？\n标签号为：" + TBTrayId.Text).ShowDialog();
                           if ((bool)print)
                           {
                               this.PrintTrayLabel(TBTrayId.Text);
                           }
                       }
-                      else {
+                      else
+                      {
                           new InfoBoard(MsgLevel.Warning, msg.GetAllLevelMsgs()).ShowDialog();
                       }
                     }

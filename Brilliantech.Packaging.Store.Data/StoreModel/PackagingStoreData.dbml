@@ -23,6 +23,7 @@
       <Column Name="prodLineID" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
       <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Association Name="WorkStation_SinglePackage" Member="SinglePackage" ThisKey="wrkStnID" OtherKey="wrkstnID" Type="SinglePackage" />
+      <Association Name="ProdLine_WorkStation" Member="ProdLine" ThisKey="prodLineID" OtherKey="prodLineID" Type="ProdLine" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.PackageItem" Member="PackageItem">
@@ -54,6 +55,7 @@
       <Column Name="projectName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Association Name="Project_Part" Member="Part" ThisKey="projectID" OtherKey="projectID" Type="Part" />
+      <Association Name="Project_ProdLine" Member="ProdLine" ThisKey="projectID" OtherKey="projectID" Type="ProdLine" />
     </Type>
   </Table>
   <Table Name="dbo.SinglePackage" Member="SinglePackage">
@@ -119,6 +121,16 @@
       <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Column Name="sync" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="Trays_TrayItem" Member="TrayItem" ThisKey="trayId" OtherKey="trayId" Type="TrayItem" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProdLine" Member="ProdLine">
+    <Type Name="ProdLine">
+      <Column Name="prodLineID" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="prodLineName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="projectID" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="ProdLine_WorkStation" Member="WorkStation" ThisKey="prodLineID" OtherKey="prodLineID" Type="WorkStation" />
+      <Association Name="Project_ProdLine" Member="Project" ThisKey="projectID" OtherKey="projectID" Type="Project" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

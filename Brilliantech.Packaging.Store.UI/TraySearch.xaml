@@ -224,6 +224,7 @@
                         <DataGridTextColumn Header="仓 库" Binding="{Binding Path=warehouse}" ElementStyle="{StaticResource contentCenterStyle}"/>
                         <DataGridTextColumn Header="库 位" Binding="{Binding Path=position}" ElementStyle="{StaticResource contentCenterStyle}"/>
                         <DataGridTextColumn Header="状 态" Binding="{Binding Path=StatusCN}" ElementStyle="{StaticResource contentCenterStyle}"/>
+                        <DataGridTextColumn Header="WMS同步" Binding="{Binding Path=sync}" ElementStyle="{StaticResource contentCenterStyle}"/>
                         <DataGridTextColumn Header="入库时间" Binding="{Binding Path=createTime}" ElementStyle="{StaticResource contentCenterStyle}"/>
                     </DataGrid.Columns>
                 </DataGrid>
