@@ -10,6 +10,7 @@ namespace Brilliantech.Packaging.Store.DLL.Helpers
     {
         private static List<TrayStatus> add_prefix_status = null;
         private static List<TrayStatus> update_to_exported_status = null;
+        private static List<int> tray_sync_status = null;
 
         static TrayPackStatusHelper()
         {
@@ -21,6 +22,11 @@ namespace Brilliantech.Packaging.Store.DLL.Helpers
             if (update_to_exported_status == null)
                 update_to_exported_status = new List<TrayStatus>(){
                     TrayStatus.Stored};
+            if (tray_sync_status == null)
+                tray_sync_status = new List<int>() { 
+                 (int)TrayStatus.Exported,
+                 (int)TrayStatus.Stored
+                };
         }
 
         public static bool CanAddPrefix(int s)
@@ -31,6 +37,12 @@ namespace Brilliantech.Packaging.Store.DLL.Helpers
         public static bool CanUpdateToExported(int s)
         {
             return update_to_exported_status.Contains((TrayStatus)s);
+        }
+
+
+        public static List<int> TraySyncStatus
+        {
+            get { return TrayPackStatusHelper.tray_sync_status; }
         }
     }
 }

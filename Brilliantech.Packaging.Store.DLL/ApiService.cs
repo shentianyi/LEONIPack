@@ -19,7 +19,8 @@ namespace Brilliantech.Packaging.Store.DLL
         private static ConfigUtil config;
         private static string host;
         private static string token;
-        private static string syncContainerAction;
+        private static string storeContainerAction;
+        private static string unstoreContainerAction;
 
         static ApiService()
         {
@@ -28,7 +29,8 @@ namespace Brilliantech.Packaging.Store.DLL
                 config = new ConfigUtil("API", "api.ini");
                 host = config.Get("Host");
                 token = config.Get("Token");
-                syncContainerAction = config.Get("SyncContainerApi");
+                storeContainerAction = config.Get("StoreContainerApi");
+                unstoreContainerAction = config.Get("UnStoreContainerApi");
             }
             catch (Exception e)
             {
@@ -36,13 +38,30 @@ namespace Brilliantech.Packaging.Store.DLL
             }
         }
 
-        public bool SyncContainer(Hashtable containers)
+        public bool SyncStoreContainer(Hashtable containers)
         {
             try
             {
-                var req = new RestRequest(syncContainerAction,Method.POST);
+                var req = new RestRequest(storeContainerAction, Method.POST);
                 req.RequestFormat = DataFormat.Json;
                 req.AddParameter("data", JsonConvert.SerializeObject(containers));
+                var res = new ApiService().Execute(req);
+                Msg<string> msg = parse<Msg<string>>(res.Content);
+                return msg.Result;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public bool SyncUnStoreContainer(string id)
+        {
+            try
+            {
+                var req = new RestRequest(unstoreContainerAction, Method.POST);
+                req.RequestFormat = DataFormat.Json;
+                req.AddParameter("id", id);
                 var res = new ApiService().Execute(req);
                 Msg<string> msg = parse<Msg<string>>(res.Content);
                 return msg.Result;
@@ -74,30 +93,10 @@ namespace Brilliantech.Packaging.Store.DLL
         }
 
         private IRestResponse responseHandler(IRestResponse res)
-        {
-            //if (res.StatusCode != HttpStatusCode.OK)
-            //{
-            //    //WebOperationContext.Current.OutgoingResponse.StatusCode = res.StatusCode;
-            //    //WebOperationContext.Current.OutgoingResponse.StatusDescription = res.StatusDescription;
-            //    throw new WebFaultException<string>(res.StatusDescription, res.StatusCode);
-            //}
+        { 
             return res;
         }
-
-        //private bool setHead()
-        //{
-        //    WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
-        //    if (WebOperationContext.Current.IncomingRequest.Method == "OPTIONS")
-        //    {
-        //        WebOperationContext.Current.OutgoingResponse.Headers
-        //            .Add("Access-Control-Allow-Methods", "POST, OPTIONS, GET");
-        //        WebOperationContext.Current.OutgoingResponse.Headers
-        //            .Add("Access-Control-Allow-Headers",
-        //                 "Content-Type, Accept, Authorization, x-requested-with");
-        //        return false;
-        //    }
-        //    return true;
-        //}
+         
 
         public T parse<T>(string jsonString)
         {

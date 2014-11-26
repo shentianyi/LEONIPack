@@ -93,7 +93,7 @@ namespace Brilliantech.Packaging.Store.DLL
                         try
                         {
                             List<SinglePackage> singlePackages = spr.GetListByIds(packageIds);
-                            synced = new ApiService().SyncContainer(GenContainers(ts, singlePackages));
+                            synced = new ApiService().SyncStoreContainer(GenContainers(ts, singlePackages));
                         }
                         catch
                         {
@@ -130,6 +130,67 @@ namespace Brilliantech.Packaging.Store.DLL
             }
         }
 
+        public ProcessMsg SyncStore()
+        {
+            using (TransactionScope trans = new TransactionScope())
+            {
+                using (IUnitOfWork unit = MSSqlHelper.DataContext())
+                {
+                    ProcessMsg msg = new ProcessMsg() { result = true };
+                    try
+                    { 
+                        ITraysRep tr = new TraysRep(unit);
+                        List<Trays> tis = tr.GetUnsync();
+                        ITrayItemRep tir = new TrayItemRep(unit);
+                        bool all_synced = true;
+                        foreach (Trays ts in tis)
+                        {
+                            bool synced = false;
+                            try
+                            {
+                                if (ts.status == (int)TrayStatus.Cancled)
+                                {
+                                    synced = new ApiService().SyncUnStoreContainer(ts.trayId);
+                                }
+                                else
+                                {
+                                    List<SinglePackage> singlePackages = tir.GetSPByTrayId(ts.trayId);
+                                    synced = new ApiService().SyncStoreContainer(GenContainers(ts, singlePackages));
+                                }
+                            }
+                            catch
+                            {
+                                synced = false;
+                            }
+                            ts.sync = synced;
+                            if (synced == false) { all_synced = false; break; }
+                        }
+                        unit.Submit();
+                        trans.Complete();
+                        msg.result = all_synced;
+                        if (all_synced)
+                        {
+                            msg.AddMessage(ReturnCode.OK, "WMS同步成功！");
+                        }
+                        else
+                        {
+                            msg.AddMessage(ReturnCode.Warning, "WMS同步失败，请稍候重新同步！\n或联系程序管理员！");
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        msg.result = false;
+                        msg.AddMessage(ReturnCode.Error, "错误：" + e.Message + "\n请联系程序管理员！");
+                    }
+                    finally
+                    {
+                        trans.Dispose();
+                    }
+                    return msg;
+                }
+            }
+        }
+
         public ProcessMsg CancleStored(List<string> trayIds)
         {
             using (TransactionScope trans = new TransactionScope())
@@ -141,12 +202,35 @@ namespace Brilliantech.Packaging.Store.DLL
                     {
                         ITraysRep tr = new TraysRep(unit);
                         List<Trays> tis = tr.GetByIds(trayIds);
+                        bool all_synced = true;
                         foreach (Trays ts in tis)
+                        {
+                            bool synced = false;
+                            try
+                            {
+                                synced = new ApiService().SyncUnStoreContainer(ts.trayId);
+                            }
+                            catch
+                            {
+                                all_synced = false;
+                            }
+
+                            if (synced == false) { all_synced = false; }
+                            ts.sync = synced;
                             ts.status = (int)TrayStatus.Cancled;
+                        }
                         unit.Submit();
                         trans.Complete();
+                        if (all_synced)
+                        {
+                            msg.AddMessage(ReturnCode.OK, "入库取消成功！");
+                        }
+                        else
+                        {
+                            msg.AddMessage(ReturnCode.OK, "入库取消成功！");
+                            msg.AddMessage(ReturnCode.Warning, "入库取消成功，但WMS同步失败，请稍候重新同步！");
+                        }
                         msg.result = true;
-                        msg.AddMessage(ReturnCode.OK, "入库取消成功！");
                     }
                     catch (Exception e)
                     {

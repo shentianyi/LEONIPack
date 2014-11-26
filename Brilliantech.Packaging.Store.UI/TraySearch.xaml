@@ -39,13 +39,25 @@
             <Label Content=" -- 托盘查询" FontSize="21" Foreground="White" FontWeight="Bold" Margin="225,29,0,0"/>
         </StackPanel>
         <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="0" Grid.Row="1">
-            <StackPanel  Name="selector" Margin="5,5,0,0" MinWidth="150" UseLayoutRounding="True"  >
+            <StackPanel  Name="selector" Margin="5,0,0,0" MinWidth="150" UseLayoutRounding="True"  >
                 <StackPanel Margin="0,0,0,10">
                     <Label Content="托盘号：" />
                     <StackPanel  Orientation="Horizontal">
                         <TextBox Name="TBTrayId"   Width="178"/>
                         <Image Source="/Images/delete.png" Name="TBTrayIdCleanImg" MouseUp="ImgCleanTB_MouseUp" Height="20" Width="20"/>
                     </StackPanel>
+
+                    <Label Margin="0,0,0,0" Content="WMS同步："/>
+
+                    <StackPanel  Orientation="Horizontal">
+                        <ComboBox Background="White" Name="CBTraySync"   Margin="0,0,0,0" HorizontalContentAlignment="Stretch"
+                              SelectedValuePath="Value" Width="199" SelectedIndex="0" >
+                            <ComboBoxItem>ALL</ComboBoxItem>
+                            <ComboBoxItem>False</ComboBoxItem>
+                            <ComboBoxItem>True</ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+
                     <Label Margin="0,0,0,0" Content="包装号："/>
                     <StackPanel  Orientation="Horizontal">
                         <TextBox Name="TBPackageId"   Width="178"/>
@@ -116,7 +128,7 @@
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0" Margin="0,10,0,0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Button Content="查询" Name="BtnSearch" 
-                         Height="33" Width="70" Margin="0,0,0,0"
+                         Height="33" Width="65" Margin="15,0,0,0"
                         Foreground="White" FontSize="15" BorderBrush="Transparent" Click="BtnSearch_Click">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -130,7 +142,7 @@
                 </Button>
 
                 <Button Content="取消" Name="BtnCancle" 
-                         Height="33" Width="70" Margin="20,0,0,0"
+                         Height="33" Width="65" Margin="15,0,0,0"
                         Foreground="White" FontSize="15" BorderBrush="Transparent" Click="BtnCancle_Click">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -143,7 +155,7 @@
                     </Button.Effect>
                 </Button>
                 <Button Content="详细" Name="BtnDetail" 
-                         Height="33" Width="70" Margin="30,0,0,0"
+                         Height="33" Width="65" Margin="15,0,0,0"
                         Foreground="White" FontSize="15" BorderBrush="Transparent" Click="BtnDetail_Click">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -156,7 +168,7 @@
                     </Button.Effect>
                 </Button>
                 <Button Content="重打" Name="BtnReprint" 
-                         Height="34" Width="70" Margin="20,0,0,0"
+                         Height="34" Width="65" Margin="15,0,0,0"
                         Foreground="White" FontSize="15" BorderBrush="Transparent" Click="BtnReprint_Click">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -170,7 +182,7 @@
                 </Button>
                 
                 <Button Content="导出" Name="BtnExport" IsEnabled="False"
-                         Height="32" Width="70" Margin="20,0,0,0"
+                         Height="32" Width="65" Margin="15,0,0,0"
                         Foreground="White" FontSize="15" BorderBrush="Transparent" Click="BtnExport_Click">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -183,8 +195,22 @@
                     </Button.Effect>
                 </Button>
                 
+                <Button Content="同步" Name="BtnSync"  IsEnabled="False"
+                         Height="32" Width="65" Margin="15,0,0,0"
+                        Foreground="White" FontSize="15" BorderBrush="Transparent" Click="BtnSync_Click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF2AA01D" Offset="0"/>
+                            <GradientStop Color="#FF77D146" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <Button.Effect>
+                        <DropShadowEffect Opacity="0.195"/>
+                    </Button.Effect>
+                </Button>
+                
                 <Button Content="退出" Name="BtnClose"
-                         Height="32" Width="70" Margin="20,0,0,0"
+                         Height="32" Width="65" Margin="15,0,0,0"
                         Foreground="White" FontSize="15" BorderBrush="Transparent" Click="BtnClose_Click">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

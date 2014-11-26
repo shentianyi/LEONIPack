@@ -9,9 +9,10 @@ namespace Brilliantech.Packaging.Store.Data.Repository.Interface
 {
     public interface ITraysRep : IBaseRep<Trays>
     {
-        List<Trays> GetByIds(List<string> ids);
-       List<Trays> GetByConditions(Hashtable conditions);
-       void AddSingle(Trays tray);
-       int GetTrayCountByDay();
+        List<Trays> GetByIds(List<string> ids); 
+        List<Trays> GetByConditions(Hashtable conditions);
+        List<Trays> GetUnsync();
+        void AddSingle(Trays tray);
+        int GetTrayCountByDay();
     }
 }

@@ -38,24 +38,36 @@ namespace Brilliantech.Packaging.Store.Data.Repository.Implement
 
         public List<Trays> GetByIds(List<string> ids)
         {
-            return context.Trays.AsEnumerable().Where(t => ids.Contains(t.trayId)).ToList();
+            return context.Trays.Where(t => ids.Contains(t.trayId)).ToList();
+        }
+
+        public List<Trays> GetUnsync()
+        {
+            return context.Trays.Where(t => t.sync == false).ToList();
         }
 
 
         public List<Trays> GetByConditions(Hashtable c)
         {
-            return context.Trays.Where(t =>
+            bool sync = true;
+            if (c["sync"].ToString().Length > 0)
+            {
+                sync = bool.Parse(c["sync"].ToString());
+            }
+            var query = context.Trays.Where(t =>
                 (c["trayId"].ToString().Length == 0 ? true : t.trayId.Equals(c["trayId"].ToString()))
                && (c["startDate"].ToString().Length == 0 ? true : t.createTime >= DateTime.Parse(c["startDate"].ToString()))
                && (c["endDate"].ToString().Length == 0 ? true : t.createTime <= DateTime.Parse(c["endDate"].ToString()))
                && (c["wh"].ToString().Length == 0 ? true : t.warehouse.Equals(c["wh"].ToString()))
+               && (c["sync"].ToString().Length == 0 ? true : t.sync.Value.Equals(sync))
                && (c["posi"].ToString().Length == 0 ? true : t.position.Equals(c["posi"].ToString()))
                && (int.Parse(c["status"].ToString()) == 0 ? true : t.status.Equals((TrayStatus)c["status"]))
                && (c["pid"].ToString().Length == 0 ? true : t.TrayItem.Where(ti => ti.packageId.Equals(c["pid"].ToString())).ToList().Count > 0)
                && (c["pnr"].ToString().Length == 0 ? true : t.TrayItem.Where(ti => ti.SinglePackage.partNr.Equals(c["pnr"].ToString())).ToList().Count > 0)
-                ).ToList();
+                );
+            return query.ToList();
         }
-
+    
         public bool Valid(string objId)
         {
             throw new NotImplementedException();
@@ -68,6 +80,6 @@ namespace Brilliantech.Packaging.Store.Data.Repository.Implement
            return context.Trays.Count(t => (t.createTime.Year == now.Year
                && t.createTime.Month == now.Month
                && t.createTime.Day == now.Day));
-        }
+        } 
     }
 }

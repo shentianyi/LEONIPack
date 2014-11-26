@@ -59,10 +59,23 @@ namespace Brilliantech.Packaging.Store.UI
             condi["wh"] = TBWarehouse.Text;
             condi["posi"] = TBPosition.Text;
             condi["status"] = CBTrayStatus.SelectedValue;
+            condi["sync"] = "";
+            if (CBTraySync.SelectedIndex != 0) {
+             condi["sync"] =  CBTraySync.SelectedIndex == 1 ? "false" : "true";
+            }
             condi["startDate"] = (DPStartDate.Text == null || DPStartDate.Text.Length==0) ? "1753/01/01" : DPStartDate.Text;
             condi["endDate"] = (DPEndDate.Text == null || DPEndDate.Text.Length == 0) ? "9999/12/31" : DPEndDate.Text;
-            DGTrayItemsDetail.ItemsSource = packageStoreService.Search(condi);
-            BtnExport.IsEnabled = CBTrayStatus.SelectedIndex > 0;
+           List<Trays> trays= packageStoreService.Search(condi);
+           DGTrayItemsDetail.ItemsSource = trays;
+           if (trays.Count > 0)
+           {
+               BtnExport.IsEnabled = CBTrayStatus.SelectedIndex > 0;
+               BtnSync.IsEnabled = CBTraySync.SelectedIndex == 1;
+           }
+           else
+           {
+               BtnExport.IsEnabled = BtnSync.IsEnabled = false;
+           }
         }
 
         private void ImgCleanTB_MouseUp(object sender, MouseButtonEventArgs e)
@@ -80,24 +93,31 @@ namespace Brilliantech.Packaging.Store.UI
         {
             if (DGTrayItemsDetail.Items.Count > 0 && DGTrayItemsDetail.SelectedItems.Count > 0)
             {
-              List<string> cancleIds= DGTrayItemsDetail.SelectedCells.Where(i=>((Trays)i.Item).status!=(int)TrayStatus.Cancled).Select(i => ((Trays)i.Item).trayId).ToList<string>().ToList();
-              if (cancleIds.Count > 0)
-              {
-                  ProcessMsg msg = packageStoreService.CancleStored(cancleIds);
-                  if (msg.result)
-                  {
-                      new InfoBoard(MsgLevel.Successful, "取消成功！",10000).ShowDialog();
-                      BtnSearch_Click(sender, e);
-                  }
-                  else
-                  {
-                      new InfoBoard(MsgLevel.Warning, msg.GetAllLevelMsgs()).ShowDialog();
-                  }
-              }
-              else
-              {
-                  new InfoBoard(MsgLevel.Warning, "请选择未取消托盘").ShowDialog();
-              }
+                List<string> cancleIds = DGTrayItemsDetail.SelectedCells.Where(i => ((Trays)i.Item).status != (int)TrayStatus.Cancled).Select(i => ((Trays)i.Item).trayId).Distinct().ToList<string>();
+              
+                if (cancleIds.Count > 0)
+                {
+                    ProcessMsg msg = packageStoreService.CancleStored(cancleIds);
+                    if (msg.result)
+                    {
+                        string errorMsg = msg.GetMessage(ReturnCode.Warning).Trim();
+                        if (errorMsg.Length > 0)
+                        {
+                            new InfoBoard(MsgLevel.Warning, errorMsg).ShowDialog();
+                        }
+
+                        new InfoBoard(MsgLevel.Successful, "取消成功！", 10000).ShowDialog();
+                        BtnSearch_Click(sender, e);
+                    }
+                    else
+                    {
+                        new InfoBoard(MsgLevel.Warning, msg.GetAllLevelMsgs()).ShowDialog();
+                    }
+                }
+                else
+                {
+                    new InfoBoard(MsgLevel.Warning, "请选择未取消托盘").ShowDialog();
+                }
             }
         }
 
@@ -168,6 +188,15 @@ namespace Brilliantech.Packaging.Store.UI
         private void CBTrayStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             BtnExport.IsEnabled = false;
+        }
+
+        private void BtnSync_Click(object sender, RoutedEventArgs e)
+        {
+            if (DGTrayItemsDetail.Items.Count > 0)
+            {
+                ProcessMsg msg = packageStoreService.SyncStore();
+                new InfoBoard(MsgLevel.Info, msg.GetAllLevelMsgs()).ShowDialog();
+            }
         }
     }
 }
