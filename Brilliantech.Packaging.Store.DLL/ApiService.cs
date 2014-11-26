@@ -55,13 +55,14 @@ namespace Brilliantech.Packaging.Store.DLL
             }
         }
 
-        public bool SyncUnStoreContainer(string id)
+        public bool SyncUnStoreContainer(string id,string whouse)
         {
             try
             {
                 var req = new RestRequest(unstoreContainerAction, Method.POST);
                 req.RequestFormat = DataFormat.Json;
                 req.AddParameter("id", id);
+                req.AddParameter("whouse", whouse);
                 var res = new ApiService().Execute(req);
                 Msg<string> msg = parse<Msg<string>>(res.Content);
                 return msg.Result;

@@ -10,11 +10,14 @@ using Brilliantech.Packaging.Store.Data.Enum;
 using System.Transactions;
 using Brilliantech.Packaging.Store.DLL.Helpers;
 using System.Collections;
+using Brilliantech.Framework;
 
 namespace Brilliantech.Packaging.Store.DLL
 {
     public class PackageStoreService : IPackageStoreService
     {
+        ConfigUtil config = new ConfigUtil("STORE", "config.ini");
+
         public ValidateMsg<SinglePackage> SingleCheckStore(string packageId)
         {
             using (IUnitOfWork unit = MSSqlHelper.DataContext())
@@ -91,9 +94,9 @@ namespace Brilliantech.Packaging.Store.DLL
                         bool synced = false;
                         // sync container data
                         try
-                        {
+                        { 
                             List<SinglePackage> singlePackages = spr.GetListByIds(packageIds);
-                            synced = new ApiService().SyncStoreContainer(GenContainers(ts, singlePackages));
+                            synced = new ApiService().SyncStoreContainer(GenContainers(ts, singlePackages, GetWhouse()));
                         }
                         catch
                         {
@@ -143,6 +146,9 @@ namespace Brilliantech.Packaging.Store.DLL
                         List<Trays> tis = tr.GetUnsync();
                         ITrayItemRep tir = new TrayItemRep(unit);
                         bool all_synced = true;
+
+                       
+
                         foreach (Trays ts in tis)
                         {
                             bool synced = false;
@@ -150,12 +156,12 @@ namespace Brilliantech.Packaging.Store.DLL
                             {
                                 if (ts.status == (int)TrayStatus.Cancled)
                                 {
-                                    synced = new ApiService().SyncUnStoreContainer(ts.trayId);
+                                    synced = new ApiService().SyncUnStoreContainer(ts.trayId, GetWhouse());
                                 }
                                 else
                                 {
                                     List<SinglePackage> singlePackages = tir.GetSPByTrayId(ts.trayId);
-                                    synced = new ApiService().SyncStoreContainer(GenContainers(ts, singlePackages));
+                                    synced = new ApiService().SyncStoreContainer(GenContainers(ts, singlePackages, GetWhouse()));
                                 }
                             }
                             catch
@@ -208,7 +214,7 @@ namespace Brilliantech.Packaging.Store.DLL
                             bool synced = false;
                             try
                             {
-                                synced = new ApiService().SyncUnStoreContainer(ts.trayId);
+                                synced = new ApiService().SyncUnStoreContainer(ts.trayId, config.Get("WAREHOUSE"));
                             }
                             catch
                             {
@@ -282,10 +288,11 @@ namespace Brilliantech.Packaging.Store.DLL
             }
         }
 
-        private Hashtable GenContainers(Trays tray, List<SinglePackage> singlePackages)
+        private Hashtable GenContainers(Trays tray, List<SinglePackage> singlePackages,string whouse)
         {
             Hashtable containers = new Hashtable();
             containers.Add("id", tray.trayId);
+            containers.Add("whouse", whouse);
             List<Dictionary<string, string>> packages = new List<Dictionary<string, string>>();
 
             foreach (var package in singlePackages)
@@ -300,6 +307,11 @@ namespace Brilliantech.Packaging.Store.DLL
             }
             containers.Add("packages", packages);
             return containers;
+        }
+
+        private string GetWhouse()
+        {
+            return config.Get("WAREHOUSE");
         }
     }
 }
