@@ -44,9 +44,14 @@ namespace Brilliantech.Packaging.Store.DLL
             {
                 var req = new RestRequest(storeContainerAction, Method.POST);
                 req.RequestFormat = DataFormat.Json;
-                req.AddParameter("data", JsonConvert.SerializeObject(containers));
+                string d = JsonConvert.SerializeObject(containers);
+                req.AddParameter("data", d);
                 var res = new ApiService().Execute(req);
                 Msg<string> msg = parse<Msg<string>>(res.Content);
+                if (msg.Result == false)
+                {
+                    throw new ApiException(msg.Content);
+                }
                 return msg.Result;
             }
             catch (Exception e)

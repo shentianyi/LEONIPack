@@ -19,17 +19,17 @@ namespace Brilliantech.Packaging.Store.Data.Repository.Implement
 
        public SinglePackage GetSingleById(string id)
        {
-          //List<SinglePackage> list= context.SinglePackage.Where(s => s.packageID.Equals(id)).ToList();
-          //if (list.Count>0)
-          //    return list[0];
-          //return null;
-           try
-           {
-               return context.SinglePackage.Single(s => s.packageID.Equals(id));
-           }
-           catch (Exception e) {
-               return null;
-           }
+           List<SinglePackage> list = context.SinglePackage.Where(s => s.packageID.Equals(id)).ToList();
+           if (list.Count > 0)
+               return list[0];
+           return null;
+           //try
+           //{
+           //    return context.SinglePackage.SingleOrDefault(s => s.packageID.Equals(id));
+           //}
+           //catch (Exception e) {
+           //    return null;
+           //}
        }
 
        public bool Valid(string packageId)

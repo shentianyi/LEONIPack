@@ -11,6 +11,8 @@ using System.Transactions;
 using Brilliantech.Packaging.Store.DLL.Helpers;
 using System.Collections;
 using Brilliantech.Framework;
+using Brilliantech.Packaging.Store.DLL.Message;
+using System.IO;
 
 namespace Brilliantech.Packaging.Store.DLL
 {
@@ -94,12 +96,17 @@ namespace Brilliantech.Packaging.Store.DLL
                         bool synced = false;
                         // sync container data
                         try
-                        { 
+                        {
                             List<SinglePackage> singlePackages = spr.GetListByIds(packageIds);
                             synced = new ApiService().SyncStoreContainer(GenContainers(ts, singlePackages, GetWhouse()));
+                            
                         }
-                        catch
+                        catch (ApiException ae)
                         {
+                            msg.AddMessage(ReturnCode.Warning, ae.Message);
+                            synced = false;
+                        }
+                        catch {
                             synced = false;
                         }
                         ts.sync = synced;
@@ -147,29 +154,40 @@ namespace Brilliantech.Packaging.Store.DLL
                         ITrayItemRep tir = new TrayItemRep(unit);
                         bool all_synced = true;
 
-                       
-
-                        foreach (Trays ts in tis)
+                        string error_log = DateTime.Now.ToString("yyyyMMddHHmmsss")+".txt";
+                        string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"ErrorLog", error_log);
+                        using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite))
                         {
-                            bool synced = false;
-                            try
+                            using (StreamWriter sw = new StreamWriter(fs))
                             {
-                                if (ts.status == (int)TrayStatus.Cancled)
+                                foreach (Trays ts in tis)
                                 {
-                                    synced = new ApiService().SyncUnStoreContainer(ts.trayId, GetWhouse());
-                                }
-                                else
-                                {
-                                    List<SinglePackage> singlePackages = tir.GetSPByTrayId(ts.trayId);
-                                    synced = new ApiService().SyncStoreContainer(GenContainers(ts, singlePackages, GetWhouse()));
+                                    bool synced = false;
+                                    try
+                                    {
+                                        if (ts.status == (int)TrayStatus.Cancled)
+                                        {
+                                            synced = new ApiService().SyncUnStoreContainer(ts.trayId, GetWhouse());
+                                        }
+                                        else
+                                        {
+                                            List<SinglePackage> singlePackages = tir.GetSPByTrayId(ts.trayId);
+                                            synced = new ApiService().SyncStoreContainer(GenContainers(ts, singlePackages, GetWhouse()));
+                                        }
+                                    }
+                                    catch (ApiException ae)
+                                    {
+                                        sw.WriteLine(ae.Message);
+                                        synced = false;
+                                    }
+                                    catch
+                                    {
+                                        synced = false;
+                                    }
+                                    ts.sync = synced;
+                                    if (synced == false) { all_synced = false; }
                                 }
                             }
-                            catch
-                            {
-                                synced = false;
-                            }
-                            ts.sync = synced;
-                            if (synced == false) { all_synced = false; break; }
                         }
                         unit.Submit();
                         trans.Complete();
@@ -180,7 +198,7 @@ namespace Brilliantech.Packaging.Store.DLL
                         }
                         else
                         {
-                            msg.AddMessage(ReturnCode.Warning, "WMS同步失败，请稍候重新同步！\n或联系程序管理员！");
+                            msg.AddMessage(ReturnCode.Warning, "WMS同步失败，查看错误日志:"+error_log+"请稍候重新同步！\n或联系程序管理员！");
                         }
                     }
                     catch (Exception e)
@@ -192,7 +210,7 @@ namespace Brilliantech.Packaging.Store.DLL
                     {
                         trans.Dispose();
                     }
-                    return msg;
+                    return msg; 
                 }
             }
         }

@@ -32,8 +32,8 @@ Namespace Messages
             End Get
         End Property
 
-        Public Sub AddMessage(type As ReturnCode, msg As String)
-            Message.Item(type).add(msg)
+        Public Sub AddMessage(ByVal type As ReturnCode, ByVal msg As String)
+            Message.Item(type).Add(msg)
             SetResultCode(type)
         End Sub
 

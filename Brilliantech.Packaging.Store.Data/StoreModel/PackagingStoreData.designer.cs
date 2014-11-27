@@ -202,8 +202,6 @@ namespace Brilliantech.Packaging.Store.Data.StoreModel
 		
 		private int _status;
 		
-		private System.Guid _rowguid;
-		
 		private EntitySet<SinglePackage> _SinglePackage;
 		
     #region 可扩展性方法定义
@@ -228,8 +226,6 @@ namespace Brilliantech.Packaging.Store.Data.StoreModel
     partial void OnweightChanged();
     partial void OnstatusChanging(int value);
     partial void OnstatusChanged();
-    partial void OnrowguidChanging(System.Guid value);
-    partial void OnrowguidChanged();
     #endregion
 		
 		public ContainerType()
@@ -418,26 +414,6 @@ namespace Brilliantech.Packaging.Store.Data.StoreModel
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rowguid", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid rowguid
-		{
-			get
-			{
-				return this._rowguid;
-			}
-			set
-			{
-				if ((this._rowguid != value))
-				{
-					this.OnrowguidChanging(value);
-					this.SendPropertyChanging();
-					this._rowguid = value;
-					this.SendPropertyChanged("rowguid");
-					this.OnrowguidChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ContainerType_SinglePackage", Storage="_SinglePackage", ThisKey="containerID", OtherKey="containerID")]
 		public EntitySet<SinglePackage> SinglePackage
 		{
@@ -498,8 +474,6 @@ namespace Brilliantech.Packaging.Store.Data.StoreModel
 		
 		private string _prodLineID;
 		
-		private System.Guid _rowguid;
-		
 		private EntitySet<SinglePackage> _SinglePackage;
 		
 		private EntityRef<ProdLine> _ProdLine;
@@ -516,8 +490,6 @@ namespace Brilliantech.Packaging.Store.Data.StoreModel
     partial void OnstatusChanged();
     partial void OnprodLineIDChanging(string value);
     partial void OnprodLineIDChanged();
-    partial void OnrowguidChanging(System.Guid value);
-    partial void OnrowguidChanged();
     #endregion
 		
 		public WorkStation()
@@ -607,26 +579,6 @@ namespace Brilliantech.Packaging.Store.Data.StoreModel
 					this._prodLineID = value;
 					this.SendPropertyChanged("prodLineID");
 					this.OnprodLineIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rowguid", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid rowguid
-		{
-			get
-			{
-				return this._rowguid;
-			}
-			set
-			{
-				if ((this._rowguid != value))
-				{
-					this.OnrowguidChanging(value);
-					this.SendPropertyChanging();
-					this._rowguid = value;
-					this.SendPropertyChanged("rowguid");
-					this.OnrowguidChanged();
 				}
 			}
 		}
@@ -727,8 +679,6 @@ namespace Brilliantech.Packaging.Store.Data.StoreModel
 		
 		private string _packageID;
 		
-		private System.Guid _rowguid;
-		
 		private EntityRef<SinglePackage> _SinglePackage;
 		
     #region 可扩展性方法定义
@@ -745,8 +695,6 @@ namespace Brilliantech.Packaging.Store.Data.StoreModel
     partial void OnpackagingTimeChanged();
     partial void OnpackageIDChanging(string value);
     partial void OnpackageIDChanged();
-    partial void OnrowguidChanging(System.Guid value);
-    partial void OnrowguidChanged();
     #endregion
 		
 		public PackageItem()
@@ -859,26 +807,6 @@ namespace Brilliantech.Packaging.Store.Data.StoreModel
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rowguid", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid rowguid
-		{
-			get
-			{
-				return this._rowguid;
-			}
-			set
-			{
-				if ((this._rowguid != value))
-				{
-					this.OnrowguidChanging(value);
-					this.SendPropertyChanging();
-					this._rowguid = value;
-					this.SendPropertyChanged("rowguid");
-					this.OnrowguidChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SinglePackage_PackageItem", Storage="_SinglePackage", ThisKey="packageID", OtherKey="packageID", IsForeignKey=true)]
 		public SinglePackage SinglePackage
 		{
@@ -950,8 +878,6 @@ namespace Brilliantech.Packaging.Store.Data.StoreModel
 		
 		private string _customerPCR;
 		
-		private System.Guid _rowguid;
-		
 		private EntitySet<SinglePackage> _SinglePackage;
 		
 		private EntityRef<Project> _Project;
@@ -970,8 +896,6 @@ namespace Brilliantech.Packaging.Store.Data.StoreModel
     partial void OnprojectIDChanged();
     partial void OncustomerPCRChanging(string value);
     partial void OncustomerPCRChanged();
-    partial void OnrowguidChanging(System.Guid value);
-    partial void OnrowguidChanged();
     #endregion
 		
 		public Part()
@@ -1085,26 +1009,6 @@ namespace Brilliantech.Packaging.Store.Data.StoreModel
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rowguid", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid rowguid
-		{
-			get
-			{
-				return this._rowguid;
-			}
-			set
-			{
-				if ((this._rowguid != value))
-				{
-					this.OnrowguidChanging(value);
-					this.SendPropertyChanging();
-					this._rowguid = value;
-					this.SendPropertyChanged("rowguid");
-					this.OnrowguidChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Part_SinglePackage", Storage="_SinglePackage", ThisKey="partNr", OtherKey="partNr")]
 		public EntitySet<SinglePackage> SinglePackage
 		{
@@ -1195,8 +1099,6 @@ namespace Brilliantech.Packaging.Store.Data.StoreModel
 		
 		private string _projectName;
 		
-		private System.Guid _rowguid;
-		
 		private EntitySet<Part> _Part;
 		
 		private EntitySet<ProdLine> _ProdLine;
@@ -1209,8 +1111,6 @@ namespace Brilliantech.Packaging.Store.Data.StoreModel
     partial void OnprojectIDChanged();
     partial void OnprojectNameChanging(string value);
     partial void OnprojectNameChanged();
-    partial void OnrowguidChanging(System.Guid value);
-    partial void OnrowguidChanged();
     #endregion
 		
 		public Project()
@@ -1256,26 +1156,6 @@ namespace Brilliantech.Packaging.Store.Data.StoreModel
 					this._projectName = value;
 					this.SendPropertyChanged("projectName");
 					this.OnprojectNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rowguid", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid rowguid
-		{
-			get
-			{
-				return this._rowguid;
-			}
-			set
-			{
-				if ((this._rowguid != value))
-				{
-					this.OnrowguidChanging(value);
-					this.SendPropertyChanging();
-					this._rowguid = value;
-					this.SendPropertyChanged("rowguid");
-					this.OnrowguidChanged();
 				}
 			}
 		}
@@ -1371,8 +1251,6 @@ namespace Brilliantech.Packaging.Store.Data.StoreModel
 		
 		private string _wrkstnID;
 		
-		private System.Guid _rowguid;
-		
 		private EntitySet<PackageItem> _PackageItem;
 		
 		private EntitySet<TrayItem> _TrayItem;
@@ -1401,8 +1279,6 @@ namespace Brilliantech.Packaging.Store.Data.StoreModel
     partial void OnpartNrChanged();
     partial void OnwrkstnIDChanging(string value);
     partial void OnwrkstnIDChanged();
-    partial void OnrowguidChanging(System.Guid value);
-    partial void OnrowguidChanged();
     #endregion
 		
 		public SinglePackage()
@@ -1563,26 +1439,6 @@ namespace Brilliantech.Packaging.Store.Data.StoreModel
 					this._wrkstnID = value;
 					this.SendPropertyChanged("wrkstnID");
 					this.OnwrkstnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rowguid", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid rowguid
-		{
-			get
-			{
-				return this._rowguid;
-			}
-			set
-			{
-				if ((this._rowguid != value))
-				{
-					this.OnrowguidChanging(value);
-					this.SendPropertyChanging();
-					this._rowguid = value;
-					this.SendPropertyChanged("rowguid");
-					this.OnrowguidChanged();
 				}
 			}
 		}
@@ -2564,8 +2420,6 @@ namespace Brilliantech.Packaging.Store.Data.StoreModel
 		
 		private string _projectID;
 		
-		private System.Guid _rowguid;
-		
 		private EntitySet<WorkStation> _WorkStation;
 		
 		private EntityRef<Project> _Project;
@@ -2580,8 +2434,6 @@ namespace Brilliantech.Packaging.Store.Data.StoreModel
     partial void OnprodLineNameChanged();
     partial void OnprojectIDChanging(string value);
     partial void OnprojectIDChanged();
-    partial void OnrowguidChanging(System.Guid value);
-    partial void OnrowguidChanged();
     #endregion
 		
 		public ProdLine()
@@ -2651,26 +2503,6 @@ namespace Brilliantech.Packaging.Store.Data.StoreModel
 					this._projectID = value;
 					this.SendPropertyChanged("projectID");
 					this.OnprojectIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rowguid", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid rowguid
-		{
-			get
-			{
-				return this._rowguid;
-			}
-			set
-			{
-				if ((this._rowguid != value))
-				{
-					this.OnrowguidChanging(value);
-					this.SendPropertyChanging();
-					this._rowguid = value;
-					this.SendPropertyChanged("rowguid");
-					this.OnrowguidChanged();
 				}
 			}
 		}

@@ -11,7 +11,6 @@
       <Column Name="reusable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Association Name="ContainerType_SinglePackage" Member="SinglePackage" ThisKey="containerID" OtherKey="containerID" Type="SinglePackage" />
     </Type>
   </Table>
@@ -21,7 +20,6 @@
       <Column Name="wrkStnName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="status" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
       <Column Name="prodLineID" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
-      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Association Name="WorkStation_SinglePackage" Member="SinglePackage" ThisKey="wrkStnID" OtherKey="wrkstnID" Type="SinglePackage" />
       <Association Name="ProdLine_WorkStation" Member="ProdLine" ThisKey="prodLineID" OtherKey="prodLineID" Type="ProdLine" IsForeignKey="true" />
     </Type>
@@ -33,7 +31,6 @@
       <Column Name="TNr" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="packagingTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="packageID" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Association Name="SinglePackage_PackageItem" Member="SinglePackage" ThisKey="packageID" OtherKey="packageID" Type="SinglePackage" IsForeignKey="true" />
     </Type>
   </Table>
@@ -44,7 +41,6 @@
       <Column Name="customerPartNr" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="projectID" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="customerPCR" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Association Name="Part_SinglePackage" Member="SinglePackage" ThisKey="partNr" OtherKey="partNr" Type="SinglePackage" />
       <Association Name="Project_Part" Member="Project" ThisKey="projectID" OtherKey="projectID" Type="Project" IsForeignKey="true" />
     </Type>
@@ -53,7 +49,6 @@
     <Type Name="Project">
       <Column Name="projectID" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="projectName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Association Name="Project_Part" Member="Part" ThisKey="projectID" OtherKey="projectID" Type="Part" />
       <Association Name="Project_ProdLine" Member="ProdLine" ThisKey="projectID" OtherKey="projectID" Type="ProdLine" />
     </Type>
@@ -67,7 +62,6 @@
       <Column Name="planedDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="partNr" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="wrkstnID" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
-      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Association Name="SinglePackage_PackageItem" Member="PackageItem" ThisKey="packageID" OtherKey="packageID" Type="PackageItem" />
       <Association Name="SinglePackage_TrayItem" Member="TrayItem" ThisKey="packageID" OtherKey="packageId" Type="TrayItem" />
       <Association Name="ContainerType_SinglePackage" Member="ContainerType" ThisKey="containerID" OtherKey="containerID" Type="ContainerType" IsForeignKey="true" />
@@ -128,7 +122,6 @@
       <Column Name="prodLineID" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="prodLineName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="projectID" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Association Name="ProdLine_WorkStation" Member="WorkStation" ThisKey="prodLineID" OtherKey="prodLineID" Type="WorkStation" />
       <Association Name="Project_ProdLine" Member="Project" ThisKey="projectID" OtherKey="projectID" Type="Project" IsForeignKey="true" />
     </Type>
