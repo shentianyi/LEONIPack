@@ -123,7 +123,7 @@ namespace Brilliantech.Packaging.Store.DLL
                         else
                         {
                             msg.AddMessage(ReturnCode.OK, ts.trayId);
-                            msg.AddMessage(ReturnCode.Warning, "托盘生成成功，但WMS同步失败，请稍候重新同步！");
+                            msg.AddMessage(ReturnCode.Warning, "托盘生成成功，但WMS同步失败，请检查网络，稍候重新同步！");
                         }
                     }
                     catch (Exception e)
@@ -153,7 +153,8 @@ namespace Brilliantech.Packaging.Store.DLL
                         List<Trays> tis = tr.GetUnsync();
                         ITrayItemRep tir = new TrayItemRep(unit);
                         bool all_synced = true;
-
+                        bool error_log = false;
+                        
                         string error_log = DateTime.Now.ToString("yyyyMMddHHmmsss")+".txt";
                         string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"ErrorLog", error_log);
                         using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite))
@@ -178,6 +179,7 @@ namespace Brilliantech.Packaging.Store.DLL
                                     catch (ApiException ae)
                                     {
                                         sw.WriteLine(ae.Message);
+                                        error_log = true;
                                         synced = false;
                                     }
                                     catch
@@ -198,7 +200,12 @@ namespace Brilliantech.Packaging.Store.DLL
                         }
                         else
                         {
+                            if(error_log){
                             msg.AddMessage(ReturnCode.Warning, "WMS同步失败，查看错误日志:"+error_log+"请稍候重新同步！\n或联系程序管理员！");
+                            }else{
+                                msg.AddMessage(ReturnCode.Warning, "WMS同步失败，请检查网络，稍候重新同步！\n或联系程序管理员！");
+                            }
+                            }
                         }
                     }
                     catch (Exception e)
