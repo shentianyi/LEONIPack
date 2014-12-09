@@ -148,15 +148,15 @@ namespace Brilliantech.Packaging.Store.DLL
                 {
                     ProcessMsg msg = new ProcessMsg() { result = true };
                     try
-                    { 
+                    {
                         ITraysRep tr = new TraysRep(unit);
                         List<Trays> tis = tr.GetUnsync();
                         ITrayItemRep tir = new TrayItemRep(unit);
                         bool all_synced = true;
-                        bool error_log = false;
-                        
-                        string error_log = DateTime.Now.ToString("yyyyMMddHHmmsss")+".txt";
-                        string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"ErrorLog", error_log);
+                        bool error_loged = false;
+
+                        string error_log = DateTime.Now.ToString("yyyyMMddHHmmsss") + ".txt";
+                        string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ErrorLog", error_log);
                         using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite))
                         {
                             using (StreamWriter sw = new StreamWriter(fs))
@@ -179,7 +179,7 @@ namespace Brilliantech.Packaging.Store.DLL
                                     catch (ApiException ae)
                                     {
                                         sw.WriteLine(ae.Message);
-                                        error_log = true;
+                                        error_loged = true;
                                         synced = false;
                                     }
                                     catch
@@ -200,11 +200,13 @@ namespace Brilliantech.Packaging.Store.DLL
                         }
                         else
                         {
-                            if(error_log){
-                            msg.AddMessage(ReturnCode.Warning, "WMS同步失败，查看错误日志:"+error_log+"请稍候重新同步！\n或联系程序管理员！");
-                            }else{
-                                msg.AddMessage(ReturnCode.Warning, "WMS同步失败，请检查网络，稍候重新同步！\n或联系程序管理员！");
+                            if (error_loged)
+                            {
+                                msg.AddMessage(ReturnCode.Warning, "WMS同步失败，查看错误日志:" + error_log + "请稍候重新同步！\n或联系程序管理员！");
                             }
+                            else
+                            {
+                                msg.AddMessage(ReturnCode.Warning, "WMS同步失败，请检查网络，稍候重新同步！\n或联系程序管理员！");
                             }
                         }
                     }
@@ -217,7 +219,7 @@ namespace Brilliantech.Packaging.Store.DLL
                     {
                         trans.Dispose();
                     }
-                    return msg; 
+                    return msg;
                 }
             }
         }
